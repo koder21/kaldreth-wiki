@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e1116" />
+    <title>Kaldreth Compendium — Field Archive of Aetheria</title>
+    <meta
+      name="description"
+      content="A complete field archive for Kaldreth: every item, monster, skill, quest, faction, and Fracture-touched secret in Aetheria — with efficiency math and spoiler-aware lore, built straight from the game data."
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260528e" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">◈ Kaldreth Compendium · Field Archive of Aetheria</p>
+          <h1>Every shard of Aetheria, catalogued.</h1>
+          <p class="lede">
+            The Architects left no manual for the world they built — so this is
+            the next best thing. Search every item, monster, skill, quest, and
+            Fracture-touched secret, reveal spoilers on your terms, and compare
+            the most efficient XP, loot, and gold paths. Drawn straight from the
+            game's own data.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-metric">
+            <span id="count-total">0</span>
+            <label>records indexed</label>
+          </div>
+          <div class="hero-grid" id="summary-grid"></div>
+        </div>
+      </header>
+
+      <section class="controls">
+        <label class="search-wrap">
+          <span>Search</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="Items, monsters, quests, NPCs, and more"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Category</span>
+          <select id="category">
+            <option value="all">All</option>
+          </select>
+        </label>
+        <label class="toggle-wrap">
+          <input id="spoilers" type="checkbox" />
+          <span>Reveal spoilers</span>
+        </label>
+        <label class="toggle-wrap">
+          <input id="compact-cards" type="checkbox" checked />
+          <span>Compact cards</span>
+        </label>
+        <label class="select-wrap">
+          <span>Combat Style</span>
+          <select id="player-combat-style">
+            <option value="balanced">Balanced</option>
+            <option value="attack">Attack</option>
+            <option value="strength">Strength</option>
+            <option value="defence">Defence</option>
+            <option value="magic">Fracture Arts</option>
+          </select>
+        </label>
+        <label class="select-wrap">
+          <span>Player Atk</span>
+          <input
+            id="player-attack-level"
+            type="number"
+            min="1"
+            max="99"
+            step="1"
+            value="1"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Player Str</span>
+          <input
+            id="player-strength-level"
+            type="number"
+            min="1"
+            max="99"
+            step="1"
+            value="1"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Player Def</span>
+          <input
+            id="player-defence-level"
+            type="number"
+            min="1"
+            max="99"
+            step="1"
+            value="1"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Player Fracture Arts</span>
+          <input
+            id="player-magic-level"
+            type="number"
+            min="1"
+            max="99"
+            step="1"
+            value="1"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Player HP</span>
+          <input
+            id="player-hitpoints-level"
+            type="number"
+            min="1"
+            max="99"
+            step="1"
+            value="10"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>ATK Gear Bonus</span>
+          <input
+            id="player-atk-gear-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>STR Gear Bonus</span>
+          <input
+            id="player-str-gear-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>DEF Gear Bonus</span>
+          <input
+            id="player-def-gear-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>MAG Gear Bonus</span>
+          <input
+            id="player-mag-gear-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Combat Damage %</span>
+          <input
+            id="player-combat-damage-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Attack Hit Bonus %</span>
+          <input
+            id="player-attack-mastery-hit-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Strength Max Hit %</span>
+          <input
+            id="player-strength-mastery-max-hit-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Fracture Hit Bonus %</span>
+          <input
+            id="player-magic-mastery-hit-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Fracture Max Hit %</span>
+          <input
+            id="player-magic-mastery-max-hit-bonus"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+          />
+        </label>
+        <label class="select-wrap">
+          <span>Combat Tick Seconds</span>
+          <input
+            id="player-combat-tick-seconds"
+            type="number"
+            min="0.1"
+            step="0.1"
+            value="1.2"
+          />
+        </label>
+      </section>
+
+      <section class="preset-bar" aria-label="Planner presets">
+        <label class="select-wrap">
+          <span>Preset</span>
+          <select id="preset-select">
+            <option value="">Default</option>
+          </select>
+        </label>
+        <button id="preset-save" type="button">Save</button>
+        <button id="preset-load" type="button">Load</button>
+        <button id="preset-delete" type="button">Delete</button>
+      </section>
+
+      <nav class="planner-tabs" id="planner-tabs" aria-label="Planner tabs">
+        <button type="button" class="planner-tab active" data-tab="xp">
+          XP
+        </button>
+        <button type="button" class="planner-tab" data-tab="drop">Drops</button>
+        <button type="button" class="planner-tab" data-tab="afford">
+          Afford
+        </button>
+        <button type="button" class="planner-tab" data-tab="route">
+          Route
+        </button>
+        <button type="button" class="planner-tab" data-tab="compare">
+          Compare
+        </button>
+        <button type="button" class="planner-tab" data-tab="build">
+          Build
+        </button>
+        <button type="button" class="planner-tab" data-tab="sim">Sim</button>
+        <button type="button" class="planner-tab" data-tab="farm">Farm</button>
+        <button type="button" class="planner-tab" data-tab="diag">QA</button>
+      </nav>
+
+      <section class="leaderboards">
+        <article>
+          <h2>Best XP</h2>
+          <div id="best-xp"></div>
+        </article>
+        <article>
+          <h2>Best GP</h2>
+          <div id="best-gp"></div>
+        </article>
+        <article>
+          <h2>Best GP/XP</h2>
+          <div id="best-ratio"></div>
+        </article>
+      </section>
+
+      <section class="planner-grid" id="planners">
+        <article class="planner-card" data-tab="xp">
+          <h2>XP Planner</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Current level</span>
+              <input
+                id="xp-current-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="1"
+              />
+            </label>
+            <label>
+              <span>Target level</span>
+              <input
+                id="xp-target-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="50"
+              />
+            </label>
+            <label>
+              <span>XP per hour</span>
+              <input
+                id="xp-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="25000"
+              />
+            </label>
+          </div>
+          <div id="xp-planner-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="drop">
+          <h2>Drop Chance Calculator</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Monster</span>
+              <select id="drop-monster"></select>
+            </label>
+            <label>
+              <span>Drop</span>
+              <select id="drop-item"></select>
+            </label>
+            <label>
+              <span>Kills</span>
+              <input
+                id="drop-kills"
+                type="number"
+                min="1"
+                step="1"
+                value="100"
+              />
+            </label>
+            <label>
+              <span>Target quantity</span>
+              <input
+                id="drop-target-qty"
+                type="number"
+                min="1"
+                step="1"
+                value="10"
+              />
+            </label>
+            <label>
+              <span>Kills per hour</span>
+              <input
+                id="drop-kill-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="80"
+              />
+            </label>
+          </div>
+          <div id="drop-planner-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="afford">
+          <h2>Time to Afford</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Item</span>
+              <select id="afford-item"></select>
+            </label>
+            <label>
+              <span>GP per hour</span>
+              <input
+                id="afford-gp-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="100000"
+              />
+            </label>
+            <label>
+              <span>Quantity</span>
+              <input id="afford-qty" type="number" min="1" step="1" value="1" />
+            </label>
+          </div>
+          <div id="afford-planner-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="route">
+          <h2>Skill Route Optimizer</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Skill</span>
+              <select id="route-skill"></select>
+            </label>
+            <label>
+              <span>Current level</span>
+              <input
+                id="route-current-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="1"
+              />
+            </label>
+            <label>
+              <span>Target level</span>
+              <input
+                id="route-target-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="60"
+              />
+            </label>
+            <label>
+              <span>Priority</span>
+              <select id="route-priority">
+                <option value="xp">Fastest XP</option>
+                <option value="gp">Best GP</option>
+                <option value="balanced">Balanced</option>
+              </select>
+            </label>
+          </div>
+          <div id="route-planner-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="compare">
+          <h2>Activity Comparator</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Activity A</span>
+              <select id="compare-a"></select>
+            </label>
+            <label>
+              <span>Activity B</span>
+              <select id="compare-b"></select>
+            </label>
+            <label>
+              <span>XP goal</span>
+              <input
+                id="compare-xp-goal"
+                type="number"
+                min="1"
+                step="1"
+                value="100000"
+              />
+            </label>
+          </div>
+          <div id="compare-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="build">
+          <h2>Build Planner</h2>
+          <div class="planner-controls">
+            <label>
+              <span>Focus</span>
+              <select id="build-focus">
+                <option value="attack">Melee - Offence Optimized</option>
+                <option value="magic">Fracture Arts</option>
+                <option value="defence">Melee - Defence Optimized</option>
+              </select>
+            </label>
+            <label>
+              <span>Budget (gp)</span>
+              <input
+                id="build-budget"
+                type="number"
+                min="1"
+                step="1"
+                value="250000"
+              />
+            </label>
+            <label>
+              <span>GP per hour</span>
+              <input
+                id="build-gp-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="100000"
+              />
+            </label>
+            <label>
+              <span>Attack level</span>
+              <input
+                id="build-attack-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="1"
+              />
+            </label>
+            <label>
+              <span>Defence level</span>
+              <input
+                id="build-defence-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="1"
+              />
+            </label>
+            <label>
+              <span>Fracture Arts level</span>
+              <input
+                id="build-magic-level"
+                type="number"
+                min="1"
+                max="99"
+                step="1"
+                value="1"
+              />
+            </label>
+            <label>
+              <span>Boss dungeons completed</span>
+              <select id="build-dungeon-complete"></select>
+            </label>
+          </div>
+          <div id="build-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="sim">
+          <h2>Upgrade Simulator</h2>
+          <div class="planner-controls">
+            <label>
+              <span>XP per hour</span>
+              <input
+                id="sim-xp-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="25000"
+              />
+            </label>
+            <label>
+              <span>GP per hour</span>
+              <input
+                id="sim-gp-rate"
+                type="number"
+                min="1"
+                step="1"
+                value="100000"
+              />
+            </label>
+          </div>
+          <div id="sim-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="farm">
+          <h2>Farm Route Planner</h2>
+          <div class="planner-controls">
+            <label>
+              <span>XP target</span>
+              <input
+                id="route-xp-target"
+                type="number"
+                min="0"
+                step="1"
+                value="150000"
+              />
+            </label>
+            <label>
+              <span>GP target</span>
+              <input
+                id="route-gp-target"
+                type="number"
+                min="0"
+                step="1"
+                value="250000"
+              />
+            </label>
+            <label>
+              <span>Max steps</span>
+              <input
+                id="route-max-steps"
+                type="number"
+                min="1"
+                max="10"
+                step="1"
+                value="4"
+              />
+            </label>
+            <label>
+              <span>Skill filter</span>
+              <select id="route-skill-filter">
+                <option value="all">All skills</option>
+              </select>
+            </label>
+          </div>
+          <div id="farm-route-output" class="planner-output"></div>
+        </article>
+
+        <article class="planner-card" data-tab="diag">
+          <h2>Data Diagnostics</h2>
+          <div id="diagnostics-output" class="planner-output"></div>
+        </article>
+      </section>
+
+      <main id="content" class="content" aria-live="polite"></main>
+
+      <div id="tour-overlay" class="tour-overlay" hidden>
+        <div class="tour-card">
+          <p class="eyebrow" id="tour-step-label">Quick Tour</p>
+          <h3 id="tour-title">Mobile shortcuts</h3>
+          <p id="tour-body" class="muted"></p>
+          <div class="tour-actions">
+            <button id="tour-prev" type="button">Back</button>
+            <button id="tour-next" type="button">Next</button>
+            <button id="tour-close" type="button">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile quick navigation">
+        <button
+          type="button"
+          data-nav="planners"
+          aria-label="Jump to planner tools"
+        >
+          Planners
+        </button>
+        <button
+          type="button"
+          data-nav="filters"
+          aria-label="Focus filter controls"
+        >
+          Filters
+        </button>
+        <button
+          type="button"
+          data-nav="share"
+          aria-label="Share current planner link"
+        >
+          Share
+        </button>
+        <button
+          type="button"
+          data-nav="reset"
+          aria-label="Reset planner values to defaults"
+        >
+          Reset
+        </button>
+        <select id="mobile-section-jump" aria-label="Jump to section">
+          <option value="">Jump to...</option>
+        </select>
+      </nav>
+    </div>
+
+    <template id="card-template">
+      <article class="card">
+        <header class="card-head">
+          <div>
+            <p class="card-kind"></p>
+            <h3 class="card-title"></h3>
+          </div>
+          <div class="card-badges"></div>
+        </header>
+        <div class="card-body"></div>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js?v=20260524"></script>
+  </body>
+</html>
