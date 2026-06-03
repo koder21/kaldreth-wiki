@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T02:46:37.621789+00:00",
+  "generated_at": "2026-06-03T14:03:49.675228+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -309,7 +309,7 @@
             "item_id": "trailblazer_compass",
             "level_required": 99,
             "skill_id": "adventurer",
-            "summary": "Adventurer rewards +50%"
+            "summary": "+15% to all gold earned"
           }
         ],
         "MAX_CLOCK_FORWARD_GRACE_SECONDS": 300,
@@ -3250,13 +3250,13 @@
             "base_success": 0.5,
             "drops": [
               {
-                "chance": 0.08,
+                "chance": 0.005,
                 "item": "shade_cowl",
                 "qty_max": 1,
                 "qty_min": 1
               },
               {
-                "chance": 0.06,
+                "chance": 0.005,
                 "item": "void_amulet",
                 "qty_max": 1,
                 "qty_min": 1
@@ -3486,7 +3486,7 @@
                 "qty_min": 1
               },
               {
-                "chance": 0.09,
+                "chance": 0.005,
                 "item": "spirit_amulet",
                 "qty_max": 1,
                 "qty_min": 1
@@ -3505,13 +3505,13 @@
             "base_success": 0.42,
             "drops": [
               {
-                "chance": 0.08,
+                "chance": 0.005,
                 "item": "ethereal_crown",
                 "qty_max": 1,
                 "qty_min": 1
               },
               {
-                "chance": 0.06,
+                "chance": 0.005,
                 "item": "spirit_amulet",
                 "qty_max": 1,
                 "qty_min": 1
@@ -5162,7 +5162,137 @@
           "thornite_merchant": 60,
           "vale_noble": 1,
           "vale_steward": 6
-        }
+        },
+        "STREAK_THRESHOLDS": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "STREAK_TIERS": [
+          {
+            "min": 40,
+            "rank": "Pathfinder",
+            "seal_mult": 3.0,
+            "xp_bonus": 0.5
+          },
+          {
+            "min": 20,
+            "rank": "Gold Trail",
+            "seal_mult": 2.0,
+            "xp_bonus": 0.35
+          },
+          {
+            "min": 10,
+            "rank": "Silver Trail",
+            "seal_mult": 1.5,
+            "xp_bonus": 0.2
+          },
+          {
+            "min": 5,
+            "rank": "Bronze Trail",
+            "seal_mult": 1.25,
+            "xp_bonus": 0.1
+          },
+          {
+            "min": 0,
+            "rank": "",
+            "seal_mult": 1.0,
+            "xp_bonus": 0.0
+          }
+        ],
+        "VENDOR_CATALOG": [
+          {
+            "cost": 15,
+            "desc": "Instantly gain a pack of Adventurer XP.",
+            "id": "trail_rations",
+            "level_req": 1,
+            "name": "Trail Rations",
+            "payload": {
+              "xp": 500
+            },
+            "type": "xp"
+          },
+          {
+            "cost": 30,
+            "desc": "Shield one reroll from breaking a slot's streak. You still pay the gold reroll cost.",
+            "id": "streak_insurance",
+            "level_req": 10,
+            "name": "Streak Insurance",
+            "payload": {},
+            "type": "insurance"
+          },
+          {
+            "cost": 50,
+            "desc": "Double all contract progress for 30 minutes.",
+            "id": "cartographer_draught",
+            "level_req": 25,
+            "name": "Cartographer's Draught",
+            "payload": {
+              "secs": 1800
+            },
+            "type": "draught"
+          },
+          {
+            "cost": 300,
+            "desc": "Adventurer chest armour that boosts contract rewards.",
+            "id": "buy_explorer_coat",
+            "level_req": 25,
+            "name": "Explorer's Coat",
+            "payload": {
+              "item_id": "explorer_coat"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 1500,
+            "desc": "Permanently unlock one additional contract slot.",
+            "id": "veterans_charter",
+            "level_req": 35,
+            "name": "Veteran's Charter",
+            "one_time": true,
+            "payload": {
+              "flag": "extra_slot"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 2500,
+            "desc": "Permanently raise the streak XP cap by +5% (50% \u2192 55%).",
+            "id": "trailkeepers_knot",
+            "level_req": 50,
+            "name": "Trailkeeper's Knot",
+            "one_time": true,
+            "payload": {
+              "flag": "streak_cap5"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 2000,
+            "desc": "Permanently gain +20% more Pathfinder Seals.",
+            "id": "pathfinders_ledger",
+            "level_req": 60,
+            "name": "Pathfinder's Ledger",
+            "one_time": true,
+            "payload": {
+              "amount": 0.2,
+              "flag": "seal_gain"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 1200,
+            "desc": "Masterwork amulet prized by veteran pathfinders.",
+            "id": "buy_compass_amulet",
+            "level_req": 70,
+            "name": "Compass Amulet",
+            "payload": {
+              "item_id": "compass_amulet"
+            },
+            "type": "gear"
+          }
+        ]
       },
       "specials": {}
     },
@@ -6006,9 +6136,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "0.2.14",
-        "BUILD_FINGERPRINT": "0.2.14 (1779564025)",
-        "VERSION_CODE": 1779564025
+        "APP_VERSION": "0.2.23",
+        "BUILD_FINGERPRINT": "0.2.23 (1780431312)",
+        "VERSION_CODE": 1780431312
       },
       "specials": {}
     },
@@ -6218,6 +6348,54 @@
             "lore": "The members of the Ashen Accord who chose amnesty after the Shattering. Not all of them were True believers \u2014 many were coerced, desperate, or simply afraid. Merchant Harla now coordinates their rehabilitation. They remember how the Accord operated, which makes them uniquely useful.",
             "name": "Accord Remnants",
             "tagline": "We were afraid. We're still here."
+          },
+          {
+            "bonuses": {
+              "25": {
+                "desc": "Item sell price +4%  \u2022  Artisan material drop chance +8%",
+                "effect": "sell_price_pct",
+                "secondary_effect": "artisan_material_drop_pct",
+                "secondary_value": 0.08,
+                "value": 0.04
+              },
+              "50": {
+                "desc": "Item sell price +8%  \u2022  Artisan material drop +14%  \u2022  Gold cap +5%",
+                "effect": "sell_price_pct",
+                "secondary_effect": "artisan_material_drop_pct",
+                "secondary_value": 0.14,
+                "tertiary_effect": "gold_cap_pct",
+                "tertiary_value": 0.05,
+                "value": 0.08
+              },
+              "75": {
+                "desc": "Item sell price +12%  \u2022  Artisan material drop +20%  \u2022  Gold cap +8%  \u2022  Inventory +10 slots",
+                "effect": "sell_price_pct",
+                "quaternary_effect": "inventory_slots_bonus",
+                "quaternary_value": 10.0,
+                "secondary_effect": "artisan_material_drop_pct",
+                "secondary_value": 0.2,
+                "tertiary_effect": "gold_cap_pct",
+                "tertiary_value": 0.08,
+                "value": 0.12
+              },
+              "100": {
+                "desc": "Item sell price +16%  \u2022  Artisan material drop +28%  \u2022  Gold cap +12%  \u2022  Inventory +20 slots",
+                "effect": "sell_price_pct",
+                "quaternary_effect": "inventory_slots_bonus",
+                "quaternary_value": 20.0,
+                "secondary_effect": "artisan_material_drop_pct",
+                "secondary_value": 0.28,
+                "tertiary_effect": "gold_cap_pct",
+                "tertiary_value": 0.12,
+                "value": 0.16
+              }
+            },
+            "color": "#d9b840",
+            "id": "ashford_commons_council",
+            "leader": "Guildmaster Fenn",
+            "lore": "The elected trade council that governs commerce across Ashford's market wards. Guildmaster Fenn has kept the markets running through two Fracture surges and a siege. They are neither heroic nor ideological \u2014 they are reliable, which in Aetheria passes for remarkable.",
+            "name": "Ashford Commons Council",
+            "tagline": "Fair prices. Steady hands. Lasting trade."
           }
         ]
       },
@@ -6282,6 +6460,7 @@
           "kitchen_clogs": 1,
           "knights_corrupted_mantle": 40,
           "knights_purified_mantle": 45,
+          "lantern_initiate_cape": 1,
           "loom_belt": 1,
           "maker_boots": 5,
           "meditation_cowl": 5,
@@ -6494,7 +6673,8 @@
           },
           "ash_rune": {
             "category": "sigil",
-            "name": "Ash Sigil"
+            "name": "Ash Sigil",
+            "source_hint": "Spiritweaving"
           },
           "ashfen_carp": {
             "category": "fish",
@@ -6589,7 +6769,8 @@
           },
           "bloom_rune": {
             "category": "sigil",
-            "name": "Bloom Sigil"
+            "name": "Bloom Sigil",
+            "source_hint": "Spiritweaving"
           },
           "braised_deepvein_bass": {
             "category": "food",
@@ -6654,6 +6835,10 @@
           "burned_resonance_eel": {
             "category": "food",
             "name": "Burned Resonance Eel"
+          },
+          "burned_spirit_carp_medley": {
+            "category": "food",
+            "name": "Burned Spirit Carp Medley"
           },
           "burned_vantstream_trout": {
             "category": "food",
@@ -6980,7 +7165,8 @@
           },
           "fracture_rune": {
             "category": "sigil",
-            "name": "Fracture Sigil"
+            "name": "Fracture Sigil",
+            "source_hint": "Spiritweaving"
           },
           "fracture_tonic": {
             "category": "consumable",
@@ -7006,7 +7192,8 @@
           },
           "gleam_rune": {
             "category": "sigil",
-            "name": "Gleam Sigil"
+            "name": "Gleam Sigil",
+            "source_hint": "Spiritweaving"
           },
           "greyspine_buckler": {
             "category": "armour",
@@ -7039,7 +7226,8 @@
           },
           "hollow_rune": {
             "category": "sigil",
-            "name": "Hollow Sigil"
+            "name": "Hollow Sigil",
+            "source_hint": "Spiritweaving"
           },
           "hollow_wisp": {
             "category": "spirit",
@@ -7048,6 +7236,12 @@
           "hollowvein_ore": {
             "category": "ore",
             "name": "Hollowvein Ore"
+          },
+          "ironblood_torc": {
+            "category": "jewel",
+            "name": "Ironblood Torc",
+            "slot": "necklace",
+            "source_hint": "Upgrade \u2014 Life Amulet + Strength Amulet"
           },
           "ironbound_greaves": {
             "category": "armour",
@@ -7079,6 +7273,12 @@
             "name": "Knight's Purified Mantle",
             "slot": "chest",
             "source_hint": "Chronicler Vendor (exchange Corrupted Lantern Shard)"
+          },
+          "lantern_initiate_cape": {
+            "category": "armour",
+            "name": "Lantern Initiate Cape",
+            "slot": "cape",
+            "source_hint": "Tutorial completion reward"
           },
           "lantern_reaper_torc": {
             "category": "jewel",
@@ -7120,6 +7320,12 @@
             "category": "armour",
             "name": "Maker's Boots",
             "slot": "feet"
+          },
+          "mastercraft_signet": {
+            "category": "jewel",
+            "name": "Mastercraft Signet",
+            "slot": "ring",
+            "source_hint": "Upgrade \u2014 Forge Ring + Artisan's Ring + Taste Ring"
           },
           "meditation_cowl": {
             "category": "armour",
@@ -7380,7 +7586,8 @@
           },
           "resonance_rune": {
             "category": "sigil",
-            "name": "Resonance Sigil"
+            "name": "Resonance Sigil",
+            "source_hint": "Spiritweaving"
           },
           "resonance_ward": {
             "category": "spirit_craft",
@@ -7484,6 +7691,12 @@
             "name": "Shadow Wraps",
             "slot": "belt"
           },
+          "shadowveil_crown": {
+            "category": "armour",
+            "name": "Shadowveil Crown",
+            "slot": "head",
+            "source_hint": "Upgrade \u2014 Shade Cowl + Ethereal Crown"
+          },
           "shard_dust": {
             "category": "spirit",
             "name": "Shard Dust"
@@ -7556,7 +7769,8 @@
           },
           "spire_rune": {
             "category": "sigil",
-            "name": "Spire Sigil"
+            "name": "Spire Sigil",
+            "source_hint": "Spiritweaving"
           },
           "spirit_amulet": {
             "category": "jewel",
@@ -7594,7 +7808,8 @@
           },
           "stone_rune": {
             "category": "sigil",
-            "name": "Stone Sigil"
+            "name": "Stone Sigil",
+            "source_hint": "Spiritweaving"
           },
           "strength_amulet": {
             "category": "jewel",
@@ -7691,7 +7906,8 @@
           },
           "veil_rune": {
             "category": "sigil",
-            "name": "Pale Sigil"
+            "name": "Pale Sigil",
+            "source_hint": "Spiritweaving"
           },
           "vitality_crown": {
             "category": "armour",
@@ -7722,6 +7938,12 @@
             "category": "armour",
             "name": "Void Sash",
             "slot": "belt"
+          },
+          "voidweave_pendant": {
+            "category": "jewel",
+            "name": "Voidweave Pendant",
+            "slot": "necklace",
+            "source_hint": "Upgrade \u2014 Void Amulet + Spirit Amulet + Contemplation Amulet"
           },
           "wader_leggings": {
             "category": "armour",
@@ -7757,12 +7979,19 @@
           },
           "warden_rune": {
             "category": "sigil",
-            "name": "Warden Sigil"
+            "name": "Warden Sigil",
+            "source_hint": "Spiritweaving"
           },
           "warden_shadow_mantle": {
             "category": "armour",
             "name": "Warden's Shadow Mantle",
             "slot": "cape"
+          },
+          "wardens_ascendant_band": {
+            "category": "jewel",
+            "name": "Warden's Ascendant Band",
+            "slot": "ring",
+            "source_hint": "Upgrade \u2014 Brute's Ring + Sentinel's Ring + Warrior's Ring"
           },
           "warrior_greaves": {
             "category": "armour",
@@ -7850,7 +8079,12 @@
           "accord_null_blade",
           "knights_purified_mantle",
           "architects_resonance_sigil",
-          "accord_null_blade_unbound"
+          "accord_null_blade_unbound",
+          "ironblood_torc",
+          "voidweave_pendant",
+          "wardens_ascendant_band",
+          "shadowveil_crown",
+          "mastercraft_signet"
         ],
         "MAGIC_REQ_BY_ID": {
           "aethercoil_focus": 50,
@@ -7864,6 +8098,25 @@
           "tidebind_rod": 50,
           "vantwood_stave": 60,
           "wizard_slippers": 20
+        },
+        "MASTERY_99_RELIC_IDS": {
+          "aethercoil_focus": true,
+          "anvilheart_hammer": true,
+          "architects_workgirdle": true,
+          "bulwark_null_seal": true,
+          "colossus_war_chain": true,
+          "emberline_chef_knife": true,
+          "faultbreaker_pickaxe": true,
+          "keystone_architects_seal": true,
+          "lantern_reaper_torc": true,
+          "nightglass_mantle": true,
+          "oathpoint_signet": true,
+          "paleweave_spindle": true,
+          "pilgrim_heart": true,
+          "stillwater_beads": true,
+          "tidebind_rod": true,
+          "trailblazer_compass": true,
+          "whisperrend_axe": true
         },
         "PRICE_BY_ID": {
           "accord_cipher_key": 0,
@@ -7925,6 +8178,7 @@
           "burned_mirefish_stew": 0,
           "burned_pale_drifter": 0,
           "burned_resonance_eel": 0,
+          "burned_spirit_carp_medley": 0,
           "burned_vantstream_trout": 0,
           "burned_warden_bass": 0,
           "burned_wisp_carp": 0,
@@ -8009,6 +8263,7 @@
           "hollow_rune": 6,
           "hollow_wisp": 5,
           "hollowvein_ore": 2,
+          "ironblood_torc": 2500000,
           "ironbound_greaves": 17000,
           "ironbound_helm": 1250,
           "keystone_architects_seal": 5000000,
@@ -8023,6 +8278,7 @@
           "mage_amulet": 78500,
           "mage_circlet": 1500,
           "maker_boots": 15000,
+          "mastercraft_signet": 2000000,
           "meditation_cowl": 31000,
           "meditation_leggings": 31000,
           "meditation_robes": 31000,
@@ -8100,6 +8356,7 @@
           "shadow_slippers": 23500,
           "shadow_vest": 2350,
           "shadow_wraps": 4800,
+          "shadowveil_crown": 1500000,
           "shard_dust": 12,
           "shield_amulet": 70500,
           "shield_plate": 6300,
@@ -8150,6 +8407,7 @@
           "void_cartographer_eye": 98000,
           "void_ring": 36500,
           "void_sash": 2900,
+          "voidweave_pendant": 2000000,
           "wader_leggings": 4500,
           "wader_vest": 1700,
           "wanderer_boots": 9750,
@@ -8159,6 +8417,7 @@
           "warden_focus": 105,
           "warden_rune": 25,
           "warden_shadow_mantle": 28000,
+          "wardens_ascendant_band": 3000000,
           "warrior_greaves": 19000,
           "warrior_helm": 1000,
           "warrior_plate": 5000,
@@ -8231,6 +8490,51 @@
           "gleam_binding",
           "fracture_tonic"
         ],
+        "UPGRADE_RECIPES": {
+          "ironblood_torc": {
+            "description": "Life + Strength fusion \u2014 combines HP and combat power",
+            "ingredients": {
+              "life_amulet": 10,
+              "resonite_bar": 100,
+              "strength_amulet": 10
+            }
+          },
+          "mastercraft_signet": {
+            "description": "Smithing + Crafting + Cooking fusion \u2014 master artisan ring",
+            "ingredients": {
+              "artisan_ring": 10,
+              "forge_ring": 10,
+              "resonite_bar": 100,
+              "taste_ring": 10
+            }
+          },
+          "shadowveil_crown": {
+            "description": "Shadow + Spirit fusion \u2014 woven shadow and spirit crown",
+            "ingredients": {
+              "ethereal_crown": 10,
+              "resonance_crystal": 50,
+              "shade_cowl": 10
+            }
+          },
+          "voidweave_pendant": {
+            "description": "Void + Spirit + Meditation fusion \u2014 shadow, spirit, and focus power",
+            "ingredients": {
+              "architect_shard": 50,
+              "contemplation_amulet": 10,
+              "spirit_amulet": 10,
+              "void_amulet": 10
+            }
+          },
+          "wardens_ascendant_band": {
+            "description": "Strength + Defence + Attack fusion \u2014 triple combat discipline ring",
+            "ingredients": {
+              "brute_ring": 10,
+              "fracture_cast_bar": 100,
+              "sentinel_ring": 10,
+              "warrior_ring": 10
+            }
+          }
+        },
         "_CLOTHWORK_TIER_PIECE_STATS": {
           "architect": {
             "focus": {
@@ -9412,6 +9716,92 @@
         "RELEASES": [
           {
             "changes": [
+              "New: The UI now fills the whole screen on any device \u2014 Galaxy Z Fold (folded and unfolded), Z Flip cover and inner screens, tablets, and small phones. No more black bars or letterboxing.",
+              "New: Layout reflows live when you fold/unfold or rotate, switching between compact and wide arrangements automatically.",
+              "Improved: On-screen content now respects device safe areas \u2014 the tab bar clears the gesture-navigation bar and top content clears camera cutouts and status bars.",
+              "Improved: Existing phones are unaffected \u2014 standard tall screens render exactly as before."
+            ],
+            "title": "Foldables, Flip Phones, and Every Screen Size",
+            "version": "0.2.23",
+            "version_code": 1780431312
+          },
+          {
+            "changes": [
+              "New: Warden's Mark \u2014 purchase a permanent item in the Store to unlock all premium ad-gated benefits (Fracture Surge, Auto-Meditate, Extended Cap) without watching ads. Automatically restored across devices.",
+              "New: AdMob ads are now live \u2014 GDPR/UMP consent is collected on first launch before any ad initialises.",
+              "New: Ad-gated boosts (Fracture Surge, Auto-Meditate, Extended Cap) fall back to Warden's Mark activation when ads are unavailable.",
+              "Improved: Boot splash now paints immediately with an animated loading indicator before the synchronous scene load.",
+              "Improved: HUD status chips use font-safe glyphs instead of emoji \u2014 timer (\u23f1), combat (\u2694), and food warning (\u26a0) now render correctly on all Android devices.",
+              "Improved: Status chips wrap to a second row when they overflow the HUD footer.",
+              "Improved: Auto-Meditate now locks the manual Begin button while active to prevent double-session.",
+              "Fixed: Save encryption hardened against device-ID changes \u2014 saves no longer become unreadable after a device reset or OS upgrade.",
+              "Fixed: Removed unused Android permissions (USE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED).",
+              "Fixed: In-app Privacy Policy link now points to the canonical https://kaldreth.com/privacy."
+            ],
+            "title": "Warden's Mark, Ads Polish, and Stability Fixes",
+            "version": "0.2.22",
+            "version_code": 1780420139
+          },
+          {
+            "changes": [
+              "New: Fracture Surge \u2014 watch an ad on the Skills screen to double the speed of all timed activities (gathering, crafting, shadow arts) for 1 hour. Stack up to 4 ads for 4 hours of 2\u00d7 speed. XP and affinity XP double as a natural result.",
+              "New: Auto-Meditate \u2014 watch an ad on the Meditation screen to meditate automatically every cooldown for 4 hours, even while doing other activities.",
+              "New: Extended Offline Cap \u2014 watch an ad in the Store to add 4 hours to your offline cap for 12 hours. Sleeping players get up to 8 hours of offline progress.",
+              "New: Kaldreth Premium \u2014 one-time purchase in the Store to permanently skip all ads. Auto-Meditate, Fracture Surge, and Extended Cap all activate with a single tap, forever.",
+              "New: Active boosts (Fracture Surge, Extended Cap) show as live countdown chips in the HUD footer.",
+              "New: Auto-Meditate offline \u2014 sessions that would have fired while you were away are now simulated and shown in the offline report.",
+              "New: Keystone Chamber boss dungeon now has its own ambient music track.",
+              "Fixed: Cinematic caption overflow \u2014 long panels (especially the finale of 'Before') no longer cut off or show two text boxes.",
+              "Fixed: Equip comparison dialog now correctly returns the player's choice \u2014 a GDScript lambda capture bug meant it always returned 'cancel'."
+            ],
+            "title": "Ads, Fracture Surge, and Premium Upgrade",
+            "version": "0.2.19",
+            "version_code": 1780336748
+          },
+          {
+            "changes": [
+              "New: Main background music replaced with a new dark suspense thriller track.",
+              "New: The Keystone Chamber boss dungeon now has its own ambient music track.",
+              "New: Upgrade system \u2014 craft higher-tier items by consuming ingredients from your inventory.",
+              "New: Equipment comparison overlay \u2014 see stat differences before equipping an item.",
+              "New: Ashford Commons Council faction added with new rewards.",
+              "New: Lantern Initiate Cape item added.",
+              "New: Sigil items now show their source hints in item descriptions.",
+              "New: Cinematic panels now play correctly \u2014 each tap advances one panel (fixed double-advance on Android touch emulation).",
+              "New: Story Memories and Memory Archive now scroll independently on the Meditation panel.",
+              "Fixed: Several parse errors that broke the project from compiling (sell_item body duplication, _item_stat_lines missing header, MusicManager const assignment).",
+              "Fixed: Burned food items now have a valid item ID and can be discarded.",
+              "Fixed: Discard button now appears for zero-value items such as burned food.",
+              "Fixed: Skill XP bonus lines now appear correctly on consumable items.",
+              "Fixed: Shadow Arts panel header stays pinned while scrolling.",
+              "Fixed: Rare equippable shadow arts items no longer trigger a second drop roll.",
+              "Fixed: Menu 2-column layout, wiki button, and pickpocket calculation.",
+              "Fixed: HP bar colours now reflect health percentage.",
+              "Fixed: Notification UX improvements.",
+              "Fixed: Boss dungeon header subtitle no longer overlaps the wave label during runs.",
+              "Fixed: Continue button shows 'Loading\u2026' while scene transitions.",
+              "Fixed: Mastery relic sell prices capped correctly."
+            ],
+            "title": "New BGM, Keystone Music, Upgrade System, and Bug Fixes",
+            "version": "0.2.16",
+            "version_code": 1780316078
+          },
+          {
+            "changes": [
+              "New: Meditation now unlocks story cinematics \u2014 7 sequences (34 illustrated frames) that play automatically as you reach meditation milestones, telling Rynen's story before and during the Fracture. Tap to advance each panel.",
+              "New: Story Memories gallery on the Meditation panel \u2014 every unlocked cinematic can be rewatched at any time.",
+              "New: Meditation milestones reached through quest XP also unlock their cinematic at the next meditation session.",
+              "New: Skill Tree, Factions, Memory Fragments, and Boss Dungeons panels now show a lore subtitle in their header.",
+              "Optimisation: Offline simulation processes significantly faster \u2014 XP level calculations are now 'O(1)' instead of recomputing the full curve each tick. Artisan offline simulation no longer blocks a single frame.",
+              "Fixed: Game crashed on launch with 'Invalid access to property clear on Dictionary' \u2014 two overlay autoloads were passing built-in container methods as Callables, which GDScript does not support.",
+              "Fixed: INTEGER_DIVISION warning in offline report duration formatting."
+            ],
+            "title": "Meditation Cinematics and Offline Improvements",
+            "version": "0.2.15",
+            "version_code": 1780101008
+          },
+          {
+            "changes": [
               "Fixed: Monster HP bar now correctly updates each tick \u2014 it was frozen at full, making it look like no damage was being dealt.",
               "Fixed: New characters can now see damage land and XP tick up immediately.",
               "New: Combat XP now awards per hit, scaled by damage dealt \u2014 no more waiting for a kill to see progress.",
@@ -9467,86 +9857,6 @@
             "title": "Art Pass, Offline Fixes, and Felling Trees",
             "version": "0.2.11",
             "version_code": 1779475028
-          },
-          {
-            "changes": [
-              "New: Fourth boss dungeon \u2014 The Keystone Chamber. Five brutal phases ending in a story epilogue.",
-              "New: Staves and clothwork gear now require Magic level instead of Attack/Defence.",
-              "New: Keystone Architect's Seal \u2014 a new jewel reward from the Keystone Chamber.",
-              "New: Animated character select screen with a panning, breathing background and floating lantern effects.",
-              "New: Panel headers now tint to each skill's colour with a subtle grain overlay.",
-              "Fixed: Dungeon clear requirements are now properly enforced on boss unlock gates."
-            ],
-            "title": "The Keystone Chamber",
-            "version": "0.2.10",
-            "version_code": 1779238983
-          },
-          {
-            "changes": [
-              "New: Item icons now appear in gathering node boxes and artisan recipe rows.",
-              "New: Each boss dungeon has a unique phase shift sound \u2014 original, reversed, and a glitchy remix.",
-              "New: Boss dungeon BGM ducks during phase shift stings.",
-              "New: Contract rerolls are now unlimited \u2014 first reroll is free, then 1k / 10k / 100k gp depending on adventurer tier. A dismissible warning shows the cost before confirming.",
-              "Fixed: Contract clipboard icon now appears in gathering skill panels (was broken for all gathering skills).",
-              "Fixed: Contract clipboard icon now appears in the shadow arts area dropdown.",
-              "Fixed: Combat enemy info now refreshes when switching area.",
-              "Fixed: Tapping attack, strength, defence, or HP on the skills screen now shows a 'combat only' message.",
-              "Fixed: Item collection panel no longer overflows off the right side of the screen.",
-              "Fixed: Scrollbars hidden across all panels \u2014 finger drag is the intended scroll method.",
-              "Balance: Boss dungeon contracts now appear much less frequently and require at most 2 clears."
-            ],
-            "title": "Icons, Phase Audio, and Contract Polish",
-            "version": "0.2.9",
-            "version_code": 1779150978
-          },
-          {
-            "changes": [
-              "New: Tapping the version number on character select now opens patch notes \u2014 the separate Patch Notes button is gone.",
-              "Fixed: Version label now has the same glowing orange border style as the old patch notes button."
-            ],
-            "title": "Version Label and Build Polish",
-            "version": "0.2.7",
-            "version_code": 1779127075
-          },
-          {
-            "changes": [
-              "Fixed: Background music now plays on startup \u2014 stream is preloaded at compile time, eliminating a silent cast failure on Android.",
-              "Fixed: Audio settings no longer silence BGM at startup \u2014 volume levels are applied after the stream starts, not before.",
-              "Fixed: Spiritweaving no longer shows 'inventory full' when crafting deep focus crystals; item stack cap raised 100x and hitting it now shows 'item limit' instead.",
-              "Fixed: Artisan progress bars now always appear on the active recipe, update when switching recipes, and disappear when stopped.",
-              "Fixed: Shadow arts area and NPC dropdowns now show the contract clipboard icon, matching combat."
-            ],
-            "title": "BGM Fix, Item Limits, and Contract Icons",
-            "version": "0.2.6",
-            "version_code": 1779126793
-          },
-          {
-            "changes": [
-              "New: Skill sound effects \u2014 axe chops on woodcutting, pickaxe on mining, fishing reel on catches, and more for spirit harvesting, spirit weaving, and shadow arts.",
-              "New: Artisan completion sounds for cooking, smithing, and crafting.",
-              "New: Coin sound when claiming adventurer contracts.",
-              "New: Accord's Vault boss phase shifts now trigger a dramatic sting.",
-              "New: Per-character audio settings \u2014 each character saves their own volume preferences separately from the main menu.",
-              "New: Mute button on the character select screen.",
-              "Fixed: Background music now loops reliably instead of stopping after one playthrough."
-            ],
-            "title": "Sound Effects and Per-Character Audio",
-            "version": "0.2.3",
-            "version_code": 1779120024
-          },
-          {
-            "changes": [
-              "New: Background music now plays across all screens seamlessly \u2014 no cuts when switching panels.",
-              "New: Each boss dungeon now has its own looping combat track.",
-              "Fixed: Music and audio sliders in Settings now actually work.",
-              "Fixed: Audio bus levels are now applied at startup, not just when Settings is opened.",
-              "Fixed: Memory fragment labels no longer overlap \u2014 each node now positions its label above, below, left, or right based on screen position.",
-              "Fixed: Item collection page no longer overflows off the right side of the screen.",
-              "Fixed: Item collection list now loads in chunks \u2014 no more freeze when opening the panel."
-            ],
-            "title": "Music, Audio Sliders, and UI Polish",
-            "version": "0.2.2",
-            "version_code": 1779114418
           }
         ]
       },
@@ -11403,6 +11713,7 @@
               "xp_per_action": 55
             },
             {
+              "burn_produces": "burned_spirit_carp_medley",
               "id": "spirit_carp_medley",
               "level": 65,
               "produces": "spirit_carp_medley",
@@ -12481,7 +12792,8 @@
           "resonite": 10,
           "spelcast": 4,
           "thornite": 5
-        }
+        },
+        "_XP_TABLE_MAX": 200
       },
       "specials": {}
     },

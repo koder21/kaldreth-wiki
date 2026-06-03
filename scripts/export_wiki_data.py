@@ -253,6 +253,31 @@ def file_payload(relative_path: str) -> Dict[str, Any]:
     }
 
 
+def _is_unbuilt_release(entry: Any) -> bool:
+    """A patch-notes entry no build has stamped yet (placeholder version
+    'x.x.x' or version_code 0). These must not surface on the public wiki."""
+    if not isinstance(entry, dict):
+        return False
+    if str(entry.get("version", "")).strip().lower() in ("x.x.x", ""):
+        return True
+    try:
+        return int(entry.get("version_code", 0)) == 0
+    except (TypeError, ValueError):
+        return False
+
+
+def _drop_unbuilt_patch_notes(data: Dict[str, Any]) -> None:
+    payload = data.get("sources", {}).get("client/data/PatchNotesData.gd")
+    if not isinstance(payload, dict):
+        return
+    consts = payload.get("consts")
+    if not isinstance(consts, dict):
+        return
+    releases = consts.get("RELEASES")
+    if isinstance(releases, list):
+        consts["RELEASES"] = [r for r in releases if not _is_unbuilt_release(r)]
+
+
 def main() -> None:
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -260,6 +285,7 @@ def main() -> None:
     }
     for relative_path in SOURCE_FILES:
         data["sources"][relative_path] = file_payload(relative_path)
+    _drop_unbuilt_patch_notes(data)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=True, sort_keys=True), encoding="utf-8")
     print(f"Wrote {OUTPUT_PATH.relative_to(ROOT)}")

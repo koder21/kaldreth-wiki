@@ -2937,6 +2937,73 @@ function buildMechanicEntries(
     `,
   });
 
+  const streakTiers = (adventurerFile.STREAK_TIERS || [])
+    .map((t) => ({
+      streak: Number(t.min || 0),
+      rank: t.rank ? String(t.rank) : "—",
+      "xp bonus": `+${Math.round(Number(t.xp_bonus || 0) * 100)}%`,
+      "seal mult": `×${Number(t.seal_mult || 1)}`,
+    }))
+    .sort((a, b) => a.streak - b.streak);
+
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "adventurer-streaks",
+    name: "Contract Streaks",
+    title: "Contract Streaks & Pathfinder Seals",
+    subtitle: "Per-slot reward scaling for never rerolling",
+    badges: ["adventurer", "streak", "seals"],
+    searchText:
+      "adventurer contract streak pathfinder seals bronze silver gold trail reroll insurance xp bonus seal multiplier",
+    sortKey: "mechanics adventurer streaks",
+    spoiler: false,
+    metrics: [
+      { label: "Max XP bonus", value: "+50% (Pathfinder)" },
+      { label: "Max seal mult", value: "×3" },
+    ],
+    body: `
+      ${renderEfficiencyTable("Streak tiers", streakTiers, ["Streak", "Rank", "XP bonus", "Seal mult"])}
+      ${renderDetailBlock("How streaks work", [
+        "Each contract slot tracks its own streak independently.",
+        "Claiming a contract advances that slot's streak by 1; rerolling that slot resets it to 0.",
+        "Streak grants bonus Adventurer XP (additive, capped at +50%) and multiplies Pathfinder Seal gain.",
+        "Streak Insurance (vendor) shields one reroll from resetting the streak — the gold reroll cost is still paid.",
+      ])}
+    `,
+  });
+
+  const vendorCatalog = (adventurerFile.VENDOR_CATALOG || []).map((e) => ({
+    item: String(e.name || e.id || "-"),
+    advReq: Number(e.level_req || 1),
+    cost: `${Number(e.cost || 0)} seals`,
+  }));
+  const vendorDetails = (adventurerFile.VENDOR_CATALOG || []).map(
+    (e) => `${String(e.name || e.id)} — ${String(e.desc || "")}`,
+  );
+
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "adventurer-vendor",
+    name: "Pathfinders' Quartermaster",
+    title: "Pathfinders' Quartermaster",
+    subtitle: "Spend Pathfinder Seals on gear, boosts, and upgrades",
+    badges: ["adventurer", "vendor", "seals"],
+    searchText:
+      "pathfinders quartermaster vendor pathfinder seals trail rations streak insurance cartographer draught veteran charter trailkeeper knot pathfinder ledger",
+    sortKey: "mechanics adventurer vendor",
+    spoiler: false,
+    metrics: [
+      { label: "Currency", value: "Pathfinder Seals" },
+      { label: "Items", value: `${vendorCatalog.length}` },
+    ],
+    body: `
+      ${renderEfficiencyTable("Stock (level-gated)", vendorCatalog, ["Item", "Adventurer", "Cost"])}
+      ${renderDetailBlock("Item effects", vendorDetails)}
+    `,
+  });
+
   const buildVersion = String(buildInfoFile.APP_VERSION || "unknown");
   const buildCode = Number(buildInfoFile.VERSION_CODE || 0);
   const fingerprint = String(buildInfoFile.BUILD_FINGERPRINT || "unknown");
