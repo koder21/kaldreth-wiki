@@ -26,6 +26,8 @@ SOURCE_FILES = [
     "client/data/MilestoneData.gd",
     "client/data/AutoPassiveData.gd",
     "client/data/SkillTreeData.gd",
+    "client/data/MonsterData.gd",
+    "client/data/ShadowTargetData.gd",
     "client/autoload/GameState.gd",
 ]
 
@@ -34,6 +36,16 @@ SPECIAL_BLOCKS = {
         "_monster_defs_data",
         "_shadow_target_defs_data",
     ],
+}
+
+# Combat monster and Shadow Arts target definitions were moved out of
+# GameState.gd into their own data files. The wiki front-end still reads them
+# from the GameState payload as ``_monster_defs_data`` / ``_shadow_target_defs_data``,
+# so after parsing we relocate the new consts back into that payload. Mapping is
+# ``source path -> (const name, GameState special key)``.
+RELOCATED_DEFS = {
+    "client/data/MonsterData.gd": ("ALL_MONSTERS", "_monster_defs_data"),
+    "client/data/ShadowTargetData.gd": ("ALL_TARGETS", "_shadow_target_defs_data"),
 }
 
 
@@ -278,6 +290,23 @@ def _drop_unbuilt_patch_notes(data: Dict[str, Any]) -> None:
         consts["RELEASES"] = [r for r in releases if not _is_unbuilt_release(r)]
 
 
+def _relocate_monster_defs(data: Dict[str, Any]) -> None:
+    """Move the combat-monster and shadow-target consts into the GameState
+    payload so the wiki front-end keeps finding them where it expects."""
+    sources = data.get("sources", {})
+    game_state = sources.get("client/autoload/GameState.gd")
+    if not isinstance(game_state, dict):
+        return
+    specials = game_state.setdefault("specials", {})
+    for source_path, (const_name, special_key) in RELOCATED_DEFS.items():
+        payload = sources.pop(source_path, None)
+        if not isinstance(payload, dict):
+            continue
+        defs = payload.get("consts", {}).get(const_name)
+        if isinstance(defs, dict):
+            specials[special_key] = defs
+
+
 def main() -> None:
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -285,6 +314,7 @@ def main() -> None:
     }
     for relative_path in SOURCE_FILES:
         data["sources"][relative_path] = file_payload(relative_path)
+    _relocate_monster_defs(data)
     _drop_unbuilt_patch_notes(data)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=True, sort_keys=True), encoding="utf-8")

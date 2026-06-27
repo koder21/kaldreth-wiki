@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T01:08:17.544483+00:00",
+  "generated_at": "2026-06-27T19:32:05.848463+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -400,7 +400,3616 @@
           "woodcutting": "rare_log_drop_pct"
         }
       },
-      "specials": {}
+      "specials": {
+        "_monster_defs_data": {
+          "alley_thug": {
+            "atk_lv": 17,
+            "attack": 10,
+            "def_lv": 14,
+            "defence": 8,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "ashwood_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.012,
+                "item": "ashvein_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 16,
+            "gold_min": 8,
+            "hp": 48,
+            "hp_lv": 17,
+            "magic_defence": 6,
+            "magic_lv": 12,
+            "melee_defence": 8,
+            "name": "Alley Thug",
+            "region": "Ashford"
+          },
+          "ashen_monk": {
+            "atk_lv": 40,
+            "attack": 26,
+            "def_lv": 25,
+            "defence": 17,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "minor_spirit_focus",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "pale_willow_ward",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 80,
+            "gold_min": 45,
+            "hp": 120,
+            "hp_lv": 38,
+            "magic_defence": 21,
+            "magic_lv": 36,
+            "melee_defence": 13,
+            "name": "Ashen Monk",
+            "region": "The Ashen Vault",
+            "style": "hybrid"
+          },
+          "briar_mystic": {
+            "atk_lv": 30,
+            "attack": 17,
+            "def_lv": 16,
+            "defence": 12,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "ash_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.007,
+                "item": "canal_astrolabe",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 30,
+            "gold_min": 16,
+            "hp": 78,
+            "hp_lv": 28,
+            "magic_defence": 16,
+            "magic_lv": 30,
+            "melee_defence": 8,
+            "name": "Briar Mystic",
+            "region": "Mire Road",
+            "style": "magic"
+          },
+          "cave_bat": {
+            "atk_lv": 5,
+            "attack": 4,
+            "def_lv": 2,
+            "defence": 2,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "pale_shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "hollowvein_ore",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.015,
+                "item": "mire_hood",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.015,
+                "item": "mire_treads",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 3,
+            "gold_min": 1,
+            "hp": 20,
+            "hp_lv": 5,
+            "magic_defence": 2,
+            "magic_lv": 3,
+            "melee_defence": 1,
+            "name": "Cave Bat",
+            "region": "Caelmora"
+          },
+          "cinder_smelter": {
+            "atk_lv": 45,
+            "attack": 27,
+            "def_lv": 30,
+            "defence": 20,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "thornite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "mirestone_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.006,
+                "item": "vault_smelter_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 88,
+            "gold_min": 48,
+            "hp": 156,
+            "hp_lv": 44,
+            "magic_defence": 22,
+            "magic_lv": 34,
+            "melee_defence": 18,
+            "name": "Cinder Smelter",
+            "region": "The Ashen Vault",
+            "style": "hybrid"
+          },
+          "corrupted_colossus": {
+            "atk_lv": 42,
+            "attack": 22,
+            "def_lv": 50,
+            "defence": 24,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "ashwood_bulwark",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 90,
+            "gold_min": 50,
+            "hp": 170,
+            "hp_lv": 46,
+            "magic_defence": 15,
+            "magic_lv": 30,
+            "melee_defence": 28,
+            "name": "Corrupted Colossus",
+            "region": "The Ashen Vault"
+          },
+          "crypt_skeleton": {
+            "atk_lv": 24,
+            "attack": 12,
+            "def_lv": 22,
+            "defence": 10,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.014,
+                "item": "mire_wrap",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 22,
+            "gold_min": 12,
+            "hp": 60,
+            "hp_lv": 24,
+            "magic_defence": 8,
+            "magic_lv": 16,
+            "melee_defence": 9,
+            "name": "Crypt Skeleton",
+            "region": "Ashford"
+          },
+          "dire_wolf": {
+            "atk_lv": 17,
+            "attack": 11,
+            "def_lv": 15,
+            "defence": 9,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "deepvein_bass",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "ashwood_bulwark",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 17,
+            "gold_min": 9,
+            "hp": 52,
+            "hp_lv": 18,
+            "magic_defence": 6,
+            "magic_lv": 10,
+            "melee_defence": 8,
+            "name": "Dire Wolf",
+            "region": "Mire Road"
+          },
+          "dockyard_enforcer": {
+            "atk_lv": 23,
+            "attack": 15,
+            "def_lv": 19,
+            "defence": 11,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "dock_scrip",
+                "qty_max": 4,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "ashvein_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009,
+                "item": "dockyard_enforcer_badge",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 28,
+            "gold_min": 14,
+            "hp": 66,
+            "hp_lv": 21,
+            "magic_defence": 7,
+            "magic_lv": 12,
+            "melee_defence": 12,
+            "name": "Dockyard Enforcer",
+            "region": "Ashford"
+          },
+          "eclipse_horror": {
+            "atk_lv": 57,
+            "attack": 34,
+            "def_lv": 30,
+            "defence": 24,
+            "drops": [
+              {
+                "chance": 0.3,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "pale_shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009,
+                "item": "pale_willow_ward",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 140,
+            "gold_min": 80,
+            "hp": 190,
+            "hp_lv": 56,
+            "magic_defence": 25,
+            "magic_lv": 48,
+            "melee_defence": 18,
+            "name": "Eclipse Horror",
+            "region": "Void's Edge"
+          },
+          "fallen_lantern_knight": {
+            "atk_lv": 23,
+            "attack": 12,
+            "def_lv": 18,
+            "defence": 10,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "ashvein_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.015,
+                "item": "ashvein_shield",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 18,
+            "gold_min": 10,
+            "hp": 55,
+            "hp_lv": 20,
+            "magic_defence": 6,
+            "magic_lv": 10,
+            "melee_defence": 13,
+            "name": "Fallen Lantern Knight",
+            "region": "Caelmora"
+          },
+          "fen_stalker": {
+            "atk_lv": 24,
+            "attack": 16,
+            "def_lv": 18,
+            "defence": 10,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "deeproot_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "fracture_rune",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.007,
+                "item": "mirepath_spool",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 27,
+            "gold_min": 13,
+            "hp": 68,
+            "hp_lv": 22,
+            "magic_defence": 8,
+            "magic_lv": 14,
+            "melee_defence": 9,
+            "name": "Fen Stalker",
+            "region": "Mire Road"
+          },
+          "frost_basilisk": {
+            "atk_lv": 32,
+            "attack": 18,
+            "def_lv": 22,
+            "defence": 16,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "mirestone_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.012,
+                "item": "mirestone_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 46,
+            "gold_min": 26,
+            "hp": 95,
+            "hp_lv": 30,
+            "magic_defence": 13,
+            "magic_lv": 20,
+            "melee_defence": 16,
+            "name": "Frost Basilisk",
+            "region": "Shrouded Peaks"
+          },
+          "frost_wolf": {
+            "atk_lv": 14,
+            "attack": 9,
+            "def_lv": 10,
+            "defence": 7,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "mirefish",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.02,
+                "item": "pale_willow_ward",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "ring_of_embers",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 12,
+            "gold_min": 6,
+            "hp": 42,
+            "hp_lv": 12,
+            "magic_defence": 5,
+            "magic_lv": 8,
+            "melee_defence": 7,
+            "name": "Frost Wolf",
+            "region": "Caelmora"
+          },
+          "grave_hexer": {
+            "atk_lv": 30,
+            "attack": 17,
+            "def_lv": 14,
+            "defence": 13,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "stone_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.007,
+                "item": "crypt_legate_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 34,
+            "gold_min": 18,
+            "hp": 82,
+            "hp_lv": 26,
+            "magic_defence": 16,
+            "magic_lv": 28,
+            "melee_defence": 7,
+            "name": "Grave Hexer",
+            "region": "Ashford",
+            "style": "magic"
+          },
+          "highwayman": {
+            "atk_lv": 13,
+            "attack": 8,
+            "def_lv": 12,
+            "defence": 7,
+            "drops": [
+              {
+                "chance": 0.15,
+                "item": "mirestone_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.011,
+                "item": "mire_girdle",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 13,
+            "gold_min": 6,
+            "hp": 40,
+            "hp_lv": 13,
+            "magic_defence": 5,
+            "magic_lv": 9,
+            "melee_defence": 7,
+            "name": "Highwayman",
+            "region": "Mire Road"
+          },
+          "iron_sentinel": {
+            "atk_lv": 26,
+            "attack": 15,
+            "def_lv": 38,
+            "defence": 20,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "ashvein_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.013,
+                "item": "ashvein_shield",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 44,
+            "gold_min": 24,
+            "hp": 105,
+            "hp_lv": 32,
+            "magic_defence": 11,
+            "magic_lv": 16,
+            "melee_defence": 24,
+            "name": "Iron Sentinel",
+            "region": "Shrouded Peaks"
+          },
+          "marsh_troll": {
+            "atk_lv": 25,
+            "attack": 15,
+            "def_lv": 26,
+            "defence": 11,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "fracture_pike",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009,
+                "item": "mirestone_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 26,
+            "gold_min": 14,
+            "hp": 70,
+            "hp_lv": 26,
+            "magic_defence": 7,
+            "magic_lv": 12,
+            "melee_defence": 14,
+            "name": "Marsh Troll",
+            "region": "Mire Road"
+          },
+          "mountain_rat": {
+            "atk_lv": 1,
+            "attack": 2,
+            "def_lv": 1,
+            "defence": 1,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "plateau_carp",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "greyspine_log",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 2,
+            "gold_min": 1,
+            "hp": 12,
+            "hp_lv": 1,
+            "magic_defence": 1,
+            "magic_lv": 1,
+            "melee_defence": 1,
+            "name": "Mountain Rat",
+            "region": "Caelmora"
+          },
+          "peak_harrier": {
+            "atk_lv": 29,
+            "attack": 19,
+            "def_lv": 20,
+            "defence": 14,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "vantwood_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "ashvein_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0065,
+                "item": "quarry_paymaster_chain",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 43,
+            "gold_min": 24,
+            "hp": 88,
+            "hp_lv": 28,
+            "magic_defence": 15,
+            "magic_lv": 22,
+            "melee_defence": 11,
+            "name": "Peak Harrier",
+            "region": "Shrouded Peaks"
+          },
+          "plateau_goblin": {
+            "atk_lv": 10,
+            "attack": 5,
+            "def_lv": 5,
+            "defence": 3,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "cairn_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "cairn_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.012,
+                "item": "mire_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.01,
+                "item": "cairnstone_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 5,
+            "gold_min": 2,
+            "hp": 26,
+            "hp_lv": 9,
+            "magic_defence": 4,
+            "magic_lv": 5,
+            "melee_defence": 3,
+            "name": "Plateau Goblin",
+            "region": "Caelmora"
+          },
+          "ridge_banshee": {
+            "atk_lv": 30,
+            "attack": 19,
+            "def_lv": 5,
+            "defence": 12,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "pale_shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.013,
+                "item": "pale_willow_ward",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 40,
+            "gold_min": 22,
+            "hp": 75,
+            "hp_lv": 22,
+            "magic_defence": 18,
+            "magic_lv": 30,
+            "melee_defence": 5,
+            "name": "Ridge Banshee",
+            "region": "Shrouded Peaks",
+            "style": "magic"
+          },
+          "rift_devourer": {
+            "atk_lv": 66,
+            "attack": 36,
+            "def_lv": 56,
+            "defence": 31,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "resonite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.26,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0042,
+                "item": "architect_clockseal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 175,
+            "gold_min": 96,
+            "hp": 255,
+            "hp_lv": 68,
+            "magic_defence": 27,
+            "magic_lv": 54,
+            "melee_defence": 29,
+            "name": "Rift Devourer",
+            "region": "Void's Edge"
+          },
+          "sewer_rat": {
+            "atk_lv": 1,
+            "attack": 4,
+            "def_lv": 1,
+            "defence": 3,
+            "drops": [
+              {
+                "chance": 0.09,
+                "item": "canal_trout",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "minor_spirit_focus",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 4,
+            "gold_min": 1,
+            "hp": 22,
+            "hp_lv": 1,
+            "magic_defence": 2,
+            "magic_lv": 1,
+            "melee_defence": 2,
+            "name": "Sewer Rat",
+            "region": "Ashford"
+          },
+          "shale_golem": {
+            "atk_lv": 24,
+            "attack": 16,
+            "def_lv": 28,
+            "defence": 15,
+            "drops": [
+              {
+                "chance": 0.22,
+                "item": "mirestone_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "ashvein_ore",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.014,
+                "item": "mirestone_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 38,
+            "gold_min": 20,
+            "hp": 90,
+            "hp_lv": 26,
+            "magic_defence": 9,
+            "magic_lv": 12,
+            "melee_defence": 20,
+            "name": "Shale Golem",
+            "region": "Shrouded Peaks"
+          },
+          "shattered_knight": {
+            "atk_lv": 60,
+            "attack": 28,
+            "def_lv": 68,
+            "defence": 30,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.24,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009,
+                "item": "ashvein_shield",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 160,
+            "gold_min": 90,
+            "hp": 230,
+            "hp_lv": 62,
+            "magic_defence": 18,
+            "magic_lv": 30,
+            "melee_defence": 34,
+            "name": "Shattered Knight",
+            "region": "Void's Edge"
+          },
+          "spire_wraith": {
+            "atk_lv": 38,
+            "attack": 14,
+            "def_lv": 5,
+            "defence": 12,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 30,
+            "gold_min": 16,
+            "hp": 72,
+            "hp_lv": 35,
+            "magic_defence": 15,
+            "magic_lv": 45,
+            "melee_defence": 4,
+            "name": "Spire Wraith",
+            "region": "Ashford",
+            "style": "magic"
+          },
+          "umbra_magus": {
+            "atk_lv": 62,
+            "attack": 34,
+            "def_lv": 28,
+            "defence": 27,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "architect_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "void_cartographer_eye",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 150,
+            "gold_min": 84,
+            "hp": 215,
+            "hp_lv": 60,
+            "magic_defence": 32,
+            "magic_lv": 66,
+            "melee_defence": 16,
+            "name": "Umbra Magus",
+            "region": "Void's Edge",
+            "style": "magic"
+          },
+          "vault_pyromancer": {
+            "atk_lv": 55,
+            "attack": 30,
+            "def_lv": 18,
+            "defence": 19,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "architect_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0055,
+                "item": "fracture_arcanist_pin",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 95,
+            "gold_min": 52,
+            "hp": 168,
+            "hp_lv": 52,
+            "magic_defence": 24,
+            "magic_lv": 58,
+            "melee_defence": 12,
+            "name": "Vault Pyromancer",
+            "region": "The Ashen Vault",
+            "style": "magic"
+          },
+          "vault_revenant": {
+            "atk_lv": 36,
+            "attack": 24,
+            "def_lv": 30,
+            "defence": 19,
+            "drops": [
+              {
+                "chance": 0.26,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 75,
+            "gold_min": 42,
+            "hp": 140,
+            "hp_lv": 36,
+            "magic_defence": 16,
+            "magic_lv": 28,
+            "melee_defence": 17,
+            "name": "Vault Revenant",
+            "region": "The Ashen Vault"
+          },
+          "voidwalker": {
+            "atk_lv": 58,
+            "attack": 30,
+            "def_lv": 38,
+            "defence": 26,
+            "drops": [
+              {
+                "chance": 0.32,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.24,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 120,
+            "gold_min": 70,
+            "hp": 210,
+            "hp_lv": 58,
+            "magic_defence": 27,
+            "magic_lv": 50,
+            "melee_defence": 22,
+            "name": "Voidwalker",
+            "region": "Void's Edge"
+          }
+        },
+        "_shadow_target_defs_data": {
+          "anchorite_sage": {
+            "area": "Architect's Gate",
+            "base_success": 0.19,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "vitality_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "life_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 118,
+            "gold_min": 70,
+            "level": 74,
+            "max_hit": 52,
+            "name": "Anchorite Sage",
+            "period_seconds": 6.4,
+            "xp": 164
+          },
+          "angler": {
+            "area": "Ashford",
+            "base_success": 0.36,
+            "drops": [
+              {
+                "chance": 0.09,
+                "item": "wader_vest",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "river_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 36,
+            "gold_min": 20,
+            "level": 22,
+            "max_hit": 16,
+            "name": "Angler",
+            "period_seconds": 5.1,
+            "xp": 48
+          },
+          "anvil_keeper": {
+            "area": "Thornite Depths",
+            "base_success": 0.21,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "anvil_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "fire_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 95,
+            "gold_min": 57,
+            "level": 60,
+            "max_hit": 42,
+            "name": "Anvil Keeper",
+            "period_seconds": 6.2,
+            "xp": 136
+          },
+          "apprentice_chef": {
+            "area": "Ashford",
+            "base_success": 0.44,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "chef_toque",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "cook_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 22,
+            "gold_min": 13,
+            "level": 14,
+            "max_hit": 10,
+            "name": "Apprentice Chef",
+            "period_seconds": 4.7,
+            "xp": 30
+          },
+          "apprentice_mage": {
+            "area": "Caelmora",
+            "base_success": 0.38,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "mage_circlet",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "mage_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 32,
+            "gold_min": 19,
+            "level": 20,
+            "max_hit": 14,
+            "name": "Apprentice Mage",
+            "period_seconds": 5.0,
+            "xp": 44
+          },
+          "arcane_sovereign": {
+            "area": "Architect's Gate",
+            "base_success": 0.13,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "arcane_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "mage_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 145,
+            "gold_min": 88,
+            "level": 92,
+            "max_hit": 64,
+            "name": "Arcane Sovereign",
+            "period_seconds": 7.0,
+            "xp": 212
+          },
+          "arcane_weaver": {
+            "area": "Fracture Spire",
+            "base_success": 0.19,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "spiritthread_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "woven_slippers",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 115,
+            "gold_min": 68,
+            "level": 72,
+            "max_hit": 50,
+            "name": "Arcane Weaver",
+            "period_seconds": 6.4,
+            "xp": 158
+          },
+          "architect_emissary": {
+            "area": "Architect's Gate",
+            "base_success": 0.09,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "resonite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "architect_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.003,
+                "item": "emissary_mark",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 178,
+            "gold_min": 105,
+            "level": 92,
+            "max_hit": 54,
+            "name": "Architect's Emissary",
+            "period_seconds": 6.5,
+            "xp": 115
+          },
+          "architect_overseer": {
+            "area": "Architect's Gate",
+            "base_success": 0.07,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "resonite_bar",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.28,
+                "item": "architect_shard",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "resonance_rune",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0025,
+                "item": "overseer_shadow_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 228,
+            "gold_min": 135,
+            "level": 99,
+            "max_hit": 65,
+            "name": "Architect's Overseer",
+            "period_seconds": 7.0,
+            "xp": 140
+          },
+          "archmage": {
+            "area": "Thornite Depths",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "spellweaver_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "wizard_slippers",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 112,
+            "gold_min": 67,
+            "level": 70,
+            "max_hit": 49,
+            "name": "Archmage",
+            "period_seconds": 6.3,
+            "xp": 154
+          },
+          "artificer": {
+            "area": "Thornite Depths",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "craftsman_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "maker_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 99,
+            "gold_min": 59,
+            "level": 62,
+            "max_hit": 43,
+            "name": "Artificer",
+            "period_seconds": 6.2,
+            "xp": 144
+          },
+          "blade_lord": {
+            "area": "Thornite Depths",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "warrior_greaves",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "war_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 105,
+            "gold_min": 63,
+            "level": 66,
+            "max_hit": 46,
+            "name": "Blade Lord",
+            "period_seconds": 6.3,
+            "xp": 146
+          },
+          "brute_fighter": {
+            "area": "Caelmora",
+            "base_success": 0.41,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "ironbound_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "strength_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 27,
+            "gold_min": 16,
+            "level": 17,
+            "max_hit": 11,
+            "name": "Brute Fighter",
+            "period_seconds": 4.8,
+            "xp": 37
+          },
+          "canal_astromancer": {
+            "area": "Ashford",
+            "base_success": 0.46,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "stone_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0048,
+                "item": "canal_astrolabe",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 25,
+            "gold_min": 13,
+            "level": 27,
+            "max_hit": 8,
+            "name": "Canal Astromancer",
+            "period_seconds": 2.9,
+            "xp": 20
+          },
+          "canal_fisher": {
+            "area": "Ashford",
+            "base_success": 0.58,
+            "drops": [
+              {
+                "chance": 0.36,
+                "item": "dock_scrip",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "plateau_carp",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.008,
+                "item": "dockmaster_hookknife",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 16,
+            "gold_min": 8,
+            "level": 12,
+            "max_hit": 5,
+            "name": "Canal Fisher",
+            "period_seconds": 2.5,
+            "xp": 12
+          },
+          "cipher_prefect": {
+            "area": "Architect's Gate",
+            "base_success": 0.078,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "resonance_rune",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "resonite_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0028,
+                "item": "void_cartographer_eye",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 205,
+            "gold_min": 124,
+            "level": 96,
+            "max_hit": 61,
+            "name": "Cipher Prefect",
+            "period_seconds": 6.8,
+            "xp": 132
+          },
+          "contemplative_adept": {
+            "area": "Mire Road",
+            "base_success": 0.32,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "meditation_robes",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "meditation_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 56,
+            "gold_min": 32,
+            "level": 30,
+            "max_hit": 22,
+            "name": "Contemplative Adept",
+            "period_seconds": 5.5,
+            "xp": 68
+          },
+          "crafter_novice": {
+            "area": "Ashford",
+            "base_success": 0.46,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "crafter_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "crafter_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 18,
+            "gold_min": 10,
+            "level": 11,
+            "max_hit": 8,
+            "name": "Crafter Novice",
+            "period_seconds": 4.6,
+            "xp": 24
+          },
+          "crypt_legate": {
+            "area": "Ashford",
+            "base_success": 0.42,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "shard_dust",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "ash_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "crypt_legate_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 30,
+            "gold_min": 16,
+            "level": 33,
+            "max_hit": 9,
+            "name": "Crypt Legate",
+            "period_seconds": 3.1,
+            "xp": 24
+          },
+          "deep_quarry_foreman": {
+            "area": "Thornite Depths",
+            "base_success": 0.17,
+            "drops": [
+              {
+                "chance": 0.22,
+                "item": "mirestone_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "fracture_cast_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0042,
+                "item": "quarry_paymaster_chain",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 96,
+            "gold_min": 58,
+            "level": 76,
+            "max_hit": 34,
+            "name": "Deep Quarry Foreman",
+            "period_seconds": 5.1,
+            "xp": 70
+          },
+          "deepwood_warden": {
+            "area": "Thornite Depths",
+            "base_success": 0.22,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "forest_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "woodland_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 90,
+            "gold_min": 53,
+            "level": 56,
+            "max_hit": 39,
+            "name": "Deepwood Warden",
+            "period_seconds": 6.1,
+            "xp": 128
+          },
+          "ember_cloister_adept": {
+            "area": "Mire Road",
+            "base_success": 0.4,
+            "drops": [
+              {
+                "chance": 0.25,
+                "item": "sanctum_relic",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "ash_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.006,
+                "item": "ember_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 34,
+            "gold_min": 18,
+            "level": 36,
+            "max_hit": 9,
+            "name": "Ember Cloister Adept",
+            "period_seconds": 3.2,
+            "xp": 26
+          },
+          "ethereal_guide": {
+            "area": "Ashford",
+            "base_success": 0.31,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "spirit_mantle",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "void_sash",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 51,
+            "gold_min": 30,
+            "level": 32,
+            "max_hit": 22,
+            "name": "Ethereal Guide",
+            "period_seconds": 5.3,
+            "xp": 70
+          },
+          "fisher_novice": {
+            "area": "Caelmora",
+            "base_success": 0.48,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "fisher_hat",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "fisher_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 12,
+            "gold_min": 7,
+            "level": 8,
+            "max_hit": 6,
+            "name": "Fisher Novice",
+            "period_seconds": 4.3,
+            "xp": 18
+          },
+          "forge_apprentice": {
+            "area": "Ashford",
+            "base_success": 0.45,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "smith_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "hammer_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 19,
+            "gold_min": 11,
+            "level": 12,
+            "max_hit": 9,
+            "name": "Forge Apprentice",
+            "period_seconds": 4.7,
+            "xp": 26
+          },
+          "forge_journeyman": {
+            "area": "Mire Road",
+            "base_success": 0.3,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "forge_apron",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "blacksmith_girdle",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 54,
+            "gold_min": 32,
+            "level": 34,
+            "max_hit": 24,
+            "name": "Forge Journeyman",
+            "period_seconds": 5.4,
+            "xp": 74
+          },
+          "fortress_keeper": {
+            "area": "Thornite Depths",
+            "base_success": 0.18,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "bastion_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "fortress_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 121,
+            "gold_min": 72,
+            "level": 76,
+            "max_hit": 53,
+            "name": "Fortress Keeper",
+            "period_seconds": 6.4,
+            "xp": 168
+          },
+          "fracture_arcanist": {
+            "area": "Fracture Spire",
+            "base_success": 0.11,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "resonance_rune",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "architect_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0036,
+                "item": "fracture_arcanist_pin",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 156,
+            "gold_min": 94,
+            "level": 88,
+            "max_hit": 48,
+            "name": "Fracture Arcanist",
+            "period_seconds": 6.2,
+            "xp": 104
+          },
+          "fracture_engineer": {
+            "area": "Thornite Depths",
+            "base_success": 0.21,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "fracture_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "spelstone",
+                "qty_max": 5,
+                "qty_min": 2
+              },
+              {
+                "chance": 0.12,
+                "item": "fracture_iron_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "engineer_cipher",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 82,
+            "gold_min": 48,
+            "level": 70,
+            "max_hit": 27,
+            "name": "Fracture Engineer",
+            "period_seconds": 4.8,
+            "xp": 58
+          },
+          "fracture_warden": {
+            "area": "Fracture Spire",
+            "base_success": 0.12,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "fracture_cast_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "resonite_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "warden_shadow_mantle",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 148,
+            "gold_min": 88,
+            "level": 85,
+            "max_hit": 45,
+            "name": "Fracture Warden",
+            "period_seconds": 6.0,
+            "xp": 95
+          },
+          "gate_attache": {
+            "area": "Architect's Gate",
+            "base_success": 0.085,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "resonite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.24,
+                "item": "architect_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.003,
+                "item": "architect_clockseal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 186,
+            "gold_min": 112,
+            "level": 93,
+            "max_hit": 56,
+            "name": "Gate Attache",
+            "period_seconds": 6.6,
+            "xp": 120
+          },
+          "grandmaster_artisan": {
+            "area": "Architect's Gate",
+            "base_success": 0.15,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "artisan_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "crafter_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 134,
+            "gold_min": 80,
+            "level": 84,
+            "max_hit": 59,
+            "name": "Grandmaster Artisan",
+            "period_seconds": 6.8,
+            "xp": 188
+          },
+          "grove_ranger": {
+            "area": "Ashford",
+            "base_success": 0.33,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "bark_vest",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "timber_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 46,
+            "gold_min": 26,
+            "level": 28,
+            "max_hit": 20,
+            "name": "Grove Ranger",
+            "period_seconds": 5.2,
+            "xp": 62
+          },
+          "guild_teller": {
+            "area": "Ashford",
+            "base_success": 0.54,
+            "drops": [
+              {
+                "chance": 0.34,
+                "item": "dock_scrip",
+                "qty_max": 4,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "ash_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0045,
+                "item": "ledger_of_tithes",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 20,
+            "gold_min": 10,
+            "level": 18,
+            "max_hit": 6,
+            "name": "Guild Teller",
+            "period_seconds": 2.7,
+            "xp": 16
+          },
+          "head_cook": {
+            "area": "Mire Road",
+            "base_success": 0.29,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "apron_chef",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "hearth_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 57,
+            "gold_min": 34,
+            "level": 36,
+            "max_hit": 25,
+            "name": "Head Cook",
+            "period_seconds": 5.5,
+            "xp": 78
+          },
+          "high_priestess": {
+            "area": "Fracture Spire",
+            "base_success": 0.18,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "meditation_robes",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "meditation_cowl",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "meditation_signet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 152,
+            "gold_min": 88,
+            "level": 75,
+            "max_hit": 52,
+            "name": "High Priestess",
+            "period_seconds": 6.5,
+            "xp": 165
+          },
+          "initiated_monk": {
+            "area": "Ashford",
+            "base_success": 0.38,
+            "drops": [
+              {
+                "chance": 0.09,
+                "item": "meditation_sash",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "meditation_sandals",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 32,
+            "gold_min": 18,
+            "level": 20,
+            "max_hit": 15,
+            "name": "Initiated Monk",
+            "period_seconds": 5.0,
+            "xp": 42
+          },
+          "ironbound_warrior": {
+            "area": "Ashford",
+            "base_success": 0.3,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "muscle_plate",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "strength_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 54,
+            "gold_min": 32,
+            "level": 34,
+            "max_hit": 23,
+            "name": "Ironbound Warrior",
+            "period_seconds": 5.4,
+            "xp": 74
+          },
+          "lane_apothecary": {
+            "area": "Ashford",
+            "base_success": 0.48,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "apothecary_satchel",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "dusk_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.007,
+                "item": "apothecary_vial_bandolier",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 24,
+            "gold_min": 12,
+            "level": 24,
+            "max_hit": 7,
+            "name": "Lane Apothecary",
+            "period_seconds": 2.8,
+            "xp": 18
+          },
+          "lantern_ferryman": {
+            "area": "Caelmora",
+            "base_success": 0.61,
+            "drops": [
+              {
+                "chance": 0.3,
+                "item": "dock_scrip",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "plateau_carp",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0055,
+                "item": "dockyard_enforcer_badge",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 13,
+            "gold_min": 6,
+            "level": 9,
+            "max_hit": 5,
+            "name": "Lantern Ferryman",
+            "period_seconds": 2.4,
+            "xp": 11
+          },
+          "legendary_adventurer": {
+            "area": "Architect's Gate",
+            "base_success": 0.19,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "explorer_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "compass_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 115,
+            "gold_min": 68,
+            "level": 72,
+            "max_hit": 50,
+            "name": "Legendary Adventurer",
+            "period_seconds": 6.4,
+            "xp": 160
+          },
+          "life_keeper": {
+            "area": "Thornite Depths",
+            "base_success": 0.23,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "priest_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "pilgrim_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 87,
+            "gold_min": 49,
+            "level": 52,
+            "max_hit": 36,
+            "name": "Life Keeper",
+            "period_seconds": 6.0,
+            "xp": 120
+          },
+          "loom_keeper": {
+            "area": "Architect's Gate",
+            "base_success": 0.16,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "thread_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "weaver_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 132,
+            "gold_min": 78,
+            "level": 82,
+            "max_hit": 58,
+            "name": "Loom Keeper",
+            "period_seconds": 6.7,
+            "xp": 182
+          },
+          "mage_scholar": {
+            "area": "Ashford",
+            "base_success": 0.24,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "arcane_robes",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "mystic_sash",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 76,
+            "gold_min": 46,
+            "level": 48,
+            "max_hit": 33,
+            "name": "Mage Scholar",
+            "period_seconds": 5.9,
+            "xp": 106
+          },
+          "market_scribe": {
+            "area": "Caelmora",
+            "base_success": 0.59,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "dock_scrip",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "minor_spirit_focus",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "canal_astrolabe",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 14,
+            "gold_min": 7,
+            "level": 11,
+            "max_hit": 5,
+            "name": "Market Scribe",
+            "period_seconds": 2.5,
+            "xp": 13
+          },
+          "marsh_hermit_mage": {
+            "area": "Mire Road",
+            "base_success": 0.31,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "dusk_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0045,
+                "item": "fracture_arcanist_pin",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 45,
+            "gold_min": 26,
+            "level": 52,
+            "max_hit": 13,
+            "name": "Marsh Hermit Mage",
+            "period_seconds": 3.8,
+            "xp": 37
+          },
+          "master_chef": {
+            "area": "Thornite Depths",
+            "base_success": 0.21,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "chef_trousers",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "kitchen_clogs",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 96,
+            "gold_min": 57,
+            "level": 60,
+            "max_hit": 42,
+            "name": "Master Chef",
+            "period_seconds": 6.2,
+            "xp": 138
+          },
+          "master_crafter": {
+            "area": "Mire Road",
+            "base_success": 0.25,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "artisan_coat",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "workshop_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 70,
+            "gold_min": 42,
+            "level": 44,
+            "max_hit": 30,
+            "name": "Master Crafter",
+            "period_seconds": 5.8,
+            "xp": 96
+          },
+          "master_smelter": {
+            "area": "Architect's Gate",
+            "base_success": 0.16,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "forge_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "hammer_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 132,
+            "gold_min": 78,
+            "level": 82,
+            "max_hit": 58,
+            "name": "Master Smelter",
+            "period_seconds": 6.7,
+            "xp": 184
+          },
+          "mire_ranger": {
+            "area": "Thornite Depths",
+            "base_success": 0.24,
+            "drops": [
+              {
+                "chance": 0.25,
+                "item": "deeproot_log",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.2,
+                "item": "shard_dust",
+                "qty_max": 4,
+                "qty_min": 2
+              },
+              {
+                "chance": 0.0052,
+                "item": "shadow_wraps",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 68,
+            "gold_min": 40,
+            "level": 65,
+            "max_hit": 22,
+            "name": "Mire Ranger",
+            "period_seconds": 4.4,
+            "xp": 50
+          },
+          "mire_tollkeeper": {
+            "area": "Mire Road",
+            "base_success": 0.37,
+            "drops": [
+              {
+                "chance": 0.26,
+                "item": "dock_scrip",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "thornite_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0055,
+                "item": "mirepath_spool",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 36,
+            "gold_min": 20,
+            "level": 40,
+            "max_hit": 10,
+            "name": "Mire Tollkeeper",
+            "period_seconds": 3.3,
+            "xp": 29
+          },
+          "novice_monk": {
+            "area": "Caelmora",
+            "base_success": 0.45,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "meditation_cowl",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "contemplation_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 12,
+            "gold_min": 6,
+            "level": 10,
+            "max_hit": 8,
+            "name": "Novice Monk",
+            "period_seconds": 4.5,
+            "xp": 18
+          },
+          "ore_keeper": {
+            "area": "Thornite Depths",
+            "base_success": 0.22,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "miner_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "miner_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "ore_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 115,
+            "gold_min": 68,
+            "level": 55,
+            "max_hit": 40,
+            "name": "Ore Keeper",
+            "period_seconds": 6.1,
+            "xp": 128
+          },
+          "pale_chancellor": {
+            "area": "Architect's Gate",
+            "base_success": 0.065,
+            "drops": [
+              {
+                "chance": 0.16,
+                "item": "resonite_bar",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.3,
+                "item": "architect_shard",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0022,
+                "item": "architect_clockseal",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 240,
+            "gold_min": 145,
+            "level": 100,
+            "max_hit": 70,
+            "name": "Pale Chancellor",
+            "period_seconds": 7.2,
+            "xp": 150
+          },
+          "pathfinder": {
+            "area": "Mire Road",
+            "base_success": 0.32,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "explorer_coat",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "wayfarer_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 50,
+            "gold_min": 28,
+            "level": 30,
+            "max_hit": 21,
+            "name": "Pathfinder",
+            "period_seconds": 5.4,
+            "xp": 66
+          },
+          "priest_elder": {
+            "area": "Ashford",
+            "base_success": 0.33,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "blessed_robes",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "sacred_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 43,
+            "gold_min": 24,
+            "level": 26,
+            "max_hit": 18,
+            "name": "Priest Elder",
+            "period_seconds": 5.2,
+            "xp": 57
+          },
+          "priest_novice": {
+            "area": "Caelmora",
+            "base_success": 0.47,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "vitality_crown",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "life_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 14,
+            "gold_min": 8,
+            "level": 9,
+            "max_hit": 7,
+            "name": "Priest Novice",
+            "period_seconds": 4.4,
+            "xp": 20
+          },
+          "prospector": {
+            "area": "Ashford",
+            "base_success": 0.42,
+            "drops": [
+              {
+                "chance": 0.07,
+                "item": "miner_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "geode_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 14,
+            "gold_min": 8,
+            "level": 12,
+            "max_hit": 10,
+            "name": "Prospector",
+            "period_seconds": 4.6,
+            "xp": 22
+          },
+          "quarry_master": {
+            "area": "Mire Road",
+            "base_success": 0.29,
+            "drops": [
+              {
+                "chance": 0.11,
+                "item": "miner_vest",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "miner_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 72,
+            "gold_min": 42,
+            "level": 35,
+            "max_hit": 26,
+            "name": "Quarry Master",
+            "period_seconds": 5.4,
+            "xp": 82
+          },
+          "quarry_paymaster": {
+            "area": "Caelmora",
+            "base_success": 0.56,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "hollowvein_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "cairncast_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.006,
+                "item": "quarry_paymaster_chain",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 16,
+            "gold_min": 8,
+            "level": 14,
+            "max_hit": 6,
+            "name": "Quarry Paymaster",
+            "period_seconds": 2.6,
+            "xp": 15
+          },
+          "resonant_broker": {
+            "area": "Fracture Spire",
+            "base_success": 0.15,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "resonite_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "resonance_crystal",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0045,
+                "item": "broker_doubloon",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 125,
+            "gold_min": 72,
+            "level": 80,
+            "max_hit": 38,
+            "name": "Resonant Broker",
+            "period_seconds": 5.6,
+            "xp": 80
+          },
+          "river_keeper": {
+            "area": "Mire Road",
+            "base_success": 0.28,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "wader_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "waterproof_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 64,
+            "gold_min": 38,
+            "level": 40,
+            "max_hit": 28,
+            "name": "River Keeper",
+            "period_seconds": 5.6,
+            "xp": 92
+          },
+          "scout_recruit": {
+            "area": "Caelmora",
+            "base_success": 0.46,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "scout_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "compass_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 18,
+            "gold_min": 10,
+            "level": 11,
+            "max_hit": 8,
+            "name": "Scout Recruit",
+            "period_seconds": 4.6,
+            "xp": 24
+          },
+          "seasoned_explorer": {
+            "area": "Thornite Depths",
+            "base_success": 0.22,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "traveler_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "wanderer_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 90,
+            "gold_min": 51,
+            "level": 54,
+            "max_hit": 38,
+            "name": "Seasoned Explorer",
+            "period_seconds": 6.1,
+            "xp": 126
+          },
+          "sentinel": {
+            "area": "Mire Road",
+            "base_success": 0.24,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "shield_plate",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "guardian_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 73,
+            "gold_min": 44,
+            "level": 46,
+            "max_hit": 32,
+            "name": "Sentinel",
+            "period_seconds": 5.9,
+            "xp": 100
+          },
+          "shadow_adept": {
+            "area": "Ashford",
+            "base_success": 0.35,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "shadow_vest",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "stealth_sash",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 48,
+            "gold_min": 28,
+            "level": 28,
+            "max_hit": 20,
+            "name": "Shadow Adept",
+            "period_seconds": 5.2,
+            "xp": 62
+          },
+          "shadow_initiate": {
+            "area": "Caelmora",
+            "base_success": 0.5,
+            "drops": [
+              {
+                "chance": 0.005,
+                "item": "shade_cowl",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "void_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 18,
+            "gold_min": 10,
+            "level": 15,
+            "max_hit": 12,
+            "name": "Shadow Initiate",
+            "period_seconds": 4.7,
+            "xp": 28
+          },
+          "shadow_master": {
+            "area": "Fracture Spire",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.11,
+                "item": "silent_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "shadow_slippers",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "secret_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 132,
+            "gold_min": 78,
+            "level": 70,
+            "max_hit": 48,
+            "name": "Shadow Master",
+            "period_seconds": 6.4,
+            "xp": 152
+          },
+          "shield_guard": {
+            "area": "Ashford",
+            "base_success": 0.39,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "sentinel_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "shield_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 32,
+            "gold_min": 18,
+            "level": 19,
+            "max_hit": 13,
+            "name": "Shield Guard",
+            "period_seconds": 4.9,
+            "xp": 42
+          },
+          "shield_master": {
+            "area": "Architect's Gate",
+            "base_success": 0.13,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "sentinel_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "shield_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 142,
+            "gold_min": 86,
+            "level": 90,
+            "max_hit": 63,
+            "name": "Shield Master",
+            "period_seconds": 7.0,
+            "xp": 206
+          },
+          "silent_master": {
+            "area": "Thornite Depths",
+            "base_success": 0.25,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "meditation_signet",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "contemplation_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 98,
+            "gold_min": 58,
+            "level": 50,
+            "max_hit": 35,
+            "name": "Silent Master",
+            "period_seconds": 6.0,
+            "xp": 115
+          },
+          "spire_archivist": {
+            "area": "Fracture Spire",
+            "base_success": 0.18,
+            "drops": [
+              {
+                "chance": 0.22,
+                "item": "spire_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "resonance_crystal",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "architect_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "archivist_clasp",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 98,
+            "gold_min": 58,
+            "level": 75,
+            "max_hit": 32,
+            "name": "Spire Archivist",
+            "period_seconds": 5.2,
+            "xp": 68
+          },
+          "spire_courier": {
+            "area": "Mire Road",
+            "base_success": 0.32,
+            "drops": [
+              {
+                "chance": 0.22,
+                "item": "dusk_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "resonance_rune",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0055,
+                "item": "spire_mask_of_quiet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 42,
+            "gold_min": 25,
+            "level": 48,
+            "max_hit": 12,
+            "name": "Spire Courier",
+            "period_seconds": 3.6,
+            "xp": 34
+          },
+          "spire_levy_clerk": {
+            "area": "Fracture Spire",
+            "base_success": 0.14,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "resonance_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "resonite_ore",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0038,
+                "item": "ledger_of_tithes",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 132,
+            "gold_min": 78,
+            "level": 83,
+            "max_hit": 40,
+            "name": "Spire Levy Clerk",
+            "period_seconds": 5.8,
+            "xp": 88
+          },
+          "spirit_archon": {
+            "area": "Architect's Gate",
+            "base_success": 0.17,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "void_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "spirit_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 124,
+            "gold_min": 74,
+            "level": 78,
+            "max_hit": 54,
+            "name": "Spirit Archon",
+            "period_seconds": 6.5,
+            "xp": 170
+          },
+          "spirit_keeper": {
+            "area": "Caelmora",
+            "base_success": 0.42,
+            "drops": [
+              {
+                "chance": 0.005,
+                "item": "ethereal_crown",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "spirit_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 26,
+            "gold_min": 15,
+            "level": 16,
+            "max_hit": 11,
+            "name": "Spirit Keeper",
+            "period_seconds": 4.8,
+            "xp": 35
+          },
+          "strength_colossus": {
+            "area": "Fracture Spire",
+            "base_success": 0.14,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "brute_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "strength_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 140,
+            "gold_min": 84,
+            "level": 88,
+            "max_hit": 62,
+            "name": "Strength Colossus",
+            "period_seconds": 6.9,
+            "xp": 200
+          },
+          "sword_trainer": {
+            "area": "Caelmora",
+            "base_success": 0.45,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "warrior_helm",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "blade_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 20,
+            "gold_min": 12,
+            "level": 13,
+            "max_hit": 9,
+            "name": "Sword Trainer",
+            "period_seconds": 4.7,
+            "xp": 28
+          },
+          "swordmaster": {
+            "area": "Mire Road",
+            "base_success": 0.26,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "warrior_plate",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "combat_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 67,
+            "gold_min": 40,
+            "level": 42,
+            "max_hit": 29,
+            "name": "Swordmaster",
+            "period_seconds": 5.7,
+            "xp": 92
+          },
+          "taste_sage": {
+            "area": "Architect's Gate",
+            "base_success": 0.16,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "taste_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "cook_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 128,
+            "gold_min": 76,
+            "level": 80,
+            "max_hit": 56,
+            "name": "Taste Sage",
+            "period_seconds": 6.6,
+            "xp": 176
+          },
+          "thornite_assayer": {
+            "area": "Thornite Depths",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.34,
+                "item": "thornite_ore",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "thornite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "thornite_assayer_loupe",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 88,
+            "gold_min": 52,
+            "level": 72,
+            "max_hit": 30,
+            "name": "Thornite Assayer",
+            "period_seconds": 4.9,
+            "xp": 62
+          },
+          "thornite_merchant": {
+            "area": "Thornite Depths",
+            "base_success": 0.27,
+            "drops": [
+              {
+                "chance": 0.3,
+                "item": "thornite_ore",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.22,
+                "item": "spelstone",
+                "qty_max": 4,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "thornite_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0055,
+                "item": "prospector_lens",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 58,
+            "gold_min": 32,
+            "level": 60,
+            "max_hit": 18,
+            "name": "Thornite Merchant",
+            "period_seconds": 4.0,
+            "xp": 42
+          },
+          "tidemaster": {
+            "area": "Fracture Spire",
+            "base_success": 0.21,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "fisher_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "fisher_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 108,
+            "gold_min": 64,
+            "level": 68,
+            "max_hit": 46,
+            "name": "Tidemaster",
+            "period_seconds": 6.3,
+            "xp": 148
+          },
+          "titan_brute": {
+            "area": "Thornite Depths",
+            "base_success": 0.2,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "ironbound_greaves",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "heavy_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 102,
+            "gold_min": 61,
+            "level": 64,
+            "max_hit": 44,
+            "name": "Titan Brute",
+            "period_seconds": 6.2,
+            "xp": 140
+          },
+          "vale_noble": {
+            "area": "Caelmora",
+            "base_success": 0.68,
+            "drops": [
+              {
+                "chance": 0.32,
+                "item": "noble_house_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.18,
+                "item": "dock_scrip",
+                "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009,
+                "item": "noble_signet_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 9,
+            "gold_min": 4,
+            "level": 1,
+            "max_hit": 3,
+            "name": "House Vale Retainer",
+            "period_seconds": 2.2,
+            "xp": 7
+          },
+          "vale_steward": {
+            "area": "Caelmora",
+            "base_success": 0.65,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "noble_house_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "veil_rune",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0065,
+                "item": "ledger_of_tithes",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 11,
+            "gold_min": 5,
+            "level": 6,
+            "max_hit": 4,
+            "name": "Vale Steward",
+            "period_seconds": 2.3,
+            "xp": 9
+          },
+          "void_shepherd": {
+            "area": "Thornite Depths",
+            "base_success": 0.22,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "spectral_leggings",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "ethereal_boots",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 92,
+            "gold_min": 55,
+            "level": 58,
+            "max_hit": 40,
+            "name": "Void Shepherd",
+            "period_seconds": 6.1,
+            "xp": 132
+          },
+          "war_commander": {
+            "area": "Architect's Gate",
+            "base_success": 0.14,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "warrior_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.09,
+                "item": "blade_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 137,
+            "gold_min": 82,
+            "level": 86,
+            "max_hit": 60,
+            "name": "War Commander",
+            "period_seconds": 6.9,
+            "xp": 194
+          },
+          "weaver_apprentice": {
+            "area": "Caelmora",
+            "base_success": 0.4,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "weaver_circlet",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "weaver_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 29,
+            "gold_min": 17,
+            "level": 18,
+            "max_hit": 12,
+            "name": "Weaver Apprentice",
+            "period_seconds": 4.9,
+            "xp": 40
+          },
+          "weaver_master": {
+            "area": "Ashford",
+            "base_success": 0.27,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "woven_robes",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "loom_belt",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 61,
+            "gold_min": 36,
+            "level": 38,
+            "max_hit": 26,
+            "name": "Weaver Master",
+            "period_seconds": 5.6,
+            "xp": 84
+          },
+          "whisperwood_sentinel": {
+            "area": "Fracture Spire",
+            "base_success": 0.19,
+            "drops": [
+              {
+                "chance": 0.12,
+                "item": "lumber_ring",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "tree_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 118,
+            "gold_min": 70,
+            "level": 74,
+            "max_hit": 52,
+            "name": "Whisperwood Sentinel",
+            "period_seconds": 6.4,
+            "xp": 164
+          },
+          "wolfskin_smuggler": {
+            "area": "Mire Road",
+            "base_success": 0.35,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "deeproot_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "fracture_pike",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0045,
+                "item": "dockyard_enforcer_badge",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 39,
+            "gold_min": 22,
+            "level": 44,
+            "max_hit": 11,
+            "name": "Wolfskin Smuggler",
+            "period_seconds": 3.5,
+            "xp": 32
+          },
+          "woodland_novice": {
+            "area": "Caelmora",
+            "base_success": 0.46,
+            "drops": [
+              {
+                "chance": 0.08,
+                "item": "ranger_hood",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "tree_amulet",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "gold_max": 16,
+            "gold_min": 9,
+            "level": 10,
+            "max_hit": 8,
+            "name": "Woodland Novice",
+            "period_seconds": 4.6,
+            "xp": 22
+          }
+        }
+      }
     },
     "client/data/AchievementData.gd": {
       "consts": {
@@ -1798,9 +5407,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "0.9.16",
-        "BUILD_FINGERPRINT": "0.9.16 (1782522142)",
-        "VERSION_CODE": 1782522142
+        "APP_VERSION": "0.9.17",
+        "BUILD_FINGERPRINT": "0.9.17 (1782566281)",
+        "VERSION_CODE": 1782566281
       },
       "specials": {}
     },
@@ -5538,6 +9147,14 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Fixed: The Worldroot screen opened as a garbled stack \u2014 recipe cards collapsed on top of each other and were unreadable. Each recipe card, its ingredient root tiles, and the Forge button now lay out cleanly in sequence. No recipes, costs, or rewards changed."
+            ],
+            "title": "Worldroot Layout Fix: Recipe Cards Now Readable",
+            "version": "0.9.17",
+            "version_code": 1782566281
+          },
           {
             "changes": [
               "New: Worldroot \u2014 a new menu screen for fusing item clusters into powerful relics. Each recipe is laid out as a tree: the fused relic at the top, its ingredient items rooted below with a live count of how many you own vs. need. When you have everything, a Forge button consumes the ingredients and produces the relic with a celebration. Includes three new legendary relics: Verdant Worldcharm (Mining, Woodcutting, and Fishing bonuses), Arcweave Confluence (Fracture Arts, Spiritweaving, and Meditation bonuses), and Bulwark Heartstone (HP and Defence bonuses). The per-item Upgrade button in inventory is gone \u2014 fusion now lives in Worldroot.",

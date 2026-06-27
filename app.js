@@ -1388,18 +1388,29 @@ function buildItemCraftingIndex(itemFile, itemIds) {
 
 function buildItemMonsterIndex(monsterFile, itemIds) {
   const index = new Map();
+  // Each pool carries the skill the player uses to reach it and the field that
+  // names the zone, so every drop can be shown as a full source chain:
+  //   "Combat → <region> → <monster> (<chance>)"
+  //   "Shadow Arts → <area> → <target> (<chance>)"
   const pools = [
-    monsterFile._monster_defs_data || {},
-    monsterFile._shadow_target_defs_data || {},
+    { defs: monsterFile._monster_defs_data || {}, skill: "Combat", zoneKey: "region" },
+    {
+      defs: monsterFile._shadow_target_defs_data || {},
+      skill: "Shadow Arts",
+      zoneKey: "area",
+    },
   ];
-  for (const pool of pools) {
-    for (const [monsterId, monster] of Object.entries(pool)) {
+  for (const { defs, skill, zoneKey } of pools) {
+    for (const [monsterId, monster] of Object.entries(defs)) {
+      const target = monster.name || monsterId;
+      const zone = String(monster[zoneKey] || "").trim();
+      const chain = [skill, zone, target].filter(Boolean).join(" → ");
       for (const drop of monster.drops || []) {
         if (drop.item && itemIds.includes(drop.item)) {
           addIndexValue(
             index,
             drop.item,
-            `Dropped by ${monster.name || monsterId} (${formatPercent(drop.chance || 0)})`,
+            `${chain} (${formatPercent(drop.chance || 0)})`,
           );
         }
       }
