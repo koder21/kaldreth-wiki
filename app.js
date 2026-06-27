@@ -309,6 +309,7 @@ function wireControls() {
   dom.category.addEventListener("change", () => {
     state.category = dom.category.value;
     render();
+    scrollToCategorySection(state.category);
   });
   dom.spoilers.addEventListener("change", () => {
     state.revealSpoilers = dom.spoilers.checked;
@@ -782,6 +783,7 @@ function buildModel(data) {
     monsterFile,
     adventurerFile,
     buildInfoFile,
+    itemFile,
   );
 
   const allEntries = [
@@ -2851,8 +2853,10 @@ function buildMechanicEntries(
   monsterFile,
   adventurerFile,
   buildInfoFile,
+  itemFile,
 ) {
   const mechanics = [];
+  itemFile = itemFile || {};
 
   const burnSamples = [
     [1, 1],
@@ -3354,6 +3358,194 @@ function buildMechanicEntries(
           "Each gathering skill has a ladder of tools. Equipping a better tool multiplies your action speed; the listed value is the speed gain over the basic starting tool.",
         ])}
         ${toolBody}
+      `,
+    });
+  }
+
+  // ── Worldroot (relic fusion) ───────────────────────────────────────
+  const upgradeRecipes = itemFile.UPGRADE_RECIPES || {};
+  const itemsById = itemFile.ITEMS || {};
+  const itemName = (id) =>
+    itemsById[id]?.name || capitalize(String(id).replace(/_/g, " "));
+  const worldrootIds = Object.keys(upgradeRecipes);
+  if (worldrootIds.length) {
+    const worldrootRows = worldrootIds.map((resultId) => {
+      const recipe = upgradeRecipes[resultId] || {};
+      const ingredients = recipe.ingredients || {};
+      const ingText = Object.entries(ingredients)
+        .map(([id, qty]) => `${formatNumber(Number(qty || 0))}× ${itemName(id)}`)
+        .join(", ");
+      return [itemName(resultId), ingText, String(recipe.description || "")];
+    });
+    mechanics.push({
+      kind: "Mechanic",
+      section: "mechanics",
+      id: "worldroot-fusion",
+      name: "Worldroot",
+      title: "Worldroot — Relic Fusion",
+      subtitle: "Fuse item clusters into powerful relics",
+      badges: ["worldroot", "fusion", "relics", "endgame"],
+      searchText: `worldroot fusion fuse relic upgrade recipe forge ${worldrootIds
+        .map((id) => `${id} ${itemName(id)}`)
+        .join(" ")}`,
+      sortKey: "mechanics worldroot",
+      spoiler: false,
+      metrics: [
+        { label: "Fusions", value: String(worldrootIds.length) },
+        { label: "Where", value: "Worldroot menu" },
+      ],
+      body: `
+        ${renderDetailBlock("How Worldroot works", [
+          "Worldroot is a dedicated menu screen. Each recipe is laid out as a tree — the fused relic at the top, its ingredient items rooted below with a live count of how many you own versus how many you need.",
+          "When you hold every ingredient, a Forge button consumes them and produces the relic with a celebration. Fusion now lives entirely in Worldroot; the old per-item Upgrade button in the inventory is gone.",
+          "Forged relics count toward your Compendium item collection.",
+        ])}
+        ${renderSimpleTable("Fusion recipes", ["Relic", "Ingredients", "Fusion"], worldrootRows)}
+      `,
+    });
+  }
+
+  // ── Compendium ─────────────────────────────────────────────────────
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "compendium",
+    name: "Compendium",
+    title: "Compendium — Completion Tracker",
+    subtitle: "Every collectible and milestone in one place",
+    badges: ["compendium", "completion", "collection"],
+    searchText:
+      "compendium completion tracker 100 percent collection items titles factions quests dungeons loot",
+    sortKey: "mechanics compendium",
+    spoiler: false,
+    metrics: [
+      { label: "Goal", value: "100% completion" },
+      { label: "Where", value: "Compendium menu" },
+    ],
+    body: `
+      ${renderDetailBlock("What it tracks", [
+        "The Compendium is a 100%-completion panel that aggregates every collectible and progression category into one place: items collected, titles earned, faction reputation, quests completed, boss dungeon loot tables, and more.",
+        "Each category shows your progress (e.g. owned / total) so you can see at a glance what is left to chase. Boss dungeon loot tables and Worldroot-forged relics both register toward their respective counts.",
+      ])}
+    `,
+  });
+
+  // ── Boosts & rewarded ads ──────────────────────────────────────────
+  const offlineCapHours = Number(gs.OFFLINE_SECONDS_CAP || 0) / 3600;
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "boosts-and-ads",
+    name: "Boosts & Rewarded Ads",
+    title: "Boosts & Rewarded Ads",
+    subtitle: "Optional time-savers, ad-gated or unlocked by the Warden's Mark",
+    badges: ["boosts", "ads", "fracture surge", "auto-meditate"],
+    searchText:
+      "boost rewarded ad fracture surge auto meditate extended offline cap wardens mark premium double speed",
+    sortKey: "mechanics boosts ads",
+    spoiler: false,
+    metrics: [
+      { label: "Base offline cap", value: `${formatNumber(offlineCapHours)} hours` },
+      { label: "Warden's Mark", value: "One-tap, no ads" },
+    ],
+    body: `
+      ${renderSimpleTable(
+        "Available boosts",
+        ["Boost", "Effect", "Where"],
+        [
+          [
+            "Fracture Surge",
+            "2× speed for all timed activities (gathering, artisan, Shadow Arts) for 1 hour. Stack up to 4 ads for 4 hours. XP and affinity XP double as a result.",
+            "Skills screen",
+          ],
+          [
+            "Auto-Meditate",
+            "Meditates automatically every cooldown for 4 hours, even while doing other activities.",
+            "Meditation screen",
+          ],
+          [
+            "Extended Offline Cap",
+            `Adds 4 hours to your offline cap for 12 hours — up to ${formatNumber(offlineCapHours + 4)} hours of offline progress.`,
+            "Store",
+          ],
+        ],
+      )}
+      ${renderDetailBlock("Warden's Mark", [
+        "Owners of the Warden's Mark can activate all three boosts with a single tap — no ad required, forever.",
+        "When an ad genuinely cannot load, the boost button explains why and offers Warden's Mark activation instead of failing silently.",
+      ])}
+    `,
+  });
+
+  // ── Store & Warden's Mark ──────────────────────────────────────────
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "store-wardens-mark",
+    name: "Store & Warden's Mark",
+    title: "Store & Warden's Mark",
+    subtitle: "Free starter gear and the one-time premium unlock",
+    badges: ["store", "wardens mark", "purchase"],
+    searchText:
+      "store google play purchase wardens mark premium starter tools pickaxe axe rod free iap in-app",
+    sortKey: "mechanics store wardens mark",
+    spoiler: false,
+    metrics: [
+      { label: "Premium", value: "Warden's Mark (one-time)" },
+      { label: "Free", value: "Starter gathering tools" },
+    ],
+    body: `
+      ${renderDetailBlock("The Store", [
+        "Starter gathering tools — pickaxe, axe, and rod — are free to claim directly from the Store. (The old step-by-step mining tutorial has been removed.)",
+        "The Extended Offline Cap ad boost is also activated here.",
+      ])}
+      ${renderDetailBlock("Warden's Mark", [
+        "A one-time Google Play purchase that permanently unlocks all ad-gated benefits — Fracture Surge, Auto-Meditate, and Extended Cap all activate with a single tap, no ads, forever.",
+        "Ownership follows your Google Play account and is restored automatically across devices. A refunded purchase is revoked on the next Play check; re-purchasing restores it immediately.",
+      ])}
+    `,
+  });
+
+  // ── Hardcore auto-eat ──────────────────────────────────────────────
+  const stdThresholds = gs.STANDARD_AUTO_EAT_THRESHOLDS || [];
+  const hcBands = gs.HC_AUTO_EAT_BANDS || [];
+  if (hcBands.length) {
+    const hcRows = hcBands.map((band, idx) => [
+      `${idx + 1} clear${idx === 0 ? "" : "s"}`,
+      (band || []).map((t) => `<${formatPercent(Number(t))}`).join(" / "),
+    ]);
+    mechanics.push({
+      kind: "Mechanic",
+      section: "mechanics",
+      id: "hardcore-auto-eat",
+      name: "Hardcore & Auto-Eat",
+      title: "Hardcore & Auto-Eat",
+      subtitle: "How auto-eat is earned in Hardcore mode",
+      badges: ["hardcore", "auto-eat", "combat", "death"],
+      searchText:
+        "hardcore auto eat threshold boss dungeon first clear manual eat death permadeath standard",
+      sortKey: "mechanics hardcore auto eat",
+      spoiler: false,
+      metrics: [
+        {
+          label: "Standard thresholds",
+          value: stdThresholds.length
+            ? `${formatPercent(Number(stdThresholds[0]))}–${formatPercent(Number(stdThresholds[stdThresholds.length - 1]))}`
+            : "All",
+        },
+        { label: "Hardcore unlock", value: "Boss dungeon first clears" },
+      ],
+      body: `
+        ${renderDetailBlock("Standard vs Hardcore", [
+          "Standard characters have every auto-eat threshold available, and combat / Shadow Arts auto-stop when food runs out.",
+          "Hardcore characters earn auto-eat through boss dungeon first clears — with no clears, auto-eat is fully locked. Hardcore combat does not auto-stop when food runs out; you can die, including while offline. Death is permanent (delete or roll over to Standard).",
+          "Both modes have a manual Eat button in combat and Shadow Arts that consumes one serving of your selected food immediately, regardless of threshold or gating.",
+        ])}
+        ${renderSimpleTable(
+          "Hardcore auto-eat unlocks",
+          ["Boss dungeon first clears", "Thresholds unlocked"],
+          hcRows,
+        )}
       `,
     });
   }
@@ -5322,6 +5514,21 @@ function renderEfficiencyRow(row, headings) {
     else values.push(String(row[normalized] ?? row[heading] ?? "-"));
   }
   return `<tr>${values.map((value, index) => `<td data-label="${escapeHtml(headings[index])}">${escapeHtml(String(value))}</td>`).join("")}</tr>`;
+}
+
+function scrollToCategorySection(category) {
+  // Picking a specific category should bring its section into view, past the
+  // hero, filters, and planner tools that sit above the content list.
+  if (!category || category === "all") {
+    return;
+  }
+  // Defer to the next frame so the freshly-rendered section exists in the DOM.
+  requestAnimationFrame(() => {
+    const target = document.getElementById(`section-${category}`);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 }
 
 function populateCategories() {
