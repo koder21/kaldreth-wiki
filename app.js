@@ -2113,15 +2113,12 @@ function describeSkillAffinity(skillId, skillFile, gameStateFile) {
     return [];
   }
 
-  // Newer builds carry a flat per-skill affinity XP rate; older exports still
-  // expose the single global rate. Describe whichever this data has.
+  // Affinity XP is a flat per-action amount set per skill, not a share of the
+  // action's skill XP.
   const flatRate = Number(skillFile.AFFINITY_XPA_PER_SKILL?.[skillId] || 0);
-  const globalRate = Number(skillFile.AFFINITY_XP_RATE || 0);
   const intro = flatRate
     ? `Every node, recipe, or mark levels its own affinity track, earning ${formatNumber(flatRate)} affinity XP per action.`
-    : globalRate
-      ? `Every node, recipe, or mark levels its own affinity track, earning ${formatPercent(globalRate)} of the action's skill XP as affinity XP.`
-      : "Every node, recipe, or mark levels its own affinity track.";
+    : "Every node, recipe, or mark levels its own affinity track.";
 
   return [
     intro,
@@ -3485,8 +3482,10 @@ function buildMechanicEntries(
     spoiler: false,
     metrics: [
       {
-        label: "Affinity XP rate",
-        value: `${formatPercent(Number(skillFile.AFFINITY_XP_RATE || 0))}`,
+        label: "Affinity skills",
+        value: formatNumber(
+          Object.keys(skillFile.AFFINITY_XPA_PER_SKILL || {}).length,
+        ),
       },
       { label: "Burn baseline", value: "50% at equal player/recipe level" },
     ],
@@ -3674,7 +3673,16 @@ function buildMechanicEntries(
   const num = (value) => formatNumber(Number(value || 0));
 
   // ── Affinity system ────────────────────────────────────────────────
-  const affinityXpRate = Number(skillFile.AFFINITY_XP_RATE || 0);
+  // Affinity XP is a flat per-action amount that varies by skill; skills absent
+  // from the map (combat, Fracture Arts, Meditation, Adventurer) have no
+  // affinity system at all.
+  const affinityXpaBySkill = skillFile.AFFINITY_XPA_PER_SKILL || {};
+  const affinityXpaRows = Object.entries(affinityXpaBySkill)
+    .map(([skillId, xpa]) => [
+      skillFile.SKILL_LABELS?.[skillId] || titleizeId(skillId),
+      `${formatNumber(Number(xpa))} affinity XP per action`,
+    ])
+    .sort((left, right) => left[0].localeCompare(right[0]));
   const affinityRows = [
     [
       "All gathering",
@@ -3787,15 +3795,21 @@ function buildMechanicEntries(
     sortKey: "mechanics affinity system",
     spoiler: false,
     metrics: [
-      { label: "Affinity XP rate", value: pct(affinityXpRate) },
+      {
+        label: "Skills with affinity",
+        value: formatNumber(affinityXpaRows.length),
+      },
       { label: "Tracked per", value: "Node / recipe / target" },
       { label: "Milestones", value: "Aff 25 & 50" },
     ],
     body: `
       ${renderDetailBlock("How affinity works", [
-        `Every gathering node, artisan recipe, and shadow target builds its own Affinity track, earning XP at ${pct(affinityXpRate)} of the action's skill XP.`,
+        "Every gathering node, artisan recipe, and shadow target builds its own Affinity track, earning a flat amount of affinity XP each time you complete that action.",
         "Affinity raises that specific action's bonuses — it is separate from your skill level. Some bonuses scale per affinity level up to a cap; others unlock at the Affinity 25 and 50 milestones.",
+        "Affinity uses a much gentler curve than skill levels: roughly 116,000 total XP to affinity 99, against ~9.7M for skill 99.",
+        "Skills not listed below — the combat skills, Fracture Arts, Meditation, and Adventurer — have no affinity system.",
       ])}
+      ${renderKeyedTable("Affinity XP per action", affinityXpaRows)}
       ${renderSimpleTable("Affinity bonuses by skill", ["Skill", "Bonus", "Scaling", "Cap / best"], affinityRows)}
     `,
   });
