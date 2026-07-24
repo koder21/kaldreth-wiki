@@ -4,6 +4,10 @@ const PERCENT = new Intl.NumberFormat("en-US", {
   style: "percent",
   maximumFractionDigits: 1,
 });
+const PRECISE_PERCENT = new Intl.NumberFormat("en-US", {
+  style: "percent",
+  maximumFractionDigits: 2,
+});
 const DECIMAL = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 const PRESET_STORAGE_KEY = "kaldreth_wiki_presets_v1";
 const TOUR_STORAGE_KEY = "kaldreth_wiki_tour_done_v1";
@@ -61,6 +65,131 @@ const SECTION_LORE = {
   titles: "The names Aetheria has earned you.",
   mechanics: "The rules the Architects wrote into the world.",
   patches: "How Aetheria has changed, build by build.",
+};
+
+// Skills cap at 99 (VisualIdentity._SKILL_LEVEL_CAP).
+const SKILL_LEVEL_CAP = 99;
+
+// Per-skill reference copy for the skill codex. `what` answers "what is this
+// skill for", `train` answers "how do I actually gain XP in it", and `aliases`
+// widens the search net so a player searching "logs" or "thieving" still lands
+// on the right card. Everything numeric is derived from the data files instead
+// — only prose lives here.
+const SKILL_CODEX = {
+  mining: {
+    role: "Gathering",
+    aliases: "ore rock pickaxe prospect smelting quarry",
+    what: "Breaks ore out of rock nodes across Aetheria's regions. Ore is the front of the Smithing chain, so nearly every bar — and therefore nearly every piece of melee gear — starts at a Mining node.",
+    train:
+      "Pick the highest node you meet the level for and leave it running. Each action takes a fixed number of seconds for flat XP, so your XP/hour is decided almost entirely by which node you can reach.",
+  },
+  woodcutting: {
+    role: "Gathering",
+    aliases: "felling woodcutting logs trees axe chopping bark",
+    what: "Fells trees for logs. Logs feed Cooking fires and the Wardcraft tracks, and the higher-tier logs show up repeatedly as contract and quest turn-ins.",
+    train:
+      "Chop the best log you have the level for. Node speed and XP are fixed per tree, so upgrading to the next unlocked tree is always the jump in XP/hour.",
+  },
+  fishing: {
+    role: "Gathering",
+    aliases: "fish rod bait catch angling",
+    what: "Pulls fish out of Aetheria's waters. Fish are the raw input for Cooking, and the leatherwork track of Wardcraft consumes several of them directly.",
+    train:
+      "Fish the highest spot you can reach. Fishing also rolls double catches and failed attempts, so its real rate drifts a little from the flat table below.",
+  },
+  spirit_harvesting: {
+    role: "Gathering",
+    aliases:
+      "shard gleaning spirit harvesting dust resonance nodes reagents gleaner",
+    what: "Draws shard dust and spirit reagents out of the resonance nodes the Fracture left behind. Its output is what Spiritweaving and the clothwork track of Wardcraft are built on.",
+    train:
+      "Work the highest-tier resonance node you have unlocked. Gleaning is the main supply line for two artisan skills, so it is rarely wasted time.",
+  },
+  smithing: {
+    role: "Artisan",
+    aliases: "smith forge bars smelt anvil hammer armour weapons blueprints",
+    what: "Smelts ore into bars, then beats bars into gear. Bars unlock in tiers by level, and each tier carries a full blueprint set — helm through weapon.",
+    train:
+      "Smelt bars from the recipe list, or spend bars on gear blueprints. Bars are the cheaper XP; blueprints are where the bars go.",
+  },
+  cooking: {
+    role: "Artisan",
+    aliases: "cook food fire burn heal rations meals",
+    what: "Turns raw fish and ingredients into food that restores HP mid-combat. Food is the thing that makes long unattended combat sessions survivable.",
+    train:
+      "Cook the best recipe you have stock for. Low-level cooks burn food and lose the input; burn chance falls as that recipe's affinity climbs.",
+  },
+  spiritweaving: {
+    role: "Artisan",
+    aliases: "weave spirit focus reagents loom threads",
+    what: "Weaves harvested shard material into the spirit reagents and focuses that Fracture Arts and Wardcraft consume.",
+    train:
+      "Weave the highest recipe your Shard Gleaning stock supports. It is the middle link of the spirit economy — gleaning feeds it, Wardcraft drains it.",
+  },
+  crafting: {
+    role: "Artisan",
+    aliases: "wardcraft craft clothwork leatherwork wards charms tracks",
+    what: "Builds wards, focuses, and worn gear along parallel material tracks — clothwork, leatherwork, and more — each with its own tier ladder and base material.",
+    train:
+      "Each track gates separately by level, so the fastest route is usually whichever track's base material you already have stockpiled.",
+  },
+  shadow_arts: {
+    role: "Roguish",
+    aliases: "shadow arts thieving steal pickpocket marks stealth stun",
+    what: "Period-based theft rather than a repeated action. You choose a mark and attempts resolve on a cooldown, each with its own success chance — and a failure can stun you out of the next window.",
+    train:
+      "Work the highest-level mark whose success chance is still reasonable. Success rate, cooldown, and stun length all improve with level and with that mark's affinity.",
+  },
+  magic: {
+    role: "Combat / Casting",
+    aliases: "fracture arts magic spells runes casting mage staff",
+    what: "Doubles as a combat style and a casting discipline. In combat your Fracture Arts level drives hit chance and max hit; out of combat it burns reagents to bind runes.",
+    train:
+      "Cast runes for steady flat XP, or fight using the Magic combat style to train it off tick damage. Rune casting consumes its reagent every action.",
+  },
+  attack: {
+    role: "Combat",
+    aliases: "attack accuracy melee hit chance fighting",
+    what: "Decides how often your melee hits land. It does not raise damage on its own — that is Strength — but a miss deals nothing at all.",
+    train:
+      "Fight using the Attack combat style. XP comes from damage dealt per tick, so stronger monsters train it faster.",
+  },
+  strength: {
+    role: "Combat",
+    aliases: "strength max hit damage power melee",
+    what: "Sets your melee max hit — the top of your damage range on every landed swing.",
+    train:
+      "Fight using the Strength combat style. Like all combat skills it earns XP from damage dealt, so pair it with gear that raises your max hit.",
+  },
+  defence: {
+    role: "Combat",
+    aliases: "defence defense armour mitigation tank damage taken",
+    what: "Cuts the damage you take. It is what keeps unattended and offline combat from ending in a respawn and a gold loss.",
+    train:
+      "Fight using the Defence combat style. Slower to level than the offensive styles, but it is what lets you park on higher-tier monsters.",
+  },
+  hp: {
+    role: "Combat",
+    aliases: "hitpoints hp health constitution life regen",
+    what: "Your health pool and how fast it regenerates. A bigger pool means longer unattended fights before food or a respawn.",
+    train:
+      "Trains passively from every combat style at once — you cannot train it directly, and it climbs the whole time you fight.",
+  },
+  meditation: {
+    role: "Support",
+    aliases: "meditate meditation focus mastery points cinematics memory rest",
+    what: "A cooldown skill rather than an action skill, and the main source of Mastery Point rolls. It also gates the cinematic memory story and appears as a requirement on more quests than any other skill.",
+    train:
+      "Sessions are gated by a cooldown (60s base, reducible by gear and the skill tree). XP per session scales with your Meditation level, so it accelerates as it climbs.",
+  },
+  adventurer: {
+    role: "Progression",
+    aliases:
+      "adventurer contracts hall quartermaster streaks pathfinder seals reputation",
+    what: "Levels off completed Adventurer's Hall contracts. Your Adventurer level sets which contracts are offered, how much gold they pay, and how far the streak bonuses reach.",
+    train:
+      "Complete contracts. XP uses an effective level window so a single maxed unrelated skill cannot vault a fresh Adventurer up the ladder.",
+  },
 };
 
 const BUILD_FOCUS_VALUES = ["attack", "magic", "defence"];
@@ -735,6 +864,10 @@ function buildModel(data) {
     state.data,
     milestones,
     skillTreeBranches,
+    monsterFile,
+    autoPassives,
+    quests,
+    milestoneFile.SKILL_MILESTONES || [],
   );
   const itemEntries = buildItemEntries(
     items,
@@ -1622,12 +1755,391 @@ function buildMonsterEntries(monsters, itemFile, playerCombatProfile) {
   });
 }
 
+// Every repeatable action that trains a skill, flattened to a common shape so
+// the XP table can ask "what is the best thing I can do at level N".
+// Meditation is deliberately absent: its XP scales with your level rather than
+// with the action, so it is modelled in skillActionAtLevel instead.
+function buildSkillActionCatalog(skillId, skillFile, gameStateFile) {
+  const actions = [];
+  for (const node of skillFile.GATHERING_NODES?.[skillId] || []) {
+    actions.push({
+      name: node.name || node.id,
+      level: Number(node.level || 1),
+      xp: Number(node.xp_per_action || 0),
+      seconds: Number(node.seconds_per_action || 0),
+    });
+  }
+  for (const recipe of skillFile.ARTISAN_RECIPES?.[skillId] || []) {
+    actions.push({
+      name: recipe.name || recipe.id,
+      level: Number(recipe.level || 1),
+      xp: Number(recipe.xp_per_action || 0),
+      seconds: Number(recipe.seconds || recipe.seconds_per_action || 0),
+    });
+  }
+  if (skillId === "shadow_arts") {
+    for (const target of Object.values(
+      gameStateFile?._shadow_target_defs_data || {},
+    )) {
+      actions.push({
+        name: target.name,
+        level: Number(target.level || 1),
+        xp: Number(target.xp || 0),
+        // Steals resolve on a period; a failed attempt still burns the window,
+        // so this is an optimistic (100%-success) rate.
+        seconds: Number(target.period_seconds || 0),
+        successChance: Number(target.base_success || 0),
+      });
+    }
+  }
+  return actions.filter((action) => action.xp > 0 && action.seconds > 0);
+}
+
+// Best XP/hour action available to a player at `level`, or null when the skill
+// has no action model (combat skills, Adventurer).
+function skillActionAtLevel(skillId, catalog, level, gameStateFile) {
+  if (skillId === "meditation") {
+    const seconds = Number(gameStateFile?.MEDITATION_COOLDOWN_SECONDS || 60);
+    return {
+      name: "Meditation session",
+      level: 1,
+      // GameState.meditate(): (25 + floor(level * 2)) * 2
+      xp: (25 + Math.floor(level * 2)) * 2,
+      seconds,
+    };
+  }
+  let best = null;
+  for (const action of catalog) {
+    if (action.level > level) {
+      continue;
+    }
+    if (!best || action.xp / action.seconds > best.xp / best.seconds) {
+      best = action;
+    }
+  }
+  return best;
+}
+
+// Full 2..99 XP table. Columns after "Total XP" are only meaningful for skills
+// with an action model, so they are dropped entirely for combat/Adventurer.
+function buildSkillXpTable(skillId, catalog, gameStateFile) {
+  const hasActions = catalog.length > 0 || skillId === "meditation";
+  const headings = ["Level", "XP for level", "Total XP"];
+  if (hasActions) {
+    headings.push("Best action at previous level", "Actions", "Time");
+  }
+  const rows = [];
+  for (let level = 2; level <= SKILL_LEVEL_CAP; level += 1) {
+    const total = xpForLevel(level);
+    const delta = total - xpForLevel(level - 1);
+    const row = [formatNumber(level), formatNumber(delta), formatNumber(total)];
+    if (hasActions) {
+      const action = skillActionAtLevel(
+        skillId,
+        catalog,
+        level - 1,
+        gameStateFile,
+      );
+      if (action) {
+        const count = Math.ceil(delta / action.xp);
+        row.push(
+          action.name,
+          formatNumber(count),
+          formatDuration((count * action.seconds) / 3600),
+        );
+      } else {
+        row.push("-", "-", "-");
+      }
+    }
+    rows.push(row);
+  }
+  return { headings, rows };
+}
+
+// Everything gated behind a level in this skill, collapsed into one timeline:
+// nodes, recipes, tier ladders, marks, milestones, passives, capstone gear and
+// the quests that ask for the level.
+function buildSkillUnlockTimeline({
+  skillId,
+  skillFile,
+  itemFile,
+  gameStateFile,
+  milestones,
+  passives,
+  quests,
+}) {
+  const items = itemFile.ITEMS || {};
+  const labels = skillFile.SKILL_LABELS || {};
+  const itemName = (id) => items[id]?.name || titleizeId(id);
+  const unlocks = [];
+  const add = (level, kind, text) => {
+    const numeric = Number(level);
+    if (Number.isFinite(numeric) && numeric > 0) {
+      unlocks.push({ level: numeric, kind, text });
+    }
+  };
+
+  for (const node of skillFile.GATHERING_NODES?.[skillId] || []) {
+    const cost = Object.entries(node.requires || {})
+      .map(([id, qty]) => `${itemName(id)} x${qty}`)
+      .join(", ");
+    add(
+      node.level,
+      "Node",
+      `${node.name || node.id} — ${formatNumber(Number(node.xp_per_action || 0))} XP / ${formatDecimal(Number(node.seconds_per_action || 0))}s → ${itemName(node.item_yield)}${cost ? ` (uses ${cost})` : ""}`,
+    );
+  }
+
+  for (const recipe of skillFile.ARTISAN_RECIPES?.[skillId] || []) {
+    const output = recipe.produces || recipe.item_yield || recipe.id;
+    const inputs = Object.entries(recipe.requires || {})
+      .map(([id, qty]) => `${itemName(id)} x${qty}`)
+      .join(", ");
+    add(
+      recipe.level,
+      "Recipe",
+      `${recipe.name || itemName(output)} — ${formatNumber(Number(recipe.xp_per_action || 0))} XP / ${formatDecimal(Number(recipe.seconds || recipe.seconds_per_action || 0))}s → ${itemName(output)}${inputs ? ` (uses ${inputs})` : ""}`,
+    );
+  }
+
+  if (skillId === "smithing") {
+    for (const tier of skillFile.SMITHING_TIER_BARS || []) {
+      add(
+        tier.level,
+        "Tier",
+        `${titleizeId(tier.tier)} smithing tier — ${itemName(tier.bar)} and its gear blueprints`,
+      );
+    }
+  }
+
+  if (skillId === "crafting") {
+    for (const [track, tiers] of Object.entries(
+      skillFile.CRAFTING_TRACK_TIERS || {},
+    )) {
+      for (const tier of tiers || []) {
+        add(
+          tier.level,
+          "Tier",
+          `${titleizeId(track)} — ${titleizeId(tier.tier)} tier (base material ${itemName(tier.material)})`,
+        );
+      }
+    }
+  }
+
+  if (skillId === "shadow_arts") {
+    for (const target of Object.values(
+      gameStateFile?._shadow_target_defs_data || {},
+    )) {
+      add(
+        target.level,
+        "Mark",
+        `${target.name} (${target.area}) — ${formatNumber(Number(target.xp || 0))} XP every ${formatDecimal(Number(target.period_seconds || 0))}s, ${formatPercent(Number(target.base_success || 0))} base success`,
+      );
+    }
+  }
+
+  for (const milestone of milestones || []) {
+    const perks = [
+      `${formatNumber(Number(milestone.gold || 0))} gold`,
+      milestone.xp_bonus
+        ? `+${formatPercent(Number(milestone.xp_bonus))} ${labels[skillId] || skillId} XP`
+        : null,
+      milestone.mastery ? "Mastery reward" : null,
+    ].filter(Boolean);
+    add(milestone.level, "Milestone", perks.join(" · "));
+  }
+
+  for (const passive of passives || []) {
+    if (passive.trigger !== "skill_level" || passive.skill !== skillId) {
+      continue;
+    }
+    add(passive.threshold, "Passive", `${passive.name} — ${passive.desc}`);
+  }
+
+  for (const gear of gameStateFile?.MASTERY_STORE_DEFS || []) {
+    if (gear.skill_id !== skillId) {
+      continue;
+    }
+    add(
+      gear.level_required,
+      "Mastery store",
+      `${itemName(gear.item_id)} — ${gear.summary}`,
+    );
+  }
+
+  for (const quest of quests || []) {
+    const required = quest.requirements?.skillLevels?.[skillId];
+    if (required) {
+      add(required, "Quest", `${quest.name} requires this level`);
+    }
+  }
+
+  unlocks.sort(
+    (left, right) =>
+      left.level - right.level ||
+      left.kind.localeCompare(right.kind) ||
+      left.text.localeCompare(right.text),
+  );
+  return unlocks;
+}
+
+// Affinity is per-action mastery (each node/recipe/mark levels its own track)
+// and only exists for the skills listed in AFFINITY_XPA_PER_SKILL. Perk values
+// live as constants on GameState.
+function describeSkillAffinity(skillId, skillFile, gameStateFile) {
+  const perLevel = (value, max, label) => {
+    const rate = Number(gameStateFile?.[value] || 0);
+    const cap = Number(gameStateFile?.[max] || 0);
+    if (!rate) {
+      return null;
+    }
+    return `${label}: +${formatSmallPercent(rate)} per affinity level, capped at ${formatPercent(cap)}.`;
+  };
+  const perks = {
+    mining: [
+      perLevel(
+        "MINING_AFFINITY_PROSPECT_CHANCE_PER_LEVEL",
+        "MINING_AFFINITY_PROSPECT_CHANCE_MAX",
+        "Prospect chance",
+      ),
+    ],
+    woodcutting: [
+      perLevel(
+        "WOODCUTTING_AFFINITY_DOUBLE_YIELD_CHANCE_PER_LEVEL",
+        "WOODCUTTING_AFFINITY_DOUBLE_YIELD_CHANCE_MAX",
+        "Double log chance",
+      ),
+      perLevel(
+        "WOODCUTTING_AFFINITY_BARK_CHANCE_PER_LEVEL",
+        "WOODCUTTING_AFFINITY_BARK_CHANCE_MAX",
+        "Bark chance",
+      ),
+    ],
+    fishing: [
+      perLevel(
+        "FISHING_AFFINITY_DOUBLE_CATCH_CHANCE_PER_LEVEL",
+        "FISHING_AFFINITY_DOUBLE_CATCH_CHANCE_MAX",
+        "Double catch chance",
+      ),
+      perLevel(
+        "FISHING_AFFINITY_SUCCESS_BONUS_PER_LEVEL",
+        "FISHING_AFFINITY_SUCCESS_BONUS_MAX",
+        "Catch success",
+      ),
+    ],
+    smithing: [
+      perLevel(
+        "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL",
+        "SMITHING_AFFINITY_EFFICIENCY_MAX",
+        "Material efficiency",
+      ),
+    ],
+    cooking: [
+      perLevel(
+        "COOKING_AFFINITY_BURN_REDUCTION_PER_LEVEL",
+        "COOKING_AFFINITY_BURN_REDUCTION_MAX",
+        "Burn reduction",
+      ),
+    ],
+    spiritweaving: [
+      perLevel(
+        "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_PER_LEVEL",
+        "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_MAX",
+        "Shadow bleed",
+      ),
+    ],
+    shadow_arts: [
+      perLevel(
+        "SHADOW_AFFINITY_SUCCESS_BONUS_PER_LEVEL",
+        "SHADOW_AFFINITY_SUCCESS_BONUS_MAX",
+        "Steal success",
+      ),
+      perLevel(
+        "SHADOW_AFFINITY_COOLDOWN_REDUCTION_PER_LEVEL",
+        "SHADOW_AFFINITY_COOLDOWN_REDUCTION_MAX",
+        "Cooldown reduction",
+      ),
+      perLevel(
+        "SHADOW_AFFINITY_STUN_REDUCTION_PER_LEVEL",
+        "SHADOW_AFFINITY_STUN_REDUCTION_MAX",
+        "Stun reduction",
+      ),
+    ],
+  };
+
+  const milestones = {
+    spirit_harvesting: [
+      `Affinity 25: +${formatNumber(Number(gameStateFile?.SPIRIT_AFFINITY_BONUS_XP_25 || 0))} bonus XP per action.`,
+      `Affinity 50: +${formatNumber(Number(gameStateFile?.SPIRIT_AFFINITY_BONUS_XP_50 || 0))} bonus XP per action.`,
+    ],
+    crafting: [
+      `Affinity 25: +${formatPercent(Number(gameStateFile?.CRAFTING_AFFINITY_SELL_BONUS_25 || 0))} sell price on that item.`,
+      `Affinity 50: +${formatPercent(Number(gameStateFile?.CRAFTING_AFFINITY_SELL_BONUS_50 || 0))} sell price on that item.`,
+    ],
+    shadow_arts: [
+      `Affinity 50: +${formatPercent(Number(gameStateFile?.SHADOW_AFFINITY_MILESTONE_SUCCESS_50 || 0))} steal success on that mark.`,
+    ],
+  };
+
+  const isGathering = (skillFile.GATHERING_SKILLS || []).includes(skillId);
+  const isArtisan = Boolean(skillFile.ARTISAN_RECIPES?.[skillId]);
+  const speedPrefix = isGathering
+    ? "GATHERING_AFFINITY"
+    : isArtisan
+      ? "ARTISAN_AFFINITY"
+      : null;
+  const speedLines = speedPrefix
+    ? [
+        `Affinity 25: +${formatPercent(Number(gameStateFile?.[`${speedPrefix}_MILESTONE_SPEED_25`] || 0))} action speed.`,
+        `Affinity 50: +${formatPercent(Number(gameStateFile?.[`${speedPrefix}_MILESTONE_SPEED_50`] || 0))} action speed.`,
+      ]
+    : [];
+  if (isArtisan) {
+    speedLines.push(
+      perLevel(
+        "ARTISAN_AFFINITY_DOUBLE_OUTPUT_CHANCE_PER_LEVEL",
+        "ARTISAN_AFFINITY_DOUBLE_OUTPUT_CHANCE_MAX",
+        "Double output chance",
+      ),
+    );
+  }
+
+  const lines = [
+    ...(perks[skillId] || []),
+    ...speedLines,
+    ...(milestones[skillId] || []),
+  ].filter(Boolean);
+  if (!lines.length) {
+    return [];
+  }
+
+  // Newer builds carry a flat per-skill affinity XP rate; older exports still
+  // expose the single global rate. Describe whichever this data has.
+  const flatRate = Number(skillFile.AFFINITY_XPA_PER_SKILL?.[skillId] || 0);
+  const globalRate = Number(skillFile.AFFINITY_XP_RATE || 0);
+  const intro = flatRate
+    ? `Every node, recipe, or mark levels its own affinity track, earning ${formatNumber(flatRate)} affinity XP per action.`
+    : globalRate
+      ? `Every node, recipe, or mark levels its own affinity track, earning ${formatPercent(globalRate)} of the action's skill XP as affinity XP.`
+      : "Every node, recipe, or mark levels its own affinity track.";
+
+  return [
+    intro,
+    "Affinity uses a much gentler curve than skill levels — roughly 116,000 total XP to affinity 99, against ~9.7M for skill 99.",
+    ...lines,
+  ];
+}
+
 function buildSkillEntries(
   skillFile,
   itemFile,
   wikiData,
   milestoneLore,
   skillTreeBranches,
+  gameStateFile,
+  autoPassives,
+  quests,
+  skillMilestones,
 ) {
   const allSkills = skillFile.ALL_SKILLS || [];
   const labels = skillFile.SKILL_LABELS || {};
@@ -1711,20 +2223,52 @@ function buildSkillEntries(
         .slice()
         .filter((entry) => Number.isFinite(entry.gpPerXp))
         .sort((left, right) => right.gpPerXp - left.gpPerXp)[0] || null;
+    const codex = SKILL_CODEX[skillId] || {};
+    const catalog = buildSkillActionCatalog(skillId, skillFile, gameStateFile);
+    const xpTable = buildSkillXpTable(skillId, catalog, gameStateFile);
+    const unlocks = buildSkillUnlockTimeline({
+      skillId,
+      skillFile,
+      itemFile,
+      gameStateFile,
+      milestones: skillMilestones,
+      passives: autoPassives,
+      quests,
+    });
+    const affinityLines = describeSkillAffinity(
+      skillId,
+      skillFile,
+      gameStateFile,
+    );
+    const treeBranch = (skillTreeBranches || []).find(
+      (branch) => branch.id === skillId,
+    );
+    const totalXpToCap = xpForLevel(SKILL_LEVEL_CAP);
+
     const searchText = [
       skillId,
       name,
+      codex.role,
+      codex.aliases,
+      codex.what,
+      codex.train,
+      // Let a player find the skill by anything gated behind it — a capstone
+      // item, a mark, a quest name — not just the skill's own name.
+      ...unlocks.map((unlock) => `${unlock.kind} ${unlock.text}`),
       ...nodeRows.map((row) => row.name),
       ...recipeRows.map((row) => row.name),
       bestXp?.name,
       bestGp?.name,
       bestRatio?.name,
+      "xp table levels unlocks requirements skill guide",
     ]
       .map(normalizeSearchText)
       .join(" ");
-    const lore = milestoneLore?.[skillId]
-      ? renderValue(milestoneLore[skillId])
-      : "";
+    // SKILL_MILESTONE_LORE is keyed level -> line. renderSimpleTable escapes
+    // its own cells, so pass the raw strings rather than pre-rendered HTML.
+    const loreRows = Object.entries(milestoneLore?.[skillId] || {})
+      .map(([level, line]) => [Number(level), String(line)])
+      .sort((left, right) => left[0] - right[0]);
 
     return {
       kind: "Skill",
@@ -1732,20 +2276,27 @@ function buildSkillEntries(
       id: skillId,
       name,
       title: name,
-      subtitle: isGathering
-        ? "Gathering"
-        : isArtisan
-          ? "Artisan"
-          : "Combat / progression",
+      subtitle:
+        codex.role ||
+        (isGathering ? "Gathering" : isArtisan ? "Artisan" : "Progression"),
       badges: [
         isGathering ? "gathering" : null,
         isArtisan ? "artisan" : null,
+        affinityLines.length ? "affinity" : null,
         labels[skillId] ? labels[skillId] : null,
       ].filter(Boolean),
       searchText,
       sortKey: name.toLowerCase(),
       spoiler: false,
       metrics: [
+        { label: "Level cap", value: formatNumber(SKILL_LEVEL_CAP) },
+        {
+          label: `Total XP to ${SKILL_LEVEL_CAP}`,
+          value: formatNumber(totalXpToCap),
+        },
+        unlocks.length
+          ? { label: "Level unlocks", value: formatNumber(unlocks.length) }
+          : null,
         bestXp
           ? {
               label: "Best XP/hr",
@@ -1764,15 +2315,48 @@ function buildSkillEntries(
       ].filter(Boolean),
       body: `
         <div class="grid-2">
-          <div class="stat-box"><strong>Type</strong><span>${escapeHtml(isGathering ? "Gathering" : isArtisan ? "Artisan" : "Combat / progression")}</span></div>
-          <div class="stat-box"><strong>Label</strong><span>${escapeHtml(labels[skillId] || skillId)}</span></div>
+          <div class="stat-box"><strong>Type</strong><span>${escapeHtml(codex.role || (isGathering ? "Gathering" : isArtisan ? "Artisan" : "Progression"))}</span></div>
+          <div class="stat-box"><strong>In-game name</strong><span>${escapeHtml(labels[skillId] || skillId)}</span></div>
         </div>
+        ${
+          codex.what
+            ? `<div class="note-box"><strong>What it does</strong><span>${escapeHtml(codex.what)}</span></div>`
+            : ""
+        }
+        ${
+          codex.train
+            ? `<div class="note-box"><strong>How you train it</strong><span>${escapeHtml(codex.train)}</span></div>`
+            : ""
+        }
+        ${
+          treeBranch
+            ? `<div class="note-box"><strong>Skill tree</strong><span>Has its own ${escapeHtml(treeBranch.name)} branch in the Mastery tree.</span></div>`
+            : ""
+        }
         ${bestXp ? renderStatSummary("Best XP/hour", bestXp.name, `${formatNumber(bestXp.xpPerHour)} XP/hr`) : ""}
         ${bestGp ? renderStatSummary("Best GP/hour", bestGp.name, `${formatNumber(bestGp.gpPerHour)} gp/hr`) : ""}
         ${bestRatio ? renderStatSummary("Best GP per XP", bestRatio.name, formatDecimal(bestRatio.gpPerXp)) : ""}
+        ${renderSimpleTable(
+          `Unlocks by level (${unlocks.length})`,
+          ["Level", "Type", "Unlocks"],
+          unlocks.map((unlock) => [unlock.level, unlock.kind, unlock.text]),
+          { open: false },
+        )}
+        ${renderSimpleTable(
+          `XP table — levels 2 to ${SKILL_LEVEL_CAP}`,
+          xpTable.headings,
+          xpTable.rows,
+          { open: false },
+        )}
+        ${affinityLines.length ? renderDetailBlock("Affinity", affinityLines) : ""}
         ${isGathering ? renderEfficiencyTable("Gathering nodes", nodeRows, ["Level", "XP/action", "Seconds", "Output", "XP/hr", "GP/hr"]) : ""}
         ${isArtisan ? renderEfficiencyTable("Artisan recipes", recipeRows, ["Level", "XP/action", "Seconds", "Output", "Input cost", "Profit/action", "XP/hr", "GP/hr", "GP/XP"]) : ""}
-        ${lore ? renderDetailBlock("Milestone lore", [lore]) : ""}
+        ${renderSimpleTable(
+          "Milestone lore",
+          ["Level", "Lore"],
+          loreRows,
+          { open: false },
+        )}
       `,
       efficiency,
     };
@@ -6075,6 +6659,12 @@ function formatDecimal(value) {
 
 function formatPercent(value) {
   return PERCENT.format(Number(value || 0));
+}
+
+// Per-level affinity rates are fractions of a percent (0.0035 -> 0.35%), which
+// the 1-decimal PERCENT formatter would round away.
+function formatSmallPercent(value) {
+  return PRECISE_PERCENT.format(Number(value || 0));
 }
 
 function formatAtLeastOneChance(totalChance, singleChance) {
