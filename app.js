@@ -43,6 +43,7 @@ const SECTION_ORDER = [
   ["achievements", "Achievements"],
   ["titles", "Titles"],
   ["mechanics", "Mechanics"],
+  ["roadmap", "Roadmap"],
   ["patches", "Patch Notes"],
 ];
 
@@ -64,6 +65,7 @@ const SECTION_LORE = {
   achievements: "Milestones the world will remember you by.",
   titles: "The names Aetheria has earned you.",
   mechanics: "The rules the Architects wrote into the world.",
+  roadmap: "What is coming to Aetheria next — and in what order.",
   patches: "How Aetheria has changed, build by build.",
 };
 
@@ -191,6 +193,288 @@ const SKILL_CODEX = {
       "Complete contracts. XP uses an effective level window so a single maxed unrelated skill cannot vault a fresh Adventurer up the ladder.",
   },
 };
+
+// Planned releases in shipping order. Everything here is design-stage and can
+// change before release, which every card says out loud. Story hooks are kept
+// in a separate `hook` field so they can be rendered behind a collapsed spoiler
+// guard — the roadmap should be readable without spoiling the base game.
+const ROADMAP_DISCLAIMER =
+  "Everything on this page is planned, not promised. Content, names, and numbers are still in design and can change before release.";
+
+const ROADMAP = [
+  {
+    id: "frostmere",
+    order: 1,
+    name: "Frostmere",
+    tagline: "The far north, and the scars that never closed",
+    status: "Next up — in development",
+    access: "Free base game update — no purchase",
+    levelCap: "99 (unchanged)",
+    unlock: "Opens after the aftermath arc ends with Sovereign's Burden.",
+    hook: "The base game closes the Architect circuit and the hum stops. Frostmere is the coda: the north never went quiet. The deepest Fracture scars in the known world run for kilometres under the permafrost, and the Greyfen Scholars have been mapping them for eleven years without finding the bottom. Eight months ago something started coming up.",
+    zones: [
+      [
+        "Frostmere",
+        "A frozen tundra northwest of Caelmora, beyond the Ironback Mountains. Resonance nodes here do not hum — they pulse, silently. At dusk the sky shows branching lines of light the scholars call Fracture weather.",
+      ],
+      [
+        "Greyfen",
+        "A fortified research settlement of maybe four hundred, a third of them studying the scars. No inns, no taverns, no merchants in the usual sense — the Scholars share resources communally, and entering means demonstrating purpose rather than wealth.",
+      ],
+    ],
+    faction: {
+      name: "The Greyfen Scholars",
+      tagline: "The cold keeps you honest.",
+      desc: "Exiled Accord researchers who chose truth over comfort and built a settlement in the frozen north to prove it, led by the quietly formidable Seris Vael. They do not trust easily and they do not forgive betrayal at all. Reputation rewards lean into Shadow Arts XP and cooldown, Meditation XP, and a global XP bonus at the top tier.",
+    },
+    features: [
+      "A new six-quest story arc continuing past the base game's ending.",
+      "The Fracture Scar — a fifth boss dungeon against The Index. Requires all four existing dungeons cleared.",
+      "New Shadow Arts marks in and around Greyfen.",
+      "New gathering nodes, including Frostglass, plus new smithing, Wardcraft, and cooking recipes and the gear they produce.",
+      "New skill tree nodes, memory fragments, and achievements.",
+    ],
+    alongside: {
+      name: "Game-wide combat overhaul",
+      lines: [
+        "Ships alongside Frostmere and touches every region, not just the north.",
+        "The combat roster roughly triples — from 31 monsters to 95 or more, around ten per existing region plus a full Frostmere roster.",
+        "A new tier of Heavy Hitter enemies above level 100, and a capstone encounter for players who clear it.",
+        "A damage-reduction system with new defensive consumables, and a harder lean on the melee-defence versus magic-defence split so switching styles mid-fight actually pays.",
+      ],
+    },
+  },
+  {
+    id: "expansion-1",
+    order: 2,
+    name: "Expansion 1 — The Living Wilds",
+    tagline: "Whisperwood, and what the roots remember",
+    status: "Planned — first paid expansion",
+    access: "Paid expansion",
+    levelCap: "105",
+    unlock: "Follows the Frostmere arc.",
+    hook: "In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant — a faction predating the Accord — emerges to warn that what the Architects awakened underground is still active. Their leader's last message before going silent: \"The roots remember.\"",
+    zones: [
+      [
+        "Whisperwood",
+        "The main forest floor. Dense undergrowth, low visibility, ambient spirit-energy distortion.",
+      ],
+      [
+        "The Canopy",
+        "The upper treetop zone, reached by climbable growth. Elite enemies and patrol encounters, and where the higher tending plots live.",
+      ],
+      [
+        "The Root Warren",
+        "The underground root network beneath the forest, and the densest concentration of enemies in the expansion. Both bosses are found here, among Architect inscriptions.",
+      ],
+    ],
+    skills: [
+      [
+        "Root Lore",
+        "Gathering",
+        "Harvest wildflowers, fungi, bark, and roots from nodes across the Whisperwood and Canopy. Feeds Aetheric Tending, Alchemy, and Cooking.",
+      ],
+      [
+        "Aetheric Tending",
+        "Artisan",
+        "Plant herbs in soil plots that grow in real time and are harvested on your return — fully offline-friendly. Plot count scales with the skill, up to seven plots.",
+      ],
+      [
+        "Spiritbond",
+        "Passive / Combat",
+        "Bond with creatures of the Whisperwood. One active companion at a time, each giving passive combat or gathering bonuses and able to be sent on independent offline foraging runs.",
+      ],
+      [
+        "Alchemy",
+        "Artisan",
+        "Brew potions, tinctures, and elixirs — the game's first true consumable economy. Temporary buffs across gathering, combat, and artisan categories, one active per category.",
+      ],
+    ],
+    faction: {
+      name: "The Grove Covenant",
+      tagline: "The Whisperwood is an archive, not a resource.",
+      desc: "Ancient nature keepers predating the Accord by at least two centuries, who hold that spirit energy is the land's memory rather than a raw material. With Elder Vaethos silent, his second Warden Syrel is managing a mounting crisis and is cautiously willing to accept help.",
+    },
+    features: [
+      "A twenty-quest arc, The Root Remembers, across five acts.",
+      "Two bosses: The Hollow Root, and The Grove's Warden.",
+      "Enemies tuned for players at 99 in every combat skill with Resonite-tier gear — meaningfully harder than anything in the base game.",
+      "New skill tree branches for all four new skills, plus new nodes on existing branches as the cap rises.",
+    ],
+  },
+  {
+    id: "expansion-2",
+    order: 3,
+    name: "Expansion 2 — The Salt Accord",
+    tagline: "Tideward, and the harbour that kept trading",
+    status: "Planned",
+    access: "Paid expansion",
+    levelCap: "110",
+    unlock: "Requires Expansion 1.",
+    hook: "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage — but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
+    zones: [
+      [
+        "Tideward Harbor",
+        "The main port city and entry zone — human enemies, market access, and faction politics.",
+      ],
+      [
+        "The Open Shallows",
+        "Coastal waters beyond the harbour mouth, with sea creatures, cultists, and ten new fish species found nowhere else.",
+      ],
+      [
+        "The Drowned Ruins",
+        "A flooded Architect outpost beneath the harbour, reached through a submerged entrance. Both bosses are here.",
+      ],
+      [
+        "The Merchant's Isle",
+        "A fortified island seat of power, and the political flashpoint of the expansion's final act.",
+      ],
+    ],
+    skills: [
+      [
+        "Echomind",
+        "Passive",
+        "Earns XP on every monster kill, scaled by enemy difficulty. No active interaction — it levels in the background as you fight.",
+      ],
+      [
+        "Wayfaring",
+        "Exploration / Passive",
+        "Dispatch expeditions to charted destinations while idle. Set a route, come back later, collect the return. Higher levels open more distant and rewarding routes.",
+      ],
+      [
+        "Ironlock",
+        "Artisan",
+        "Craft ranged weapons and the ammunition that feeds them. Weapons persist; bullets are consumed on every attack, creating a live ore-to-ammunition supply chain.",
+      ],
+      [
+        "Deadeye",
+        "Combat",
+        "Ranged combat using Ironlock weapons, with three styles and a required ammunition supply. Running dry falls back to melee automatically.",
+      ],
+    ],
+    faction: {
+      name: "The Tide Merchants",
+      tagline: "Everything is negotiable, including the truth.",
+      desc: "A trading power split three ways — a guildmaster who wants a deal, a harbourmaster who wants outsiders gone, and an admiral running a resistance that answers to neither.",
+    },
+    features: [
+      "A twenty-quest arc, The Salt Accord, across five acts.",
+      "Two bosses: The Drowned Keeper, and Admiral Vael.",
+      "The first ranged combat line in the game, tuned for players around level 105.",
+    ],
+  },
+  {
+    id: "expansion-3",
+    order: 4,
+    name: "Expansion 3 — Drakenhollow",
+    tagline: "The first site, still running",
+    status: "Planned",
+    access: "Paid expansion",
+    levelCap: "115",
+    unlock: "Requires Expansion 2.",
+    hook: "The Architect Fragments, the Drowned Ruins, and the Grove Covenant's oldest records all converge on one place: a volcanic underground network beneath the Shrouded Peaks. It was not just a mine — it was the first site. The Architects did not discover Kaldreth. They built it. And the original construction engine is still running.",
+    zones: [
+      [
+        "The Ashfall Descent",
+        "The volcanic tunnel system down from the Shrouded Peaks, lined with centuries-stale Accord survey markers. The heat is manageable at first.",
+      ],
+      [
+        "Drakenhollow Proper",
+        "The main underground settlement, built over generations from Architect remnants and volcanic stone. Forge-pits, market stalls, and grudging hospitality.",
+      ],
+      [
+        "The Forge Caverns",
+        "The deep, partially Architect-operational forge complex. Spiritforging is only possible here, at temperatures no surface forge can match.",
+      ],
+      [
+        "The Origin Chamber",
+        "Sealed until the expansion's final acts. No one alive has stood inside it.",
+      ],
+    ],
+    skills: [
+      [
+        "Hollowing",
+        "Gathering",
+        "Precision digging for ancient materials and buried caches. Runs in fixed-duration dig sessions that end in a multi-item discovery, with a hidden chance to surface an equippable Relic.",
+      ],
+      [
+        "Spiritforging",
+        "Artisan",
+        "Combines Smithing bars with spirit materials to produce gear with active trigger effects — conditional bonuses that fire during combat rather than flat stats. The artisan endgame.",
+      ],
+      [
+        "Geomancy",
+        "Combat / Magic",
+        "An earth-and-fire magic school parallel to Fracture Arts but mechanically distinct: lava spells add damage over time, stone spells hit in burst.",
+      ],
+    ],
+    faction: {
+      name: "The Ashborne",
+      tagline: "Built from what the Architects left behind.",
+      desc: "The generations-old underground community that made Drakenhollow habitable, holding their ground against regular raids and extending hospitality only to outsiders who have earned it.",
+    },
+    features: [
+      "A twenty-quest arc, The First Breath, across five acts.",
+      "Fifteen new enemies and three bosses: The Smelter, Forge-Warden Korrath, and The Origin Engine.",
+    ],
+  },
+  {
+    id: "expansion-4",
+    order: 5,
+    name: "Expansion 4 — Oraewyn: The Fractured Sky",
+    tagline: "The capstone, and the people who have been watching",
+    status: "Planned — final expansion",
+    access: "Paid expansion",
+    levelCap: "120",
+    unlock: "Requires Expansion 3. Intended for players who have completed everything before it.",
+    hook: "The Origin Engine is not only a construction machine — it is a relay, and it has been broadcasting upward. Oraewyn, the floating island chain visible on clear days above the Shrouded Peaks, is where the signal goes. It is also where the original Architects came from. They have been watching.",
+    zones: [
+      [
+        "The Sky Ascent",
+        "The vertical route up to Oraewyn's lower edge — a Wayfaring route series with combat encounters at each altitude threshold. No one from the surface has climbed this high since before the Accord.",
+      ],
+      [
+        "Oraewyn Lowlands",
+        "The first solid ground on the islands, deliberately kept accessible as a buffer zone. The landscape is older and more deliberate than anything in Aetheria: built rather than grown.",
+      ],
+      [
+        "The Watcher's Spire",
+        "The Conclave's central structure — archives spanning centuries and instruments pointed at the surface. Every faction NPC you have met has a file here. So do you.",
+      ],
+      [
+        "The Threshold",
+        "The final zone. A circular chamber at the Spire's peak, open to the sky, built as a convergence point.",
+      ],
+    ],
+    skills: [
+      [
+        "Astromancy",
+        "Combat / Magic",
+        "The third and final magic school, drawn from star charts and orbital resonance. Spells key off celestial cycle windows and several require deep investment in Geomancy and Lorekeeper.",
+      ],
+      [
+        "Lorekeeper",
+        "Passive / Collection",
+        "Levels through discovery rather than active play — memory fragments, flagged Hollowing artifacts, rare achievements, and hidden zone finds. Milestones every ten levels unlock hidden lore entries and passive bonuses.",
+      ],
+      [
+        "Transcendence",
+        "Meta-system",
+        "A post-mastery prestige loop. Condense any skill at 99 or above to reset it to level 1 in exchange for a Transcendence Point, each granting a permanent global bonus that stacks. Nothing is locked away — all content stays available to re-earn.",
+      ],
+    ],
+    faction: {
+      name: "The Watcher Conclave",
+      tagline: "They have a file on you.",
+      desc: "The observers above the surface, split into two wings whose tension has been building for longer than the Fracture has existed.",
+    },
+    features: [
+      "A twenty-five-quest arc, The Fractured Sky — the longest in the game.",
+      "Sixteen new enemies and four bosses, ending with the Resonance Wraith and the Threshold itself.",
+      "A significant difficulty spike by design: every system built across four expansions has a moment of payoff here.",
+    ],
+  },
+];
 
 const BUILD_FOCUS_VALUES = ["attack", "magic", "defence"];
 const GAME_RESPAWN_TICKS = 2;
@@ -911,6 +1195,7 @@ function buildModel(data) {
     itemFile,
     skillFile,
   );
+  const roadmapEntries = buildRoadmapEntries(ROADMAP);
   const mechanicsEntries = buildMechanicEntries(
     skillFile,
     monsterFile,
@@ -935,6 +1220,7 @@ function buildModel(data) {
     ...achievementEntries,
     ...titleEntries,
     ...mechanicsEntries,
+    ...roadmapEntries,
     ...patchEntries,
     ...passiveEntries,
   ].sort((left, right) => left.sortKey.localeCompare(right.sortKey));
@@ -2991,6 +3277,127 @@ function buildTitleEntries(titles) {
     metrics: [],
     body: renderGenericObject(title, null, "Title details"),
   }));
+}
+
+function buildRoadmapEntries(releases) {
+  const overview = {
+    kind: "Roadmap",
+    section: "roadmap",
+    id: "roadmap-overview",
+    name: "Release Order",
+    title: "Release Order",
+    subtitle: "What ships next, and in what order",
+    badges: ["overview", "planned"],
+    searchText: normalizeSearchText(
+      `roadmap release order upcoming future coming soon whats next expansions level cap ${releases
+        .map(
+          (release) =>
+            `${release.name} ${release.tagline} ${release.levelCap}`,
+        )
+        .join(" ")}`,
+    ),
+    sortKey: "roadmap 0 release order",
+    spoiler: false,
+    metrics: [
+      { label: "Planned releases", value: formatNumber(releases.length) },
+      { label: "Next up", value: releases[0]?.name || "-" },
+      { label: "Final level cap", value: releases[releases.length - 1]?.levelCap || "-" },
+    ],
+    body: `
+      <div class="note-box"><strong>Plans, not promises</strong><span>${escapeHtml(ROADMAP_DISCLAIMER)}</span></div>
+      ${renderSimpleTable(
+        "Planned order",
+        ["#", "Release", "Access", "Level cap"],
+        releases.map((release, index) => [
+          index + 1,
+          `${release.name} — ${release.tagline}`,
+          release.access,
+          release.levelCap,
+        ]),
+      )}
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere is a free base game update, so everyone gets it. The four expansions release one at a time and are sequential — each one requires the one before it.</span></div>
+    `,
+  };
+
+  const entries = releases.map((release) => {
+    const searchText = normalizeSearchText(
+      [
+        release.name,
+        release.tagline,
+        release.status,
+        release.access,
+        release.unlock,
+        `level cap ${release.levelCap}`,
+        release.faction?.name,
+        release.faction?.tagline,
+        ...(release.zones || []).flat(),
+        ...(release.skills || []).flat(),
+        ...(release.features || []),
+        ...(release.alongside?.lines || []),
+        "roadmap upcoming future coming soon planned",
+      ]
+        .filter(Boolean)
+        .join(" "),
+    );
+
+    return {
+      kind: "Roadmap",
+      section: "roadmap",
+      id: release.id,
+      name: release.name,
+      title: release.name,
+      subtitle: release.tagline,
+      badges: [
+        release.order === 1 ? "next up" : "planned",
+        release.access.startsWith("Free") ? "free update" : "paid expansion",
+        release.skills ? `${release.skills.length} new skills` : null,
+      ].filter(Boolean),
+      searchText,
+      sortKey: `roadmap ${release.order} ${release.name.toLowerCase()}`,
+      spoiler: false,
+      metrics: [
+        { label: "Status", value: release.status },
+        { label: "Level cap", value: release.levelCap },
+        release.skills
+          ? {
+              label: "New skills",
+              value: formatNumber(release.skills.length),
+            }
+          : null,
+      ].filter(Boolean),
+      body: `
+        <div class="grid-2">
+          <div class="stat-box"><strong>Access</strong><span>${escapeHtml(release.access)}</span></div>
+          <div class="stat-box"><strong>Unlocks</strong><span>${escapeHtml(release.unlock)}</span></div>
+        </div>
+        ${
+          release.skills
+            ? renderSimpleTable(
+                "New skills",
+                ["Skill", "Type", "What it does"],
+                release.skills,
+              )
+            : ""
+        }
+        ${renderSimpleTable("New areas", ["Area", "What it is"], release.zones)}
+        ${
+          release.faction
+            ? `<div class="note-box"><strong>New faction — ${escapeHtml(release.faction.name)}</strong><span>${escapeHtml(release.faction.tagline)} ${escapeHtml(release.faction.desc)}</span></div>`
+            : ""
+        }
+        ${renderDetailBlock("Also included", release.features)}
+        ${
+          release.alongside
+            ? renderDetailBlock(release.alongside.name, release.alongside.lines)
+            : ""
+        }
+        ${renderDetailBlock("Story setup — spoilers for earlier content", [release.hook])}
+        <p class="helper">${escapeHtml(ROADMAP_DISCLAIMER)}</p>
+      `,
+    };
+  });
+
+  return [overview, ...entries];
 }
 
 function buildPatchEntries(patches) {
