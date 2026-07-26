@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T18:23:18.384133+00:00",
+  "generated_at": "2026-07-26T17:50:26.874667+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -5506,9 +5506,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.0.5",
-        "BUILD_FINGERPRINT": "1.0.5 (1783733210)",
-        "VERSION_CODE": 1783733210
+        "APP_VERSION": "1.0.8",
+        "BUILD_FINGERPRINT": "1.0.8 (1785088091)",
+        "VERSION_CODE": 1785088091
       },
       "specials": {}
     },
@@ -7510,7 +7510,7 @@
           "arcweave_confluence": 2000000,
           "artisan_coat": 5600,
           "artisan_ring": 51000,
-          "ash_rune": 8,
+          "ash_rune": 1,
           "ashfen_carp": 30,
           "ashvein_axe": 900,
           "ashvein_bar": 35,
@@ -7524,7 +7524,7 @@
           "blacksmith_girdle": 3250,
           "blade_amulet": 57000,
           "blessed_robes": 2100,
-          "bloom_rune": 38,
+          "bloom_rune": 11,
           "braised_deepvein_bass": 42,
           "braised_vantstream_trout": 85,
           "broker_doubloon": 18000,
@@ -7608,19 +7608,19 @@
           "fracture_pickaxe": 900000,
           "fracture_pike": 20,
           "fracture_rod": 1100000,
-          "fracture_rune": 15,
+          "fracture_rune": 2,
           "fracture_tonic": 5000,
           "fracture_weave": 165,
           "geode_amulet": 950,
           "gleam_binding": 60,
           "gleam_dust": 10,
-          "gleam_rune": 12,
+          "gleam_rune": 3,
           "greyspine_log": 2,
           "guardian_belt": 6300,
           "hammer_amulet": 45500,
           "hearth_belt": 3600,
           "heavy_boots": 17000,
-          "hollow_rune": 6,
+          "hollow_rune": 2,
           "hollow_wisp": 5,
           "hollowvein_ore": 2,
           "ironblood_torc": 2500000,
@@ -7692,7 +7692,7 @@
           "ranger_hood": 850,
           "resonance_crystal": 25,
           "resonance_eel": 35,
-          "resonance_rune": 50,
+          "resonance_rune": 12,
           "resonance_ward": 85,
           "resonite_axe": 3500000,
           "resonite_bar": 220,
@@ -7731,7 +7731,7 @@
           "spelstone": 10,
           "spire_key_fragment": 0,
           "spire_mask_of_quiet": 1600,
-          "spire_rune": 30,
+          "spire_rune": 8,
           "spirit_amulet": 36500,
           "spirit_carp_medley": 82,
           "spirit_focus": 45,
@@ -7739,7 +7739,7 @@
           "spiritthread_leggings": 26000,
           "stealth_sash": 2350,
           "stillwater_beads": 5000000,
-          "stone_rune": 20,
+          "stone_rune": 4,
           "strength_amulet": 63000,
           "strength_belt": 3250,
           "taste_ring": 41000,
@@ -7758,7 +7758,7 @@
           "vantstream_trout": 32,
           "vantwood_log": 18,
           "vault_smelter_seal": 78000,
-          "veil_rune": 5,
+          "veil_rune": 1,
           "verdant_worldcharm": 2000000,
           "vitality_crown": 800,
           "vitality_ring": 29500,
@@ -7774,7 +7774,7 @@
           "warden_bass": 65,
           "warden_crystal": 20,
           "warden_focus": 105,
-          "warden_rune": 25,
+          "warden_rune": 6,
           "warden_shadow_mantle": 28000,
           "wardens_ascendant_band": 3000000,
           "warrior_greaves": 19000,
@@ -9673,6 +9673,37 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: Fracture Arts now burns sigils rather than raw materials directly. If you were casting before this update, your spells will fall back to wand melee until you have sigils woven - and you need the Spiritweaving level required for the sigil your spell uses. Check each spell's description for which sigil it takes and weave a stock before your next fight. Six new Spiritweaving recipes cover the spells that needed them: Pale, Ash, Fracture, Stone, Spire, and Resonance Sigils, joining the four that already existed. One gleaned material weaves into five sigils - everything you have stockpiled is still usable, it just needs one extra step first. Lower spells cost one sigil per cast; the strongest cost two or three.",
+              "Changed: Sigil sell prices have been reduced. Sigils are now produced five at a time and serve as casting ammunition - the old prices were set when sigils were rare single-output items, and no longer reflect what they are.",
+              "New: Every skill now explains what it does. Tapping Attack, Strength, Defence, Hitpoints, or Fracture Arts in the Skills list used to show only 'Trained through combat only' - it now opens a card describing the skill and what each level gives you. Every skill panel also has a '?' button for the same card, and gathering and artisan panels show a one-line description at the top. This covers the skills players had the hardest time reading - Wardcraft, Shard Gleaning, and Spiritweaving in particular. Prompted by the Discord community.",
+              "Improved: When you run out of sigils mid-fight, the combat log now names exactly which sigils you are short of and tells you to weave more - previously it reported only that you were out of reagents."
+            ],
+            "title": "Fracture Arts Overhaul, Skill Explainers, and Combat Log",
+            "version": "1.0.8",
+            "version_code": 1785088091
+          },
+          {
+            "changes": [
+              "More ad fixes, brought to light by the Discord community."
+            ],
+            "title": "Ad Fixes",
+            "version": "1.0.7",
+            "version_code": 1785007368
+          },
+          {
+            "changes": [
+              "Community Event: Post the word Ren in the Kaldreth Discord general chat - the first 5 to do so will receive a promo code for a free Warden's Mark. If you already own it, you were one of the game's earliest supporters and we want to thank you - if and when the first expansion is released, yours is on us.",
+              "New: Every skill detail page now shows a level-progress bar with your current XP and the XP needed for the next level. It appears consistently across all skills - Gathering, Smithing, Crafting, Cooking, Meditation, and the rest. Suggested by the Discord community.",
+              "Improved: Combat and Shadow Arts now remember your setup when you switch tabs and return. Your chosen monster, area, food type, auto-eat threshold, and attack style are all restored exactly as you left them - previously leaving either tab reset everything to defaults. The Discord community raised this.",
+              "Fixed: Improved the reliability of rewarded ad boosts. Reported by the Discord community.",
+              "Fixed: On narrow phones, the button rows in Combat and Shadow Arts - configuration, stop, and action controls - stayed side by side when the screen was too small to fit them cleanly, leaving them cramped or running off the edge. They now stack vertically on smaller screens so every control is reachable on any phone size."
+            ],
+            "title": "Skill XP Meter, Persistent Setup, and Ad Reliability",
+            "version": "1.0.6",
+            "version_code": 1784936569
+          },
           {
             "changes": [
               "New: A short note from the developer now appears on the character select screen. New players see it directly after the \"Welcome to Aetheria\" intro; returning players who already dismissed that intro see it on its own. It explains that Kaldreth is a solo project, that the Report a Bug button in Settings is open to any feedback - suggestions, things to add or cut or rebalance, not only bugs - and that Play Store reviews are read.",
@@ -13038,9 +13069,21 @@
               "xp_per_action": 100
             },
             {
+              "id": "veil_rune",
+              "level": 1,
+              "produces": "veil_rune",
+              "produces_qty": 5,
+              "requires": {
+                "pale_shard_dust": 1
+              },
+              "seconds": 5,
+              "xp_per_action": 12
+            },
+            {
               "id": "hollow_rune",
               "level": 5,
               "produces": "hollow_rune",
+              "produces_qty": 5,
               "requires": {
                 "hollow_wisp": 1
               },
@@ -13048,9 +13091,21 @@
               "xp_per_action": 16
             },
             {
+              "id": "ash_rune",
+              "level": 10,
+              "produces": "ash_rune",
+              "produces_qty": 5,
+              "requires": {
+                "pale_shard_dust": 1
+              },
+              "seconds": 5,
+              "xp_per_action": 20
+            },
+            {
               "id": "gleam_rune",
               "level": 20,
               "produces": "gleam_rune",
+              "produces_qty": 5,
               "requires": {
                 "gleam_dust": 1
               },
@@ -13058,9 +13113,32 @@
               "xp_per_action": 28
             },
             {
+              "id": "fracture_rune",
+              "level": 25,
+              "produces": "fracture_rune",
+              "produces_qty": 5,
+              "requires": {
+                "minor_spirit_focus": 1
+              },
+              "seconds": 6,
+              "xp_per_action": 34
+            },
+            {
+              "id": "stone_rune",
+              "level": 38,
+              "produces": "stone_rune",
+              "produces_qty": 5,
+              "requires": {
+                "shard_dust": 1
+              },
+              "seconds": 7,
+              "xp_per_action": 42
+            },
+            {
               "id": "warden_rune",
               "level": 50,
               "produces": "warden_rune",
+              "produces_qty": 5,
               "requires": {
                 "warden_crystal": 1
               },
@@ -13068,14 +13146,37 @@
               "xp_per_action": 50
             },
             {
+              "id": "spire_rune",
+              "level": 55,
+              "produces": "spire_rune",
+              "produces_qty": 5,
+              "requires": {
+                "resonance_crystal": 1
+              },
+              "seconds": 7,
+              "xp_per_action": 54
+            },
+            {
               "id": "bloom_rune",
               "level": 65,
               "produces": "bloom_rune",
+              "produces_qty": 5,
               "requires": {
                 "fracture_bloom": 1
               },
               "seconds": 8,
               "xp_per_action": 68
+            },
+            {
+              "id": "resonance_rune",
+              "level": 75,
+              "produces": "resonance_rune",
+              "produces_qty": 5,
+              "requires": {
+                "architect_shard": 1
+              },
+              "seconds": 8,
+              "xp_per_action": 76
             }
           ]
         },
@@ -13101,6 +13202,13 @@
             "armor"
           ]
         },
+        "COMBAT_SKILLS": [
+          "attack",
+          "strength",
+          "defence",
+          "hp",
+          "magic"
+        ],
         "CRAFTING_TRACK_BLUEPRINTS": {
           "clothwork": [
             {
@@ -13406,7 +13514,7 @@
               "level": 1,
               "name": "Pale Flicker",
               "requires": {
-                "pale_shard_dust": 1
+                "veil_rune": 1
               },
               "seconds_per_action": 2,
               "xp_per_action": 2
@@ -13416,7 +13524,7 @@
               "level": 5,
               "name": "Hollow Pulse",
               "requires": {
-                "hollow_wisp": 1
+                "hollow_rune": 1
               },
               "seconds_per_action": 2,
               "xp_per_action": 5
@@ -13427,7 +13535,7 @@
               "name": "Ashbolt",
               "quest_required": "q04_the_pale_flame",
               "requires": {
-                "pale_shard_dust": 1
+                "ash_rune": 1
               },
               "seconds_per_action": 3,
               "xp_per_action": 10
@@ -13438,7 +13546,7 @@
               "name": "Gleam Lance",
               "quest_required": "q08_whispers_from_plateau",
               "requires": {
-                "gleam_dust": 1
+                "gleam_rune": 1
               },
               "seconds_per_action": 3,
               "xp_per_action": 12
@@ -13449,7 +13557,7 @@
               "name": "Fracture Surge",
               "quest_required": "q12_whispers_in_ashford",
               "requires": {
-                "minor_spirit_focus": 1
+                "fracture_rune": 1
               },
               "seconds_per_action": 3,
               "xp_per_action": 15
@@ -13460,7 +13568,7 @@
               "name": "Resonance Hammer",
               "quest_required": "q19_shadows_of_spire",
               "requires": {
-                "shard_dust": 1
+                "stone_rune": 2
               },
               "seconds_per_action": 4,
               "xp_per_action": 25
@@ -13471,7 +13579,7 @@
               "name": "Warden's Aegis",
               "quest_required": "q18_stabilization_ritual",
               "requires": {
-                "warden_crystal": 1
+                "warden_rune": 2
               },
               "seconds_per_action": 4,
               "xp_per_action": 28
@@ -13482,7 +13590,8 @@
               "name": "Spire Call",
               "quest_required": "q20_crossed_alliances",
               "requires": {
-                "resonance_crystal": 1
+                "spire_rune": 2,
+                "stone_rune": 1
               },
               "seconds_per_action": 4,
               "xp_per_action": 30
@@ -13493,7 +13602,8 @@
               "name": "Bloom Torrent",
               "quest_required": "q26_fractures_heart",
               "requires": {
-                "fracture_bloom": 1
+                "bloom_rune": 2,
+                "fracture_rune": 1
               },
               "seconds_per_action": 4,
               "xp_per_action": 38
@@ -13501,9 +13611,10 @@
             {
               "id": "cast_weave",
               "level": 75,
-              "name": "Architect's Weave",
+              "name": "Architect's Unmaking",
               "requires": {
-                "architect_shard": 1
+                "resonance_rune": 2,
+                "spire_rune": 1
               },
               "seconds_per_action": 5,
               "xp_per_action": 50
@@ -13731,6 +13842,88 @@
           "fishing",
           "spirit_harvesting"
         ],
+        "SKILL_INFO": {
+          "adventurer": {
+            "blurb": "Take contracts, unlock new regions, and reach the Quartermaster.",
+            "levels": "Higher levels open harder contracts with better rewards and expand the regions you can operate in.",
+            "role": "You take on contracts that send you to gather, craft, steal, or fight across Aetheria. Completing them earns rewards and raises your Adventurer level. That level unlocks new contract tiers, new areas of the world, and access to the Quartermaster."
+          },
+          "attack": {
+            "blurb": "Raises your hit chance in melee combat.",
+            "levels": "Each level raises your melee attack roll directly, increasing the number of hits you land per fight.",
+            "role": "Your Attack level determines how often your melee strikes connect. It has no effect on how much damage those strikes deal, that is Strength. Against a well-armoured or evasive opponent, Attack is what closes the gap between swinging and landing."
+          },
+          "cooking": {
+            "blurb": "Cook fish into food that restores your health in combat.",
+            "levels": "Higher levels let you cook more potent fish with larger heal values, and the burn rate drops steadily as your level outpaces a recipe.",
+            "role": "You take raw fish from Fishing and cook them one at a time. Cooked food is your primary way to recover HP during a fight, so your supply of it sets a real ceiling on how long you can keep going. Every recipe carries a burn chance that falls as your level rises above the recipe."
+          },
+          "crafting": {
+            "blurb": "Craft wearable gear from logs, fish, and spirit materials.",
+            "levels": "Higher levels unlock the next material tier within each track, with better stats on the pieces you produce. Affinity with a specific recipe builds over repeated crafts.",
+            "role": "Wardcraft covers three parallel tracks. Woodwork takes logs from Felling and produces staves, bucklers, and wooden armour pieces. Leatherwork uses fish from Fishing for knives, cowls, and jerkins. Clothwork draws on spirit materials from Shard Gleaning for wands, robes, and cloth accessories."
+          },
+          "defence": {
+            "blurb": "Raises your defence roll so monsters miss you more often.",
+            "levels": "Each level raises your defence roll, reducing the number of hits you take per fight.",
+            "role": "Your Defence level determines how often incoming melee attacks fail to connect. Note that your maximum HP is not raised by this level, it comes from your Hitpoints level plus half your equipment defence bonus. Defence keeps hits from landing; Hitpoints and food keep you standing when they do."
+          },
+          "fishing": {
+            "blurb": "Catch fish from the waters for food and gear.",
+            "levels": "Higher levels unlock new catches with better XP and access to the fish needed for stronger gear. Affinity with a fishing spot builds over time.",
+            "role": "You cast a line and wait, pulling in one fish per action. The catch serves two skills: Cooking turns it into food that heals you mid-combat, and Wardcraft uses it in the Leatherwork track to produce knives, cowls, jerkins, and chaps."
+          },
+          "hp": {
+            "blurb": "Your base health pool. Higher level means surviving longer.",
+            "levels": "Each level raises your base HP directly, giving you more room to take hits before you need to eat.",
+            "role": "Your Hitpoints level is the foundation of your maximum HP. Add half your total equipment defence bonus on top of that and you get your full health pool. More HP lets you absorb more punishment before going down and stretches how far a stack of cooked food will carry you."
+          },
+          "magic": {
+            "blurb": "The spell combat style, powered by raw spirit materials.",
+            "levels": "Higher levels unlock more powerful spells and push your hit roll and damage ceiling higher at the same time. A new spell is only usable once your Spiritweaving is high enough to weave the sigil it burns.",
+            "role": "Every cast burns sigils, and sigils are woven by Spiritweaving from matter you gathered with Shard Gleaning. That is the full chain: gleaning feeds weaving, weaving feeds your spellbook. Each spell names the sigils it takes, the stronger ones costing two or three a cast, and running dry drops you back to wand melee until you weave more."
+          },
+          "meditation": {
+            "blurb": "Sit in stillness to draw up visions of who you were before.",
+            "levels": "Higher levels draw deeper and stranger visions from the pool, and story cinematics unlock at levels 10, 20, 30, 50, 75 and 99.",
+            "role": "You clear your mind and wait. Each session grants XP and surfaces a vision, usually a passing whisper, and at key levels a full story cinematic. Meditation moves the memory arc forward, not your combat power. Fracture Surge deliberately leaves it alone, stillness runs at its own pace."
+          },
+          "mining": {
+            "blurb": "Mine ore from rock nodes. The ore feeds Smithing.",
+            "levels": "Higher levels unlock tougher rock types with rarer ores and better XP per swing. Affinity with a specific node builds over repeated hits and eventually pays out in speed.",
+            "role": "You set a pickaxe to a rock face and work it until ore breaks free. That ore goes straight to Smithing, where it gets smelted into bars and then forged into metal gear. Without a steady ore supply, the forge sits cold."
+          },
+          "shadow_arts": {
+            "blurb": "Pickpocket NPC targets across Aetheria for gold and items.",
+            "levels": "Higher levels unlock harder targets with better loot. Affinity builds toward each target you work regularly.",
+            "role": "You pick a target NPC, move in, and attempt to lift what they are carrying. A clean run yields gold and items. A failed attempt stuns you briefly, costing you time. The targets you can approach and the rewards they carry both scale with your level."
+          },
+          "smithing": {
+            "blurb": "Smelt ore into bars, then forge bars into armour and weapons.",
+            "levels": "Each level threshold unlocks the next ore tier and the bar it produces, then the forged gear that takes it. Affinity with a specific recipe reduces the time each craft takes.",
+            "role": "Smithing runs in two stages. First, you smelt ores from Mining into bars. Then you use those bars to forge metal gear: helms, hauberks, greaves, sabatons, blades, and shields. Higher-tier gear needs higher-tier bars, which need rarer ores."
+          },
+          "spirit_harvesting": {
+            "blurb": "Harvest raw spirit matter from nodes across Aetheria.",
+            "levels": "Higher levels open more powerful nodes with rarer materials and better XP. Affinity with a specific node grows as you return to it.",
+            "role": "You draw from spirit nodes to collect dust, wisps, crystals, and blooms. Everything you pull out goes to Spiritweaving, which turns it into the sigils Fracture Arts burns and into trade goods worth real gold. Most nodes are gated behind quests."
+          },
+          "spiritweaving": {
+            "blurb": "Weave gleaned matter into spell sigils and trade goods.",
+            "levels": "Higher levels unlock the next sigil, so each new spell needs the weaving level to match, and open more valuable weave tiers. Affinity with a specific recipe builds slowly and produces speed gains over time.",
+            "role": "You take the raw dust, wisps, crystals, and blooms gathered by Shard Gleaning and weave them into two things. Sigils are ammunition: every Fracture Arts spell burns them, and one gleaned material yields five sigils. Focuses, Wards, and Weaves are trade goods worth far more than their inputs, so a finished Architect Weave sells for 200 gold against 40 for the Architect Shard in it."
+          },
+          "strength": {
+            "blurb": "Raises your maximum melee damage per hit.",
+            "levels": "Each level raises your maximum damage roll directly.",
+            "role": "Your Strength level sets the ceiling on your melee damage per hit. It does not affect whether you connect, that is Attack. More Strength means higher peaks when hits land and faster kills on enemies with large HP pools."
+          },
+          "woodcutting": {
+            "blurb": "Fell trees for logs that supply Wardcraft.",
+            "levels": "Higher levels unlock sturdier species with more valuable logs and faster XP. Affinity with a tree type builds over repeated cuts, reducing the time between swings.",
+            "role": "You work through trees one fell at a time, collecting the logs they drop. Wardcraft takes those logs through the Woodwork track and turns them into staves, bucklers, hoods, vests, greaves, and boots."
+          }
+        },
         "SKILL_LABELS": {
           "adventurer": "Adventurer",
           "attack": "Attack",
