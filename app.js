@@ -49,7 +49,7 @@ const SECTION_ORDER = [
 
 const SECTION_LORE = {
   items: "Relics, reagents, and gear scavenged from a Fractured world.",
-  monsters: "What stalks the resonance nodes — and what it leaves behind.",
+  monsters: "What stalks the resonance nodes, and what it leaves behind.",
   skills: "The disciplines that keep a Fracture-crossed wanderer alive.",
   skilltree: "Spend Mastery Points to bend the Fracture in your favour.",
   passives: "Permanent boons earned through sheer persistence.",
@@ -57,15 +57,15 @@ const SECTION_LORE = {
   tasks: "Daily and weekly duties for the diligent.",
   quests: "The story of the Shattering, told arc by arc.",
   fragments:
-    "Echoes the Fracture scattered — the memories you piece back together.",
-  npcs: "The voices of Aetheria — who they are and what they want.",
+    "Echoes the Fracture scattered: the memories you piece back together.",
+  npcs: "The voices of Aetheria: who they are and what they want.",
   vendors: "Where to spend your hard-won gold.",
   dungeons: "Deep places the Order would rather you never found.",
   factions: "Five powers shaping Aetheria after the Accord.",
   achievements: "Milestones the world will remember you by.",
   titles: "The names Aetheria has earned you.",
   mechanics: "The rules the Architects wrote into the world.",
-  roadmap: "What is coming to Aetheria next — and in what order.",
+  roadmap: "What is coming to Aetheria next, and in what order.",
   patches: "How Aetheria has changed, build by build.",
 };
 
@@ -76,12 +76,12 @@ const SKILL_LEVEL_CAP = 99;
 // skill for", `train` answers "how do I actually gain XP in it", and `aliases`
 // widens the search net so a player searching "logs" or "thieving" still lands
 // on the right card. Everything numeric is derived from the data files instead
-// — only prose lives here.
+// Only prose lives here.
 const SKILL_CODEX = {
   mining: {
     role: "Gathering",
     aliases: "ore rock pickaxe prospect smelting quarry",
-    what: "Breaks ore out of rock nodes across Aetheria's regions. Ore is the front of the Smithing chain, so nearly every bar — and therefore nearly every piece of melee gear — starts at a Mining node.",
+    what: "Breaks ore out of rock nodes across Aetheria's regions. Ore is the front of the Smithing chain, so nearly every bar, and therefore nearly every piece of melee gear, starts at a Mining node.",
     train:
       "Pick the highest node you meet the level for and leave it running. Each action takes a fixed number of seconds for flat XP, so your XP/hour is decided almost entirely by which node you can reach.",
   },
@@ -110,7 +110,7 @@ const SKILL_CODEX = {
   smithing: {
     role: "Artisan",
     aliases: "smith forge bars smelt anvil hammer armour weapons blueprints",
-    what: "Smelts ore into bars, then beats bars into gear. Bars unlock in tiers by level, and each tier carries a full blueprint set — helm through weapon.",
+    what: "Smelts ore into bars, then beats bars into gear. Bars unlock in tiers by level, and each tier carries a full blueprint set, helm through weapon.",
     train:
       "Smelt bars from the recipe list, or spend bars on gear blueprints. Bars are the cheaper XP; blueprints are where the bars go.",
   },
@@ -126,40 +126,40 @@ const SKILL_CODEX = {
     aliases: "weave spirit focus reagents loom threads",
     what: "Weaves harvested shard material into the spirit reagents and focuses that Fracture Arts and Wardcraft consume.",
     train:
-      "Weave the highest recipe your Shard Gleaning stock supports. It is the middle link of the spirit economy — gleaning feeds it, Wardcraft drains it.",
+      "Weave the highest recipe your Shard Gleaning stock supports. It is the middle link of the spirit economy: gleaning feeds it, Wardcraft drains it.",
   },
   crafting: {
     role: "Artisan",
     aliases: "wardcraft craft clothwork leatherwork wards charms tracks",
-    what: "Builds wards, focuses, and worn gear along parallel material tracks — clothwork, leatherwork, and more — each with its own tier ladder and base material.",
+    what: "Builds wards, focuses, and worn gear along parallel material tracks (clothwork, leatherwork, and more), each with its own tier ladder and base material.",
     train:
       "Each track gates separately by level, so the fastest route is usually whichever track's base material you already have stockpiled.",
   },
   shadow_arts: {
     role: "Roguish",
     aliases: "shadow arts thieving steal pickpocket marks stealth stun",
-    what: "Period-based theft rather than a repeated action. You choose a mark and attempts resolve on a cooldown, each with its own success chance — and a failure can stun you out of the next window.",
+    what: "Period-based theft rather than a repeated action. You choose a mark and attempts resolve on a cooldown, each with its own success chance, and a failure can stun you out of the next window.",
     train:
       "Work the highest-level mark whose success chance is still reasonable. Success rate, cooldown, and stun length all improve with level and with that mark's affinity.",
   },
   magic: {
     role: "Combat / Casting",
     aliases: "fracture arts magic spells runes casting mage staff",
-    what: "Doubles as a combat style and a casting discipline. In combat your Fracture Arts level and MAG gear set your damage range and hit chance, and the spell you cast scales both — higher-tier spells hit harder and land more often. Out of combat it burns reagents to bind runes.",
+    what: "Doubles as a combat style and a casting discipline. In combat your Fracture Arts level and MAG gear set your damage range and hit chance, and the spell you cast scales both: higher-tier spells hit harder and land more often. Out of combat it burns reagents to bind runes.",
     train:
       "Cast runes for steady flat XP, or fight using the Magic combat style to train it off tick damage. Rune casting consumes its reagent every action.",
   },
   attack: {
     role: "Combat",
     aliases: "attack accuracy melee hit chance fighting",
-    what: "Decides how often your melee hits land. It does not raise damage on its own — that is Strength — but a miss deals nothing at all.",
+    what: "Decides how often your melee hits land. It does not raise damage on its own (that is Strength), but a miss deals nothing at all.",
     train:
       "Fight using the Attack combat style. XP comes from damage dealt per tick, so stronger monsters train it faster.",
   },
   strength: {
     role: "Combat",
     aliases: "strength max hit damage power melee",
-    what: "Sets your melee max hit — the top of your damage range on every landed swing.",
+    what: "Sets your melee max hit, the top of your damage range on every landed swing.",
     train:
       "Fight using the Strength combat style. Like all combat skills it earns XP from damage dealt, so pair it with gear that raises your max hit.",
   },
@@ -175,7 +175,7 @@ const SKILL_CODEX = {
     aliases: "hitpoints hp health constitution life regen",
     what: "Your health pool and how fast it regenerates. A bigger pool means longer unattended fights before food or a respawn.",
     train:
-      "Trains passively from every combat style at once — you cannot train it directly, and it climbs the whole time you fight.",
+      "Trains passively from every combat style at once. You cannot train it directly, and it climbs the whole time you fight.",
   },
   meditation: {
     role: "Support",
@@ -197,7 +197,7 @@ const SKILL_CODEX = {
 // Planned releases in shipping order. Everything here is design-stage and can
 // change before release, which every card says out loud. Story hooks are kept
 // in a separate `hook` field so they can be rendered behind a collapsed spoiler
-// guard — the roadmap should be readable without spoiling the base game.
+// guard. The roadmap should be readable without spoiling the base game.
 const ROADMAP_DISCLAIMER =
   "Everything on this page is planned, not promised. Content, names, and numbers are still in design and can change before release.";
 
@@ -207,19 +207,19 @@ const ROADMAP = [
     order: 1,
     name: "Frostmere",
     tagline: "The far north, and the scars that never closed",
-    status: "Next up — in development",
-    access: "Free base game update — no purchase",
+    status: "Next up, in development",
+    access: "Free base game update, no purchase",
     levelCap: "99 (unchanged)",
     unlock: "Opens after the aftermath arc ends with Sovereign's Burden.",
     hook: "The base game closes the Architect circuit and the hum stops. Frostmere is the coda: the north never went quiet. The deepest Fracture scars in the known world run for kilometres under the permafrost, and the Greyfen Scholars have been mapping them for eleven years without finding the bottom. Eight months ago something started coming up.",
     zones: [
       [
         "Frostmere",
-        "A frozen tundra northwest of Caelmora, beyond the Ironback Mountains. Resonance nodes here do not hum — they pulse, silently. At dusk the sky shows branching lines of light the scholars call Fracture weather.",
+        "A frozen tundra northwest of Caelmora, beyond the Ironback Mountains. Resonance nodes here do not hum. They pulse, silently. At dusk the sky shows branching lines of light the scholars call Fracture weather.",
       ],
       [
         "Greyfen",
-        "A fortified research settlement of maybe four hundred, a third of them studying the scars. No inns, no taverns, no merchants in the usual sense — the Scholars share resources communally, and entering means demonstrating purpose rather than wealth.",
+        "A fortified research settlement of maybe four hundred, a third of them studying the scars. No inns, no taverns, no merchants in the usual sense. The Scholars share resources communally, and entering means demonstrating purpose rather than wealth.",
       ],
     ],
     faction: {
@@ -229,7 +229,7 @@ const ROADMAP = [
     },
     features: [
       "A new six-quest story arc continuing past the base game's ending.",
-      "The Fracture Scar — a fifth boss dungeon against The Index. Requires all four existing dungeons cleared.",
+      "The Fracture Scar, a fifth boss dungeon against The Index. Requires all four existing dungeons cleared.",
       "New Shadow Arts marks in and around Greyfen.",
       "New gathering nodes, including Frostglass, plus new smithing, Wardcraft, and cooking recipes and the gear they produce.",
       "New skill tree nodes, memory fragments, and achievements.",
@@ -238,7 +238,7 @@ const ROADMAP = [
       name: "Game-wide combat overhaul",
       lines: [
         "Ships alongside Frostmere and touches every region, not just the north.",
-        "The combat roster roughly triples — from 31 monsters to 95 or more, around ten per existing region plus a full Frostmere roster.",
+        "The combat roster roughly triples, from 31 monsters to 95 or more, around ten per existing region plus a full Frostmere roster.",
         "A new tier of Heavy Hitter enemies above level 100, and a capstone encounter for players who clear it.",
         "A damage-reduction system with new defensive consumables, and a harder lean on the melee-defence versus magic-defence split so switching styles mid-fight actually pays.",
       ],
@@ -247,13 +247,13 @@ const ROADMAP = [
   {
     id: "expansion-1",
     order: 2,
-    name: "Expansion 1 — The Living Wilds",
+    name: "Expansion 1: The Living Wilds",
     tagline: "Whisperwood, and what the roots remember",
-    status: "Planned — first paid expansion",
+    status: "Planned, first paid expansion",
     access: "Paid expansion",
     levelCap: "105",
     unlock: "Follows the Frostmere arc.",
-    hook: "In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant — a faction predating the Accord — emerges to warn that what the Architects awakened underground is still active. Their leader's last message before going silent: \"The roots remember.\"",
+    hook: "In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant, a faction predating the Accord, emerges to warn that what the Architects awakened underground is still active. Their leader's last message before going silent: \"The roots remember.\"",
     zones: [
       [
         "Whisperwood",
@@ -277,7 +277,7 @@ const ROADMAP = [
       [
         "Aetheric Tending",
         "Artisan",
-        "Plant herbs in soil plots that grow in real time and are harvested on your return — fully offline-friendly. Plot count scales with the skill, up to seven plots.",
+        "Plant herbs in soil plots that grow in real time and are harvested on your return, fully offline-friendly. Plot count scales with the skill, up to seven plots.",
       ],
       [
         "Spiritbond",
@@ -287,7 +287,7 @@ const ROADMAP = [
       [
         "Alchemy",
         "Artisan",
-        "Brew potions, tinctures, and elixirs — the game's first true consumable economy. Temporary buffs across gathering, combat, and artisan categories, one active per category.",
+        "Brew potions, tinctures, and elixirs, the game's first true consumable economy. Temporary buffs across gathering, combat, and artisan categories, one active per category.",
       ],
     ],
     faction: {
@@ -298,24 +298,24 @@ const ROADMAP = [
     features: [
       "A twenty-quest arc, The Root Remembers, across five acts.",
       "Two bosses: The Hollow Root, and The Grove's Warden.",
-      "Enemies tuned for players at 99 in every combat skill with Resonite-tier gear — meaningfully harder than anything in the base game.",
+      "Enemies tuned for players at 99 in every combat skill with Resonite-tier gear, meaningfully harder than anything in the base game.",
       "New skill tree branches for all four new skills, plus new nodes on existing branches as the cap rises.",
     ],
   },
   {
     id: "expansion-2",
     order: 3,
-    name: "Expansion 2 — The Salt Accord",
+    name: "Expansion 2: The Salt Accord",
     tagline: "Tideward, and the harbour that kept trading",
     status: "Planned",
     access: "Paid expansion",
     levelCap: "110",
     unlock: "Requires Expansion 1.",
-    hook: "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage — but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
+    hook: "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage, but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
     zones: [
       [
         "Tideward Harbor",
-        "The main port city and entry zone — human enemies, market access, and faction politics.",
+        "The main port city and entry zone: human enemies, market access, and faction politics.",
       ],
       [
         "The Open Shallows",
@@ -334,7 +334,7 @@ const ROADMAP = [
       [
         "Echomind",
         "Passive",
-        "Earns XP on every monster kill, scaled by enemy difficulty. No active interaction — it levels in the background as you fight.",
+        "Earns XP on every monster kill, scaled by enemy difficulty. No active interaction; it levels in the background as you fight.",
       ],
       [
         "Wayfaring",
@@ -355,7 +355,7 @@ const ROADMAP = [
     faction: {
       name: "The Tide Merchants",
       tagline: "Everything is negotiable, including the truth.",
-      desc: "A trading power split three ways — a guildmaster who wants a deal, a harbourmaster who wants outsiders gone, and an admiral running a resistance that answers to neither.",
+      desc: "A trading power split three ways: a guildmaster who wants a deal, a harbourmaster who wants outsiders gone, and an admiral running a resistance that answers to neither.",
     },
     features: [
       "A twenty-quest arc, The Salt Accord, across five acts.",
@@ -366,13 +366,13 @@ const ROADMAP = [
   {
     id: "expansion-3",
     order: 4,
-    name: "Expansion 3 — Drakenhollow",
+    name: "Expansion 3: Drakenhollow",
     tagline: "The first site, still running",
     status: "Planned",
     access: "Paid expansion",
     levelCap: "115",
     unlock: "Requires Expansion 2.",
-    hook: "The Architect Fragments, the Drowned Ruins, and the Grove Covenant's oldest records all converge on one place: a volcanic underground network beneath the Shrouded Peaks. It was not just a mine — it was the first site. The Architects did not discover Kaldreth. They built it. And the original construction engine is still running.",
+    hook: "The Architect Fragments, the Drowned Ruins, and the Grove Covenant's oldest records all converge on one place: a volcanic underground network beneath the Shrouded Peaks. It was not just a mine. It was the first site. The Architects did not discover Kaldreth. They built it. And the original construction engine is still running.",
     zones: [
       [
         "The Ashfall Descent",
@@ -400,7 +400,7 @@ const ROADMAP = [
       [
         "Spiritforging",
         "Artisan",
-        "Combines Smithing bars with spirit materials to produce gear with active trigger effects — conditional bonuses that fire during combat rather than flat stats. The artisan endgame.",
+        "Combines Smithing bars with spirit materials to produce gear with active trigger effects: conditional bonuses that fire during combat rather than flat stats. The artisan endgame.",
       ],
       [
         "Geomancy",
@@ -421,17 +421,17 @@ const ROADMAP = [
   {
     id: "expansion-4",
     order: 5,
-    name: "Expansion 4 — Oraewyn: The Fractured Sky",
+    name: "Expansion 4, Oraewyn: The Fractured Sky",
     tagline: "The capstone, and the people who have been watching",
-    status: "Planned — final expansion",
+    status: "Planned, final expansion",
     access: "Paid expansion",
     levelCap: "120",
     unlock: "Requires Expansion 3. Intended for players who have completed everything before it.",
-    hook: "The Origin Engine is not only a construction machine — it is a relay, and it has been broadcasting upward. Oraewyn, the floating island chain visible on clear days above the Shrouded Peaks, is where the signal goes. It is also where the original Architects came from. They have been watching.",
+    hook: "The Origin Engine is not only a construction machine. It is a relay, and it has been broadcasting upward. Oraewyn, the floating island chain visible on clear days above the Shrouded Peaks, is where the signal goes. It is also where the original Architects came from. They have been watching.",
     zones: [
       [
         "The Sky Ascent",
-        "The vertical route up to Oraewyn's lower edge — a Wayfaring route series with combat encounters at each altitude threshold. No one from the surface has climbed this high since before the Accord.",
+        "The vertical route up to Oraewyn's lower edge, a Wayfaring route series with combat encounters at each altitude threshold. No one from the surface has climbed this high since before the Accord.",
       ],
       [
         "Oraewyn Lowlands",
@@ -439,7 +439,7 @@ const ROADMAP = [
       ],
       [
         "The Watcher's Spire",
-        "The Conclave's central structure — archives spanning centuries and instruments pointed at the surface. Every faction NPC you have met has a file here. So do you.",
+        "The Conclave's central structure: archives spanning centuries and instruments pointed at the surface. Every faction NPC you have met has a file here. So do you.",
       ],
       [
         "The Threshold",
@@ -455,12 +455,12 @@ const ROADMAP = [
       [
         "Lorekeeper",
         "Passive / Collection",
-        "Levels through discovery rather than active play — memory fragments, flagged Hollowing artifacts, rare achievements, and hidden zone finds. Milestones every ten levels unlock hidden lore entries and passive bonuses.",
+        "Levels through discovery rather than active play: memory fragments, flagged Hollowing artifacts, rare achievements, and hidden zone finds. Milestones every ten levels unlock hidden lore entries and passive bonuses.",
       ],
       [
         "Transcendence",
         "Meta-system",
-        "A post-mastery prestige loop. Condense any skill at 99 or above to reset it to level 1 in exchange for a Transcendence Point, each granting a permanent global bonus that stacks. Nothing is locked away — all content stays available to re-earn.",
+        "A post-mastery prestige loop. Condense any skill at 99 or above to reset it to level 1 in exchange for a Transcendence Point, each granting a permanent global bonus that stacks. Nothing is locked away; all content stays available to re-earn.",
       ],
     ],
     faction: {
@@ -469,7 +469,7 @@ const ROADMAP = [
       desc: "The observers above the surface, split into two wings whose tension has been building for longer than the Fracture has existed.",
     },
     features: [
-      "A twenty-five-quest arc, The Fractured Sky — the longest in the game.",
+      "A twenty-five-quest arc, The Fractured Sky, the longest in the game.",
       "Sixteen new enemies and four bosses, ending with the Resonance Wraith and the Threshold itself.",
       "A significant difficulty spike by design: every system built across four expansions has a moment of payoff here.",
     ],
@@ -486,7 +486,7 @@ const PLAYER_COMBAT_STYLES = new Set([
   "magic",
 ]);
 
-// Pale Flicker — the 1.00x power / +0 accuracy spell the whole magic damage
+// Pale Flicker, the 1.00x power / +0 accuracy spell the whole magic damage
 // formula was built around before spells carried their own tuning.
 const DEFAULT_SPELL_ID = "cast_spark";
 
@@ -2039,7 +2039,7 @@ function buildMonsterEntries(monsters, itemFile, playerCombatProfile) {
             formatPercent(drop.chance),
             drop.qtyMin === drop.qtyMax
               ? String(drop.qtyMin)
-              : `${drop.qtyMin}–${drop.qtyMax}`,
+              : `${drop.qtyMin}-${drop.qtyMax}`,
             `${formatNumber(drop.expectedValue)} gp`,
           ]),
           { open: false },
@@ -2187,7 +2187,7 @@ function buildSkillUnlockTimeline({
     add(
       node.level,
       "Node",
-      `${node.name || node.id} — ${formatNumber(Number(node.xp_per_action || 0))} XP / ${formatDecimal(Number(node.seconds_per_action || 0))}s → ${itemName(node.item_yield)}${cost ? ` (uses ${cost})` : ""}`,
+      `${node.name || node.id} - ${formatNumber(Number(node.xp_per_action || 0))} XP / ${formatDecimal(Number(node.seconds_per_action || 0))}s → ${itemName(node.item_yield)}${cost ? ` (uses ${cost})` : ""}`,
     );
   }
 
@@ -2199,7 +2199,7 @@ function buildSkillUnlockTimeline({
     add(
       recipe.level,
       "Recipe",
-      `${recipe.name || itemName(output)} — ${formatNumber(Number(recipe.xp_per_action || 0))} XP / ${formatDecimal(Number(recipe.seconds || recipe.seconds_per_action || 0))}s → ${itemName(output)}${inputs ? ` (uses ${inputs})` : ""}`,
+      `${recipe.name || itemName(output)} - ${formatNumber(Number(recipe.xp_per_action || 0))} XP / ${formatDecimal(Number(recipe.seconds || recipe.seconds_per_action || 0))}s → ${itemName(output)}${inputs ? ` (uses ${inputs})` : ""}`,
     );
   }
 
@@ -2208,7 +2208,7 @@ function buildSkillUnlockTimeline({
       add(
         tier.level,
         "Tier",
-        `${titleizeId(tier.tier)} smithing tier — ${itemName(tier.bar)} and its gear blueprints`,
+        `${titleizeId(tier.tier)} smithing tier - ${itemName(tier.bar)} and its gear blueprints`,
       );
     }
   }
@@ -2221,7 +2221,7 @@ function buildSkillUnlockTimeline({
         add(
           tier.level,
           "Tier",
-          `${titleizeId(track)} — ${titleizeId(tier.tier)} tier (base material ${itemName(tier.material)})`,
+          `${titleizeId(track)} - ${titleizeId(tier.tier)} tier (base material ${itemName(tier.material)})`,
         );
       }
     }
@@ -2234,7 +2234,7 @@ function buildSkillUnlockTimeline({
       add(
         target.level,
         "Mark",
-        `${target.name} (${target.area}) — ${formatNumber(Number(target.xp || 0))} XP every ${formatDecimal(Number(target.period_seconds || 0))}s, ${formatPercent(Number(target.base_success || 0))} base success`,
+        `${target.name} (${target.area}) - ${formatNumber(Number(target.xp || 0))} XP every ${formatDecimal(Number(target.period_seconds || 0))}s, ${formatPercent(Number(target.base_success || 0))} base success`,
       );
     }
   }
@@ -2254,7 +2254,7 @@ function buildSkillUnlockTimeline({
     if (passive.trigger !== "skill_level" || passive.skill !== skillId) {
       continue;
     }
-    add(passive.threshold, "Passive", `${passive.name} — ${passive.desc}`);
+    add(passive.threshold, "Passive", `${passive.name} - ${passive.desc}`);
   }
 
   for (const gear of gameStateFile?.MASTERY_STORE_DEFS || []) {
@@ -2264,7 +2264,7 @@ function buildSkillUnlockTimeline({
     add(
       gear.level_required,
       "Mastery store",
-      `${itemName(gear.item_id)} — ${gear.summary}`,
+      `${itemName(gear.item_id)} - ${gear.summary}`,
     );
   }
 
@@ -2423,7 +2423,7 @@ function describeSkillAffinity(skillId, skillFile, gameStateFile) {
 
   return [
     intro,
-    "Affinity uses a much gentler curve than skill levels — roughly 116,000 total XP to affinity 99, against ~9.7M for skill 99.",
+    "Affinity uses a much gentler curve than skill levels: roughly 116,000 total XP to affinity 99, against ~9.7M for skill 99.",
     ...lines,
   ];
 }
@@ -2550,8 +2550,8 @@ function buildSkillEntries(
       codex.aliases,
       codex.what,
       codex.train,
-      // Let a player find the skill by anything gated behind it — a capstone
-      // item, a mark, a quest name — not just the skill's own name.
+      // Let a player find the skill by anything gated behind it: a capstone
+      // item, a mark, a quest name, not just the skill's own name.
       ...unlocks.map((unlock) => `${unlock.kind} ${unlock.text}`),
       ...nodeRows.map((row) => row.name),
       ...recipeRows.map((row) => row.name),
@@ -2641,7 +2641,7 @@ function buildSkillEntries(
           { open: false },
         )}
         ${renderSimpleTable(
-          `XP table — levels 2 to ${SKILL_LEVEL_CAP}`,
+          `XP table, levels 2 to ${SKILL_LEVEL_CAP}`,
           xpTable.headings,
           xpTable.rows,
           { open: false },
@@ -2748,7 +2748,7 @@ function buildQuestEntries(quests, itemFile, skillFile, questFile) {
         ${quest.npc_dialogue ? renderDetailBlock(`${quest.npc_name || "They"} says`, [quest.npc_dialogue]) : ""}
         ${quest.req_display ? renderDetailBlock("Requirement", [quest.req_display]) : ""}
         ${renderSimpleTable("Rewards", ["Reward", "Amount"], rewardRows)}
-        ${fragment?.text ? renderDetailBlock(`Memory recovered — ${fragment.title || ""}`, [fragment.text]) : ""}
+        ${fragment?.text ? renderDetailBlock(`Memory recovered: ${fragment.title || ""}`, [fragment.text]) : ""}
       `,
     };
   });
@@ -2775,7 +2775,7 @@ function buildFragmentEntries(questFile) {
       id: fragmentId,
       name: title,
       title,
-      subtitle: source ? `Recovered from “${source}”` : "Recovered in the field",
+      subtitle: source ? `Recovered from "${source}"` : "Recovered in the field",
       badges: [source ? "quest reward" : "field recovery"],
       tags: [source || "Field recovery"],
       searchText: normalizeSearchText(
@@ -2791,7 +2791,7 @@ function buildFragmentEntries(questFile) {
       ],
       body: `
         <div class="fragment-text">${escapeHtml(text)}</div>
-        ${source ? renderDetailBlock("Where it's found", [`Awarded by the quest “${source}”.`]) : ""}
+        ${source ? renderDetailBlock("Where it's found", [`Awarded by the quest "${source}".`]) : ""}
       `,
     };
   });
@@ -3127,7 +3127,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
         formatPercent(drop.chance || 0),
         Number(drop.qty_min) === Number(drop.qty_max)
           ? String(drop.qty_min || 1)
-          : `${drop.qty_min || 1}–${drop.qty_max || 1}`,
+          : `${drop.qty_min || 1}-${drop.qty_max || 1}`,
         `${formatNumber(expectedValue)} gp`,
       ];
     });
@@ -3145,7 +3145,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       `${Math.round(Number(phase.trigger_pct || 0) * 100)}% HP`,
       capitalize(String(phase.style || "balanced")),
       `${formatNumber(phase.damage_per_tick || 0)}/tick`,
-      phase.immune_to ? capitalize(phase.immune_to) : "—",
+      phase.immune_to ? capitalize(phase.immune_to) : "None",
       phase.desc || "",
     ]);
 
@@ -3159,7 +3159,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
     }
     if (firstClear.memoryFragment) {
       firstClearLines.push(
-        `Memory fragment — ${fragments[firstClear.memoryFragment]?.title || titleizeId(firstClear.memoryFragment)}`,
+        `Memory fragment: ${fragments[firstClear.memoryFragment]?.title || titleizeId(firstClear.memoryFragment)}`,
       );
     }
 
@@ -3199,7 +3199,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
                </div>`
             : ""
         }
-        ${boss.lore ? renderDetailBlock(`${boss.name || "Boss"} — lore`, [boss.lore]) : ""}
+        ${boss.lore ? renderDetailBlock(`${boss.name || "Boss"} lore`, [boss.lore]) : ""}
         ${renderSimpleTable("Boss phases", ["Phase", "Triggers", "Style", "Damage", "Immune to", "Behaviour"], phaseRows, { open: false })}
         ${firstClearLines.length ? renderDetailBlock("First-clear bonus", firstClearLines) : ""}
         ${renderSimpleTable("Loot table", ["Item", "Chance", "Qty", "Expected value"], lootRows)}
@@ -3325,12 +3325,12 @@ function buildRoadmapEntries(releases) {
         ["#", "Release", "Access", "Level cap"],
         releases.map((release, index) => [
           index + 1,
-          `${release.name} — ${release.tagline}`,
+          `${release.name} - ${release.tagline}`,
           release.access,
           release.levelCap,
         ]),
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere is a free base game update, so everyone gets it. The four expansions release one at a time and are sequential — each one requires the one before it.</span></div>
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere is a free base game update, so everyone gets it. The four expansions release one at a time and are sequential; each one requires the one before it.</span></div>
     `,
   };
 
@@ -3397,7 +3397,7 @@ function buildRoadmapEntries(releases) {
         ${renderSimpleTable("New areas", ["Area", "What it is"], release.zones)}
         ${
           release.faction
-            ? `<div class="note-box"><strong>New faction — ${escapeHtml(release.faction.name)}</strong><span>${escapeHtml(release.faction.tagline)} ${escapeHtml(release.faction.desc)}</span></div>`
+            ? `<div class="note-box"><strong>New faction: ${escapeHtml(release.faction.name)}</strong><span>${escapeHtml(release.faction.tagline)} ${escapeHtml(release.faction.desc)}</span></div>`
             : ""
         }
         ${renderDetailBlock("Also included", release.features)}
@@ -3406,7 +3406,7 @@ function buildRoadmapEntries(releases) {
             ? renderDetailBlock(release.alongside.name, release.alongside.lines)
             : ""
         }
-        ${renderDetailBlock("Story setup — spoilers for earlier content", [release.hook])}
+        ${renderDetailBlock("Story setup (spoilers for earlier content)", [release.hook])}
         <p class="helper">${escapeHtml(ROADMAP_DISCLAIMER)}</p>
       `,
     };
@@ -3482,9 +3482,9 @@ function buildPassiveEntries(passives) {
   return (passives || []).map((passive, index) => {
     const unlock = describePassiveUnlock(passive);
     const masteryPoints = Number(passive.mastery_points || 0);
-    // The desc bundles "Effect — flavor"; split on the em dash for a clean lore line.
+    // The desc bundles "Effect - flavour"; split on the hyphen for a clean lore line.
     const desc = String(passive.desc || "");
-    const dashIndex = desc.indexOf(" — ");
+    const dashIndex = desc.indexOf(" - ");
     const effectText = dashIndex >= 0 ? desc.slice(0, dashIndex).trim() : desc;
     const loreText = dashIndex >= 0 ? desc.slice(dashIndex + 3).trim() : "";
     return {
@@ -3620,7 +3620,7 @@ function buildSkillTreeEntries(branches, nodes) {
           <td data-label="Tier">${escapeHtml(String(node.sort ?? "-"))}</td>
           <td data-label="Node">${escapeHtml(node.name || node.id || "")}</td>
           <td data-label="MP">${escapeHtml(String(node.cost ?? "-"))}</td>
-          <td data-label="Requires">${escapeHtml(reqNames || "—")}</td>
+          <td data-label="Requires">${escapeHtml(reqNames || "None")}</td>
           <td data-label="Effect">${escapeHtml(node.desc || node.effect || "")}</td>
         </tr>`;
       })
@@ -3960,7 +3960,7 @@ function buildMechanicEntries(
   const streakTiers = (adventurerFile.STREAK_TIERS || [])
     .map((t) => ({
       streak: Number(t.min || 0),
-      rank: t.rank ? String(t.rank) : "—",
+      rank: t.rank ? String(t.rank) : "-",
       "xp bonus": `+${Math.round(Number(t.xp_bonus || 0) * 100)}%`,
       "seal mult": `×${Number(t.seal_mult || 1)}`,
     }))
@@ -3988,7 +3988,7 @@ function buildMechanicEntries(
         "Each contract slot tracks its own streak independently.",
         "Claiming a contract advances that slot's streak by 1; rerolling that slot resets it to 0.",
         "Streak grants bonus Adventurer XP (additive, capped at +50%) and multiplies Pathfinder Seal gain.",
-        "Streak Insurance (vendor) shields one reroll from resetting the streak — the gold reroll cost is still paid.",
+        "Streak Insurance (vendor) shields one reroll from resetting the streak; the gold reroll cost is still paid.",
       ])}
     `,
   });
@@ -3999,7 +3999,7 @@ function buildMechanicEntries(
     cost: `${Number(e.cost || 0)} seals`,
   }));
   const vendorDetails = (adventurerFile.VENDOR_CATALOG || []).map(
-    (e) => `${String(e.name || e.id)} — ${String(e.desc || "")}`,
+    (e) => `${String(e.name || e.id)} - ${String(e.desc || "")}`,
   );
 
   mechanics.push({
@@ -4169,7 +4169,7 @@ function buildMechanicEntries(
     [
       "Cooking",
       "Burn-chance reduction",
-      `−${pct(gs.COOKING_AFFINITY_BURN_REDUCTION_PER_LEVEL)} / Aff level`,
+      `-${pct(gs.COOKING_AFFINITY_BURN_REDUCTION_PER_LEVEL)} / Aff level`,
       pct(gs.COOKING_AFFINITY_BURN_REDUCTION_MAX),
     ],
     [
@@ -4193,13 +4193,13 @@ function buildMechanicEntries(
     [
       "Shadow Arts",
       "Cooldown reduction",
-      `−${pct(gs.SHADOW_AFFINITY_COOLDOWN_REDUCTION_PER_LEVEL)} / Aff level`,
+      `-${pct(gs.SHADOW_AFFINITY_COOLDOWN_REDUCTION_PER_LEVEL)} / Aff level`,
       pct(gs.SHADOW_AFFINITY_COOLDOWN_REDUCTION_MAX),
     ],
     [
       "Shadow Arts",
       "Stun-chance reduction",
-      `−${pct(gs.SHADOW_AFFINITY_STUN_REDUCTION_PER_LEVEL)} / Aff level`,
+      `-${pct(gs.SHADOW_AFFINITY_STUN_REDUCTION_PER_LEVEL)} / Aff level`,
       pct(gs.SHADOW_AFFINITY_STUN_REDUCTION_MAX),
     ],
   ];
@@ -4227,9 +4227,9 @@ function buildMechanicEntries(
     body: `
       ${renderDetailBlock("How affinity works", [
         "Every gathering node, artisan recipe, and shadow target builds its own Affinity track, earning a flat amount of affinity XP each time you complete that action.",
-        "Affinity raises that specific action's bonuses — it is separate from your skill level. Some bonuses scale per affinity level up to a cap; others unlock at the Affinity 25 and 50 milestones.",
+        "Affinity raises that specific action's bonuses; it is separate from your skill level. Some bonuses scale per affinity level up to a cap; others unlock at the Affinity 25 and 50 milestones.",
         "Affinity uses a much gentler curve than skill levels: roughly 116,000 total XP to affinity 99, against ~9.7M for skill 99.",
-        "Skills not listed below — the combat skills, Fracture Arts, Meditation, and Adventurer — have no affinity system.",
+        "Skills not listed below (the combat skills, Fracture Arts, Meditation, and Adventurer) have no affinity system.",
       ])}
       ${renderKeyedTable("Affinity XP per action", affinityXpaRows)}
       ${renderSimpleTable("Affinity bonuses by skill", ["Skill", "Bonus", "Scaling", "Cap / best"], affinityRows)}
@@ -4267,7 +4267,7 @@ function buildMechanicEntries(
       },
       {
         label: "Death gold loss",
-        value: `${pct(respawnPct)} (${num(respawnMin)}–${num(respawnMax)})`,
+        value: `${pct(respawnPct)} (${num(respawnMin)}-${num(respawnMax)})`,
       },
       {
         label: "HP regen",
@@ -4331,7 +4331,7 @@ function buildMechanicEntries(
       ],
       body: `
         ${renderDetailBlock("How it works", [
-          "Reaching level 99 in a skill unlocks that skill's signature Mastery Store item — a permanent capstone reward.",
+          "Reaching level 99 in a skill unlocks that skill's signature Mastery Store item, a permanent capstone reward.",
         ])}
         ${renderSimpleTable("Capstone rewards", ["Skill", "Requires", "Effect"], masteryStore)}
       `,
@@ -4413,7 +4413,7 @@ function buildMechanicEntries(
       section: "mechanics",
       id: "worldroot-fusion",
       name: "Worldroot",
-      title: "Worldroot — Relic Fusion",
+      title: "Worldroot: Relic Fusion",
       subtitle: "Fuse item clusters into powerful relics",
       badges: ["worldroot", "fusion", "relics", "endgame"],
       searchText: `worldroot fusion fuse relic upgrade recipe forge ${worldrootIds
@@ -4427,7 +4427,7 @@ function buildMechanicEntries(
       ],
       body: `
         ${renderDetailBlock("How Worldroot works", [
-          "Worldroot is a dedicated menu screen. Each recipe is laid out as a tree — the fused relic at the top, its ingredient items rooted below with a live count of how many you own versus how many you need.",
+          "Worldroot is a dedicated menu screen. Each recipe is laid out as a tree: the fused relic at the top, its ingredient items rooted below with a live count of how many you own versus how many you need.",
           "When you hold every ingredient, a Forge button consumes them and produces the relic with a celebration. Fusion now lives entirely in Worldroot; the old per-item Upgrade button in the inventory is gone.",
           "Forged relics count toward your Compendium item collection.",
         ])}
@@ -4442,7 +4442,7 @@ function buildMechanicEntries(
     section: "mechanics",
     id: "compendium",
     name: "Compendium",
-    title: "Compendium — Completion Tracker",
+    title: "Compendium: Completion Tracker",
     subtitle: "Every collectible and milestone in one place",
     badges: ["compendium", "completion", "collection"],
     searchText:
@@ -4463,7 +4463,7 @@ function buildMechanicEntries(
 
   // ── Fracture Arts spellbook ────────────────────────────────────────
   // Spells carry their own combat tuning (power / accuracy / element) as of
-  // 1.0.9 — before that every spell rolled the same damage and only the sigil
+  // 1.0.9. Before that every spell rolled the same damage and only the sigil
   // cost differed, so the per-spell numbers are worth surfacing here.
   const spellNodes = skillFile.GATHERING_NODES?.magic || [];
   const elementLabels = skillFile.SPELL_ELEMENT_LABELS || {};
@@ -4481,7 +4481,7 @@ function buildMechanicEntries(
         spell.name || spell.id,
         Number(spell.level || 0),
         elementLabels[elementId] || titleizeId(elementId),
-        `${formatDecimal(power)}×`,
+        `${formatDecimal(power)}x`,
         Number(spell.accuracy || 0) === 0
           ? "baseline"
           : `${Number(spell.accuracy) > 0 ? "+" : ""}${pct(spell.accuracy)}`,
@@ -4509,15 +4509,15 @@ function buildMechanicEntries(
         { label: "Spells", value: formatNumber(spellNodes.length) },
         {
           label: "Top-tier power",
-          value: `${formatDecimal(Number(topSpell?.power || 1))}× baseline`,
+          value: `${formatDecimal(Number(topSpell?.power || 1))}x baseline`,
         },
       ],
       body: `
         ${renderDetailBlock("How spell damage works", [
           "Your Fracture Arts level and your MAG gear set the base damage range and hit chance. The spell you cast then scales both: Power multiplies the damage range, and the accuracy modifier is added to your hit chance before clamping.",
-          "Pale Flicker sits at 1.00× — it is the baseline the game used for every spell before spells were given their own strength, so it is unchanged.",
+          "Pale Flicker sits at 1.00x, the baseline the game used for every spell before spells were given their own strength, so it is unchanged.",
           "Power climbs faster than sigil cost in raw damage but slower per sigil spent. That is the deliberate trade: the late spells buy kill speed (and so XP per hour and food saved) with reagent throughput, while the cheap 1-sigil spells stay the efficient choice for long grinding sessions.",
-          "In game, the 'i' button beside the Spell dropdown in Combat opens the same listing with your live numbers — damage range, hit chance against your selected monster, casts your current sigil stock affords, and how long that stock lasts.",
+          "In game, the 'i' button beside the Spell dropdown in Combat opens the same listing with your live numbers: damage range, hit chance against your selected monster, casts your current sigil stock affords, and how long that stock lasts.",
         ])}
         ${renderSimpleTable(
           "Every spell",
@@ -4534,7 +4534,7 @@ function buildMechanicEntries(
           spellRows,
         )}
         ${renderDetailBlock("Notes", [
-          "Several spells are also gated behind a quest in addition to the level requirement — the Fracture Arts skill page lists which.",
+          "Several spells are also gated behind a quest in addition to the level requirement; the Fracture Arts skill page lists which.",
           "Elements are carried on every spell for a planned elemental rework. They currently have no damage effect of their own.",
         ])}
       `,
@@ -4566,7 +4566,7 @@ function buildMechanicEntries(
         [
           [
             "Fracture Surge",
-            "2× speed for all timed activities (gathering, artisan, Shadow Arts) for 1 hour. Stack up to 4 ads for 4 hours. XP and affinity XP double as a result.",
+            "2x speed for all timed activities (gathering, artisan, Shadow Arts) for 1 hour. Stack up to 4 ads for 4 hours. XP and affinity XP double as a result.",
             "Skills screen",
           ],
           [
@@ -4576,14 +4576,14 @@ function buildMechanicEntries(
           ],
           [
             "Extended Offline Cap",
-            `Adds 4 hours to your offline cap for 12 hours — up to ${formatNumber(offlineCapHours + 4)} hours of offline progress.`,
+            `Adds 4 hours to your offline cap for 12 hours, up to ${formatNumber(offlineCapHours + 4)} hours of offline progress.`,
             "Store",
           ],
         ],
       )}
       ${renderDetailBlock("Warden's Mark", [
-        "Owners of the Warden's Mark have all three boosts permanently active — no ads, and no button presses. Auto-Meditate runs continuously, Fracture Surge holds 2× speed at all times, and the +4h offline cap extension is always in effect.",
-        "The durations in the table above are the rewarded-ad durations, which is what non-owners get. For owners they do not apply — the boosts never expire and never need re-activating.",
+        "Owners of the Warden's Mark have all three boosts permanently active, with no ads and no button presses. Auto-Meditate runs continuously, Fracture Surge holds 2x speed at all times, and the +4h offline cap extension is always in effect.",
+        "The durations in the table above are the rewarded-ad durations, which is what non-owners get. For owners they do not apply; the boosts never expire and never need re-activating.",
         "The offline progress cap still applies to Auto-Meditate for owners, so a long absence credits only up to the capped window, exactly as before.",
         "Non-owners are unaffected: rewarded ad boosts work exactly as they always have. When an ad genuinely cannot load, the boost button explains why and offers Warden's Mark activation instead of failing silently.",
       ])}
@@ -4609,11 +4609,11 @@ function buildMechanicEntries(
     ],
     body: `
       ${renderDetailBlock("The Store", [
-        "Starter gathering tools — pickaxe, axe, and rod — are free to claim directly from the Store. (The old step-by-step mining tutorial has been removed.)",
+        "Starter gathering tools (pickaxe, axe, and rod) are free to claim directly from the Store. (The old step-by-step mining tutorial has been removed.)",
         "The Extended Offline Cap ad boost is also activated here.",
       ])}
       ${renderDetailBlock("Warden's Mark", [
-        "A one-time Google Play purchase that permanently unlocks all ad-gated benefits — Fracture Surge, Auto-Meditate, and Extended Cap are simply always on for owners. No ads, no activation taps, no expiry.",
+        "A one-time Google Play purchase that permanently unlocks all ad-gated benefits. Fracture Surge, Auto-Meditate, and Extended Cap are simply always on for owners. No ads, no activation taps, no expiry.",
         "Ownership follows your Google Play account and is restored automatically across devices. A refunded purchase is revoked on the next Play check; re-purchasing restores it immediately.",
       ])}
     `,
@@ -4643,7 +4643,7 @@ function buildMechanicEntries(
         {
           label: "Standard thresholds",
           value: stdThresholds.length
-            ? `${formatPercent(Number(stdThresholds[0]))}–${formatPercent(Number(stdThresholds[stdThresholds.length - 1]))}`
+            ? `${formatPercent(Number(stdThresholds[0]))}-${formatPercent(Number(stdThresholds[stdThresholds.length - 1]))}`
             : "All",
         },
         { label: "Hardcore unlock", value: "Boss dungeon first clears" },
@@ -4651,7 +4651,7 @@ function buildMechanicEntries(
       body: `
         ${renderDetailBlock("Standard vs Hardcore", [
           "Standard characters have every auto-eat threshold available, and combat / Shadow Arts auto-stop when food runs out.",
-          "Hardcore characters earn auto-eat through boss dungeon first clears — with no clears, auto-eat is fully locked. Hardcore combat does not auto-stop when food runs out; you can die, including while offline. Death is permanent (delete or roll over to Standard).",
+          "Hardcore characters earn auto-eat through boss dungeon first clears; with no clears, auto-eat is fully locked. Hardcore combat does not auto-stop when food runs out; you can die, including while offline. Death is permanent (delete or roll over to Standard).",
           "Both modes have a manual Eat button in combat and Shadow Arts that consumes one serving of your selected food immediately, regardless of threshold or gating.",
         ])}
         ${renderSimpleTable(
@@ -7086,7 +7086,7 @@ function synthesizeItemLore(
   const chunks = [];
   if (info.source_hint) {
     chunks.push(
-      info.source_hint.replace(/^Store\s+—\s*/, "Issued through the store as "),
+      info.source_hint.replace(/^Store\s+-\s*/, "Issued through the store as "),
     );
   }
   if (recipeSources.length) {

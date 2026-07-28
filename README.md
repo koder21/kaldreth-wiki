@@ -1,4 +1,4 @@
-# Kaldreth — Idle RPG Wiki
+# Kaldreth: Idle RPG Wiki
 
 Your guide to skills, items, quests, combat, boss dungeons, and everything in Aetheria.
 
