@@ -145,7 +145,7 @@ const SKILL_CODEX = {
   magic: {
     role: "Combat / Casting",
     aliases: "fracture arts magic spells runes casting mage staff",
-    what: "Doubles as a combat style and a casting discipline. In combat your Fracture Arts level drives hit chance and max hit; out of combat it burns reagents to bind runes.",
+    what: "Doubles as a combat style and a casting discipline. In combat your Fracture Arts level and MAG gear set your damage range and hit chance, and the spell you cast scales both — higher-tier spells hit harder and land more often. Out of combat it burns reagents to bind runes.",
     train:
       "Cast runes for steady flat XP, or fight using the Magic combat style to train it off tick damage. Rune casting consumes its reagent every action.",
   },
@@ -486,12 +486,19 @@ const PLAYER_COMBAT_STYLES = new Set([
   "magic",
 ]);
 
+// Pale Flicker — the 1.00x power / +0 accuracy spell the whole magic damage
+// formula was built around before spells carried their own tuning.
+const DEFAULT_SPELL_ID = "cast_spark";
+
 const state = {
   data: null,
   category: "all",
   search: "",
   revealSpoilers: false,
   playerCombatStyle: "balanced",
+  // Pale Flicker is the 1.00x baseline, so this default reproduces the
+  // pre-1.0.9 magic numbers for anyone loading an older saved preset or URL.
+  playerSpellId: DEFAULT_SPELL_ID,
   playerAttackLevel: 1,
   playerStrengthLevel: 1,
   playerDefenceLevel: 1,
@@ -590,6 +597,7 @@ function bindDom() {
   dom.presetLoad = document.getElementById("preset-load");
   dom.presetDelete = document.getElementById("preset-delete");
   dom.playerCombatStyle = document.getElementById("player-combat-style");
+  dom.playerSpell = document.getElementById("player-spell");
   dom.playerAttackLevel = document.getElementById("player-attack-level");
   dom.playerStrengthLevel = document.getElementById("player-strength-level");
   dom.playerDefenceLevel = document.getElementById("player-defence-level");
@@ -769,6 +777,12 @@ function wireControls() {
       state.playerCombatStyle = String(
         dom.playerCombatStyle.value || "balanced",
       );
+      rebuildModelAndRender();
+    });
+  }
+  if (dom.playerSpell) {
+    dom.playerSpell.addEventListener("change", () => {
+      state.playerSpellId = String(dom.playerSpell.value || DEFAULT_SPELL_ID);
       rebuildModelAndRender();
     });
   }
@@ -1303,6 +1317,7 @@ function initializePlannerState() {
   }
   if (dom.playerCombatStyle)
     dom.playerCombatStyle.value = String(state.playerCombatStyle);
+  syncSpellSelect();
   if (dom.playerAttackLevel)
     dom.playerAttackLevel.value = String(state.playerAttackLevel);
   if (dom.playerStrengthLevel)
@@ -4446,6 +4461,86 @@ function buildMechanicEntries(
     `,
   });
 
+  // ── Fracture Arts spellbook ────────────────────────────────────────
+  // Spells carry their own combat tuning (power / accuracy / element) as of
+  // 1.0.9 — before that every spell rolled the same damage and only the sigil
+  // cost differed, so the per-spell numbers are worth surfacing here.
+  const spellNodes = skillFile.GATHERING_NODES?.magic || [];
+  const elementLabels = skillFile.SPELL_ELEMENT_LABELS || {};
+  if (spellNodes.length) {
+    const spellItems = itemFile.ITEMS || {};
+    const spellRows = spellNodes.map((spell) => {
+      const sigils = Object.entries(spell.requires || {});
+      const sigilCount = sigils.reduce(
+        (sum, [, qty]) => sum + Number(qty || 0),
+        0,
+      );
+      const power = Number(spell.power || 1);
+      const elementId = String(spell.element || "");
+      return [
+        spell.name || spell.id,
+        Number(spell.level || 0),
+        elementLabels[elementId] || titleizeId(elementId),
+        `${formatDecimal(power)}×`,
+        Number(spell.accuracy || 0) === 0
+          ? "baseline"
+          : `${Number(spell.accuracy) > 0 ? "+" : ""}${pct(spell.accuracy)}`,
+        sigils
+          .map(([id, qty]) => `${spellItems[id]?.name || titleizeId(id)} x${qty}`)
+          .join(", ") || "-",
+        sigilCount > 0 ? formatDecimal(power / sigilCount) : "-",
+        `${formatNumber(Number(spell.xp_per_action || 0))} XP / ${formatDecimal(Number(spell.seconds_per_action || 0))}s`,
+      ];
+    });
+    const topSpell = spellNodes[spellNodes.length - 1];
+    mechanics.push({
+      kind: "Mechanic",
+      section: "mechanics",
+      id: "fracture-arts-spellbook",
+      name: "Fracture Arts Spellbook",
+      title: "Fracture Arts Spellbook",
+      subtitle: "Per-spell damage, hit chance, and sigil efficiency",
+      badges: ["spells", "fracture arts", "combat", "sigils"],
+      searchText:
+        "spellbook spell power damage multiplier accuracy hit chance element sigil cost rune per sigil pale flicker architects unmaking fracture arts magic casting",
+      sortKey: "mechanics fracture arts spellbook",
+      spoiler: false,
+      metrics: [
+        { label: "Spells", value: formatNumber(spellNodes.length) },
+        {
+          label: "Top-tier power",
+          value: `${formatDecimal(Number(topSpell?.power || 1))}× baseline`,
+        },
+      ],
+      body: `
+        ${renderDetailBlock("How spell damage works", [
+          "Your Fracture Arts level and your MAG gear set the base damage range and hit chance. The spell you cast then scales both: Power multiplies the damage range, and the accuracy modifier is added to your hit chance before clamping.",
+          "Pale Flicker sits at 1.00× — it is the baseline the game used for every spell before spells were given their own strength, so it is unchanged.",
+          "Power climbs faster than sigil cost in raw damage but slower per sigil spent. That is the deliberate trade: the late spells buy kill speed (and so XP per hour and food saved) with reagent throughput, while the cheap 1-sigil spells stay the efficient choice for long grinding sessions.",
+          "In game, the 'i' button beside the Spell dropdown in Combat opens the same listing with your live numbers — damage range, hit chance against your selected monster, casts your current sigil stock affords, and how long that stock lasts.",
+        ])}
+        ${renderSimpleTable(
+          "Every spell",
+          [
+            "Spell",
+            "Level",
+            "Element",
+            "Power",
+            "Hit chance",
+            "Sigil cost",
+            "Power / sigil",
+            "Cast XP",
+          ],
+          spellRows,
+        )}
+        ${renderDetailBlock("Notes", [
+          "Several spells are also gated behind a quest in addition to the level requirement — the Fracture Arts skill page lists which.",
+          "Elements are carried on every spell for a planned elemental rework. They currently have no damage effect of their own.",
+        ])}
+      `,
+    });
+  }
+
   // ── Boosts & rewarded ads ──────────────────────────────────────────
   const offlineCapHours = Number(gs.OFFLINE_SECONDS_CAP || 0) / 3600;
   mechanics.push({
@@ -4462,7 +4557,7 @@ function buildMechanicEntries(
     spoiler: false,
     metrics: [
       { label: "Base offline cap", value: `${formatNumber(offlineCapHours)} hours` },
-      { label: "Warden's Mark", value: "One-tap, no ads" },
+      { label: "Warden's Mark", value: "Always on, no ads" },
     ],
     body: `
       ${renderSimpleTable(
@@ -4487,8 +4582,10 @@ function buildMechanicEntries(
         ],
       )}
       ${renderDetailBlock("Warden's Mark", [
-        "Owners of the Warden's Mark can activate all three boosts with a single tap — no ad required, forever.",
-        "When an ad genuinely cannot load, the boost button explains why and offers Warden's Mark activation instead of failing silently.",
+        "Owners of the Warden's Mark have all three boosts permanently active — no ads, and no button presses. Auto-Meditate runs continuously, Fracture Surge holds 2× speed at all times, and the +4h offline cap extension is always in effect.",
+        "The durations in the table above are the rewarded-ad durations, which is what non-owners get. For owners they do not apply — the boosts never expire and never need re-activating.",
+        "The offline progress cap still applies to Auto-Meditate for owners, so a long absence credits only up to the capped window, exactly as before.",
+        "Non-owners are unaffected: rewarded ad boosts work exactly as they always have. When an ad genuinely cannot load, the boost button explains why and offers Warden's Mark activation instead of failing silently.",
       ])}
     `,
   });
@@ -4516,7 +4613,7 @@ function buildMechanicEntries(
         "The Extended Offline Cap ad boost is also activated here.",
       ])}
       ${renderDetailBlock("Warden's Mark", [
-        "A one-time Google Play purchase that permanently unlocks all ad-gated benefits — Fracture Surge, Auto-Meditate, and Extended Cap all activate with a single tap, no ads, forever.",
+        "A one-time Google Play purchase that permanently unlocks all ad-gated benefits — Fracture Surge, Auto-Meditate, and Extended Cap are simply always on for owners. No ads, no activation taps, no expiry.",
         "Ownership follows your Google Play account and is restored automatically across devices. A refunded purchase is revoked on the next Play check; re-purchasing restores it immediately.",
       ])}
     `,
@@ -5805,6 +5902,7 @@ function loadStateFromUrl() {
 
   const stringKeys = {
     pcs: "playerCombatStyle",
+    psp: "playerSpellId",
     dm: "dropMonsterId",
     di: "dropItemId",
     ai: "affordItemId",
@@ -5830,6 +5928,7 @@ function loadStateFromUrl() {
 function updateUrlState() {
   const params = new URLSearchParams();
   params.set("pcs", state.playerCombatStyle || "balanced");
+  params.set("psp", state.playerSpellId || DEFAULT_SPELL_ID);
   params.set("pal", String(Math.round(state.playerAttackLevel || 1)));
   params.set("psl", String(Math.round(state.playerStrengthLevel || 1)));
   params.set("pdl", String(Math.round(state.playerDefenceLevel || 1)));
@@ -6616,14 +6715,67 @@ function monsterCombatLevel(monster) {
   return Math.max(1, Math.round(level));
 }
 
+// ── Fracture Arts spells ─────────────────────────────────────────────
+// Spells carry their own power / accuracy as of 1.0.9. Both are read straight
+// off the exported data so the planner cannot drift from the game's own
+// GameState.spell_profile() resolver.
+function getSpellList() {
+  const nodes =
+    state.data?.sources?.["client/data/SkillData.gd"]?.consts
+      ?.GATHERING_NODES?.magic;
+  return Array.isArray(nodes) ? nodes : [];
+}
+
+// Fills the planner's spell dropdown from the exported spell list and keeps
+// state.playerSpellId pointing at a spell that actually exists.
+function syncSpellSelect() {
+  const spells = getSpellList();
+  if (!dom.playerSpell || !spells.length) {
+    return;
+  }
+  const known = new Set(spells.map((spell) => String(spell.id)));
+  if (!known.has(String(state.playerSpellId || ""))) {
+    state.playerSpellId = known.has(DEFAULT_SPELL_ID)
+      ? DEFAULT_SPELL_ID
+      : String(spells[0].id);
+  }
+  const signature = spells.map((spell) => spell.id).join("|");
+  if (dom.playerSpell.dataset.signature !== signature) {
+    dom.playerSpell.innerHTML = spells
+      .map(
+        (spell) =>
+          `<option value="${escapeHtml(String(spell.id))}">${escapeHtml(
+            `${spell.name || spell.id} (Lv ${Number(spell.level || 1)}, ${formatDecimal(Number(spell.power || 1))}x)`,
+          )}</option>`,
+      )
+      .join("");
+    dom.playerSpell.dataset.signature = signature;
+  }
+  dom.playerSpell.value = String(state.playerSpellId);
+}
+
+function getSpellById(spellId) {
+  const spells = getSpellList();
+  return (
+    spells.find((spell) => String(spell.id) === String(spellId)) ||
+    spells.find((spell) => String(spell.id) === DEFAULT_SPELL_ID) ||
+    null
+  );
+}
+
 function getPlayerCombatProfile() {
   const combatStyle = PLAYER_COMBAT_STYLES.has(
     String(state.playerCombatStyle || "balanced"),
   )
     ? String(state.playerCombatStyle || "balanced")
     : "balanced";
+  const spell = getSpellById(state.playerSpellId);
   return {
     combatStyle,
+    spellId: spell ? String(spell.id) : DEFAULT_SPELL_ID,
+    spellName: spell?.name || "Pale Flicker",
+    spellPower: Math.max(0.1, Number(spell?.power ?? 1)),
+    spellAccuracy: Number(spell?.accuracy ?? 0),
     attack: clampNumber(state.playerAttackLevel, 1, 99, 1),
     strength: clampNumber(state.playerStrengthLevel, 1, 99, 1),
     defence: clampNumber(state.playerDefenceLevel, 1, 99, 1),
@@ -6828,6 +6980,13 @@ function playerMagicDamageRange(profile) {
   const magic = Number(profile.magic || 1) + Number(profile.magBonus || 0);
   let maxHit = Math.max(2, Math.floor(1 + magic * 0.35));
   let minHit = Math.max(1, Math.floor(maxHit / 3));
+  // Spell power sits ahead of the gear/mastery multipliers, matching
+  // GameState._player_damage_range() so all three compound the same way.
+  const spellPower = Math.max(0.1, Number(profile.spellPower ?? 1));
+  if (spellPower !== 1) {
+    minHit = Math.max(1, Math.round(minHit * spellPower));
+    maxHit = Math.max(minHit + 1, Math.round(maxHit * spellPower));
+  }
   const combatDamageBonus = Number(profile.combatDamageBonusPct || 0) / 100;
   if (combatDamageBonus > 0) {
     minHit = Math.max(1, Math.round(minHit * (1 + combatDamageBonus)));
@@ -6877,7 +7036,13 @@ function estimateMonsterKillsPerHour(monster, playerCombatProfile) {
     const defRoll = monsterMagicDefenceRoll(monster);
     chance = hitChance(attRoll, defRoll);
     const magicHitBonus = Number(profile.magicMasteryHitBonusPct || 0) / 100;
-    chance = clampNumber(chance + magicHitBonus, 0.05, 0.99, 0.05);
+    const spellAccuracy = Number(profile.spellAccuracy || 0);
+    chance = clampNumber(
+      chance + magicHitBonus + spellAccuracy,
+      0.05,
+      0.99,
+      0.05,
+    );
     const range = playerMagicDamageRange(profile);
     averageDamageOnHit = (range.minHit + range.maxHit) / 2;
   } else {
@@ -7193,6 +7358,7 @@ function handleQuickNav(action) {
 function resetPlannerStateToDefaults() {
   Object.assign(state, {
     playerCombatStyle: "balanced",
+    playerSpellId: DEFAULT_SPELL_ID,
     playerAttackLevel: 1,
     playerStrengthLevel: 1,
     playerDefenceLevel: 1,
@@ -7293,6 +7459,7 @@ function showMobileNavFeedback(action, label) {
 function getPresetSnapshot() {
   return {
     playerCombatStyle: state.playerCombatStyle,
+    playerSpellId: state.playerSpellId,
     playerAttackLevel: state.playerAttackLevel,
     playerStrengthLevel: state.playerStrengthLevel,
     playerDefenceLevel: state.playerDefenceLevel,

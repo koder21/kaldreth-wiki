@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T17:50:26.874667+00:00",
+  "generated_at": "2026-07-28T16:51:55.224056+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -348,6 +348,7 @@
         "OFFLINE_SECONDS_CAP": 14400,
         "OFFLINE_SIM_MAX_COMBAT_BATCHES": 600,
         "OFFLINE_SIM_MAX_SHADOW_ATTEMPTS": 40000,
+        "PERMANENT_BOOST_UNTIL": 4102444800,
         "PRESET_COUNT": 4,
         "RESPAWN_GOLD_LOSS_MAX": 500000,
         "RESPAWN_GOLD_LOSS_MIN": 20,
@@ -5506,9 +5507,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.0.8",
-        "BUILD_FINGERPRINT": "1.0.8 (1785088091)",
-        "VERSION_CODE": 1785088091
+        "APP_VERSION": "1.0.9",
+        "BUILD_FINGERPRINT": "1.0.9 (1785253561)",
+        "VERSION_CODE": 1785253561
       },
       "specials": {}
     },
@@ -9675,6 +9676,19 @@
         "RELEASES": [
           {
             "changes": [
+              "Improved: Owners of the Warden's Mark now have all three boosts permanently active - no button presses needed. Auto-Meditate runs continuously, Fracture Surge keeps 2x speed at all times, and the +4h offline cap extension is always in effect. The offline progress cap still applies to Auto-Meditate, so a long absence credits only up to the capped window, the same as before. Non-owners are unaffected - rewarded ad boosts work exactly as they always have.",
+              "New: Daily and Weekly task cards now have a 'Go' button on each incomplete task, the same as adventurer guild contracts already had. Tapping it takes you straight to where the task is completed - the relevant skill panel for gathering, crafting, meditation, pickpocketing, and guild-contract tasks; the Combat tab for kill tasks; the Boss Dungeons screen for dungeon tasks; and the Skills list for weekly tasks that cover any skill. Completed tasks show the Claim button as before.",
+              "Changed: Fracture Arts spells now each hit for their own damage. Previously, the game applied the same damage formula to every spell regardless of which you cast - your Fracture Arts level and your MAG gear determined the number, and the spell choice changed only the sigil cost. That meant a three-sigil cast did no more per cast than a one-sigil Pale Flicker, making the higher spells a worse trade by any measure. Each spell now has its own strength behind it. Higher-tier spells hit harder and land more reliably than lower ones. Pale Flicker is unchanged - it was the old baseline, so no one comes out weaker. The trade between spells is deliberate: the strongest options deal the most damage per cast but spend the most sigils to do it, so Pale Flicker and the other cheaper spells remain the efficient choice for long grinding sessions. Spending up buys faster kills, not free damage. At high Fracture Arts levels, the top-tier spells hit roughly twice as hard per cast as Pale Flicker.",
+              "New: A small 'i' button now sits beside the Spell dropdown in Combat. Tapping it opens the spellbook - a side-by-side listing of every Fracture Arts spell, including ones you haven't unlocked yet. For each spell the panel shows its damage range, its hit chance against the monster you currently have selected, its element, its sigil cost, how much damage it deals per sigil spent, how many casts your current stock affords, and how long that stock would last across a fight. Locked spells display with the Fracture Arts level required to use them, and the relevant quest where one applies. The Spell dropdown itself now shows a short summary of the selected spell's damage and hit chance underneath it, so you can see the key numbers at a glance without opening the full panel. The point of both additions is the same: you can see exactly what you stand to gain before committing sigils.",
+              "Fixed: If a skill levelled up quickly - training Fracture Arts early is the easiest way to hit it - celebration cards queued up while your skills panel already showed the real level, leaving a gap of 10 or more that took minutes to clear. Pending levels now merge into a single card showing your current level, the card on screen ends early when more are waiting, and leftover firework particles from an interrupted card no longer drift into the next one.",
+              "Fixed: In boss dungeons, your combat damage bonus was being applied twice on every hit - once directly and once again compounded on the result, so the bonus was multiplying against itself rather than applying as a straight addition. Overworld combat was not affected. The result was that players with meaningful investment in the damage skill tree were landing far more damage on bosses than the listed bonus would suggest. The bonus now applies once per hit, which is how it already worked everywhere else in the game. Players with little or no combat damage investment will notice almost no difference. Players who have invested heavily will see boss damage drop by up to roughly 38 percent - the more nodes you carry, the larger the practical reduction. Boss dungeon rewards and boss health are unchanged."
+            ],
+            "title": "Permanent Boosts for Warden's Mark Owners",
+            "version": "1.0.9",
+            "version_code": 1785253561
+          },
+          {
+            "changes": [
               "Changed: Fracture Arts now burns sigils rather than raw materials directly. If you were casting before this update, your spells will fall back to wand melee until you have sigils woven - and you need the Spiritweaving level required for the sigil your spell uses. Check each spell's description for which sigil it takes and weave a stock before your next fight. Six new Spiritweaving recipes cover the spells that needed them: Pale, Ash, Fracture, Stone, Spire, and Resonance Sigils, joining the four that already existed. One gleaned material weaves into five sigils - everything you have stockpiled is still usable, it just needs one extra step first. Lower spells cost one sigil per cast; the strongest cost two or three.",
               "Changed: Sigil sell prices have been reduced. Sigils are now produced five at a time and serve as casting ammunition - the old prices were set when sigils were rare single-output items, and no longer reflect what they are.",
               "New: Every skill now explains what it does. Tapping Attack, Strength, Defence, Hitpoints, or Fracture Arts in the Skills list used to show only 'Trained through combat only' - it now opens a card describing the skill and what each level gives you. Every skill panel also has a '?' button for the same card, and gathering and artisan panels show a one-line description at the top. This covers the skills players had the hardest time reading - Wardcraft, Shard Gleaning, and Spiritweaving in particular. Prompted by the Discord community.",
@@ -13510,113 +13524,153 @@
           ],
           "magic": [
             {
+              "accuracy": 0.0,
+              "element": "veil",
               "id": "cast_spark",
               "level": 1,
               "name": "Pale Flicker",
+              "power": 1.0,
               "requires": {
                 "veil_rune": 1
               },
               "seconds_per_action": 2,
+              "traits": [],
               "xp_per_action": 2
             },
             {
+              "accuracy": 0.01,
+              "element": "hollow",
               "id": "cast_hollow",
               "level": 5,
               "name": "Hollow Pulse",
+              "power": 1.06,
               "requires": {
                 "hollow_rune": 1
               },
               "seconds_per_action": 2,
+              "traits": [],
               "xp_per_action": 5
             },
             {
+              "accuracy": 0.02,
+              "element": "ash",
               "id": "cast_ember",
               "level": 10,
               "name": "Ashbolt",
+              "power": 1.12,
               "quest_required": "q04_the_pale_flame",
               "requires": {
                 "ash_rune": 1
               },
               "seconds_per_action": 3,
+              "traits": [],
               "xp_per_action": 10
             },
             {
+              "accuracy": 0.03,
+              "element": "gleam",
               "id": "cast_gleam",
               "level": 20,
               "name": "Gleam Lance",
+              "power": 1.2,
               "quest_required": "q08_whispers_from_plateau",
               "requires": {
                 "gleam_rune": 1
               },
               "seconds_per_action": 3,
+              "traits": [],
               "xp_per_action": 12
             },
             {
+              "accuracy": 0.04,
+              "element": "fracture",
               "id": "cast_torrent",
               "level": 25,
               "name": "Fracture Surge",
+              "power": 1.28,
               "quest_required": "q12_whispers_in_ashford",
               "requires": {
                 "fracture_rune": 1
               },
               "seconds_per_action": 3,
+              "traits": [],
               "xp_per_action": 15
             },
             {
+              "accuracy": 0.05,
+              "element": "stone",
               "id": "cast_stonecall",
               "level": 40,
               "name": "Resonance Hammer",
+              "power": 1.45,
               "quest_required": "q19_shadows_of_spire",
               "requires": {
                 "stone_rune": 2
               },
               "seconds_per_action": 4,
+              "traits": [],
               "xp_per_action": 25
             },
             {
+              "accuracy": 0.06,
+              "element": "ward",
               "id": "cast_warden",
               "level": 50,
               "name": "Warden's Aegis",
+              "power": 1.58,
               "quest_required": "q18_stabilization_ritual",
               "requires": {
                 "warden_rune": 2
               },
               "seconds_per_action": 4,
+              "traits": [],
               "xp_per_action": 28
             },
             {
+              "accuracy": 0.07,
+              "element": "spire",
               "id": "cast_resonate",
               "level": 55,
               "name": "Spire Call",
+              "power": 1.72,
               "quest_required": "q20_crossed_alliances",
               "requires": {
                 "spire_rune": 2,
                 "stone_rune": 1
               },
               "seconds_per_action": 4,
+              "traits": [],
               "xp_per_action": 30
             },
             {
+              "accuracy": 0.08,
+              "element": "bloom",
               "id": "cast_bloom",
               "level": 65,
               "name": "Bloom Torrent",
+              "power": 1.9,
               "quest_required": "q26_fractures_heart",
               "requires": {
                 "bloom_rune": 2,
                 "fracture_rune": 1
               },
               "seconds_per_action": 4,
+              "traits": [],
               "xp_per_action": 38
             },
             {
+              "accuracy": 0.1,
+              "element": "resonance",
               "id": "cast_weave",
               "level": 75,
               "name": "Architect's Unmaking",
+              "power": 2.1,
               "requires": {
                 "resonance_rune": 2,
                 "spire_rune": 1
               },
               "seconds_per_action": 5,
+              "traits": [],
               "xp_per_action": 50
             }
           ],
@@ -14025,6 +14079,18 @@
           "resonite": 10,
           "spelcast": 4,
           "thornite": 5
+        },
+        "SPELL_ELEMENT_LABELS": {
+          "ash": "Ash",
+          "bloom": "Bloom",
+          "fracture": "Fracture",
+          "gleam": "Gleam",
+          "hollow": "Hollow",
+          "resonance": "Resonance",
+          "spire": "Spire",
+          "stone": "Stone",
+          "veil": "Veil",
+          "ward": "Ward"
         },
         "_AFF_XP_TABLE_MAX": 100,
         "_XP_TABLE_MAX": 200
