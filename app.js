@@ -61,7 +61,7 @@ const SECTION_LORE = {
   npcs: "The voices of Aetheria: who they are and what they want.",
   vendors: "Where to spend your hard-won gold.",
   dungeons: "Deep places the Order would rather you never found.",
-  factions: "Five powers shaping Aetheria after the Accord.",
+  factions: "The powers shaping Aetheria after the Accord.",
   achievements: "Milestones the world will remember you by.",
   titles: "The names Aetheria has earned you.",
   mechanics: "The rules the Architects wrote into the world.",
@@ -203,56 +203,14 @@ const ROADMAP_DISCLAIMER =
 
 const ROADMAP = [
   {
-    id: "frostmere",
-    order: 1,
-    name: "Frostmere",
-    tagline: "The far north, and the scars that never closed",
-    status: "Next up, in development",
-    access: "Free base game update, no purchase",
-    levelCap: "99 (unchanged)",
-    unlock: "Opens after the aftermath arc ends with Sovereign's Burden.",
-    hook: "The base game closes the Architect circuit and the hum stops. Frostmere is the coda: the north never went quiet. The deepest Fracture scars in the known world run for kilometres under the permafrost, and the Greyfen Scholars have been mapping them for eleven years without finding the bottom. Eight months ago something started coming up.",
-    zones: [
-      [
-        "Frostmere",
-        "A frozen tundra northwest of Caelmora, beyond the Ironback Mountains. Resonance nodes here do not hum. They pulse, silently. At dusk the sky shows branching lines of light the scholars call Fracture weather.",
-      ],
-      [
-        "Greyfen",
-        "A fortified research settlement of maybe four hundred, a third of them studying the scars. No inns, no taverns, no merchants in the usual sense. The Scholars share resources communally, and entering means demonstrating purpose rather than wealth.",
-      ],
-    ],
-    faction: {
-      name: "The Greyfen Scholars",
-      tagline: "The cold keeps you honest.",
-      desc: "Exiled Accord researchers who chose truth over comfort and built a settlement in the frozen north to prove it, led by the quietly formidable Seris Vael. They do not trust easily and they do not forgive betrayal at all. Reputation rewards lean into Shadow Arts XP and cooldown, Meditation XP, and a global XP bonus at the top tier.",
-    },
-    features: [
-      "A new six-quest story arc continuing past the base game's ending.",
-      "The Fracture Scar, a fifth boss dungeon against The Index. Requires all four existing dungeons cleared.",
-      "New Shadow Arts marks in and around Greyfen.",
-      "New gathering nodes, including Frostglass, plus new smithing, Wardcraft, and cooking recipes and the gear they produce.",
-      "New skill tree nodes, memory fragments, and achievements.",
-    ],
-    alongside: {
-      name: "Game-wide combat overhaul",
-      lines: [
-        "Ships alongside Frostmere and touches every region, not just the north.",
-        "The combat roster roughly triples, from 31 monsters to 95 or more, around ten per existing region plus a full Frostmere roster.",
-        "A new tier of Heavy Hitter enemies above level 100, and a capstone encounter for players who clear it.",
-        "A damage-reduction system with new defensive consumables, and a harder lean on the melee-defence versus magic-defence split so switching styles mid-fight actually pays.",
-      ],
-    },
-  },
-  {
     id: "expansion-1",
-    order: 2,
+    order: 1,
     name: "Expansion 1: The Living Wilds",
     tagline: "Whisperwood, and what the roots remember",
-    status: "Planned, first paid expansion",
+    status: "Next up, first paid expansion",
     access: "Paid expansion",
     levelCap: "105",
-    unlock: "Follows the Frostmere arc.",
+    unlock: "Follows the Frostmere arc, which shipped in 1.1.0.",
     hook: "In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant, a faction predating the Accord, emerges to warn that what the Architects awakened underground is still active. Their leader's last message before going silent: \"The roots remember.\"",
     zones: [
       [
@@ -304,7 +262,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-2",
-    order: 3,
+    order: 2,
     name: "Expansion 2: The Salt Accord",
     tagline: "Tideward, and the harbour that kept trading",
     status: "Planned",
@@ -365,7 +323,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-3",
-    order: 4,
+    order: 3,
     name: "Expansion 3: Drakenhollow",
     tagline: "The first site, still running",
     status: "Planned",
@@ -420,7 +378,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-4",
-    order: 5,
+    order: 4,
     name: "Expansion 4, Oraewyn: The Fractured Sky",
     tagline: "The capstone, and the people who have been watching",
     status: "Planned, final expansion",
@@ -2661,7 +2619,7 @@ function buildSkillEntries(
   });
 }
 
-const QUEST_ARC_ORDER = { early: 0, mid: 1, late: 2, aftermath: 3 };
+const QUEST_ARC_ORDER = { early: 0, mid: 1, late: 2, aftermath: 3, frostmere: 4 };
 
 function titleizeId(value) {
   return String(value || "")
@@ -3149,6 +3107,19 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       phase.desc || "",
     ]);
 
+    // A phase can carry a defence-penetrating attack, which is not visible
+    // anywhere in the per-tick damage column and is what actually kills people.
+    const penetratingLines = (boss.phases || [])
+      .filter((phase) => phase.penetrating)
+      .flatMap((phase) => {
+        const pen = phase.penetrating || {};
+        return [
+          `${phase.name || "Phase"}: ${formatNumber(pen.damage || 0)} damage every ${formatNumber(pen.every_ticks || 0)} ticks, no sooner than ${formatNumber(pen.min_ticks || 0)} ticks apart.`,
+          "This attack ignores your Defence level and the Fracture Tonic. Only damage reduction from gear and the Scar-Ward Draught reduces it.",
+          pen.windup ? `Wind-up: ${pen.windup}` : null,
+        ].filter(Boolean);
+      });
+
     const firstClear = rewards.first_clear_bonus || {};
     const firstClearLines = [];
     if (firstClear.masteryPoints) {
@@ -3201,6 +3172,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
         }
         ${boss.lore ? renderDetailBlock(`${boss.name || "Boss"} lore`, [boss.lore]) : ""}
         ${renderSimpleTable("Boss phases", ["Phase", "Triggers", "Style", "Damage", "Immune to", "Behaviour"], phaseRows, { open: false })}
+        ${penetratingLines.length ? renderDetailBlock("Defence-penetrating attacks", penetratingLines) : ""}
         ${firstClearLines.length ? renderDetailBlock("First-clear bonus", firstClearLines) : ""}
         ${renderSimpleTable("Loot table", ["Item", "Chance", "Qty", "Expected value"], lootRows)}
       `,
@@ -3330,7 +3302,7 @@ function buildRoadmapEntries(releases) {
           release.levelCap,
         ]),
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere is a free base game update, so everyone gets it. The four expansions release one at a time and are sequential; each one requires the one before it.</span></div>
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update and is no longer on this page - it lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game. The four expansions release one at a time and are sequential; each one requires the one before it.</span></div>
     `,
   };
 
@@ -4303,6 +4275,67 @@ function buildMechanicEntries(
       ])}
     `,
   });
+
+  // -- Damage reduction --------------------------------------------
+  // Gear DR, the Scar-Ward Draught, and the defence-penetrating attacks that
+  // read them. The DR table is keyed by item id in ItemData, so this stays
+  // correct as pieces are added without touching this renderer.
+  const drItems = Object.entries(itemFile._MASTERY_FLAT_DMG_REDUCTION || {})
+    .map(([itemId, value]) => ({
+      itemId,
+      name: (itemFile.ITEMS || {})[itemId]?.name || titleizeId(itemId),
+      slot: (itemFile.ITEMS || {})[itemId]?.slot || "-",
+      dr: Number(value || 0),
+    }))
+    .sort((left, right) => right.dr - left.dr || left.name.localeCompare(right.name));
+
+  if (drItems.length) {
+    const gearMax = drItems.reduce((sum, row) => sum + row.dr, 0);
+    const wardDr = Number(gs.SCAR_WARD_DR || 0);
+    const wardMinutes = Math.round(Number(gs.SCAR_WARD_SECONDS || 0) / 60);
+
+    mechanics.push({
+      kind: "Mechanic",
+      section: "mechanics",
+      id: "damage-reduction",
+      name: "Damage Reduction",
+      title: "Damage Reduction & Penetrating Attacks",
+      subtitle: "The one stat that answers a hit your defence cannot",
+      badges: ["combat", "defence", "endgame"],
+      searchText:
+        "damage reduction dr gear percent scar ward draught penetrating attack defence penetrating index echo death ward warden permafrost unwritten bulwark null seal fracture scar final compilation cap",
+      sortKey: "mechanics damage reduction",
+      spoiler: true,
+      metrics: [
+        { label: "Pieces with DR", value: String(drItems.length) },
+        { label: "Draught", value: `${pct(wardDr)} for ${wardMinutes} min` },
+        { label: "Hard cap", value: "90%" },
+      ],
+      body: `
+        ${renderDetailBlock("What it is", [
+          "Damage reduction is a flat percentage taken off every hit you receive, applied after your defence has already done its work. It comes from two places only: gear that carries a DR value, and the Scar-Ward Draught.",
+          `Gear DR and the draught add together and are then clamped at 90%. Wearing every DR piece at once totals ${pct(gearMax)} before the draught.`,
+        ])}
+        ${renderSimpleTable(
+          "Gear that carries damage reduction",
+          ["Item", "Slot", "Damage reduction"],
+          drItems.map((row) => [row.name, titleizeId(row.slot), pct(row.dr)]),
+        )}
+        ${renderDetailBlock("Scar-Ward Draught", [
+          `Drunk from the Inventory. Grants ${pct(wardDr)} damage reduction for ${wardMinutes} minutes, on top of whatever your gear already provides.`,
+          "Bought from the Store with gold and materials once the Frostmere arc has opened it. Its sell-back price is capped at its discounted buy price, so it can never be traded at a profit.",
+        ])}
+        ${renderDetailBlock("Penetrating attacks", [
+          "The Fracture Scar's final boss phase, Final Compilation, uses defence-penetrating attacks. They ignore your Defence level and the Fracture Tonic entirely: damage reduction is the only thing that reduces them.",
+          "That is the whole reason the DR gear exists. A character in full endgame gear with no DR takes a penetrating hit at full value.",
+        ])}
+        ${renderDetailBlock("Index Echo", [
+          `A separate death ward, not damage reduction. Armed deliberately from the Inventory, ${num(gs.INDEX_ECHO_MAX_CHARGES)} charge at a time.`,
+          "The next blow that would kill you instead leaves you at 1 HP and ends the fight. It does not trigger automatically from your bag, and it deliberately does nothing inside boss dungeons - a failed dungeon run is still a failed run.",
+        ])}
+      `,
+    });
+  }
 
   // ── Mastery store ──────────────────────────────────────────────────
   const masteryStore = (gs.MASTERY_STORE_DEFS || []).map((entry) => [
