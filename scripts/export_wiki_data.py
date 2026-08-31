@@ -19,6 +19,7 @@ SOURCE_FILES = [
     "client/data/TaskData.gd",
     "client/data/FactionData.gd",
     "client/data/BossDungeonData.gd",
+    "client/data/CompanionData.gd",
     "client/data/PatchNotesData.gd",
     "client/data/BuildInfo.gd",
     "client/data/AchievementData.gd",

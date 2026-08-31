@@ -43,6 +43,7 @@ const SECTION_ORDER = [
   ["achievements", "Achievements"],
   ["titles", "Titles"],
   ["mechanics", "Mechanics"],
+  ["whisperwood", "Expansion 1: Whisperwood"],
   ["roadmap", "Roadmap"],
   ["patches", "Patch Notes"],
 ];
@@ -65,6 +66,8 @@ const SECTION_LORE = {
   achievements: "Milestones the world will remember you by.",
   titles: "The names Aetheria has earned you.",
   mechanics: "The rules the Architects wrote into the world.",
+  whisperwood:
+    "Kaldreth's first paid expansion, and everything it added to the game.",
   roadmap: "What is coming to Aetheria next, and in what order.",
   patches: "How Aetheria has changed, build by build.",
 };
@@ -203,72 +206,14 @@ const ROADMAP_DISCLAIMER =
 
 const ROADMAP = [
   {
-    id: "expansion-1",
-    order: 1,
-    name: "Expansion 1: The Living Wilds",
-    tagline: "Whisperwood, and what the roots remember",
-    status: "Next up, first paid expansion",
-    access: "Paid expansion",
-    levelCap: "105",
-    unlock: "Follows the Frostmere arc, which shipped in 1.1.0.",
-    hook: "In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant, a faction predating the Accord, emerges to warn that what the Architects awakened underground is still active. Their leader's last message before going silent: \"The roots remember.\"",
-    zones: [
-      [
-        "Whisperwood",
-        "The main forest floor. Dense undergrowth, low visibility, ambient spirit-energy distortion.",
-      ],
-      [
-        "The Canopy",
-        "The upper treetop zone, reached by climbable growth. Elite enemies and patrol encounters, and where the higher tending plots live.",
-      ],
-      [
-        "The Root Warren",
-        "The underground root network beneath the forest, and the densest concentration of enemies in the expansion. Both bosses are found here, among Architect inscriptions.",
-      ],
-    ],
-    skills: [
-      [
-        "Root Lore",
-        "Gathering",
-        "Harvest wildflowers, fungi, bark, and roots from nodes across the Whisperwood and Canopy. Feeds Aetheric Tending, Alchemy, and Cooking.",
-      ],
-      [
-        "Aetheric Tending",
-        "Artisan",
-        "Plant herbs in soil plots that grow in real time and are harvested on your return, fully offline-friendly. Plot count scales with the skill, up to seven plots.",
-      ],
-      [
-        "Spiritbond",
-        "Passive / Combat",
-        "Bond with creatures of the Whisperwood. One active companion at a time, each giving passive combat or gathering bonuses and able to be sent on independent offline foraging runs.",
-      ],
-      [
-        "Alchemy",
-        "Artisan",
-        "Brew potions, tinctures, and elixirs, the game's first true consumable economy. Temporary buffs across gathering, combat, and artisan categories, one active per category.",
-      ],
-    ],
-    faction: {
-      name: "The Grove Covenant",
-      tagline: "The Whisperwood is an archive, not a resource.",
-      desc: "Ancient nature keepers predating the Accord by at least two centuries, who hold that spirit energy is the land's memory rather than a raw material. With Elder Vaethos silent, his second Warden Syrel is managing a mounting crisis and is cautiously willing to accept help.",
-    },
-    features: [
-      "A twenty-quest arc, The Root Remembers, across five acts.",
-      "Two bosses: The Hollow Root, and The Grove's Warden.",
-      "Enemies tuned for players at 99 in every combat skill with Resonite-tier gear, meaningfully harder than anything in the base game.",
-      "New skill tree branches for all four new skills, plus new nodes on existing branches as the cap rises.",
-    ],
-  },
-  {
     id: "expansion-2",
-    order: 2,
+    order: 1,
     name: "Expansion 2: The Salt Accord",
     tagline: "Tideward, and the harbour that kept trading",
-    status: "Planned",
+    status: "Next up, second paid expansion",
     access: "Paid expansion",
     levelCap: "110",
-    unlock: "Requires Expansion 1.",
+    unlock: "Requires Expansion 1, which shipped in 1.2.0.",
     hook: "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage, but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
     zones: [
       [
@@ -323,7 +268,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-3",
-    order: 3,
+    order: 2,
     name: "Expansion 3: Drakenhollow",
     tagline: "The first site, still running",
     status: "Planned",
@@ -378,7 +323,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-4",
-    order: 4,
+    order: 3,
     name: "Expansion 4, Oraewyn: The Fractured Sky",
     tagline: "The capstone, and the people who have been watching",
     status: "Planned, final expansion",
@@ -1071,6 +1016,7 @@ function buildModel(data) {
   const taskFile = getConstFile(files, "client/data/TaskData.gd");
   const factionFile = getConstFile(files, "client/data/FactionData.gd");
   const dungeonFile = getConstFile(files, "client/data/BossDungeonData.gd");
+  const companionFile = getConstFile(files, "client/data/CompanionData.gd");
   const patchFile = getConstFile(files, "client/data/PatchNotesData.gd");
   const buildInfoFile = getConstFile(files, "client/data/BuildInfo.gd");
   const achievementFile = getConstFile(files, "client/data/AchievementData.gd");
@@ -1097,6 +1043,7 @@ function buildModel(data) {
   const quests = questFile.ALL_QUESTS || [];
   const factions = factionFile.ALL_FACTIONS || [];
   const dungeons = dungeonFile.ALL_DUNGEONS || [];
+  const companions = companionFile.ALL_COMPANIONS || [];
   const patches = patchFile.RELEASES || [];
   const achievements =
     achievementFile.ALL || achievementFile.ALL_ACHIEVEMENTS || [];
@@ -1167,6 +1114,16 @@ function buildModel(data) {
     itemFile,
     skillFile,
   );
+  const whisperwoodEntries = buildWhisperwoodEntries(
+    quests,
+    monsterFile,
+    items,
+    achievements,
+    titles,
+    dungeons,
+    factions,
+    companions,
+  );
   const roadmapEntries = buildRoadmapEntries(ROADMAP);
   const mechanicsEntries = buildMechanicEntries(
     skillFile,
@@ -1192,6 +1149,7 @@ function buildModel(data) {
     ...achievementEntries,
     ...titleEntries,
     ...mechanicsEntries,
+    ...whisperwoodEntries,
     ...roadmapEntries,
     ...patchEntries,
     ...passiveEntries,
@@ -1219,6 +1177,7 @@ function buildModel(data) {
     taskFile,
     factionFile,
     dungeonFile,
+    companionFile,
     patchFile,
     buildInfoFile,
     achievementFile,
@@ -1235,6 +1194,7 @@ function buildModel(data) {
     vendors: vendorEntries,
     factions,
     dungeons,
+    companions,
     patches,
     achievements,
     titles,
@@ -2619,7 +2579,14 @@ function buildSkillEntries(
   });
 }
 
-const QUEST_ARC_ORDER = { early: 0, mid: 1, late: 2, aftermath: 3, frostmere: 4 };
+const QUEST_ARC_ORDER = {
+  early: 0,
+  mid: 1,
+  late: 2,
+  aftermath: 3,
+  frostmere: 4,
+  whisperwood: 5,
+};
 
 function titleizeId(value) {
   return String(value || "")
@@ -3266,6 +3233,181 @@ function buildTitleEntries(titles) {
   }));
 }
 
+// Kaldreth's first paid expansion, released as 1.2.0. Everything that ships
+// inside it is tagged "expansion": 1 in the source data (Content Gating Rule,
+// docs/EXPANSIONS.md), so the counts below are read from the same records the
+// game itself gates on rather than hand-copied from patch notes - they stay
+// correct as Whisperwood content changes without anyone remembering to update
+// this page.
+function buildWhisperwoodEntries(
+  quests,
+  monsterFile,
+  items,
+  achievements,
+  titles,
+  dungeons,
+  factions,
+  companions,
+) {
+  const isExp1 = (entry) => Number(entry?.expansion || 0) === 1;
+
+  const expQuests = (quests || [])
+    .filter(isExp1)
+    .slice()
+    .sort((left, right) => Number(left.sort || 0) - Number(right.sort || 0));
+  const expMonsters = Object.values(monsterFile?._monster_defs_data || {}).filter(isExp1);
+  const expShadowTargets = Object.values(monsterFile?._shadow_target_defs_data || {}).filter(
+    isExp1,
+  );
+  const expItems = Object.values(items || {}).filter(isExp1);
+  const expAchievements = (achievements || []).filter(isExp1);
+  const expTitles = (titles || []).filter(isExp1);
+  const expDungeons = (dungeons || []).filter(isExp1);
+  const groveCovenant = (factions || []).find((f) => f.id === "grove_covenant");
+
+  const zones = [
+    [
+      "Whisperwood",
+      "The main forest floor. Dense undergrowth, low visibility, ambient spirit-energy distortion.",
+    ],
+    [
+      "The Canopy",
+      "The upper treetop zone, reached by climbable growth. Elite enemies and patrol encounters, and where the higher tending plots live.",
+    ],
+    [
+      "The Root Warren",
+      "The underground root network beneath the forest, and the densest concentration of enemies in the expansion. Both bosses are found here, among Architect inscriptions.",
+    ],
+  ];
+
+  const newSkills = [
+    [
+      "Root Lore",
+      "Gathering",
+      "Harvest wildflowers, fungi, bark, and roots from nodes across the Whisperwood and Canopy. Feeds Aetheric Tending, Alchemy, and Cooking.",
+    ],
+    [
+      "Aetheric Tending",
+      "Artisan",
+      "Plant herbs in soil plots that run on the wall clock rather than your action slot - a deadline, not a rate, so the 4 hour offline cap never applies to them.",
+    ],
+    [
+      "Spiritbond",
+      "Passive / Combat",
+      "Bond one companion at a time from creatures of the Whisperwood, each giving passive combat or gathering bonuses and able to be sent on an independent offline forage run.",
+    ],
+    [
+      "Alchemy",
+      "Artisan",
+      "Brew potions across gathering, combat, and artisan categories, one active per category. Potions also run on the wall clock and keep ticking while the app is closed.",
+    ],
+  ];
+
+  const companionRows = (companions || [])
+    .slice()
+    .sort((left, right) => Number(left.level || 0) - Number(right.level || 0))
+    .map((companion) => {
+      const bonuses =
+        [
+          companion.combat_xp_pct
+            ? `+${formatPercent(companion.combat_xp_pct)} combat XP`
+            : null,
+          companion.gathering_speed_pct
+            ? `+${formatPercent(companion.gathering_speed_pct)} gathering speed`
+            : null,
+          companion.all_xp_pct ? `+${formatPercent(companion.all_xp_pct)} all XP` : null,
+        ]
+          .filter(Boolean)
+          .join(", ") || "-";
+      return [
+        companion.name || titleizeId(companion.id),
+        `Spiritbond ${formatNumber(companion.level || 0)}`,
+        bonuses,
+        formatDuration(Number(companion.forage_seconds || 0) / 3600),
+      ];
+    });
+
+  const featureLines = [
+    "Four new skills - Root Lore, Aetheric Tending, Spiritbond, and Alchemy - sit alongside the 16 base game skills without replacing anything in them.",
+    "Owning Whisperwood raises every skill's level cap from 99 to 105, including the 16 base game skills. A Heartwood rung was added to each of the 8 existing gathering and artisan ladders, and Spiritweaving gains the Warren Call spell at level 102.",
+    "Two new equipment slots, hands and companion, appended to the existing ten. Hands closes a long-standing gap: gloves items existed in the data with nowhere to equip them, base game included.",
+    `Two boss dungeons, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(" and ") || "The Hollow Root and The Grove's Warden"}, bringing the total from 5 to 7. Each has its own first-clear key item and memory fragment, and both pay into the same Chronicler currency the base game dungeons do.`,
+    "A Nature branch on the skill tree with 15 nodes, 5 new auto passives, and 4 new rows in the Skill Mastery store.",
+    "Two new adventurer contract types, tending and foraging, that run against a deadline instead of occupying the action slot.",
+    "An arrival cinematic the first time you reach Whisperwood, and a hidden meditation vision at level 105.",
+  ];
+
+  const overview = {
+    kind: "Expansion",
+    section: "whisperwood",
+    id: "whisperwood-overview",
+    name: "Expansion 1: Whisperwood, The Living Wilds",
+    title: "Expansion 1: Whisperwood, The Living Wilds",
+    subtitle: "Kaldreth's first paid expansion, shipped in 1.2.0",
+    badges: ["paid expansion", "$5.99", "level cap 105", "shipped in 1.2.0"],
+    searchText: normalizeSearchText(
+      [
+        "whisperwood the living wilds expansion 1 paid dlc in-app purchase the_living_wilds",
+        "root lore aetheric tending spiritbond alchemy nature branch",
+        "grove covenant warden syrel vaethos hollow root groves warden rootkeeper",
+        "companion companions spiritbond bond forage pale hound canopy sprite root stalker whisper drake ancient treant grove guardian heartwood elder",
+        ...companionRows.flat(),
+        ...zones.flat(),
+        ...newSkills.flat(),
+        ...featureLines,
+      ].join(" "),
+    ),
+    sortKey: "whisperwood 0 overview",
+    spoiler: true,
+    metrics: [
+      { label: "Price", value: "$5.99, one-time purchase" },
+      { label: "Level cap", value: "99 -> 105" },
+      { label: "New quests", value: formatNumber(expQuests.length) },
+      { label: "New monsters", value: formatNumber(expMonsters.length) },
+      { label: "New items", value: formatNumber(expItems.length) },
+      { label: "New dungeons", value: formatNumber(expDungeons.length) },
+      {
+        label: "New achievements",
+        value: formatNumber(expAchievements.length),
+      },
+      {
+        label: "New Shadow Arts targets",
+        value: formatNumber(expShadowTargets.length),
+      },
+      { label: "Companions", value: formatNumber(companions?.length || 0) },
+    ],
+    body: `
+      <div class="note-box"><strong>If you don't buy it</strong><span>The game you already have is unchanged. No base game bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete. Play Console product id <code>the_living_wilds</code>.</span></div>
+      ${renderDetailBlock("The hook", [
+        'In the aftermath of the Shattering the natural world destabilises. The Whisperwood, an ancient forest west of Caelmora, begins bleeding spirit energy outward. The Grove Covenant, a faction predating the Accord, emerges to warn that what the Architects awakened underground is still active. Their leader\'s last message before going silent: "The roots remember."',
+      ])}
+      ${renderSimpleTable("Areas", ["Zone", "What it is"], zones)}
+      ${renderSimpleTable("New skills", ["Skill", "Type", "What it does"], newSkills)}
+      ${
+        groveCovenant
+          ? `<div class="note-box"><strong>New faction: ${escapeHtml(groveCovenant.name || "The Grove Covenant")}</strong><span>${escapeHtml(groveCovenant.tagline || "")} ${escapeHtml(groveCovenant.lore || "")} 4 reputation tiers.</span></div>`
+          : ""
+      }
+      ${renderSimpleTable(
+        "Spiritbond companions",
+        ["Companion", "Unlocks at", "Passive bonus", "Forage run"],
+        companionRows,
+      )}
+      ${renderDetailBlock("Also included", featureLines)}
+      ${renderDetailBlock("Level cap and lapsed entitlements", [
+        "Skill XP already earned is never rewritten - the expansion only changes what the level reads. If the entitlement ever lapses, levels read 99 again and not one point of XP is lost; buying back restores the level immediately.",
+        "Every base game achievement stays fully earnable without buying anything: All 99s, Jack of All Trades, Bestiary completion, the all-dungeons-clear achievement, and Affinity Mastery are all frozen to the 16 base game skills, so a non-buyer's base game bar never moves and an owner's base game bar never moves either.",
+      ])}
+      ${renderDetailBlock("The Root Remembers quest arc", [
+        `A twenty-quest arc across five acts, from "${expQuests[0]?.name || "Strange Growth"}" to "${expQuests[expQuests.length - 1]?.name || "A Letter from the Sea"}". Completing it awards the ${expTitles[0]?.name || "Rootkeeper"} title.`,
+        "See the Quests section, filtered to the Root Remembers arc, for the full quest-by-quest breakdown with NPC dialogue and rewards.",
+      ])}
+    `,
+  };
+
+  return [overview];
+}
+
 function buildRoadmapEntries(releases) {
   const overview = {
     kind: "Roadmap",
@@ -3302,7 +3444,7 @@ function buildRoadmapEntries(releases) {
           release.levelCap,
         ]),
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update and is no longer on this page - it lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game. The four expansions release one at a time and are sequential; each one requires the one before it.</span></div>
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, and Expansion 1: Whisperwood shipped in 1.2.0 as the first paid one. Neither is on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood has its own Expansion 1: Whisperwood section alongside those. The remaining three expansions release one at a time and are sequential; each one requires the one before it.</span></div>
     `,
   };
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T21:14:09.846482+00:00",
+  "generated_at": "2026-08-31T12:37:54.182850+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -43,6 +43,10 @@
         "DUNGEON_CLEAR_ACHIEVEMENTS": {
           "fracture_scar": "fracture_scar_clear"
         },
+        "EQUIP_SLOT_EXPANSION": {
+          "companion": 1,
+          "hands": 1
+        },
         "EQUIP_SLOT_IDS": [
           "head",
           "cape",
@@ -53,8 +57,24 @@
           "ring",
           "belt",
           "legs",
-          "feet"
+          "feet",
+          "hands",
+          "companion"
         ],
+        "EQUIP_SLOT_LABELS": {
+          "belt": "Belt",
+          "cape": "Cape",
+          "chest": "Chest",
+          "companion": "Companion",
+          "feet": "Feet",
+          "hands": "Hands",
+          "head": "Head",
+          "legs": "Legs",
+          "necklace": "Necklace",
+          "off_hand": "Off-Hand",
+          "ring": "Ring",
+          "weapon": "Weapon"
+        },
         "FISHING_AFFINITY_DOUBLE_CATCH_CHANCE_MAX": 0.25,
         "FISHING_AFFINITY_DOUBLE_CATCH_CHANCE_PER_LEVEL": 0.005,
         "FISHING_AFFINITY_SUCCESS_BONUS_MAX": 0.18,
@@ -247,7 +267,34 @@
         "INVENTORY_EXPAND_BASE_COST_PER_SLOT": 1250,
         "INVENTORY_EXPAND_GROWTH_RATE": 1.045,
         "INVENTORY_EXPAND_MAX_COST_PER_SLOT": 2000000000,
+        "ITEMLESS_EQUIP_SLOT_IDS": [
+          "companion"
+        ],
         "MASTERY_STORE_DEFS": [
+          {
+            "item_id": "thornrend_sickle",
+            "level_required": 99,
+            "skill_id": "root_lore",
+            "summary": "Root Lore speed +50%"
+          },
+          {
+            "item_id": "deepbloom_trowel",
+            "level_required": 99,
+            "skill_id": "aetheric_tending",
+            "summary": "Aetheric Tending speed +50%"
+          },
+          {
+            "item_id": "verdant_tether",
+            "level_required": 99,
+            "skill_id": "spiritbond",
+            "summary": "Spiritbond forage speed +50%"
+          },
+          {
+            "item_id": "rootfire_crucible",
+            "level_required": 99,
+            "skill_id": "alchemy",
+            "summary": "Alchemy speed +50%"
+          },
           {
             "item_id": "faultbreaker_pickaxe",
             "level_required": 99,
@@ -386,6 +433,7 @@
         "RESPAWN_GOLD_LOSS_MIN": 20,
         "RESPAWN_GOLD_LOSS_PERCENT": 0.08,
         "RESUME_HANDLE_DEBOUNCE_SECONDS": 3.0,
+        "ROOT_LORE_XP_PER_REP": 50,
         "SAVE_AUTO_EAT_CAP_KEY": "auto_eat_cap_v1",
         "SAVE_XP_SCALED_KEY": "xp_scale_v10",
         "SCAR_WARD_DR": 0.3,
@@ -405,6 +453,12 @@
         "SHADOW_STEAL_MIN_COOLDOWN_SECONDS": 0.9,
         "SMITHING_AFFINITY_EFFICIENCY_MAX": 0.15,
         "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL": 0.003,
+        "SPIRITBOND_FORAGE_BASE_SECONDS": 1800,
+        "SPIRITBOND_FORAGE_REP": 10,
+        "SPIRITBOND_FORAGE_XP_FLAT": 1470,
+        "SPIRITBOND_FORAGE_XP_PER_LEVEL": 70,
+        "SPIRITBOND_IDLE_TICK_SECONDS": 30.0,
+        "SPIRITBOND_IDLE_TICK_XP": 10,
         "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_MAX": 0.15,
         "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_PER_LEVEL": 0.003,
         "SPIRIT_AFFINITY_BONUS_XP_25": 5,
@@ -421,6 +475,8 @@
           0.9,
           1.0
         ],
+        "UNWRITTEN_LOCKOUT_SECONDS": 900.0,
+        "UNWRITTEN_MONSTER_ID": "the_unwritten",
         "USABLE_CONSUMABLES": {
           "index_echo": "Arm",
           "scar_ward_draught": "Drink"
@@ -434,6 +490,14 @@
           "wealthy": 10000000
         },
         "WEEKLY_EPOCH": 345600,
+        "WHISPERWOOD_GHOST_STEALS": 100,
+        "WHISPERWOOD_HUNTER_KILLS": 1000,
+        "WHISPERWOOD_STEAL_KEYS": [
+          "_steals_area_whisperwood",
+          "_steals_area_the_canopy",
+          "_steals_area_the_root_warren"
+        ],
+        "WHISPERWOOD_WATCHER_ALCHEMY_SKIP": 0.25,
         "WOODCUTTING_AFFINITY_BARK_CHANCE_MAX": 0.15,
         "WOODCUTTING_AFFINITY_BARK_CHANCE_PER_LEVEL": 0.003,
         "WOODCUTTING_AFFINITY_DOUBLE_YIELD_CHANCE_MAX": 0.3,
@@ -480,6 +544,36 @@
             "melee_defence": 8,
             "name": "Alley Thug",
             "region": "Ashford"
+          },
+          "ancient_sentinel_construct": {
+            "atk_lv": 83,
+            "attack": 130,
+            "def_lv": 88,
+            "defence": 50,
+            "drops": [
+              {
+                "chance": 0.07,
+                "item": "heartwood_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 392,
+            "gold_min": 221,
+            "hp": 505,
+            "hp_lv": 83,
+            "magic_defence": 44,
+            "magic_lv": 78,
+            "melee_defence": 50,
+            "name": "Ancient Sentinel Construct",
+            "region": "The Root Warren"
           },
           "ashen_monk": {
             "atk_lv": 40,
@@ -716,6 +810,54 @@
             "name": "Canal Mudskipper",
             "region": "Ashford"
           },
+          "canopy_sentinel": {
+            "atk_lv": 79,
+            "attack": 121,
+            "def_lv": 79,
+            "defence": 34,
+            "drops": [
+              {
+                "chance": 0.09,
+                "item": "whisperwood_crown",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 352,
+            "gold_min": 198,
+            "hp": 427,
+            "hp_lv": 78,
+            "magic_defence": 30,
+            "magic_lv": 73,
+            "melee_defence": 34,
+            "name": "Canopy Sentinel",
+            "region": "The Canopy"
+          },
+          "canopy_stalker": {
+            "atk_lv": 74,
+            "attack": 98,
+            "def_lv": 74,
+            "defence": 28,
+            "drops": [
+              {
+                "chance": 0.11,
+                "item": "gleam_thistle",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 249,
+            "gold_min": 140,
+            "hp": 355,
+            "hp_lv": 75,
+            "magic_defence": 26,
+            "magic_lv": 70,
+            "melee_defence": 28,
+            "name": "Canopy Stalker",
+            "region": "The Canopy"
+          },
           "cave_bat": {
             "atk_lv": 5,
             "attack": 4,
@@ -886,6 +1028,30 @@
             "name": "Corrupted Colossus",
             "region": "The Ashen Vault"
           },
+          "corrupted_treeborn": {
+            "atk_lv": 75,
+            "attack": 101,
+            "def_lv": 74,
+            "defence": 28,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "wardens_bloom_herb",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 255,
+            "gold_min": 143,
+            "hp": 362,
+            "hp_lv": 75,
+            "magic_defence": 26,
+            "magic_lv": 70,
+            "melee_defence": 28,
+            "name": "Corrupted Treeborn",
+            "region": "The Canopy"
+          },
           "crag_drake": {
             "atk_lv": 35,
             "attack": 24,
@@ -943,6 +1109,30 @@
             "melee_defence": 9,
             "name": "Crypt Skeleton",
             "region": "Ashford"
+          },
+          "deep_root_golem": {
+            "atk_lv": 72,
+            "attack": 86,
+            "def_lv": 91,
+            "defence": 62,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "rootstone_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 351,
+            "gold_min": 197,
+            "hp": 482,
+            "hp_lv": 80,
+            "magic_defence": 22,
+            "magic_lv": 75,
+            "melee_defence": 62,
+            "name": "Deep Root Golem",
+            "region": "The Root Warren"
           },
           "dire_wolf": {
             "atk_lv": 17,
@@ -1207,6 +1397,30 @@
             "melee_defence": 9,
             "name": "Fen Stalker",
             "region": "Mire Road"
+          },
+          "feral_spirit_hound": {
+            "atk_lv": 74,
+            "attack": 112,
+            "def_lv": 62,
+            "defence": 14,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "ashblossom",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 167,
+            "gold_min": 94,
+            "hp": 245,
+            "hp_lv": 71,
+            "magic_defence": 16,
+            "magic_lv": 66,
+            "melee_defence": 14,
+            "name": "Feral Spirit Hound",
+            "region": "Whisperwood"
           },
           "fracture_weather_elemental": {
             "atk_lv": 80,
@@ -1523,6 +1737,30 @@
             "melee_defence": 7,
             "name": "Highwayman",
             "region": "Mire Road"
+          },
+          "hollowbark_shambler": {
+            "atk_lv": 65,
+            "attack": 69,
+            "def_lv": 79,
+            "defence": 52,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "rootveil_bark",
+                "qty_max": 2,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 259,
+            "gold_min": 146,
+            "hp": 378,
+            "hp_lv": 71,
+            "magic_defence": 30,
+            "magic_lv": 66,
+            "melee_defence": 52,
+            "name": "Hollowbark Shambler",
+            "region": "Whisperwood"
           },
           "hollowvein_sprite": {
             "atk_lv": 19,
@@ -1862,6 +2100,31 @@
             "region": "Caelmora",
             "style": "magic"
           },
+          "pale_root_crawler": {
+            "atk_lv": 66,
+            "attack": 73,
+            "def_lv": 67,
+            "defence": 22,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "pale_yarrow",
+                "qty_max": 2,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 203,
+            "gold_min": 114,
+            "hp": 300,
+            "hp_lv": 70,
+            "magic_defence": 20,
+            "magic_lv": 65,
+            "melee_defence": 22,
+            "name": "Pale Root Crawler",
+            "quest_required": "w01_strange_growth",
+            "region": "Whisperwood"
+          },
           "peak_harrier": {
             "atk_lv": 29,
             "attack": 19,
@@ -2004,6 +2267,90 @@
             "name": "Plateau Sparrowhawk",
             "region": "Caelmora"
           },
+          "poacher_captain": {
+            "atk_lv": 78,
+            "attack": 119,
+            "def_lv": 78,
+            "defence": 34,
+            "drops": [
+              {
+                "chance": 0.1,
+                "item": "wardens_bloom_herb",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "captains_field_ledger",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 344,
+            "gold_min": 194,
+            "hp": 420,
+            "hp_lv": 77,
+            "magic_defence": 30,
+            "magic_lv": 72,
+            "melee_defence": 34,
+            "name": "Poacher Captain",
+            "region": "The Canopy"
+          },
+          "poacher_scout": {
+            "atk_lv": 71,
+            "attack": 88,
+            "def_lv": 70,
+            "defence": 28,
+            "drops": [
+              {
+                "chance": 0.18,
+                "item": "snare_coil",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 225,
+            "gold_min": 127,
+            "hp": 329,
+            "hp_lv": 71,
+            "magic_defence": 26,
+            "magic_lv": 66,
+            "melee_defence": 28,
+            "name": "Poacher Scout",
+            "region": "Whisperwood"
+          },
+          "poacher_trapper": {
+            "atk_lv": 72,
+            "attack": 93,
+            "def_lv": 72,
+            "defence": 28,
+            "drops": [
+              {
+                "chance": 0.11,
+                "item": "gleam_thistle",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "snare_coil",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 237,
+            "gold_min": 133,
+            "hp": 342,
+            "hp_lv": 73,
+            "magic_defence": 26,
+            "magic_lv": 68,
+            "melee_defence": 28,
+            "name": "Poacher Trapper",
+            "region": "Whisperwood"
+          },
           "resonant_echo": {
             "atk_lv": 36,
             "attack": 18,
@@ -2133,6 +2480,30 @@
             "melee_defence": 20,
             "name": "Riftspawn Howler",
             "region": "Void's Edge"
+          },
+          "rootbound_revenant": {
+            "atk_lv": 79,
+            "attack": 111,
+            "def_lv": 78,
+            "defence": 28,
+            "drops": [
+              {
+                "chance": 0.09,
+                "item": "whisperwood_crown",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 279,
+            "gold_min": 157,
+            "hp": 388,
+            "hp_lv": 79,
+            "magic_defence": 26,
+            "magic_lv": 74,
+            "melee_defence": 28,
+            "name": "Rootbound Revenant",
+            "region": "The Root Warren"
           },
           "scar_touched_stalker": {
             "atk_lv": 70,
@@ -2888,6 +3259,80 @@
             "melee_defence": 22,
             "name": "Voidwalker",
             "region": "Void's Edge"
+          },
+          "warpwood_golem": {
+            "atk_lv": 70,
+            "attack": 81,
+            "def_lv": 84,
+            "defence": 52,
+            "drops": [
+              {
+                "chance": 0.2,
+                "item": "rootstone_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 300,
+            "gold_min": 169,
+            "hp": 424,
+            "hp_lv": 76,
+            "magic_defence": 30,
+            "magic_lv": 71,
+            "melee_defence": 52,
+            "name": "Warpwood Golem",
+            "region": "The Canopy"
+          },
+          "warren_wraith": {
+            "atk_lv": 85,
+            "attack": 164,
+            "def_lv": 67,
+            "defence": 10,
+            "drops": [
+              {
+                "chance": 0.07,
+                "item": "ancient_rootwood",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 200,
+            "gold_min": 112,
+            "hp": 276,
+            "hp_lv": 79,
+            "magic_defence": 12,
+            "magic_lv": 74,
+            "melee_defence": 10,
+            "name": "Warren Wraith",
+            "region": "The Root Warren",
+            "style": "magic"
+          },
+          "whisper_wraith": {
+            "atk_lv": 77,
+            "attack": 132,
+            "def_lv": 60,
+            "defence": 10,
+            "drops": [
+              {
+                "chance": 0.14,
+                "item": "mistcap_fungus",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 162,
+            "gold_min": 91,
+            "hp": 235,
+            "hp_lv": 72,
+            "magic_defence": 12,
+            "magic_lv": 67,
+            "melee_defence": 10,
+            "name": "Whisper Wraith",
+            "region": "Whisperwood",
+            "style": "magic"
           }
         },
         "_shadow_target_defs_data": {
@@ -2921,7 +3366,7 @@
             "name": "Accord Informant",
             "period_seconds": 3.8,
             "quest_required": "q62_cold_welcome",
-            "xp": 165
+            "xp": 196
           },
           "anchorite_sage": {
             "area": "Architect's Gate",
@@ -3172,6 +3617,39 @@
             "period_seconds": 7.0,
             "xp": 140
           },
+          "architect_reader": {
+            "area": "The Root Warren",
+            "base_success": 0.168,
+            "drops": [
+              {
+                "chance": 0.23,
+                "item": "heartwood_core",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "heartroot_essence",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.014,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 328,
+            "gold_min": 200,
+            "level": 101,
+            "max_hit": 73,
+            "name": "Architect Reader",
+            "period_seconds": 7.2,
+            "quest_required": "w15_the_hollow_root_stirs",
+            "xp": 764
+          },
           "archmage": {
             "area": "Thornite Depths",
             "base_success": 0.2,
@@ -3334,6 +3812,72 @@
             "period_seconds": 2.5,
             "xp": 12
           },
+          "canopy_overseer": {
+            "area": "The Canopy",
+            "base_success": 0.19,
+            "drops": [
+              {
+                "chance": 0.27,
+                "item": "gleam_thistle",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.13,
+                "item": "wardens_bloom_herb",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.028,
+                "item": "heartroot_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 246,
+            "gold_min": 150,
+            "level": 94,
+            "max_hit": 67,
+            "name": "Canopy Overseer",
+            "period_seconds": 6.1,
+            "quest_required": "w04_smoke_from_the_canopy",
+            "xp": 558
+          },
+          "canopy_tender": {
+            "area": "The Canopy",
+            "base_success": 0.184,
+            "drops": [
+              {
+                "chance": 0.25,
+                "item": "wardens_bloom_herb",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "whisperwood_crown",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.024,
+                "item": "heartroot_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 267,
+            "gold_min": 163,
+            "level": 96,
+            "max_hit": 69,
+            "name": "Canopy Tender",
+            "period_seconds": 6.3,
+            "quest_required": "w09_poachers_in_the_grove",
+            "xp": 615
+          },
           "cipher_prefect": {
             "area": "Architect's Gate",
             "base_success": 0.078,
@@ -3389,6 +3933,72 @@
             "name": "Contemplative Adept",
             "period_seconds": 5.5,
             "xp": 68
+          },
+          "covenant_arbiter": {
+            "area": "The Canopy",
+            "base_success": 0.181,
+            "drops": [
+              {
+                "chance": 0.25,
+                "item": "whisperwood_crown",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.11,
+                "item": "ancient_rootwood",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.022,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 277,
+            "gold_min": 169,
+            "level": 97,
+            "max_hit": 70,
+            "name": "Covenant Arbiter",
+            "period_seconds": 6.4,
+            "quest_required": "w10_marked_cargo",
+            "xp": 645
+          },
+          "covenant_courier": {
+            "area": "Whisperwood",
+            "base_success": 0.196,
+            "drops": [
+              {
+                "chance": 0.28,
+                "item": "rootveil_bark",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "gleam_thistle",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.034,
+                "item": "rootstone_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 226,
+            "gold_min": 138,
+            "level": 92,
+            "max_hit": 65,
+            "name": "Covenant Courier",
+            "period_seconds": 5.9,
+            "quest_required": "w06_covenant_terms",
+            "xp": 507
           },
           "crafter_novice": {
             "area": "Ashford",
@@ -3582,7 +4192,7 @@
             "name": "Field Recorder",
             "period_seconds": 2.8,
             "quest_required": "q61_long_way_north",
-            "xp": 53
+            "xp": 58
           },
           "fisher_novice": {
             "area": "Caelmora",
@@ -3633,7 +4243,7 @@
             "name": "Fissure Analyst",
             "period_seconds": 4.3,
             "quest_required": "q63_cartography_of_damage",
-            "xp": 188
+            "xp": 241
           },
           "forge_apprentice": {
             "area": "Ashford",
@@ -3771,7 +4381,7 @@
             "name": "Fracture Cartographer",
             "period_seconds": 3.9,
             "quest_required": "q63_cartography_of_damage",
-            "xp": 88
+            "xp": 117
           },
           "fracture_chronicler": {
             "area": "Greyfen",
@@ -3797,7 +4407,7 @@
             "name": "Fracture Chronicler",
             "period_seconds": 4.4,
             "quest_required": "q64_eleven_years_silence",
-            "xp": 103
+            "xp": 144
           },
           "fracture_engineer": {
             "area": "Thornite Depths",
@@ -3860,7 +4470,7 @@
             "name": "Fracture Liaison",
             "period_seconds": 3.7,
             "quest_required": "q63_cartography_of_damage",
-            "xp": 75
+            "xp": 97
           },
           "fracture_warden": {
             "area": "Fracture Spire",
@@ -3987,6 +4597,39 @@
             "quest_required": "q61_long_way_north",
             "xp": 46
           },
+          "grove_inspector": {
+            "area": "The Canopy",
+            "base_success": 0.178,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "whisperwood_crown",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.11,
+                "item": "ancient_rootwood",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.02,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 289,
+            "gold_min": 176,
+            "level": 98,
+            "max_hit": 70,
+            "name": "Grove Inspector",
+            "period_seconds": 6.5,
+            "quest_required": "w14_the_voice_below",
+            "xp": 677
+          },
           "grove_ranger": {
             "area": "Ashford",
             "base_success": 0.33,
@@ -4011,6 +4654,39 @@
             "name": "Grove Ranger",
             "period_seconds": 5.2,
             "xp": 62
+          },
+          "grove_surveyor": {
+            "area": "Whisperwood",
+            "base_success": 0.203,
+            "drops": [
+              {
+                "chance": 0.29,
+                "item": "mistcap_fungus",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.15,
+                "item": "rootveil_bark",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.038,
+                "item": "snare_coil",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 208,
+            "gold_min": 127,
+            "level": 90,
+            "max_hit": 64,
+            "name": "Grove Surveyor",
+            "period_seconds": 5.7,
+            "quest_required": "w03_the_old_markers",
+            "xp": 465
           },
           "guild_teller": {
             "area": "Ashford",
@@ -4042,6 +4718,39 @@
             "name": "Guild Teller",
             "period_seconds": 2.7,
             "xp": 16
+          },
+          "harvest_factor": {
+            "area": "Whisperwood",
+            "base_success": 0.193,
+            "drops": [
+              {
+                "chance": 0.27,
+                "item": "gleam_thistle",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.14,
+                "item": "rootveil_bark",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "heartroot_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 236,
+            "gold_min": 144,
+            "level": 93,
+            "max_hit": 66,
+            "name": "Harvest Factor",
+            "period_seconds": 6.0,
+            "quest_required": "w08_the_hollow_pulse",
+            "xp": 532
           },
           "head_cook": {
             "area": "Mire Road",
@@ -4123,7 +4832,7 @@
             "name": "Index Analyst",
             "period_seconds": 5.2,
             "quest_required": "q64_eleven_years_silence",
-            "xp": 263
+            "xp": 366
           },
           "index_herald": {
             "area": "Greyfen",
@@ -4155,7 +4864,7 @@
             "name": "Index Herald",
             "period_seconds": 5.8,
             "quest_required": "q65_into_the_scar",
-            "xp": 335
+            "xp": 441
           },
           "initiated_monk": {
             "area": "Ashford",
@@ -4712,6 +5421,39 @@
             "period_seconds": 5.4,
             "xp": 66
           },
+          "poacher_quartermaster": {
+            "area": "Whisperwood",
+            "base_success": 0.215,
+            "drops": [
+              {
+                "chance": 0.3,
+                "item": "pale_yarrow",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.16,
+                "item": "ashblossom",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.045,
+                "item": "snare_coil",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 177,
+            "gold_min": 108,
+            "level": 86,
+            "max_hit": 60,
+            "name": "Poacher Quartermaster",
+            "period_seconds": 5.3,
+            "quest_required": "w01_strange_growth",
+            "xp": 385
+          },
           "priest_elder": {
             "area": "Ashford",
             "base_success": 0.33,
@@ -4935,7 +5677,7 @@
             "name": "Scar Prefect",
             "period_seconds": 6.1,
             "quest_required": "q66_what_was_always_there",
-            "xp": 382
+            "xp": 491
           },
           "scar_warden": {
             "area": "Greyfen",
@@ -4961,7 +5703,7 @@
             "name": "Scar Warden",
             "period_seconds": 4.6,
             "quest_required": "q63_cartography_of_damage",
-            "xp": 222
+            "xp": 295
           },
           "scout_recruit": {
             "area": "Caelmora",
@@ -5037,6 +5779,39 @@
             "name": "Sentinel",
             "period_seconds": 5.9,
             "xp": 100
+          },
+          "sentinel_keeper": {
+            "area": "The Canopy",
+            "base_success": 0.187,
+            "drops": [
+              {
+                "chance": 0.26,
+                "item": "wardens_bloom_herb",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.12,
+                "item": "ancient_rootwood",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.026,
+                "item": "heartroot_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 256,
+            "gold_min": 156,
+            "level": 95,
+            "max_hit": 68,
+            "name": "Sentinel Keeper",
+            "period_seconds": 6.2,
+            "quest_required": "w07_root_rot",
+            "xp": 586
           },
           "shadow_adept": {
             "area": "Ashford",
@@ -5392,7 +6167,7 @@
             "name": "Survey Scribe",
             "period_seconds": 3.2,
             "quest_required": "q62_cold_welcome",
-            "xp": 65
+            "xp": 78
           },
           "sword_trainer": {
             "area": "Caelmora",
@@ -5673,7 +6448,7 @@
             "name": "Vent Watcher",
             "period_seconds": 3.3,
             "quest_required": "q61_long_way_north",
-            "xp": 133
+            "xp": 147
           },
           "void_shepherd": {
             "area": "Thornite Depths",
@@ -5724,6 +6499,138 @@
             "name": "War Commander",
             "period_seconds": 6.9,
             "xp": 194
+          },
+          "ward_keeper": {
+            "area": "Whisperwood",
+            "base_success": 0.209,
+            "drops": [
+              {
+                "chance": 0.3,
+                "item": "ashblossom",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.15,
+                "item": "mistcap_fungus",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "rootstone_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 192,
+            "gold_min": 117,
+            "level": 88,
+            "max_hit": 62,
+            "name": "Ward Keeper",
+            "period_seconds": 5.5,
+            "quest_required": "w02_edge_of_the_wood",
+            "xp": 418
+          },
+          "warren_agent": {
+            "area": "The Root Warren",
+            "base_success": 0.172,
+            "drops": [
+              {
+                "chance": 0.23,
+                "item": "ancient_rootwood",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "heartwood_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.016,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 315,
+            "gold_min": 192,
+            "level": 100,
+            "max_hit": 72,
+            "name": "Warren Agent",
+            "period_seconds": 7.0,
+            "quest_required": "w13_the_buried_engine",
+            "xp": 714
+          },
+          "warren_archivist": {
+            "area": "The Root Warren",
+            "base_success": 0.165,
+            "drops": [
+              {
+                "chance": 0.22,
+                "item": "heartwood_core",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.1,
+                "item": "ancient_rootwood",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.012,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 341,
+            "gold_min": 208,
+            "level": 102,
+            "max_hit": 74,
+            "name": "Warren Archivist",
+            "period_seconds": 7.4,
+            "quest_required": "w18_what_the_roots_saw",
+            "xp": 813
+          },
+          "warren_auditor": {
+            "area": "The Root Warren",
+            "base_success": 0.175,
+            "drops": [
+              {
+                "chance": 0.24,
+                "item": "ancient_rootwood",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.11,
+                "item": "heartroot_essence",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.018,
+                "item": "directive_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              }
+            ],
+            "expansion": 1,
+            "gold_max": 302,
+            "gold_min": 184,
+            "level": 99,
+            "max_hit": 71,
+            "name": "Warren Auditor",
+            "period_seconds": 6.6,
+            "quest_required": "w11_beneath_the_roots",
+            "xp": 711
           },
           "weaver_apprentice": {
             "area": "Caelmora",
@@ -6244,50 +7151,125 @@
             "id": "index_watcher",
             "label": "The Index Noticed You",
             "masteryPoints": 2
+          },
+          {
+            "category": "Combat",
+            "desc": "Record an entry for every creature in the Whisperwood.",
+            "expansion": 1,
+            "gold": 120000,
+            "id": "whisperwood_bestiary",
+            "label": "Root and Branch",
+            "masteryPoints": 3
+          },
+          {
+            "category": "Combat",
+            "desc": "Defeat 1,000 creatures in the Whisperwood.",
+            "expansion": 1,
+            "gold": 60000,
+            "id": "whisperwood_hunter",
+            "label": "Thinning the Wood",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Shadow Arts",
+            "desc": "Successfully steal 100 times in the Whisperwood.",
+            "expansion": 1,
+            "gold": 40000,
+            "id": "whisperwood_ghost",
+            "label": "Quiet Hands",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Skills",
+            "desc": "Reach level 20 in all four Whisperwood skills.",
+            "expansion": 1,
+            "gold": 25000,
+            "id": "grove_initiate",
+            "label": "Grove Initiate",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Skills",
+            "desc": "Reach level 99 in all four Whisperwood skills.",
+            "expansion": 1,
+            "gold": 600000,
+            "id": "grove_mastery",
+            "label": "The Grove Remembers",
+            "masteryPoints": 8
+          },
+          {
+            "category": "Skills",
+            "desc": "Reach level 105 in any skill.",
+            "expansion": 1,
+            "gold": 150000,
+            "id": "past_the_cap",
+            "label": "Past the Old Ceiling",
+            "masteryPoints": 3
+          },
+          {
+            "category": "Skills",
+            "desc": "Harvest 500 Aetheric Tending plots.",
+            "expansion": 1,
+            "gold": 80000,
+            "id": "rootbound",
+            "label": "Rootbound",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Skills",
+            "desc": "Bring home 100 companion forage runs.",
+            "expansion": 1,
+            "gold": 80000,
+            "id": "far_wanderer",
+            "label": "Far Wanderer",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Skills",
+            "desc": "Brew 1,000 potions.",
+            "expansion": 1,
+            "gold": 90000,
+            "id": "still_distilling",
+            "label": "Still Distilling",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Boss Dungeons",
+            "desc": "Clear both Whisperwood dungeons at least once.",
+            "expansion": 1,
+            "gold": 90000,
+            "id": "whisperwood_all_clear",
+            "label": "Deep Roots",
+            "masteryPoints": 3
+          },
+          {
+            "category": "Adventurer",
+            "desc": "Reach the highest Grove Covenant reputation tier.",
+            "expansion": 1,
+            "gold": 70000,
+            "id": "covenant_sworn",
+            "label": "Covenant Sworn",
+            "masteryPoints": 2
+          },
+          {
+            "category": "Completionist",
+            "desc": "Unlock every other Whisperwood achievement.",
+            "expansion": 1,
+            "gold": 1500000,
+            "id": "exp1_completionist",
+            "label": "The Whole Wood",
+            "masteryPoints": 12
+          },
+          {
+            "category": "Hidden",
+            "desc": "Meet what was in the wood before the Architects named it.",
+            "expansion": 1,
+            "gold": 60000,
+            "hidden": true,
+            "id": "root_listener",
+            "label": "Something Older",
+            "masteryPoints": 3
           }
-        ],
-        "BG_ACHIEVEMENT_IDS": [
-          "first_blood",
-          "bloodlust",
-          "warrior",
-          "slayer",
-          "annihilator",
-          "bestiary_complete",
-          "light_fingers",
-          "pickpocket",
-          "ghost",
-          "phantom",
-          "master_thief",
-          "greyfen_ghost",
-          "coin_collector",
-          "fortunes_hand",
-          "wealthy",
-          "gold_baron",
-          "tycoon",
-          "jack_of_all",
-          "rising_star",
-          "seasoned",
-          "master_of_one",
-          "completionist",
-          "well_rounded",
-          "renaissance",
-          "grandmaster",
-          "dungeon_first_clear",
-          "dungeon_hardened",
-          "dungeon_veteran",
-          "dungeon_all_clear",
-          "dungeon_master",
-          "fracture_scar_clear",
-          "gathering_master",
-          "artisan_master",
-          "combat_master",
-          "first_contract",
-          "seasoned_contractor",
-          "legendary_adventurer",
-          "dedicated_contractor",
-          "master_contractor",
-          "inner_calm",
-          "ascetic"
         ],
         "CATEGORIES": [
           "Combat",
@@ -6312,9 +7294,11 @@
           "smithing",
           "cooking",
           "crafting",
-          "spiritweaving"
+          "spiritweaving",
+          "alchemy"
         ],
         "CRAFT_VERB": {
+          "alchemy": "Brew",
           "cooking": "Cook",
           "crafting": "Craft",
           "smithing": "Forge",
@@ -6360,18 +7344,45 @@
             "name": "Fracture Scar",
             "target": "fracture_scar",
             "xp": 57000
+          },
+          {
+            "area": "The Hollow Root",
+            "expansion": 1,
+            "gold": 32500,
+            "level": 105,
+            "name": "The Hollow Root",
+            "target": "the_hollow_root",
+            "xp": 65000
+          },
+          {
+            "area": "The Grove's Warden",
+            "expansion": 1,
+            "gold": 36500,
+            "level": 110,
+            "name": "The Grove's Warden",
+            "target": "the_groves_warden",
+            "xp": 73000
           }
         ],
         "DUNGEON_WEIGHT": 0.15,
+        "FORAGE_REWARD_MULT": 4.0,
+        "FORAGE_SKILLS": [
+          "spiritbond"
+        ],
+        "FORAGE_VERB": {
+          "spiritbond": "Forage"
+        },
         "GATHER_SKILLS": [
           "mining",
           "woodcutting",
           "fishing",
-          "spirit_harvesting"
+          "spirit_harvesting",
+          "root_lore"
         ],
         "GATHER_VERB": {
           "fishing": "Catch",
           "mining": "Mine",
+          "root_lore": "Gather",
           "spirit_harvesting": "Harvest",
           "woodcutting": "Cut"
         },
@@ -6381,6 +7392,8 @@
           "dungeon_clear:hollow_sanctum": "Run the Hollow Sanctum",
           "dungeon_clear:keystone_chamber": "Claim the Keystone Chamber",
           "dungeon_clear:spire_depths": "Descend the Spire Depths",
+          "dungeon_clear:the_groves_warden": "Face the Grove's Warden",
+          "dungeon_clear:the_hollow_root": "Quiet the Hollow Root",
           "kill:corrupted_colossus": "Topple the Colossus",
           "kill:crypt_skeleton": "Clear the Crypts",
           "kill:eclipse_horror": "Seal the Eclipse Horror",
@@ -6416,6 +7429,10 @@
             1,
             2
           ],
+          "forage": [
+            2,
+            4
+          ],
           "gather": [
             25,
             55
@@ -6427,6 +7444,10 @@
           "steal": [
             18,
             40
+          ],
+          "tend": [
+            2,
+            5
           ]
         },
         "STREAK_THRESHOLDS": [
@@ -6467,6 +7488,13 @@
             "xp_bonus": 0.0
           }
         ],
+        "TEND_REWARD_MULT": 5.0,
+        "TEND_SKILLS": [
+          "aetheric_tending"
+        ],
+        "TEND_VERB": {
+          "aetheric_tending": "Grow"
+        },
         "VENDOR_CATALOG": [
           {
             "cost": 15,
@@ -6782,6 +7810,54 @@
             "threshold": 1000,
             "trigger": "total_level",
             "value": 0.04
+          },
+          {
+            "desc": "Root Lore XP +5% - The roots answer before you finish asking.",
+            "effect": "root_lore_xp_pct",
+            "expansion": 1,
+            "id": "rootspeaker",
+            "mastery_points": 2,
+            "name": "Rootspeaker",
+            "skill": "root_lore",
+            "threshold": 99,
+            "trigger": "skill_level",
+            "value": 0.05
+          },
+          {
+            "desc": "Aetheric Tending grow time -10% - Things grow faster where you kneel.",
+            "effect": "aetheric_tending_grow_time_reduction",
+            "expansion": 1,
+            "id": "grove_tender",
+            "mastery_points": 2,
+            "name": "Grove Tender",
+            "skill": "aetheric_tending",
+            "threshold": 99,
+            "trigger": "skill_level",
+            "value": 0.1
+          },
+          {
+            "desc": "Companion bonuses +10% - Neither of you has to ask any more.",
+            "effect": "spiritbond_companion_bonus_pct",
+            "expansion": 1,
+            "id": "bonded_soul",
+            "mastery_points": 2,
+            "name": "Bonded Soul",
+            "skill": "spiritbond",
+            "threshold": 99,
+            "trigger": "skill_level",
+            "value": 0.1
+          },
+          {
+            "desc": "Potion duration +15% - You have stopped measuring. It keeps working.",
+            "effect": "potion_duration_pct",
+            "expansion": 1,
+            "id": "master_brewer",
+            "mastery_points": 2,
+            "name": "Master Brewer",
+            "skill": "alchemy",
+            "threshold": 99,
+            "trigger": "skill_level",
+            "value": 0.15
           }
         ]
       },
@@ -7578,6 +8654,244 @@
                 "style": "defence"
               }
             ]
+          },
+          {
+            "boss": {
+              "lore": "It has no face to read and no intent to negotiate with. What it has is centuries of a machine running inside it, and a reaction to that which has had nowhere to go.",
+              "max_hp": 4800,
+              "name": "The Hollow Root",
+              "phases": [
+                {
+                  "damage_per_tick": 70,
+                  "defense_bonus": 0.0,
+                  "desc": "It moves slowly and hits like the mass it is. Nothing clever yet.",
+                  "immune_hint": "",
+                  "immune_to": "",
+                  "name": "Wounded",
+                  "style": "balanced",
+                  "trigger_pct": 1.0
+                },
+                {
+                  "damage_per_tick": 112,
+                  "defense_bonus": -0.12,
+                  "desc": "The machinery inside it speeds up and it stops absorbing damage quietly.",
+                  "immune_hint": "",
+                  "immune_to": "",
+                  "name": "Lashing Out",
+                  "style": "balanced",
+                  "trigger_pct": 0.65
+                },
+                {
+                  "damage_per_tick": 150,
+                  "defense_bonus": -0.2,
+                  "desc": "The chamber comes down with it. This is the part to survive rather than out-trade.",
+                  "immune_hint": "",
+                  "immune_to": "",
+                  "name": "Root Collapse",
+                  "style": "magic",
+                  "trigger_pct": 0.3
+                }
+              ],
+              "portrait": "res://assets/images/boss_the_hollow_root.png"
+            },
+            "color": "#3d8c52",
+            "expansion": 1,
+            "id": "the_hollow_root",
+            "key_art": "res://assets/images/dungeon_the_hollow_root.png",
+            "leaderboard_stat": "boss_dps",
+            "locked_lore": "Something in the deepest chamber of the Warren is lashing out at nothing. The Covenant has stopped sending people down.",
+            "lore": "An earth spirit older than the Covenant, grown around Architect machinery that has been running against it for centuries. It does not act with intent. It is in pain and it is very large, and those two facts are the whole of the fight.",
+            "name": "The Hollow Root",
+            "req_display": "Attack 92  \u2022  Defence 85  \u2022  Root Lore 75  \u2022  Bonded companion  \u2022  Q: The Hollow Root Stirs",
+            "requirements": {
+              "companion": true,
+              "questsCompleted": [
+                "w15_the_hollow_root_stirs"
+              ],
+              "skillLevels": {
+                "attack": 92,
+                "defence": 85,
+                "root_lore": 75
+              }
+            },
+            "rewards": {
+              "first_clear_bonus": {
+                "items": {
+                  "hollow_root_glyph": 1
+                },
+                "masteryPoints": 4
+              },
+              "loot_table": [
+                {
+                  "chance": 1.0,
+                  "item_id": "hollow_root_core",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.85,
+                  "item_id": "heartroot_essence",
+                  "qty_max": 4,
+                  "qty_min": 2
+                },
+                {
+                  "chance": 0.7,
+                  "item_id": "ancient_rootwood",
+                  "qty_max": 3,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.08,
+                  "item_id": "hollow_root_conduit",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "root_seal",
+                  "qty_max": 1,
+                  "qty_min": 1
+                }
+              ],
+              "masteryPoints": 27,
+              "memoryFragment": "mf_the_machine_inside",
+              "xp": {
+                "attack": 93000,
+                "defence": 76000,
+                "root_lore": 23000
+              }
+            },
+            "subtitle": "It is wounded, and it does not know why",
+            "waves": [
+              {
+                "count": 4,
+                "damage": 62,
+                "hp": 420,
+                "name": "Warren Approach",
+                "style": "balanced"
+              },
+              {
+                "count": 3,
+                "damage": 78,
+                "hp": 520,
+                "name": "Rootbound Dead",
+                "style": "defence"
+              }
+            ]
+          },
+          {
+            "boss": {
+              "lore": "He apologises twice during the fight. Neither time is scripted by whatever is wearing him.",
+              "max_hp": 5600,
+              "name": "The Grove's Warden",
+              "phases": [
+                {
+                  "damage_per_tick": 95,
+                  "defense_bonus": 0.0,
+                  "desc": "The override is holding him back as much as it is driving him. He fights at part strength and lands nothing he chooses.",
+                  "immune_hint": "",
+                  "immune_to": "",
+                  "name": "Controlled",
+                  "style": "balanced",
+                  "trigger_pct": 1.0
+                },
+                {
+                  "damage_per_tick": 175,
+                  "defense_bonus": -0.2,
+                  "desc": "Vaethos stops surfacing. What is left moves faster than he ever did.",
+                  "immune_hint": "",
+                  "immune_to": "",
+                  "name": "Overwhelmed",
+                  "style": "magic",
+                  "trigger_pct": 0.5
+                }
+              ],
+              "portrait": "res://assets/images/boss_the_groves_warden.png"
+            },
+            "color": "#8c6bb8",
+            "expansion": 1,
+            "id": "the_groves_warden",
+            "key_art": "res://assets/images/dungeon_the_groves_warden.png",
+            "leaderboard_stat": "boss_dps",
+            "locked_lore": "Elder Vaethos walked into the Root Warren alone eleven weeks ago. Something came back as far as the inner sanctum and stopped.",
+            "lore": "The Covenant's founder, wearing an Architect control process that did not finish overwriting him. He is aware. He is fighting it from the inside, and he is losing slowly enough to talk between rounds.",
+            "name": "The Grove's Warden",
+            "req_display": "Attack 100  \u2022  Defence 90  \u2022  Root Lore 90  \u2022  Alchemy 50  \u2022  Q: The Warden's Burden",
+            "requirements": {
+              "questsCompleted": [
+                "w16_the_wardens_burden"
+              ],
+              "skillLevels": {
+                "alchemy": 50,
+                "attack": 100,
+                "defence": 90,
+                "root_lore": 90
+              }
+            },
+            "rewards": {
+              "first_clear_bonus": {
+                "items": {
+                  "grove_covenant_seal": 1
+                },
+                "masteryPoints": 5
+              },
+              "loot_table": [
+                {
+                  "chance": 1.0,
+                  "item_id": "vaethos_sigil",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.8,
+                  "item_id": "heartwood_core",
+                  "qty_max": 2,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.3,
+                  "item_id": "directive_shard",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.08,
+                  "item_id": "vaethos_rootedge",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "root_seal",
+                  "qty_max": 1,
+                  "qty_min": 1
+                }
+              ],
+              "masteryPoints": 33,
+              "memoryFragment": "mf_what_vaethos_kept",
+              "xp": {
+                "attack": 110000,
+                "defence": 89000,
+                "root_lore": 25000
+              }
+            },
+            "subtitle": "He is still in there, and he knows what is happening",
+            "waves": [
+              {
+                "count": 4,
+                "damage": 74,
+                "hp": 480,
+                "name": "Sanctum Wards",
+                "style": "magic"
+              },
+              {
+                "count": 3,
+                "damage": 92,
+                "hp": 560,
+                "name": "Overwritten",
+                "style": "balanced"
+              }
+            ]
           }
         ],
         "ENRAGE_GRACE_TICKS": 60,
@@ -7588,9 +8902,131 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.1.0",
-        "BUILD_FINGERPRINT": "1.1.0 (1787519143)",
-        "VERSION_CODE": 1787519143
+        "APP_VERSION": "1.2.0",
+        "BUILD_FINGERPRINT": "1.2.0 (1788179371)",
+        "VERSION_CODE": 1788179371
+      },
+      "specials": {}
+    },
+    "client/data/CompanionData.gd": {
+      "consts": {
+        "ALL_COMPANIONS": [
+          {
+            "all_xp_pct": 0.0,
+            "combat_xp_pct": 0.03,
+            "expansion": 1,
+            "forage_items": [
+              "pale_yarrow",
+              "ashblossom"
+            ],
+            "forage_seconds": 1800,
+            "gathering_speed_pct": 0.0,
+            "id": "pale_hound",
+            "level": 1,
+            "lore": "Bonds readily and stays close. The Covenant does not know where the pale hounds came from either.",
+            "name": "Pale Hound",
+            "quest_required": "w02_edge_of_the_wood"
+          },
+          {
+            "all_xp_pct": 0.0,
+            "combat_xp_pct": 0.0,
+            "expansion": 1,
+            "forage_items": [
+              "pale_yarrow",
+              "ashblossom",
+              "mistcap_fungus"
+            ],
+            "forage_seconds": 3600,
+            "gathering_speed_pct": 0.06,
+            "id": "canopy_sprite",
+            "level": 20,
+            "lore": "Too fast to follow and apparently incapable of being anywhere useful on purpose. Finds things regardless.",
+            "name": "Canopy Sprite",
+            "quest_required": "w06_covenant_terms"
+          },
+          {
+            "all_xp_pct": 0.0,
+            "combat_xp_pct": 0.08,
+            "expansion": 1,
+            "forage_items": [
+              "rootveil_bark",
+              "mistcap_fungus"
+            ],
+            "forage_seconds": 7200,
+            "gathering_speed_pct": 0.0,
+            "id": "root_stalker",
+            "level": 40,
+            "lore": "Patient in a way that suggests it has done this before, for someone else, a long time ago.",
+            "name": "Root Stalker",
+            "quest_required": "w11_beneath_the_roots"
+          },
+          {
+            "all_xp_pct": 0.12,
+            "combat_xp_pct": 0.0,
+            "expansion": 1,
+            "forage_items": [
+              "gleam_thistle",
+              "heartroot_essence"
+            ],
+            "forage_seconds": 10800,
+            "gathering_speed_pct": 0.0,
+            "id": "whisper_drake",
+            "level": 60,
+            "lore": "Roosts high and comes down only when it decides to. The bond is real; the obedience is negotiable.",
+            "name": "Whisper Drake",
+            "quest_required": "w15_the_hollow_root_stirs"
+          },
+          {
+            "all_xp_pct": 0.0,
+            "combat_xp_pct": 0.15,
+            "expansion": 1,
+            "forage_items": [
+              "wardens_bloom_herb",
+              "whisperwood_crown",
+              "heartroot_essence"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.08,
+            "id": "ancient_treant",
+            "level": 80,
+            "lore": "Moves once a day and remembers everything. The Covenant treats it as a colleague rather than a companion.",
+            "name": "Ancient Treant",
+            "quest_required": "w16_the_wardens_burden"
+          },
+          {
+            "all_xp_pct": 0.05,
+            "combat_xp_pct": 0.2,
+            "expansion": 1,
+            "forage_items": [
+              "ancient_rootwood",
+              "architect_shard"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.12,
+            "id": "grove_guardian",
+            "level": 99,
+            "lore": "Grown rather than born, and grown for this. The Covenant will not say by whom.",
+            "name": "Grove Guardian",
+            "quest_required": "w18_what_the_roots_saw"
+          },
+          {
+            "all_xp_pct": 0.08,
+            "combat_xp_pct": 0.25,
+            "expansion": 1,
+            "forage_items": [
+              "heartwood_core",
+              "ancient_rootwood",
+              "architect_shard"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.15,
+            "id": "heartwood_elder",
+            "level": 105,
+            "lore": "The oldest thing in the Whisperwood that still answers to a name. It carries Architect residue in its core and is not harmed by it, which no one can explain.",
+            "name": "Heartwood Elder",
+            "quest_required": "w20_a_letter_from_the_sea"
+          }
+        ]
       },
       "specials": {}
     },
@@ -7890,6 +9326,49 @@
             "lore": "Exiled Accord researchers who chose truth over comfort and built a settlement in the frozen north to prove it. Led by the quietly formidable Seris Vael, they study the deepest Fracture scars in the known world. They do not trust easily. They do not forgive betrayal at all. Their relationship with shadow arts is practical, not romantic: in Greyfen you learn to move unseen, or you do not survive the Accord's visit.",
             "name": "The Greyfen Scholars",
             "tagline": "The cold keeps you honest."
+          },
+          {
+            "bonuses": {
+              "25": {
+                "desc": "+5% Root Lore XP",
+                "effect": "root_lore_xp_pct",
+                "value": 0.05
+              },
+              "50": {
+                "desc": "+10% Root Lore XP  \u2022  +10% Aetheric Tending yield",
+                "effect": "root_lore_xp_pct",
+                "secondary_effect": "aetheric_tending_yield_pct",
+                "secondary_value": 0.1,
+                "value": 0.1
+              },
+              "75": {
+                "desc": "+15% Root Lore XP  \u2022  +20% Aetheric Tending yield  \u2022  +10% Alchemy XP",
+                "effect": "root_lore_xp_pct",
+                "secondary_effect": "aetheric_tending_yield_pct",
+                "secondary_value": 0.2,
+                "tertiary_effect": "alchemy_xp_pct",
+                "tertiary_value": 0.1,
+                "value": 0.15
+              },
+              "100": {
+                "desc": "+20% Root Lore XP  \u2022  +25% Aetheric Tending yield  \u2022  +15% Alchemy XP  \u2022  +10% Spiritbond companion bonuses",
+                "effect": "root_lore_xp_pct",
+                "quaternary_effect": "spiritbond_companion_bonus_pct",
+                "quaternary_value": 0.1,
+                "secondary_effect": "aetheric_tending_yield_pct",
+                "secondary_value": 0.25,
+                "tertiary_effect": "alchemy_xp_pct",
+                "tertiary_value": 0.15,
+                "value": 0.2
+              }
+            },
+            "color": "#3d8c52",
+            "expansion": 1,
+            "id": "grove_covenant",
+            "leader": "Warden Syrel",
+            "lore": "Ancient nature keepers who predate the Accord by two centuries. They treat the Whisperwood as a living archive rather than a resource, and they have been alarmed since the Shattering in a way they will not explain. Elder Vaethos went into the Root Warren alone and did not come back. Warden Syrel is holding the Covenant together in his absence.",
+            "name": "The Grove Covenant",
+            "tagline": "The roots remember."
           }
         ]
       },
@@ -7904,10 +9383,14 @@
           "ashvein_blade": 20,
           "cairn_blade": 1,
           "combat_belt": 15,
+          "deepbloom_trowel": 45,
           "dockmaster_hookknife": 25,
           "emberline_chef_knife": 45,
           "faultbreaker_pickaxe": 50,
           "mirestone_blade": 40,
+          "thornrend_sickle": 50,
+          "vaethos_rootedge": 104,
+          "vaethos_unbound_rootedge": 104,
           "war_boots": 15,
           "warden_permafrost_blade": 88,
           "warrior_greaves": 15,
@@ -7935,6 +9418,8 @@
           "blessed_robes": 15,
           "chef_toque": 1,
           "chef_trousers": 1,
+          "covenant_rootward": 103,
+          "covenant_signet": 103,
           "crafter_helm": 5,
           "craftsman_leggings": 5,
           "deeproot_rampart": 50,
@@ -7947,6 +9432,12 @@
           "forest_leggings": 5,
           "forge_apron": 8,
           "fortress_boots": 25,
+          "grove_wardens_gauntlets": 103,
+          "grove_wardens_greaves": 103,
+          "grove_wardens_hauberk": 103,
+          "grove_wardens_helm": 103,
+          "grove_wardens_mantle": 103,
+          "grove_wardens_sabatons": 103,
           "guardian_belt": 25,
           "hearth_belt": 1,
           "heavy_boots": 20,
@@ -7982,6 +9473,7 @@
           "priest_leggings": 15,
           "ranger_hood": 5,
           "river_belt": 1,
+          "rootweave_girdle": 103,
           "sacred_belt": 15,
           "scout_helm": 10,
           "sentinel_helm": 25,
@@ -8020,6 +9512,7 @@
           "warden_permafrost_signet": 88,
           "warden_permafrost_torc": 88,
           "warden_shadow_mantle": 15,
+          "wardens_torc": 103,
           "waterproof_boots": 1,
           "wayfarer_belt": 10,
           "weaver_circlet": 1,
@@ -8028,6 +9521,7 @@
           "woven_robes": 1,
           "woven_slippers": 1
         },
+        "DR_SCORE_POINTS_PER_PCT": 5.0,
         "EPIC": [
           "prospector_lens",
           "shadow_wraps",
@@ -8092,6 +9586,11 @@
             "name": "Aethercoil Focus",
             "slot": "off_hand",
             "source_hint": "Store - Mastery Relic (Fracture Arts Lv. 99)"
+          },
+          "ancient_rootwood": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Ancient Rootwood"
           },
           "anvil_leggings": {
             "category": "armour",
@@ -8200,6 +9699,19 @@
             "category": "sigil",
             "name": "Ash Sigil",
             "source_hint": "Spiritweaving"
+          },
+          "ashblossom": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Ashblossom"
+          },
+          "ashblossom_draft": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+15% gathering XP for 10 min",
+            "expansion": 1,
+            "name": "Ashblossom Draft",
+            "potion_category": "gathering"
           },
           "ashfen_carp": {
             "category": "fish",
@@ -8351,6 +9863,11 @@
             "category": "food",
             "name": "Burned Fracture Pike"
           },
+          "burned_heartroot_stew": {
+            "category": "food",
+            "expansion": 1,
+            "name": "Burned Heartroot Stew"
+          },
           "burned_leviathan": {
             "category": "food",
             "name": "Burned Leviathan"
@@ -8433,6 +9950,11 @@
             "category": "fish",
             "name": "Canal Trout"
           },
+          "captains_field_ledger": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Captain's Field Ledger"
+          },
           "cartographers_coldcase": {
             "category": "armour",
             "name": "Cartographer's Coldcase",
@@ -8463,6 +9985,11 @@
             "category": "material",
             "name": "Cipher Fragment"
           },
+          "coastal_seal_sample": {
+            "category": "quest",
+            "expansion": 1,
+            "name": "Coastal Seal Sample"
+          },
           "colossus_war_chain": {
             "category": "jewel",
             "name": "Colossus War Chain",
@@ -8473,6 +10000,14 @@
             "category": "armour",
             "name": "Combat Belt",
             "slot": "belt"
+          },
+          "combat_draft": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+10% combat XP for 10 min",
+            "expansion": 1,
+            "name": "Combat Draft",
+            "potion_category": "combat"
           },
           "compass_amulet": {
             "category": "jewel",
@@ -8497,6 +10032,18 @@
           "corrupted_lantern_shard": {
             "category": "relic",
             "name": "Corrupted Lantern Shard"
+          },
+          "covenant_rootward": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Covenant Rootward",
+            "slot": "off_hand"
+          },
+          "covenant_signet": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Covenant Signet",
+            "slot": "ring"
           },
           "crafter_amulet": {
             "category": "jewel",
@@ -8553,6 +10100,13 @@
             "category": "spirit_craft",
             "name": "Deep Focus Crystal"
           },
+          "deepbloom_trowel": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Deepbloom Trowel",
+            "slot": "weapon",
+            "source_hint": "Store - Mastery Relic (Aetheric Tending Lv. 99)"
+          },
           "deeproot_log": {
             "category": "log",
             "name": "Deeproot Log"
@@ -8565,6 +10119,11 @@
           "deepvein_bass": {
             "category": "fish",
             "name": "Deepvein Bass"
+          },
+          "directive_shard": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Directive Shard"
           },
           "dock_scrip": {
             "category": "currency",
@@ -8694,6 +10253,14 @@
             "name": "Forge Ring",
             "slot": "ring"
           },
+          "fortifying_brew": {
+            "category": "consumable",
+            "duration_seconds": 0,
+            "effect_desc": "Restore 20% HP instantly",
+            "expansion": 1,
+            "name": "Fortifying Brew",
+            "potion_category": "instant"
+          },
           "fortress_boots": {
             "category": "armour",
             "name": "Fortress Boots",
@@ -8786,10 +10353,23 @@
             "category": "spirit",
             "name": "Gleam Dust"
           },
+          "gleam_elixir": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+15% all XP for 10 min",
+            "expansion": 1,
+            "name": "Gleam Elixir",
+            "potion_category": "gathering"
+          },
           "gleam_rune": {
             "category": "sigil",
             "name": "Gleam Sigil",
             "source_hint": "Spiritweaving"
+          },
+          "gleam_thistle": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Gleam Thistle"
           },
           "greyfen_supply_manifest": {
             "category": "jewel",
@@ -8800,6 +10380,64 @@
           "greyspine_log": {
             "category": "log",
             "name": "Greyspine Log"
+          },
+          "grove_covenant_potion": {
+            "category": "consumable",
+            "duration_seconds": 1200,
+            "effect_desc": "+25% all XP, +20% gathering speed for 20 min",
+            "expansion": 1,
+            "name": "Grove Covenant Potion",
+            "potion_category": "gathering"
+          },
+          "grove_covenant_seal": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Grove Covenant Seal",
+            "source_hint": "The Grove's Warden (first clear)"
+          },
+          "grove_wardens_gauntlets": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Gauntlets",
+            "slot": "hands"
+          },
+          "grove_wardens_greaves": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Greaves",
+            "slot": "legs"
+          },
+          "grove_wardens_hauberk": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Hauberk",
+            "slot": "chest"
+          },
+          "grove_wardens_helm": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Helm",
+            "slot": "head"
+          },
+          "grove_wardens_mantle": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Mantle",
+            "slot": "cape"
+          },
+          "grove_wardens_sabatons": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Grove Warden's Sabatons",
+            "slot": "feet"
+          },
+          "grove_warrior_flask": {
+            "category": "consumable",
+            "duration_seconds": 900,
+            "effect_desc": "+15% combat XP, +15% effective DEF for 15 min",
+            "expansion": 1,
+            "name": "Grove Warrior Flask",
+            "potion_category": "combat"
           },
           "guardian_belt": {
             "category": "armour",
@@ -8820,6 +10458,44 @@
             "name": "Hearth Belt",
             "slot": "belt"
           },
+          "heartroot_essence": {
+            "category": "spirit",
+            "expansion": 1,
+            "name": "Heartroot Essence"
+          },
+          "heartroot_rune": {
+            "category": "sigil",
+            "expansion": 1,
+            "name": "Heartroot Rune"
+          },
+          "heartroot_stew": {
+            "category": "food",
+            "expansion": 1,
+            "name": "Heartroot Stew"
+          },
+          "heartwood_core": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Heartwood Core"
+          },
+          "heartwood_distillate": {
+            "category": "consumable",
+            "duration_seconds": 1800,
+            "effect_desc": "+30% all XP, +25% gathering speed for 30 min",
+            "expansion": 1,
+            "name": "Heartwood Distillate",
+            "potion_category": "gathering"
+          },
+          "heartwood_log": {
+            "category": "log",
+            "expansion": 1,
+            "name": "Heartwood Log"
+          },
+          "heartwood_weave": {
+            "category": "spirit_craft",
+            "expansion": 1,
+            "name": "Heartwood Weave"
+          },
           "heavy_boots": {
             "category": "armour",
             "name": "Heavy Boots",
@@ -8830,6 +10506,24 @@
             "name": "Index Herald's Mark",
             "slot": "necklace",
             "source_hint": "Shadow Arts - Index Herald (rare)"
+          },
+          "hollow_root_conduit": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Hollow Root Conduit",
+            "slot": "weapon",
+            "source_hint": "The Hollow Root (w15)"
+          },
+          "hollow_root_core": {
+            "category": "material",
+            "expansion": 1,
+            "name": "Hollow Root Core"
+          },
+          "hollow_root_glyph": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Hollow Root Glyph",
+            "source_hint": "The Hollow Root (first clear)"
           },
           "hollow_rune": {
             "category": "sigil",
@@ -9089,6 +10783,19 @@
             "name": "Mirestone Rod",
             "source_hint": "Store - Gold purchase (Fishing)"
           },
+          "mistcap_brew": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+10% artisan XP for 10 min",
+            "expansion": 1,
+            "name": "Mistcap Brew",
+            "potion_category": "artisan"
+          },
+          "mistcap_fungus": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Mistcap Fungus"
+          },
           "muscle_plate": {
             "category": "armour",
             "name": "Muscle Plate",
@@ -9098,6 +10805,48 @@
             "category": "armour",
             "name": "Mystic Sash",
             "slot": "belt"
+          },
+          "natures_veil_amulet": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Nature's Veil Amulet",
+            "slot": "necklace"
+          },
+          "natures_veil_boots": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Nature's Veil Boots",
+            "slot": "feet"
+          },
+          "natures_veil_circlet": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Nature's Veil Hood",
+            "slot": "head"
+          },
+          "natures_veil_gloves": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Nature's Veil Gloves",
+            "slot": "hands"
+          },
+          "natures_veil_leggings": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Nature's Veil Leggings",
+            "slot": "legs"
+          },
+          "natures_veil_ring": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Nature's Veil Ring",
+            "slot": "ring"
+          },
+          "natures_veil_vest": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Nature's Veil Vest",
+            "slot": "chest"
           },
           "nightglass_mantle": {
             "category": "armour",
@@ -9150,6 +10899,14 @@
             "category": "spirit",
             "name": "Pale Shard Dust"
           },
+          "pale_shard_infusion": {
+            "category": "consumable",
+            "duration_seconds": 900,
+            "effect_desc": "+25% Shard Gleaning XP for 15 min",
+            "expansion": 1,
+            "name": "Pale Shard Infusion",
+            "potion_category": "gathering"
+          },
           "pale_ward_focus": {
             "category": "spirit_craft",
             "name": "Pale Ward Focus"
@@ -9162,6 +10919,16 @@
             "category": "armour",
             "name": "Pale Willow Ward",
             "slot": "off_hand"
+          },
+          "pale_yarrow": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Pale Yarrow"
+          },
+          "palewater_eel": {
+            "category": "fish",
+            "expansion": 1,
+            "name": "Palewater Eel"
           },
           "paleweave_spindle": {
             "category": "armour",
@@ -9273,6 +11040,67 @@
           "roasted_pale_drifter": {
             "category": "food",
             "name": "Roasted Pale Drifter"
+          },
+          "root_seal": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Root Seal",
+            "source_hint": "The Hollow Root / The Grove's Warden"
+          },
+          "root_tonic": {
+            "category": "consumable",
+            "duration_seconds": 1200,
+            "effect_desc": "+30% gathering XP, +15% artisan XP for 20 min",
+            "expansion": 1,
+            "name": "Root Tonic",
+            "potion_category": "gathering"
+          },
+          "rootbound_wand": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Rootbound Wand",
+            "slot": "weapon"
+          },
+          "rootfire_crucible": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Rootfire Crucible",
+            "slot": "off_hand",
+            "source_hint": "Store - Mastery Relic (Alchemy Lv. 99)"
+          },
+          "rootstone_shard": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Rootstone Shard"
+          },
+          "rootveil_bark": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Rootveil Bark"
+          },
+          "rootveil_extract": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+20% gathering speed for 10 min",
+            "expansion": 1,
+            "name": "Rootveil Extract",
+            "potion_category": "gathering"
+          },
+          "rootveined_bar": {
+            "category": "bar",
+            "expansion": 1,
+            "name": "Rootveined Bar"
+          },
+          "rootveined_ore": {
+            "category": "ore",
+            "expansion": 1,
+            "name": "Rootveined Ore"
+          },
+          "rootweave_girdle": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Rootweave Girdle",
+            "slot": "belt"
           },
           "sacred_belt": {
             "category": "armour",
@@ -9390,6 +11218,11 @@
             "category": "food",
             "name": "Smoked Mirefish"
           },
+          "snare_coil": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Snare Coil"
+          },
           "spectral_leggings": {
             "category": "armour",
             "name": "Spectral Leggings",
@@ -9480,6 +11313,14 @@
             "name": "Stone Sigil",
             "source_hint": "Spiritweaving"
           },
+          "stone_skin_potion": {
+            "category": "consumable",
+            "duration_seconds": 900,
+            "effect_desc": "+20% effective DEF for 15 min",
+            "expansion": 1,
+            "name": "Stone Skin Potion",
+            "potion_category": "combat"
+          },
           "strength_amulet": {
             "category": "jewel",
             "name": "Strength Amulet",
@@ -9530,6 +11371,13 @@
             "category": "tool",
             "name": "Thornite Rod",
             "source_hint": "Store - Gold purchase (Fishing)"
+          },
+          "thornrend_sickle": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Thornrend Sickle",
+            "slot": "weapon",
+            "source_hint": "Store - Mastery Relic (Root Lore Lv. 99)"
           },
           "thread_ring": {
             "category": "jewel",
@@ -9595,6 +11443,25 @@
             "name": "The Unwritten Sabatons",
             "slot": "feet"
           },
+          "vaethos_rootedge": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Vaethos's Rootedge",
+            "slot": "weapon",
+            "source_hint": "The Grove's Warden (w16)"
+          },
+          "vaethos_sigil": {
+            "category": "quest",
+            "expansion": 1,
+            "name": "Vaethos's Sigil"
+          },
+          "vaethos_unbound_rootedge": {
+            "category": "weapon",
+            "expansion": 1,
+            "name": "Vaethos's Unbound Rootedge",
+            "slot": "weapon",
+            "source_hint": "Chronicler Vendor (exchange Vaethos's Rootedge)"
+          },
           "vantstream_trout": {
             "category": "fish",
             "name": "Vantstream Trout"
@@ -9622,9 +11489,24 @@
             "name": "Pale Sigil",
             "source_hint": "Spiritweaving"
           },
+          "veil_tincture": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+15% shadow arts success for 10 min",
+            "expansion": 1,
+            "name": "Veil Tincture",
+            "potion_category": "combat"
+          },
           "vent_carapace": {
             "category": "material",
             "name": "Vent Carapace"
+          },
+          "verdant_tether": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Verdant Tether",
+            "slot": "necklace",
+            "source_hint": "Store - Mastery Relic (Spiritbond Lv. 99)"
           },
           "verdant_worldcharm": {
             "category": "jewel",
@@ -9772,9 +11654,28 @@
             "slot": "ring",
             "source_hint": "Upgrade - Brute's Ring + Sentinel's Ring + Warrior's Ring"
           },
+          "wardens_bloom_herb": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Warden's Bloom Herb"
+          },
+          "wardens_draught": {
+            "category": "consumable",
+            "duration_seconds": 900,
+            "effect_desc": "+10% all XP, +10% gathering speed for 15 min",
+            "expansion": 1,
+            "name": "Warden's Draught",
+            "potion_category": "gathering"
+          },
           "wardens_permafrost_seal": {
             "category": "quest",
             "name": "Warden's Permafrost Seal"
+          },
+          "wardens_torc": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Warden's Torc",
+            "slot": "necklace"
           },
           "warrior_greaves": {
             "category": "armour",
@@ -9816,11 +11717,30 @@
             "name": "Weaver's Circlet",
             "slot": "head"
           },
+          "whisperbloom_focus": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Whisperbloom Focus",
+            "slot": "off_hand"
+          },
           "whisperrend_axe": {
             "category": "weapon",
             "name": "Whisperrend Axe",
             "slot": "weapon",
             "source_hint": "Store - Mastery Relic (Felling Lv. 99)"
+          },
+          "whisperwood_concentrate": {
+            "category": "consumable",
+            "duration_seconds": 900,
+            "effect_desc": "+25% all XP for 15 min",
+            "expansion": 1,
+            "name": "Whisperwood Concentrate",
+            "potion_category": "gathering"
+          },
+          "whisperwood_crown": {
+            "category": "herb",
+            "expansion": 1,
+            "name": "Whisperwood Crown"
           },
           "wisp_glazed_carp": {
             "category": "food",
@@ -9854,6 +11774,14 @@
             "category": "armour",
             "name": "Woven Slippers",
             "slot": "feet"
+          },
+          "yarrow_tonic": {
+            "category": "consumable",
+            "duration_seconds": 600,
+            "effect_desc": "+10% gathering speed for 10 min",
+            "expansion": 1,
+            "name": "Yarrow Tonic",
+            "potion_category": "gathering"
           }
         },
         "LEGENDARY": [
@@ -9875,12 +11803,16 @@
         "MAGIC_REQ_BY_ID": {
           "aethercoil_focus": 50,
           "arcane_robes": 20,
+          "hollow_root_conduit": 103,
           "mage_circlet": 20,
           "mystic_sash": 20,
           "paleweave_spindle": 45,
+          "rootbound_wand": 100,
+          "rootfire_crucible": 45,
           "spellweaver_leggings": 20,
           "tidebind_rod": 50,
           "warden_permafrost_focus": 85,
+          "whisperbloom_focus": 103,
           "wizard_slippers": 20
         },
         "MASTERY_99_RELIC_IDS": {
@@ -9889,6 +11821,7 @@
           "architects_workgirdle": true,
           "bulwark_null_seal": true,
           "colossus_war_chain": true,
+          "deepbloom_trowel": true,
           "emberline_chef_knife": true,
           "faultbreaker_pickaxe": true,
           "keystone_architects_seal": true,
@@ -9897,10 +11830,24 @@
           "oathpoint_signet": true,
           "paleweave_spindle": true,
           "pilgrim_heart": true,
+          "rootfire_crucible": true,
           "stillwater_beads": true,
+          "thornrend_sickle": true,
           "tidebind_rod": true,
           "trailblazer_compass": true,
+          "verdant_tether": true,
           "whisperrend_axe": true
+        },
+        "POTION_EFFECT_LABELS": {
+          "all_xp_pct": "all XP",
+          "artisan_xp_pct": "artisan XP",
+          "combat_xp_pct": "combat XP",
+          "effective_def_pct": "effective DEF",
+          "gathering_speed_pct": "gathering speed",
+          "gathering_xp_pct": "gathering XP",
+          "hp_restore_pct": "HP restored",
+          "shadow_success_pct": "Shadow Arts success",
+          "spirit_harvesting_xp_pct": "Spirit Harvesting XP"
         },
         "PRICE_BY_ID": {
           "accord_cipher_key": 0,
@@ -9908,6 +11855,7 @@
           "accord_null_blade": 200000,
           "accord_null_blade_unbound": 350000,
           "aethercoil_focus": 5000000,
+          "ancient_rootwood": 55,
           "anvil_leggings": 13500,
           "anvilheart_hammer": 5000000,
           "apothecary_satchel": 120,
@@ -9930,6 +11878,8 @@
           "artisan_coat": 5600,
           "artisan_ring": 51000,
           "ash_rune": 1,
+          "ashblossom": 9,
+          "ashblossom_draft": 110,
           "ashfen_carp": 30,
           "ashvein_axe": 900,
           "ashvein_bar": 35,
@@ -9975,19 +11925,24 @@
           "canal_astrolabe": 30000,
           "canal_silt": 6,
           "canal_trout": 8,
+          "captains_field_ledger": 900,
           "cartographers_coldcase": 90000,
           "charred_leviathan": 75,
           "chef_toque": 1100,
           "chef_trousers": 13500,
           "chroniclers_band": 80000,
           "cipher_fragment": 45,
+          "coastal_seal_sample": 0,
           "colossus_war_chain": 5000000,
           "combat_belt": 5000,
+          "combat_draft": 330,
           "compass_amulet": 26000,
           "contemplation_amulet": 2600,
           "cook_amulet": 41000,
           "corrupted_lantern_insignia": 0,
           "corrupted_lantern_shard": 0,
+          "covenant_rootward": 170000,
+          "covenant_signet": 95000,
           "crafter_amulet": 51000,
           "crafter_helm": 900,
           "craftsman_leggings": 15000,
@@ -10000,9 +11955,11 @@
           "dawnsilver_pickaxe": 5200,
           "dawnsilver_rod": 6100,
           "deep_focus": 130,
+          "deepbloom_trowel": 5000000,
           "deeproot_log": 12,
           "deeproot_rampart": 195,
           "deepvein_bass": 12,
+          "directive_shard": 1400,
           "dock_scrip": 25,
           "dockmaster_hookknife": 1150,
           "dockyard_enforcer_badge": 38000,
@@ -10030,6 +11987,7 @@
           "forest_leggings": 11000,
           "forge_apron": 3250,
           "forge_ring": 45500,
+          "fortifying_brew": 140,
           "fortress_boots": 33000,
           "fracture_arcanist_pin": 62000,
           "fracture_axe": 900000,
@@ -10051,15 +12009,36 @@
           "geode_amulet": 950,
           "gleam_binding": 60,
           "gleam_dust": 10,
+          "gleam_elixir": 360,
           "gleam_rune": 3,
+          "gleam_thistle": 26,
           "greyfen_supply_manifest": 60000,
           "greyspine_log": 2,
+          "grove_covenant_potion": 1500,
+          "grove_covenant_seal": 0,
+          "grove_wardens_gauntlets": 95000,
+          "grove_wardens_greaves": 145000,
+          "grove_wardens_hauberk": 165000,
+          "grove_wardens_helm": 130000,
+          "grove_wardens_mantle": 120000,
+          "grove_wardens_sabatons": 110000,
+          "grove_warrior_flask": 1300,
           "guardian_belt": 6300,
           "hag_charm": 22,
           "hammer_amulet": 45500,
           "hearth_belt": 3600,
+          "heartroot_essence": 46,
+          "heartroot_rune": 120,
+          "heartroot_stew": 88,
+          "heartwood_core": 78,
+          "heartwood_distillate": 2200,
+          "heartwood_log": 32,
+          "heartwood_weave": 110,
           "heavy_boots": 17000,
           "herald_mark": 150000,
+          "hollow_root_conduit": 230000,
+          "hollow_root_core": 700,
+          "hollow_root_glyph": 0,
           "hollow_rune": 2,
           "hollow_wisp": 5,
           "hollowvein_ore": 2,
@@ -10111,8 +12090,17 @@
           "mirestone_ore": 15,
           "mirestone_pickaxe": 240000,
           "mirestone_rod": 290000,
+          "mistcap_brew": 160,
+          "mistcap_fungus": 14,
           "muscle_plate": 3250,
           "mystic_sash": 7000,
+          "natures_veil_amulet": 28000,
+          "natures_veil_boots": 18000,
+          "natures_veil_circlet": 26000,
+          "natures_veil_gloves": 20000,
+          "natures_veil_leggings": 30000,
+          "natures_veil_ring": 24000,
+          "natures_veil_vest": 34000,
           "nightglass_mantle": 5000000,
           "noble_house_seal": 80,
           "noble_signet_ring": 1400,
@@ -10124,9 +12112,12 @@
           "pale_drifter": 10,
           "pale_lantern_seal": 0,
           "pale_shard_dust": 3,
+          "pale_shard_infusion": 470,
           "pale_ward_focus": 22,
           "pale_willow_log": 8,
           "pale_willow_ward": 85,
+          "pale_yarrow": 4,
+          "palewater_eel": 40,
           "paleweave_spindle": 5000000,
           "permafrost_shard": 44,
           "pilgrim_boots": 8750,
@@ -10151,6 +12142,16 @@
           "ring_of_embers": 180,
           "river_belt": 1700,
           "roasted_pale_drifter": 35,
+          "root_seal": 0,
+          "root_tonic": 1100,
+          "rootbound_wand": 150000,
+          "rootfire_crucible": 5000000,
+          "rootstone_shard": 60,
+          "rootveil_bark": 19,
+          "rootveil_extract": 240,
+          "rootveined_bar": 96,
+          "rootveined_ore": 38,
+          "rootweave_girdle": 115000,
           "sacred_belt": 2100,
           "sanctum_relic": 260,
           "scar_index_seal": 0,
@@ -10176,6 +12177,7 @@
           "silent_leggings": 23500,
           "smith_helm": 950,
           "smoked_mirefish": 18,
+          "snare_coil": 45,
           "spectral_leggings": 12000,
           "spelcast_axe": 18000,
           "spelcast_bar": 75,
@@ -10195,6 +12197,7 @@
           "stealth_sash": 2350,
           "stillwater_beads": 5000000,
           "stone_rune": 4,
+          "stone_skin_potion": 760,
           "strength_amulet": 63000,
           "strength_belt": 3250,
           "summit_plate": 24,
@@ -10206,6 +12209,7 @@
           "thornite_ore": 12,
           "thornite_pickaxe": 65000,
           "thornite_rod": 78000,
+          "thornrend_sickle": 5000000,
           "thread_ring": 45500,
           "tidebind_rod": 5000000,
           "timber_belt": 2350,
@@ -10219,13 +12223,18 @@
           "unwritten_helm": 240000,
           "unwritten_plate": 320000,
           "unwritten_sabatons": 200000,
+          "vaethos_rootedge": 260000,
+          "vaethos_sigil": 0,
+          "vaethos_unbound_rootedge": 520000,
           "vantstream_trout": 32,
           "vantwood_log": 18,
           "vantwood_redoubt": 250,
           "vault_alloy": 31,
           "vault_smelter_seal": 78000,
           "veil_rune": 1,
+          "veil_tincture": 520,
           "vent_carapace": 64,
+          "verdant_tether": 5000000,
           "verdant_worldcharm": 2000000,
           "vitality_crown": 800,
           "vitality_ring": 29500,
@@ -10255,7 +12264,10 @@
           "warden_rune": 6,
           "warden_shadow_mantle": 28000,
           "wardens_ascendant_band": 3000000,
+          "wardens_bloom_herb": 34,
+          "wardens_draught": 640,
           "wardens_permafrost_seal": 0,
+          "wardens_torc": 105000,
           "warrior_greaves": 19000,
           "warrior_helm": 1000,
           "warrior_plate": 5000,
@@ -10264,14 +12276,18 @@
           "wayfarer_belt": 2600,
           "weaver_amulet": 45500,
           "weaver_circlet": 1350,
+          "whisperbloom_focus": 190000,
           "whisperrend_axe": 5000000,
+          "whisperwood_concentrate": 820,
+          "whisperwood_crown": 42,
           "wisp_glazed_carp": 22,
           "wisp_strand": 30,
           "wizard_slippers": 23500,
           "woodland_boots": 11000,
           "workshop_belt": 5600,
           "woven_robes": 4000,
-          "woven_slippers": 26000
+          "woven_slippers": 26000,
+          "yarrow_tonic": 60
         },
         "RARE": [
           "thornite_ore",
@@ -10795,6 +12811,7 @@
           "charred_leviathan": 32,
           "cured_resonance_eel": 36,
           "fissure_char_smoked": 45,
+          "heartroot_stew": 120,
           "mirefish_stew": 22,
           "poached_ashfen_carp": 28,
           "poached_canal_trout": 15,
@@ -11016,6 +13033,9 @@
           "architects_workgirdle": {
             "crafting": 0.5
           },
+          "deepbloom_trowel": {
+            "aetheric_tending": 0.5
+          },
           "emberline_chef_knife": {
             "cooking": 0.5
           },
@@ -11031,8 +13051,17 @@
           "paleweave_spindle": {
             "spiritweaving": 0.5
           },
+          "rootfire_crucible": {
+            "alchemy": 0.5
+          },
+          "thornrend_sickle": {
+            "root_lore": 0.5
+          },
           "tidebind_rod": {
             "fishing": 0.5
+          },
+          "verdant_tether": {
+            "spiritbond": 0.5
           },
           "whisperrend_axe": {
             "woodcutting": 0.5
@@ -11047,6 +13076,124 @@
           "meditation_sash": 0.6,
           "meditation_signet": 1.7,
           "stillwater_beads": 30.0
+        },
+        "_POTION_EFFECTS": {
+          "ashblossom_draft": [
+            {
+              "key": "gathering_xp_pct",
+              "value": 0.15
+            }
+          ],
+          "combat_draft": [
+            {
+              "key": "combat_xp_pct",
+              "value": 0.1
+            }
+          ],
+          "fortifying_brew": [
+            {
+              "key": "hp_restore_pct",
+              "value": 0.2
+            }
+          ],
+          "gleam_elixir": [
+            {
+              "key": "all_xp_pct",
+              "value": 0.15
+            }
+          ],
+          "grove_covenant_potion": [
+            {
+              "key": "all_xp_pct",
+              "value": 0.25
+            },
+            {
+              "key": "gathering_speed_pct",
+              "value": 0.2
+            }
+          ],
+          "grove_warrior_flask": [
+            {
+              "key": "combat_xp_pct",
+              "value": 0.15
+            },
+            {
+              "key": "effective_def_pct",
+              "value": 0.15
+            }
+          ],
+          "heartwood_distillate": [
+            {
+              "key": "all_xp_pct",
+              "value": 0.3
+            },
+            {
+              "key": "gathering_speed_pct",
+              "value": 0.25
+            }
+          ],
+          "mistcap_brew": [
+            {
+              "key": "artisan_xp_pct",
+              "value": 0.1
+            }
+          ],
+          "pale_shard_infusion": [
+            {
+              "key": "spirit_harvesting_xp_pct",
+              "value": 0.25
+            }
+          ],
+          "root_tonic": [
+            {
+              "key": "gathering_xp_pct",
+              "value": 0.3
+            },
+            {
+              "key": "artisan_xp_pct",
+              "value": 0.15
+            }
+          ],
+          "rootveil_extract": [
+            {
+              "key": "gathering_speed_pct",
+              "value": 0.2
+            }
+          ],
+          "stone_skin_potion": [
+            {
+              "key": "effective_def_pct",
+              "value": 0.2
+            }
+          ],
+          "veil_tincture": [
+            {
+              "key": "shadow_success_pct",
+              "value": 0.15
+            }
+          ],
+          "wardens_draught": [
+            {
+              "key": "all_xp_pct",
+              "value": 0.1
+            },
+            {
+              "key": "gathering_speed_pct",
+              "value": 0.1
+            }
+          ],
+          "whisperwood_concentrate": [
+            {
+              "key": "all_xp_pct",
+              "value": 0.25
+            }
+          ],
+          "yarrow_tonic": [
+            {
+              "key": "gathering_speed_pct",
+              "value": 0.1
+            }
+          ]
         },
         "_SHADOW_GOLD_BONUS": {
           "accord_field_signet": 0.25,
@@ -11419,6 +13566,10 @@
           "tree_amulet": {
             "woodcutting": 0.12
           },
+          "vaethos_unbound_rootedge": {
+            "alchemy": 0.16,
+            "root_lore": 0.2
+          },
           "vault_smelter_seal": {
             "cooking": 0.08,
             "smithing": 0.12
@@ -11516,6 +13667,7 @@
           "fracture_cast": 70,
           "mirestone": 50,
           "resonite": 85,
+          "rootveined": 100,
           "spelcast": 30,
           "thornite": 40
         },
@@ -11564,6 +13716,7 @@
           "fracture_cast": "fracture_cast_bar",
           "mirestone": "mirestone_bar",
           "resonite": "resonite_bar",
+          "rootveined": "rootveined_bar",
           "spelcast": "spelcast_bar",
           "thornite": "thornite_bar"
         },
@@ -11574,6 +13727,7 @@
           "fracture_cast": 32,
           "mirestone": 25,
           "resonite": 40,
+          "rootveined": 52,
           "spelcast": 14,
           "thornite": 19
         },
@@ -11584,6 +13738,7 @@
           "fracture_cast": "Fracture-Cast",
           "mirestone": "Mirestone",
           "resonite": "Resonite",
+          "rootveined": "Rootveined",
           "spelcast": "Spelcast",
           "thornite": "Thornite"
         },
@@ -11595,7 +13750,8 @@
           "thornite",
           "mirestone",
           "fracture_cast",
-          "resonite"
+          "resonite",
+          "rootveined"
         ],
         "_SMITHING_TIER_PIECE_STATS": {
           "ashvein": {
@@ -11752,6 +13908,32 @@
             "shield": {
               "def": 43,
               "mag": -11
+            }
+          },
+          "rootveined": {
+            "blade": {
+              "atk": 73,
+              "str": 42
+            },
+            "greaves": {
+              "def": 48,
+              "mag": -14
+            },
+            "hauberk": {
+              "def": 56,
+              "mag": -23
+            },
+            "helm": {
+              "def": 43,
+              "mag": -14
+            },
+            "sabatons": {
+              "def": 34,
+              "mag": -13
+            },
+            "shield": {
+              "def": 55,
+              "mag": -14
             }
           },
           "spelcast": {
@@ -12026,6 +14208,20 @@
             "80": "The Ashford Commons Council keeps your name in a file marked 'asset.' You haven't decided if that's flattering.",
             "99": "Your name appears in enough reports across enough factions that the Shard Wardens have created a dedicated folder."
           },
+          "aetheric_tending": {
+            "20": "The first harvest comes back richer than the seed cost. Patience is what the plots teach, before anything else.",
+            "40": "You've stopped treating the harvest as the destination. The growth in between has become the work.",
+            "60": "The plots continue without you. The Whisperwood has always worked that way. You have finally learned to match it.",
+            "80": "The rarest crops require conditions only a practiced tender recognises. You have stopped guessing what those conditions are.",
+            "99": "What you grow outlasts any single session of watching it. In the Whisperwood, that is the whole lesson."
+          },
+          "alchemy": {
+            "20": "The first tonic is thin and well-intentioned. Every alchemist in Aetheria started exactly where you are.",
+            "40": "The potions carry past the brewing bench now. You have started building your plans around them.",
+            "60": "What you brew bends time in small ways - a window where the body does something it ordinarily cannot.",
+            "80": "The Grove's healers have stopped correcting your method. That is how you know you have one.",
+            "99": "You brew things that change the terms of what is possible. In Aetheria, that is the oldest definition of craft."
+          },
           "attack": {
             "20": "Accuracy is memory. The body learns what the mind once decided.",
             "40": "The Ashford fighting schools teach this level in three years. You compressed it.",
@@ -12089,6 +14285,13 @@
             "80": "The Ashlands await. Drakenhollow's forge clans have a name for someone who mines like you.",
             "99": "You do not extract ore. You translate it - raw Aetheria into what it was always becoming."
           },
+          "root_lore": {
+            "20": "The herbs near Caelmora's treeline taste of the forest edge. You have not yet gone deeper.",
+            "40": "The Covenant catalogues what you harvest before you know what you are looking for. That gap is closing.",
+            "60": "You have started reading the deep growth by texture and scent before you know the names. The forest taught you that.",
+            "80": "The Warren's rarest plants grow where no record reaches but yours. You know how to find them.",
+            "99": "You read the Whisperwood from below. The Covenant has a word for someone who gathers like this. They use it carefully."
+          },
           "shadow_arts": {
             "20": "Not everyone in Aetheria operates in daylight. You've learned why.",
             "40": "The Greyfen exile scholars call it 'peripheral truth' - things that exist only when you stop looking directly at them.",
@@ -12109,6 +14312,13 @@
             "60": "The nodes pulse in patterns. You haven't decoded them yet. The word 'yet' is doing a lot of work.",
             "80": "You're harvesting what the Fracture left behind. It does not object. You find that more unsettling than resistance would be.",
             "99": "You are Fracture-attuned. The resonance nodes light before you arrive. The Architects would recognize what you've become."
+          },
+          "spiritbond": {
+            "20": "The companion chose you as much as you chose it. That difference matters more the longer the bond holds.",
+            "40": "A bonded creature does not follow orders. It negotiates. You have started to hold up your end of the conversation.",
+            "60": "Your companion forages through hours you cannot see. The bond is what brings it back.",
+            "80": "The Covenant's oldest guides kept companions for decades. The creature beside you is starting to understand what that means.",
+            "99": "What you have built is not ownership. The Whisperwood's oldest bond has no word that fits, and that is the point."
           },
           "spiritweaving": {
             "20": "The foci you weave hold charge longer than the merchants' stock. Nobody's told you why yet.",
@@ -12172,6 +14382,51 @@
         "RELEASES": [
           {
             "changes": [
+              "New: Whisperwood, The Living Wilds, is Kaldreth's first expansion. It is a one-time in-app purchase at $5.99 and it opens a living forest west of the known map, with two sub-zones: The Canopy above the treeline and The Root Warren beneath the soil. Inside: 20 new quests, raising the quest total from 66 to 86; 15 new monsters, raising the Bestiary roster from 72 to 87; 69 new items, raising item collection from 529 to 598; 14 new Shadow Arts targets, raising the total from 107 to 121; 13 new achievements, raising the total from 48 to 61; a new title, Rootkeeper, for finishing the 20 quest arc; and a new faction, the Grove Covenant, with 4 reputation tiers. Everything named below as Whisperwood content sits behind that purchase. If you do not buy it, the game you have today is unchanged: no base game bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete.",
+              "New: Four new skills come with Whisperwood. Root Lore is a gathering skill with 9 nodes, and it unlocks from the first Whisperwood quest. Aetheric Tending grows 8 crops on plots. Alchemy brews 16 recipes, split across tabs. Spiritbond binds companions. All four sit alongside the 16 base game skills rather than replacing anything in them.",
+              "New: Aetheric Tending plots and Root Lore foraging run on the wall clock rather than your action slot. A plot takes between 30 minutes and 16 hours to come in depending on the crop, and it grows while your character trains something else - planting never interrupts what you are already doing, and foraging works the same way. Because both are deadlines rather than rates, the 4 hour offline cap does not apply to them. A plot planted before bed is ready when you come back, however long that is.",
+              "New: Alchemy potions burn wall clock time too, and they do not pause when the app is closed. This is the same model the Fracture Surge already uses. A 20 minute potion drunk just before you shut the game is spent by the time you open it again. Being direct about it: drink them when you are about to play, not on your way out.",
+              "New: Seven companions can be bonded through Spiritbond, from the Pale Hound at level 1 up to the Heartwood Elder at level 105. The bond, and which companion is currently at your side, is managed from a new Spiritbond panel.",
+              "Changed: Owning Whisperwood raises the skill level cap from 99 to 105 on every skill, including all 16 base game ones. So that base game skills have somewhere to climb into, a new Heartwood rung has been added to each of the 8 existing gathering and artisan ladders, and Spiritweaving gains a new spell, Warren Call, at level 102. An existing maxed character is safe. Skill XP you have already earned is never rewritten, and the cap only governs what the level reads. If the entitlement ever lapses, your levels read 99 again and not one point of XP is lost - buying back restores the level immediately.",
+              "New: Two equipment slots have been added, hands and companion, appended to the existing ten. The hands slot closes a long standing gap: gloves items existed in the data but resolved to no slot at all, so there was never any way to wear them. They can be equipped now.",
+              "New: Two boss dungeons, The Hollow Root and The Grove's Warden, bring the total from 5 to 7. Each has its own first clear key item and its own memory fragment, matching all five base game dungeons, and both pay into the same Chronicler currency the existing dungeons do.",
+              "New: Whisperwood also adds a Nature branch to the skill tree with 15 nodes, 5 new auto passives, and 4 new rows in the Skill Mastery store. Two new kinds of adventurer contract, tending and foraging, run against a deadline rather than occupying your action slot, so they progress while you train something else. An arrival cinematic plays the first time you reach Whisperwood, and there is a hidden meditation vision at level 105.",
+              "Changed: Every base game achievement stays fully earnable without buying anything, and buying Whisperwood never raises a base game bar. Two achievements needed repairing to hold that line. \"All 99s\" and \"Jack of All Trades\" had already broken when the four new skills entered the data: both counted 20 skills instead of 16, which made them unearnable for every player in the game, buyer or not. Both are now frozen to the 16 base game skills and are earnable again. The same freeze covers the Bestiary completion achievement, the all dungeons clear achievement, and Affinity Mastery, whose description already promised \"every base game action\". The achievements page now groups into two collapsible tiers, Base Game and Whisperwood, with the existing categories inside each. Whisperwood has its own completionist achievement scored over its own set; it does not feed the base game one.",
+              "Fixed: The Greyfen Shadow Arts ladder was inverted end to end. This is a buff to content that shipped in 1.1.0 and it applies to every player, expansion or not. The level 60 entry target, the Outer Watchman, paid 31,937 XP per hour, while the level 95 capstone, the Scar Prefect, paid 26,106. The decline was monotonic across the whole region, so thirty five levels of progression bought strictly less XP per hour than the target you walked in on. The cause was the band multiplier falling away through the mid game faster than the written XP values climbed. Twelve XP values have been raised and nothing has been lowered. Being honest about the size of it: the per rung raises go up to +40%, but no player's best available rate rises by more than about 5%, because every large raise landed on a rung that was already paying below the level 60 entry. Those rungs stop being traps rather than becoming rewards. The light track now runs from 17,885 up to 19,596 and the heavy track from 31,937 up to 33,555, both ascending the whole way. Two pre-existing oddities are deliberately untouched and are not claimed as fixed here: the 2.4x jump on entering Greyfen at level 60, and the light track paying less than the heavy track at the same level."
+            ],
+            "title": "Whisperwood, Four New Skills, and the Level 105 Cap",
+            "version": "1.2.0",
+            "version_code": 1788179371
+          },
+          {
+            "changes": [
+              "Fixed: The Warden Permafrost Blade has been corrected. As shipped, it carried attack 16 and strength 12. The resonite blade sits at attack 46 and strength 26, requires three fewer Attack levels to wield, and costs roughly 44,000 gold - the Permafrost Blade required Attack 88 and cost 185,000 gold and was, by every damage metric, a strict downgrade from the tier below it. No damage reduction, XP bonus, or mastery stat offset that. Buying it made your character weaker. It is now attack 58 and strength 33, one tier-step above resonite on the weapon ladder. The blade carries no damage reduction; that is a separate, deliberate earlier decision that stands unchanged. Players who already own it receive the corrected stats automatically on load, with no action needed.",
+              "Changed: All items that can be purchased from any vendor are now capped at 100% of their actual purchase price when sold. Previously this cap covered only mastery relics and Greyfen provision items. The path that cap now newly closes is Adventurer vendor gear, which is bought repeatedly with Pathfinder Seals. With a high stack of sell-price bonuses - from faction reputation, fortune skill-tree nodes, and equippable passives - that gear could be sold for more gold than it cost to buy. Pathfinder Seals become a gold source through that loop, and that loop is now closed. Being direct about it: if you were cycling Adventurer vendor gear through your inventory at a sell-price profit, that income is gone. The scope is narrow. Greyfen provisions remain capped at the price you actually pay with any active discount, not the list price. Mastery relics are unchanged. Every item with no vendor purchase path at all is not capped and its sell price is completely unchanged - this correction applies only to gear bought from the Adventurer vendor."
+            ],
+            "title": "Warden Permafrost Blade Correction and Adventurer Vendor Sell Cap",
+            "version": "1.1.3",
+            "version_code": 1787998889
+          },
+          {
+            "changes": [
+              "New: Eighteen leaderboards are now available through a new Leaderboards entry in the Menu. Nine cover Standard play, nine cover Hardcore: total level, lifetime gold earned, total kills, kills of The Unwritten, and a clear count for each of the five boss dungeons - Hollow Sanctum, Spire Depths, Accord Vault, Keystone Chamber, and the Fracture Scar. The Leaderboards entry only appears on devices that have Play Games installed. Reaching it requires a signed-in Play Games account, which the game obtains through the cloud-save connect flow on the character select screen - tapping the entry before connecting brings up a prompt explaining how to do that. Boards rank your Google account, not any individual character slot. Play Games keeps the best score ever posted for your account, so a player with several characters is ranked by the strongest one. Standard and Hardcore have entirely separate board sets. A hardcore character that reverts to Standard after a death posts to the Standard boards from that point on - its hardcore entries stand. No reward of any kind is attached to rank. One limitation for existing saves, stated plainly: per-dungeon clear counts were not recorded before this update, only an aggregate total. Any dungeon a character had already cleared before updating starts at a count of one on the leaderboards, regardless of how many times it was actually run. Counting is accurate from this update forward. The aggregate clear total that dungeon achievements read is unchanged.",
+              "Fixed: Three quests in the Frostmere arc - Cartography of Damage, Eleven Years of Silence, and the arc's final quest - previously deducted 8, 10, and 15 Accord Remnants reputation respectively. The intent was a narrative cost for siding with the Greyfen Scholars. In practice, Accord Remnants reputation has no recovery path, so completing the arc permanently left a character below full standing with no route back. The reputation penalties are removed. Existing characters who completed those quests and are sitting below where they should be have their Accord Remnants standing corrected automatically on their next load, with no action needed. Greyfen Scholars reputation from those quests is unchanged."
+            ],
+            "title": "Play Games Leaderboards and Accord Remnants Reputation Fix",
+            "version": "1.1.2",
+            "version_code": 1787836528
+          },
+          {
+            "changes": [
+              "New: Standard characters can now see how much gold they will lose before confirming a respawn. The amount appears on the death modal and in the Combat and Shadow Arts status text for as long as you are dead. The figure is the exact sum that will be deducted - it already accounts for any respawn gold-loss-reduction bonuses you have, and it respects the existing minimum and maximum caps on the loss. Nothing about how much gold is lost has changed - the deduction, the bonuses that reduce it, and the caps are all the same as before. The only difference is that you can see the number before you commit. Hardcore characters cannot respawn and are unaffected.",
+              "New: Dying to The Unwritten now seals the Combat panel for 15 minutes. The Unwritten is the optional super-elite in Frostmere - it is not required for any quest or achievement, but it hits for up to 600 and is built to kill a character in full endgame gear. When you fall to it, the Combat panel is replaced by a fractured display showing what was done to you and a countdown of the remaining seal time. Everything else stays open during that window: gathering, artisan skills, Shadow Arts, quests, and all five boss dungeons are unaffected. If you die to The Unwritten while offline, the lockout counts down against your offline time, so a death early in a long away period has already expired by the time you read the offline report. Respawn is reachable from the sealed panel itself, so the seal never leaves you stuck behind it."
+            ],
+            "title": "Projected Gold Loss on Death and Unwritten Combat Lockout",
+            "version": "1.1.1",
+            "version_code": 1787601130
+          },
+          {
+            "changes": [
               "New: Frostmere, The Shattered Tundra, is a new region in the frozen north beyond the Ironback Mountains. It is home to the Greyfen Scholars, an exiled faction who have spent eleven years mapping the deepest Fracture scars. Reaching it opens a new six-quest line, bringing the quest total to 66. Inside: 41 new monsters, raising the roster from 31 to 72; 60 new items, raising the total from 317 to 377; 14 new Shadow Arts targets, raising the total from 93 to 107; 4 new gathering nodes; 12 new recipes; 5 new achievements, raising the total from 43 to 48; and 3 new titles, raising the total from 12 to 15.",
               "New: The Fracture Scar is the fifth boss dungeon and the hardest content in the game. Entry requires Attack 85, Defence 75, all four existing dungeons cleared, and the quest \"Into the Scar\". The dungeon boss, The Index, has three phases. The final phase - Final Compilation - uses defence-penetrating attacks that bypass your defence stat entirely. Only gear-based damage reduction and the Scar-Ward Draught reduce hits from that phase. Death inside the Fracture Scar forfeits all loot from that run.",
               "New: Two new gear sets are available in Frostmere and the Fracture Scar. The Warden Permafrost set is ten pieces - armour slots carry defence, accessories carry damage reduction. The Chronicler now sells a Permafrost Aegis upgrade for the Warden mantle, bought with a currency earned inside the Fracture Scar. The Unwritten set is four pieces, dropped only by The Unwritten - an optional super-elite that hits for up to 600 and will kill a character in full endgame gear. It is not required for any quest or achievement.",
@@ -12188,7 +14443,7 @@
             ],
             "title": "Frostmere, the Fracture Scar, and the Bestiary",
             "version": "1.1.0",
-            "version_code": 1787519143
+            "version_code": 1787574598
           },
           {
             "changes": [
@@ -15175,7 +17430,6 @@
             "reward_display": "3 Mastery Points  \u2022  Memory Fragment",
             "rewards": {
               "factionRep": {
-                "accord_remnants": -8,
                 "greyfen_scholars": 15
               },
               "items": {
@@ -15210,7 +17464,6 @@
             "reward_display": "3 Mastery Points  \u2022  Memory Fragment",
             "rewards": {
               "factionRep": {
-                "accord_remnants": -10,
                 "greyfen_scholars": 20
               },
               "masteryPoints": 3,
@@ -15278,7 +17531,6 @@
             "reward_display": "5 Mastery Points  \u2022  Memory Fragment  \u2022  Greyfen Scholar rep +25",
             "rewards": {
               "factionRep": {
-                "accord_remnants": -15,
                 "greyfen_scholars": 25
               },
               "items": {
@@ -15292,6 +17544,482 @@
               }
             },
             "sort": 66
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Something is wrong with the treeline west of Caelmora. Not dying - the opposite. Go and look before someone decides it is nothing.",
+            "expansion": 1,
+            "id": "w01_strange_growth",
+            "name": "Strange Growth",
+            "npc_dialogue": "The growth pattern is wrong. Spirit-touched plants sprawl; these are directed. Something is pushing them outward from a source. Find it before it reaches the market district.",
+            "npc_name": "Warden Syrel",
+            "req_display": "-",
+            "requirements": {},
+            "reward_display": "Grove Covenant rep +5",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 5
+              }
+            },
+            "sort": 67
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Covenant has been watching you since you crossed the treeline. Syrel would rather talk than keep pretending she is not there.",
+            "expansion": 1,
+            "id": "w02_edge_of_the_wood",
+            "name": "Edge of the Wood",
+            "npc_dialogue": "I've been measuring the boundary shift for three weeks. It has moved forty metres. Whatever is pushing it is not gradual - it has a direction and it has been accelerating.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: Strange Growth",
+            "requirements": {
+              "questsCompleted": [
+                "w01_strange_growth"
+              ]
+            },
+            "reward_display": "Spiritbond unlocked  \u2022  rep +5",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 5
+              }
+            },
+            "sort": 68
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Covenant's boundary markers are two centuries old and three of them have moved. Syrel wants them checked before she explains why that matters.",
+            "expansion": 1,
+            "id": "w03_the_old_markers",
+            "name": "The Old Markers",
+            "npc_dialogue": "The markers are meant to be found by people who are already looking. You weren't. That makes you either careless or an anomaly. I'm choosing to treat it as the second. My name is Syrel. Don't touch anything else until we've talked.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 15  \u2022  Q: Edge of the Wood",
+            "requirements": {
+              "questsCompleted": [
+                "w02_edge_of_the_wood"
+              ],
+              "skillLevels": {
+                "root_lore": 15
+              }
+            },
+            "reward_display": "Mistcap Fungus node  \u2022  rep +8",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 8
+              }
+            },
+            "sort": 69
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "There is smoke above the Canopy and the Covenant did not light it. Someone is working up there who should not be.",
+            "expansion": 1,
+            "id": "w04_smoke_from_the_canopy",
+            "name": "Smoke from the Canopy",
+            "npc_dialogue": "Nothing up there burns on its own. Whatever that smoke is coming from, someone lit it. Go up and look. Don't engage anything you can't manage alone.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: The Old Markers",
+            "requirements": {
+              "questsCompleted": [
+                "w03_the_old_markers"
+              ]
+            },
+            "reward_display": "rep +8",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 8
+              }
+            },
+            "sort": 70
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Elder Vaethos has not sent word in eleven weeks. Syrel has stopped saying he is fine.",
+            "expansion": 1,
+            "id": "w05_the_wardens_silence",
+            "name": "The Warden's Silence",
+            "npc_dialogue": "Elder Vaethos went into the Warren six days ago. He told me he would be back by nightfall. I've stopped counting the reasons he might be delayed and started considering the other possibilities.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: Smoke from the Canopy",
+            "requirements": {
+              "questsCompleted": [
+                "w04_smoke_from_the_canopy"
+              ]
+            },
+            "reward_display": "rep +10",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 10
+              }
+            },
+            "sort": 71
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Covenant will work with you. Syrel sets the terms herself, and they are not generous.",
+            "expansion": 1,
+            "id": "w06_covenant_terms",
+            "name": "Covenant Terms",
+            "npc_dialogue": "Gather Rootveil Bark from the marked stands. Tend one of the Canopy plots. Brew the extract the healers need. These aren't symbolic. They're the minimum standard we hold ourselves to, and we're about to extend it to you.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 25  \u2022  Q: The Warden's Silence",
+            "requirements": {
+              "questsCompleted": [
+                "w05_the_wardens_silence"
+              ],
+              "skillLevels": {
+                "root_lore": 25
+              }
+            },
+            "reward_display": "Rootveil Bark node  \u2022  Canopy Sprite  \u2022  rep +12",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 12
+              }
+            },
+            "sort": 72
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Something is killing the Whisperwood from underneath, in a pattern too regular to be a disease.",
+            "expansion": 1,
+            "id": "w07_root_rot",
+            "name": "Root Rot",
+            "npc_dialogue": "The creatures aren't acting on instinct. Something below is driving them upward and whatever it is, it's getting louder. Help the scouts clear the approach. I need the mouth of the Warren accessible.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: Covenant Terms",
+            "requirements": {
+              "questsCompleted": [
+                "w06_covenant_terms"
+              ]
+            },
+            "reward_display": "Aetheric Tending unlocked  \u2022  rep +12",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 12
+              }
+            },
+            "sort": 73
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The rot follows a rhythm. Syrel does not want to say the word machine out loud, so you will have to.",
+            "expansion": 1,
+            "id": "w08_the_hollow_pulse",
+            "name": "The Hollow Pulse",
+            "npc_dialogue": "I have known this forest forty years. Spirit energy does not bleed outward on its own - it pools, disperses, circulates. What is happening now is none of those things. Something is running below us. Not dormant. Running.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 40  \u2022  Q: Root Rot",
+            "requirements": {
+              "questsCompleted": [
+                "w07_root_rot"
+              ],
+              "skillLevels": {
+                "root_lore": 40
+              }
+            },
+            "reward_display": "Gleam Thistle node  \u2022  Alchemy unlocked  \u2022  rep +14",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 14
+              }
+            },
+            "sort": 74
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The people in the Canopy are not lost and not local. They are equipped for work far larger than anything living here.",
+            "expansion": 1,
+            "id": "w09_poachers_in_the_grove",
+            "name": "Poachers in the Grove",
+            "npc_dialogue": "They're not local. The equipment is wrong for the region - this is an organised operation, not opportunists. Someone sent them here with specific materials in mind. Clear both sites. I want to look at what they were taking.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: The Hollow Pulse",
+            "requirements": {
+              "questsCompleted": [
+                "w08_the_hollow_pulse"
+              ]
+            },
+            "reward_display": "rep +15",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 15
+              }
+            },
+            "sort": 75
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "A crate the poachers left behind carries a coastal seal nobody in the Whisperwood recognises. Syrel recognises it and will not say from where.",
+            "expansion": 1,
+            "id": "w10_marked_cargo",
+            "name": "Marked Cargo",
+            "npc_dialogue": "I went through every Accord trade record I have access to. This seal isn't in them. Whoever is running that operation has been outside Accord recognition long enough that nobody is looking for them anymore. Keep the sample.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: Poachers in the Grove",
+            "requirements": {
+              "questsCompleted": [
+                "w09_poachers_in_the_grove"
+              ]
+            },
+            "reward_display": "Coastal Seal Sample  \u2022  rep +15",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 15
+              },
+              "items": {
+                "coastal_seal_sample": 1
+              }
+            },
+            "sort": 76
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Root Warren is open. It has been open for some time, which is the part that worries Syrel.",
+            "expansion": 1,
+            "id": "w11_beneath_the_roots",
+            "name": "Beneath the Roots",
+            "npc_dialogue": "The Revenants and Golems down there exist to stop unprepared people from going deeper. That is not a figure of speech - it is their function. Go prepared, and go carefully. Vaethos is somewhere below the reach of our patrols.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 50  \u2022  Q: Marked Cargo",
+            "requirements": {
+              "questsCompleted": [
+                "w10_marked_cargo"
+              ],
+              "skillLevels": {
+                "root_lore": 50
+              }
+            },
+            "reward_display": "Root Warren access  \u2022  Root Stalker  \u2022  rep +18",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 18
+              }
+            },
+            "sort": 77
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "There is writing on the Warren walls. It is not Covenant work and it predates every record they keep.",
+            "expansion": 1,
+            "id": "w12_the_old_language",
+            "name": "The Old Language",
+            "npc_dialogue": "I have walked those passages four times in my life. I never stopped to read the walls. I should have. What does it say?",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: Beneath the Roots",
+            "requirements": {
+              "questsCompleted": [
+                "w11_beneath_the_roots"
+              ]
+            },
+            "reward_display": "rep +18",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 18
+              }
+            },
+            "sort": 78
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The thing under the Whisperwood is Architect-built, it is still running, and it has been running since before Caelmora was founded.",
+            "expansion": 1,
+            "id": "w13_the_buried_engine",
+            "name": "The Buried Engine",
+            "npc_dialogue": "Our oldest oral history says builders came before us. We assumed that meant before the Accord. I'm starting to understand it meant something considerably older than that.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 60  \u2022  Q: The Old Language",
+            "requirements": {
+              "questsCompleted": [
+                "w12_the_old_language"
+              ],
+              "skillLevels": {
+                "root_lore": 60
+              }
+            },
+            "reward_display": "rep +20",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 20
+              }
+            },
+            "sort": 79
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Something in the deep Warren is speaking, and some of it is in Vaethos's voice.",
+            "expansion": 1,
+            "id": "w14_the_voice_below",
+            "name": "The Voice Below",
+            "npc_dialogue": "He heard something and he followed it alone. Whatever the voice was, it knew what to say to move him. He didn't tell me he was going further in. He didn't tell me anything.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 65  \u2022  Q: The Buried Engine",
+            "requirements": {
+              "questsCompleted": [
+                "w13_the_buried_engine"
+              ],
+              "skillLevels": {
+                "root_lore": 65
+              }
+            },
+            "reward_display": "Warden's Bloom Herb node  \u2022  rep +22",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 22
+              }
+            },
+            "sort": 80
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Whatever the engine has been doing to the spirit in the deepest chamber, it has finished doing it quietly.",
+            "expansion": 1,
+            "id": "w15_the_hollow_root_stirs",
+            "name": "The Hollow Root Stirs",
+            "npc_dialogue": "The Hollow Root predates us - predates the Covenant, predates whatever built those inscriptions. It was wounded long before we arrived and never healed. Right now it is lashing out at anything that comes close. Defeating it won't heal it. It will quiet the Warren long enough to reach Vaethos.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 75  \u2022  Q: The Voice Below",
+            "requirements": {
+              "questsCompleted": [
+                "w14_the_voice_below"
+              ],
+              "skillLevels": {
+                "root_lore": 75
+              }
+            },
+            "reward_display": "Hollow Root dungeon  \u2022  Whisper Drake  \u2022  rep +25",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 25
+              }
+            },
+            "sort": 81
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Vaethos is in the inner sanctum. He is alive. That is the best that can honestly be said.",
+            "expansion": 1,
+            "id": "w16_the_wardens_burden",
+            "name": "The Warden's Burden",
+            "npc_dialogue": "I heard him. Under the other voice, when it lost focus - his voice for two or three seconds. He's still in there and he's fighting it. Don't kill him. Disrupt whatever has him and give him room to push back.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 85  \u2022  Q: The Hollow Root Stirs (dungeon cleared)",
+            "requirements": {
+              "dungeonClears": [
+                "the_hollow_root"
+              ],
+              "questsCompleted": [
+                "w15_the_hollow_root_stirs"
+              ],
+              "skillLevels": {
+                "root_lore": 85
+              }
+            },
+            "reward_display": "Grove's Warden dungeon  \u2022  Ancient Treant  \u2022  rep +30",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 30
+              }
+            },
+            "sort": 82
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Covenant has to decide what it is now. Syrel would like your opinion, which is not a thing she does.",
+            "expansion": 1,
+            "id": "w17_the_covenant_holds",
+            "name": "The Covenant Holds",
+            "npc_dialogue": "The engine is still running. We cut off its most direct reach, not the source. Vaethos is resting. He will speak when he can. Whatever we are building between us - the Covenant stands, and so does that.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: The Warden's Burden (dungeon cleared)",
+            "requirements": {
+              "dungeonClears": [
+                "the_groves_warden"
+              ],
+              "questsCompleted": [
+                "w16_the_wardens_burden"
+              ]
+            },
+            "reward_display": "3 Mastery Points  \u2022  rep +30",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 30
+              },
+              "masteryPoints": 3
+            },
+            "sort": 83
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "Vaethos can speak again, in stretches. What he remembers from inside the override is not what anyone expected.",
+            "expansion": 1,
+            "id": "w18_what_the_roots_saw",
+            "name": "What the Roots Saw",
+            "npc_dialogue": "The Warren was excavated. The roots grew through it afterward - decades of growth over old work. We have been keeping Architect ruins as sacred forest for two centuries and calling it origin. It was both things at once. The roots grew through it and kept what the builders left, the way old trees keep lightning strikes.",
+            "npc_name": "Elder Vaethos",
+            "req_display": "Q: The Covenant Holds",
+            "requirements": {
+              "questsCompleted": [
+                "w17_the_covenant_holds"
+              ]
+            },
+            "reward_display": "Memory Fragment  \u2022  Grove Guardian  \u2022  4 Mastery Points  \u2022  rep +35",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 35
+              },
+              "masteryPoints": 4,
+              "memoryFragment": "mf_roots_remember"
+            },
+            "sort": 84
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "The Captain's ledger names a buyer. The name means nothing in the Whisperwood and everything on the coast.",
+            "expansion": 1,
+            "id": "w19_the_buyers_mark",
+            "name": "The Buyer's Mark",
+            "npc_dialogue": "The Salt Hand, operating out of Tideward Harbor. I know that name from pre-Shattering trade records. They have been quiet since. Apparently they found a reason to become active again.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Q: What the Roots Saw",
+            "requirements": {
+              "questsCompleted": [
+                "w18_what_the_roots_saw"
+              ]
+            },
+            "reward_display": "rep +35",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 35
+              }
+            },
+            "sort": 85
+          },
+          {
+            "arc": "whisperwood",
+            "desc": "A letter arrives for you at the Covenant hall, sealed with the Salt Accord's mark. It is an invitation, and it is not friendly.",
+            "expansion": 1,
+            "id": "w20_a_letter_from_the_sea",
+            "name": "A Letter from the Sea",
+            "npc_dialogue": "They addressed it to you. By name. They know about the Warren. Whoever the Salt Accord is, they were watching before the poachers arrived. The Whisperwood is quieter than it has been in months. Whatever comes next will not be here.",
+            "npc_name": "Warden Syrel",
+            "req_display": "Root Lore 95  \u2022  Q: The Buyer's Mark",
+            "requirements": {
+              "questsCompleted": [
+                "w19_the_buyers_mark"
+              ],
+              "skillLevels": {
+                "root_lore": 95
+              }
+            },
+            "reward_display": "Heartwood Core node  \u2022  Heartwood Elder  \u2022  5 Mastery Points  \u2022  rep +40",
+            "rewards": {
+              "factionRep": {
+                "grove_covenant": 40
+              },
+              "masteryPoints": 5
+            },
+            "sort": 86
           }
         ],
         "ARC_COLORS": {
@@ -15299,14 +18027,16 @@
           "early": "#8cbf8c",
           "frostmere": "#8cb8eb",
           "late": "#d98c59",
-          "mid": "#8ca6e6"
+          "mid": "#8ca6e6",
+          "whisperwood": "#3d8c52"
         },
         "ARC_LABELS": {
           "aftermath": "The Accord's Aftermath",
           "early": "The Lantern's Shadow",
           "frostmere": "The Cold Design",
           "late": "The Hidden Crown",
-          "mid": "The Spire Beneath"
+          "mid": "The Spire Beneath",
+          "whisperwood": "The Root Remembers"
         },
         "QUEST_FRAGMENTS": {
           "mf_accord_revelation": {
@@ -15429,6 +18159,12 @@
             "text": "A schematic you drew on a whiteboard on Earth - half-remembered, half-invented, for a project that got cancelled. You recognize it now. It's a resonance node map. You mapped Aetheria's energy infrastructure two years before you arrived.",
             "title": "Blueprint"
           },
+          "mf_roots_remember": {
+            "expansion": 1,
+            "id": "mf_roots_remember",
+            "text": "Vaethos can hold a sentence together now, most of the time. He wants you to see the soil readings the Covenant took when they first walled the Warren, two centuries ago.\n\nThe resonance signature is wrong. Not damaged - patterned. Root systems laid in a grid, spreading outward from a point under the deepest chamber, at intervals no forest grows in.\n\nYou have seen this before. A survey you ran three years before the Fracture, mapping soil resonance for a client who never gave a reason. The same grid. The same intervals. On Earth.\n\nVaethos watches you recognise it.\n\n'The Covenant has protected this forest for two hundred years,' he says. 'We thought we were protecting something that grew here.'\n\nHe does not finish the thought. He does not have to.",
+            "title": "What Was Planted"
+          },
           "mf_seven_seats_truth": {
             "id": "mf_seven_seats_truth",
             "text": "The signing chamber again - but now you can count. Seven chairs. Three signatures that burned the page. One empty seat was yours. The other three seats held people whose faces blur when you look directly at them. The document passed without you. Something broke when it did.",
@@ -15449,6 +18185,12 @@
             "text": "Your name, at the top of a file. Below it: age, occupation, a short psychological profile that is uncomfortably accurate. Then a date - twelve years ago. Then a probability score: 0.94.\n\nCrossover probability. The chance that you, specifically, would be selected by the crossing mechanism. Ninety-four percent, twelve years before it happened.\n\nOsric says, 'We flagged everyone above 0.6. Forty-one of them in the dataset. You were the highest.'\n\nYou ask what the others did.\n\n'Some crossed. Some didn't. Some we couldn't find after the Accord reviewed our data.' He pauses. 'You were the only one we kept separate.'\n\nYou ask why.\n\nHe looks at you a long time. 'Because you're the only one the formula said was supposed to end something.'",
             "title": "Rynen Calloway, Flagged"
           },
+          "mf_the_machine_inside": {
+            "expansion": 1,
+            "id": "mf_the_machine_inside",
+            "text": "The meditation doesn't take you to Earth this time.\n\nIt takes you into the root.\n\nNot Rynen Calloway's experience of the fight. The Hollow Root's. Two centuries of Architect machinery running in the dark beneath living tissue. A cadence that never pauses, never queries, never responds to damage or drought or the slow thickening of bark around it. The machine does not know it is inside something. The something has been knowing it for so long that the knowing has become the shape of the pain.\n\nYou feel the rhythm. Regular. Patient. Not hostile - not anything. The machine runs because it was built to run, and the Root grew around it because roots grow toward warmth and warmth was what the machine made, and by the time the Root understood the warmth was wrong, the machine was already inside.\n\nThere is no intent to negotiate with.\n\nThe machine did not mean to hurt anything. That is what you carry out of the meditation. You are not sure it is worse than cruelty would have been, but you think it might be.",
+            "title": "The Machine Inside"
+          },
           "mf_the_meeting": {
             "id": "mf_the_meeting",
             "text": "A boardroom. Not the one under the Spire - the other one. Earth. Fluorescent lights. Three people waiting for someone who never showed. You were told to come back later. The door was locked when you returned. The Fracture opened two days after.",
@@ -15463,6 +18205,12 @@
             "id": "mf_the_other_three",
             "text": "The other occupied chairs. The more you meditate, the more the faces clarify at the edges. Someone who worked with their hands. Someone who moved through institutions the way water moves through cracks. Someone who was very, very afraid. You recognize the way afraid people hold themselves. You've looked like that.",
             "title": "The Others"
+          },
+          "mf_what_vaethos_kept": {
+            "expansion": 1,
+            "id": "mf_what_vaethos_kept",
+            "text": "He knew before the override took him.\n\nNot suspected. Knew. The voice below the Warren spoke with Architect notation threaded through it - a control process reaching for its access path the way it was built to - and Vaethos recognised it and went deeper anyway.\n\nWhat you see is the moment the process lands. It finds its hold and he lets it, because he has something he needs to keep from it. Not himself. Not his mind or his memories, those he cannot hold. What he is keeping is a name.\n\nHe does not think the name directly. He circles around it the way a root grows around a stone - not touching, not forgetting, maintaining the gap. Refusing to let the override find it and use it.\n\nThe Covenant. He is keeping the Covenant's name out of whatever the machine is compiling.\n\nHe apologises. Not to you - you are not in this memory. He apologises to the Warren itself, and then the process takes him, and what is left does not apologise again.",
+            "title": "What Vaethos Kept"
           }
         }
       },
@@ -15497,9 +18245,314 @@
           "hp",
           "magic",
           "meditation",
-          "adventurer"
+          "adventurer",
+          "root_lore",
+          "aetheric_tending",
+          "spiritbond",
+          "alchemy"
         ],
         "ARTISAN_RECIPES": {
+          "aetheric_tending": [
+            {
+              "herb_level_req": 1,
+              "id": "pale_yarrow_patch",
+              "level": 1,
+              "max_yield": 8,
+              "min_yield": 3,
+              "produces": "pale_yarrow",
+              "requires": {
+                "pale_yarrow": 1
+              },
+              "seconds": 1800,
+              "xp_per_action": 400
+            },
+            {
+              "herb_level_req": 10,
+              "id": "ashblossom_row",
+              "level": 15,
+              "max_yield": 10,
+              "min_yield": 4,
+              "produces": "ashblossom",
+              "requires": {
+                "ashblossom": 1
+              },
+              "seconds": 3600,
+              "xp_per_action": 1250
+            },
+            {
+              "herb_level_req": 20,
+              "id": "mistcap_bed",
+              "level": 25,
+              "max_yield": 12,
+              "min_yield": 5,
+              "produces": "mistcap_fungus",
+              "requires": {
+                "mistcap_fungus": 1
+              },
+              "seconds": 7200,
+              "xp_per_action": 4000
+            },
+            {
+              "herb_level_req": 30,
+              "id": "rootveil_stand",
+              "level": 40,
+              "max_yield": 15,
+              "min_yield": 6,
+              "produces": "rootveil_bark",
+              "requires": {
+                "rootveil_bark": 1
+              },
+              "seconds": 10800,
+              "xp_per_action": 4050
+            },
+            {
+              "herb_level_req": 45,
+              "id": "gleam_thistle_garden",
+              "level": 55,
+              "max_yield": 18,
+              "min_yield": 8,
+              "produces": "gleam_thistle",
+              "requires": {
+                "gleam_thistle": 1
+              },
+              "seconds": 18000,
+              "xp_per_action": 7450
+            },
+            {
+              "herb_level_req": 60,
+              "id": "wardens_bloom_field",
+              "level": 70,
+              "max_yield": 22,
+              "min_yield": 10,
+              "produces": "wardens_bloom_herb",
+              "requires": {
+                "wardens_bloom_herb": 1
+              },
+              "seconds": 28800,
+              "xp_per_action": 16000
+            },
+            {
+              "herb_level_req": 75,
+              "id": "whisperwood_plot",
+              "level": 85,
+              "max_yield": 28,
+              "min_yield": 12,
+              "produces": "whisperwood_crown",
+              "requires": {
+                "whisperwood_crown": 1
+              },
+              "seconds": 43200,
+              "xp_per_action": 25900
+            },
+            {
+              "herb_level_req": 102,
+              "id": "heartwood_grove",
+              "level": 100,
+              "max_yield": 32,
+              "min_yield": 14,
+              "produces": "heartwood_core",
+              "requires": {
+                "heartwood_core": 1
+              },
+              "seconds": 57600,
+              "xp_per_action": 31000
+            }
+          ],
+          "alchemy": [
+            {
+              "id": "yarrow_tonic",
+              "level": 1,
+              "produces": "yarrow_tonic",
+              "requires": {
+                "pale_yarrow": 3
+              },
+              "seconds": 6,
+              "tab": "utility",
+              "xp_per_action": 10
+            },
+            {
+              "id": "ashblossom_draft",
+              "level": 10,
+              "produces": "ashblossom_draft",
+              "requires": {
+                "ashblossom": 2,
+                "pale_yarrow": 1
+              },
+              "seconds": 8,
+              "tab": "utility",
+              "xp_per_action": 24
+            },
+            {
+              "id": "fortifying_brew",
+              "level": 15,
+              "produces": "fortifying_brew",
+              "requires": {
+                "plateau_carp": 1,
+                "rootveil_bark": 1
+              },
+              "seconds": 8,
+              "tab": "combat",
+              "xp_per_action": 28
+            },
+            {
+              "id": "mistcap_brew",
+              "level": 20,
+              "produces": "mistcap_brew",
+              "requires": {
+                "mistcap_fungus": 2
+              },
+              "seconds": 10,
+              "tab": "utility",
+              "xp_per_action": 38
+            },
+            {
+              "id": "rootveil_extract",
+              "level": 30,
+              "produces": "rootveil_extract",
+              "requires": {
+                "ashblossom": 1,
+                "rootveil_bark": 2
+              },
+              "seconds": 12,
+              "tab": "utility",
+              "xp_per_action": 62
+            },
+            {
+              "id": "combat_draft",
+              "level": 35,
+              "produces": "combat_draft",
+              "requires": {
+                "canal_trout": 1,
+                "gleam_thistle": 1
+              },
+              "seconds": 12,
+              "tab": "combat",
+              "xp_per_action": 67
+            },
+            {
+              "id": "gleam_elixir",
+              "level": 45,
+              "produces": "gleam_elixir",
+              "requires": {
+                "gleam_thistle": 2,
+                "plateau_carp": 1
+              },
+              "seconds": 14,
+              "tab": "utility",
+              "xp_per_action": 66
+            },
+            {
+              "id": "veil_tincture",
+              "level": 50,
+              "produces": "veil_tincture",
+              "requires": {
+                "gleam_thistle": 2,
+                "hollow_wisp": 1
+              },
+              "seconds": 16,
+              "tab": "combat",
+              "xp_per_action": 79
+            },
+            {
+              "id": "pale_shard_infusion",
+              "level": 55,
+              "produces": "pale_shard_infusion",
+              "requires": {
+                "gleam_thistle": 1,
+                "pale_shard_dust": 3
+              },
+              "seconds": 16,
+              "tab": "utility",
+              "xp_per_action": 83
+            },
+            {
+              "id": "wardens_draught",
+              "level": 65,
+              "produces": "wardens_draught",
+              "requires": {
+                "hollow_wisp": 1,
+                "wardens_bloom_herb": 2
+              },
+              "seconds": 20,
+              "tab": "utility",
+              "xp_per_action": 133
+            },
+            {
+              "id": "stone_skin_potion",
+              "level": 70,
+              "produces": "stone_skin_potion",
+              "requires": {
+                "ancient_rootwood": 1,
+                "spelcast_bar": 1
+              },
+              "seconds": 22,
+              "tab": "combat",
+              "xp_per_action": 167
+            },
+            {
+              "id": "whisperwood_concentrate",
+              "level": 75,
+              "produces": "whisperwood_concentrate",
+              "requires": {
+                "shard_dust": 2,
+                "whisperwood_crown": 2
+              },
+              "seconds": 24,
+              "tab": "utility",
+              "xp_per_action": 189
+            },
+            {
+              "id": "root_tonic",
+              "level": 85,
+              "produces": "root_tonic",
+              "requires": {
+                "ancient_rootwood": 2,
+                "resonance_crystal": 1
+              },
+              "seconds": 28,
+              "tab": "utility",
+              "xp_per_action": 244
+            },
+            {
+              "id": "grove_warrior_flask",
+              "level": 88,
+              "produces": "grove_warrior_flask",
+              "requires": {
+                "ancient_rootwood": 2,
+                "fracture_iron_ore": 2,
+                "wardens_bloom_herb": 1
+              },
+              "seconds": 30,
+              "tab": "combat",
+              "xp_per_action": 266
+            },
+            {
+              "id": "grove_covenant_potion",
+              "level": 99,
+              "produces": "grove_covenant_potion",
+              "requires": {
+                "ancient_rootwood": 1,
+                "architect_shard": 1,
+                "wardens_bloom_herb": 2
+              },
+              "seconds": 35,
+              "tab": "utility",
+              "xp_per_action": 386
+            },
+            {
+              "id": "heartwood_distillate",
+              "level": 105,
+              "produces": "heartwood_distillate",
+              "requires": {
+                "ancient_rootwood": 2,
+                "architect_shard": 1,
+                "heartwood_core": 1
+              },
+              "seconds": 40,
+              "tab": "utility",
+              "xp_per_action": 391
+            }
+          ],
           "cooking": [
             {
               "burn_produces": "burned_carp",
@@ -15669,6 +18722,19 @@
               },
               "seconds": 9,
               "xp_per_action": 95
+            },
+            {
+              "burn_produces": "burned_heartroot_stew",
+              "expansion": 1,
+              "id": "heartroot_stew",
+              "level": 101,
+              "produces": "heartroot_stew",
+              "requires": {
+                "heartroot_essence": 1,
+                "palewater_eel": 1
+              },
+              "seconds": 26,
+              "xp_per_action": 297
             }
           ],
           "crafting": [
@@ -15814,6 +18880,18 @@
               "seconds": 18,
               "tab": "clothwork",
               "xp_per_action": 143
+            },
+            {
+              "expansion": 1,
+              "id": "heartwood_weave",
+              "level": 103,
+              "produces": "heartwood_weave",
+              "requires": {
+                "ancient_rootwood": 2,
+                "heartwood_log": 1
+              },
+              "seconds": 46,
+              "xp_per_action": 518
             }
           ],
           "smithing": [
@@ -15982,6 +19060,18 @@
               "seconds": 22,
               "tab": "armor",
               "xp_per_action": 110
+            },
+            {
+              "expansion": 1,
+              "id": "rootveined_bar",
+              "level": 103,
+              "produces": "rootveined_bar",
+              "requires": {
+                "resonite_ore": 1,
+                "rootveined_ore": 1
+              },
+              "seconds": 42,
+              "xp_per_action": 189
             }
           ],
           "spiritweaving": [
@@ -16191,10 +19281,33 @@
               },
               "seconds": 8,
               "xp_per_action": 76
+            },
+            {
+              "expansion": 1,
+              "id": "heartroot_rune",
+              "level": 102,
+              "produces": "heartroot_rune",
+              "requires": {
+                "heartwood_core": 1,
+                "heartwood_weave": 1
+              },
+              "seconds": 30,
+              "xp_per_action": 337
             }
           ]
         },
+        "ARTISAN_SKILLS": [
+          "smithing",
+          "cooking",
+          "spiritweaving",
+          "crafting",
+          "alchemy"
+        ],
         "ARTISAN_TAB_LABELS": {
+          "alchemy": {
+            "combat": "Combat",
+            "utility": "Gathering & Skill"
+          },
           "crafting": {
             "clothwork": "Clothwork",
             "leatherwork": "Leatherwork",
@@ -16206,6 +19319,10 @@
           }
         },
         "ARTISAN_TAB_ORDER": {
+          "alchemy": [
+            "utility",
+            "combat"
+          ],
           "crafting": [
             "woodwork",
             "leatherwork",
@@ -16216,6 +19333,24 @@
             "armor"
           ]
         },
+        "BASE_GAME_SKILLS": [
+          "mining",
+          "woodcutting",
+          "fishing",
+          "spirit_harvesting",
+          "smithing",
+          "cooking",
+          "spiritweaving",
+          "crafting",
+          "shadow_arts",
+          "attack",
+          "strength",
+          "defence",
+          "hp",
+          "magic",
+          "meditation",
+          "adventurer"
+        ],
         "COMBAT_SKILLS": [
           "attack",
           "strength",
@@ -16529,6 +19664,15 @@
               "name": "Resonance Eel",
               "seconds_per_action": 7,
               "xp_per_action": 70
+            },
+            {
+              "expansion": 1,
+              "id": "warren_cistern",
+              "item_yield": "palewater_eel",
+              "level": 101,
+              "name": "Warren Cistern",
+              "seconds_per_action": 9,
+              "xp_per_action": 90
             }
           ],
           "magic": [
@@ -16681,6 +19825,22 @@
               "seconds_per_action": 5,
               "traits": [],
               "xp_per_action": 50
+            },
+            {
+              "accuracy": 0.05,
+              "element": "root",
+              "expansion": 1,
+              "id": "cast_warren",
+              "level": 102,
+              "name": "Warren Call",
+              "power": 1.3,
+              "requires": {
+                "heartroot_rune": 1,
+                "resonance_rune": 2
+              },
+              "seconds_per_action": 5,
+              "traits": [],
+              "xp_per_action": 66
             }
           ],
           "mining": [
@@ -16764,6 +19924,96 @@
               "name": "Resonite Seam",
               "seconds_per_action": 8,
               "xp_per_action": 53
+            },
+            {
+              "expansion": 1,
+              "id": "rootveined",
+              "item_yield": "rootveined_ore",
+              "level": 102,
+              "name": "Rootveined Seam",
+              "seconds_per_action": 9,
+              "xp_per_action": 60
+            }
+          ],
+          "root_lore": [
+            {
+              "id": "pale_yarrow",
+              "item_yield": "pale_yarrow",
+              "level": 1,
+              "name": "Pale Yarrow",
+              "seconds_per_action": 4,
+              "xp_per_action": 7
+            },
+            {
+              "id": "ashblossom",
+              "item_yield": "ashblossom",
+              "level": 10,
+              "name": "Ashblossom",
+              "seconds_per_action": 5,
+              "xp_per_action": 16
+            },
+            {
+              "id": "mistcap_fungus",
+              "item_yield": "mistcap_fungus",
+              "level": 20,
+              "name": "Mistcap Fungus",
+              "quest_required": "w03_the_old_markers",
+              "seconds_per_action": 5,
+              "xp_per_action": 21
+            },
+            {
+              "id": "rootveil_bark",
+              "item_yield": "rootveil_bark",
+              "level": 30,
+              "name": "Rootveil Bark",
+              "quest_required": "w06_covenant_terms",
+              "seconds_per_action": 6,
+              "xp_per_action": 43
+            },
+            {
+              "id": "gleam_thistle",
+              "item_yield": "gleam_thistle",
+              "level": 45,
+              "name": "Gleam Thistle",
+              "quest_required": "w08_the_hollow_pulse",
+              "seconds_per_action": 7,
+              "xp_per_action": 48
+            },
+            {
+              "id": "wardens_bloom_herb",
+              "item_yield": "wardens_bloom_herb",
+              "level": 60,
+              "name": "Warden's Bloom Herb",
+              "quest_required": "w14_the_voice_below",
+              "seconds_per_action": 8,
+              "xp_per_action": 73
+            },
+            {
+              "id": "whisperwood_crown",
+              "item_yield": "whisperwood_crown",
+              "level": 75,
+              "name": "Whisperwood Crown",
+              "quest_required": "w16_the_wardens_burden",
+              "seconds_per_action": 9,
+              "xp_per_action": 90
+            },
+            {
+              "id": "ancient_rootwood",
+              "item_yield": "ancient_rootwood",
+              "level": 90,
+              "name": "Ancient Rootwood",
+              "quest_required": "w18_what_the_roots_saw",
+              "seconds_per_action": 10,
+              "xp_per_action": 108
+            },
+            {
+              "id": "heartwood_core",
+              "item_yield": "heartwood_core",
+              "level": 102,
+              "name": "Heartwood Core",
+              "quest_required": "w20_a_letter_from_the_sea",
+              "seconds_per_action": 11,
+              "xp_per_action": 127
             }
           ],
           "spirit_harvesting": [
@@ -16856,6 +20106,15 @@
               "quest_required": "q63_cartography_of_damage",
               "seconds_per_action": 10,
               "xp_per_action": 113
+            },
+            {
+              "expansion": 1,
+              "id": "heartroot_font",
+              "item_yield": "heartroot_essence",
+              "level": 103,
+              "name": "Heartroot Font",
+              "seconds_per_action": 11,
+              "xp_per_action": 124
             }
           ],
           "woodcutting": [
@@ -16923,6 +20182,15 @@
               "name": "Architect's Cedar",
               "seconds_per_action": 9,
               "xp_per_action": 90
+            },
+            {
+              "expansion": 1,
+              "id": "heartwood",
+              "item_yield": "heartwood_log",
+              "level": 102,
+              "name": "Heartwood Bole",
+              "seconds_per_action": 10,
+              "xp_per_action": 100
             }
           ]
         },
@@ -16930,13 +20198,28 @@
           "mining",
           "woodcutting",
           "fishing",
-          "spirit_harvesting"
+          "spirit_harvesting",
+          "root_lore"
         ],
+        "SKILL_EXPANSION": {
+          "aetheric_tending": 1,
+          "alchemy": 1,
+          "root_lore": 1,
+          "spiritbond": 1
+        },
         "SKILL_INFO": {
           "adventurer": {
             "blurb": "Take contracts, unlock new regions, and reach the Quartermaster.",
             "levels": "Higher levels open harder contracts with better rewards and expand the regions you can operate in.",
             "role": "You take on contracts that send you to gather, craft, steal, or fight across Aetheria. Completing them earns rewards and raises your Adventurer level. That level unlocks new contract tiers, new areas of the world, and access to the Quartermaster."
+          },
+          "aetheric_tending": {
+            "blurb": "Plant herbs in soil plots that grow in real time, offline included, and harvest them on return.",
+            "trains": "Planting and harvesting crops."
+          },
+          "alchemy": {
+            "blurb": "Brew potions from herbs. The first timed buffs in the game: they burn wall-clock time and carry into an offline session.",
+            "trains": "Brewing potions."
           },
           "attack": {
             "blurb": "Raises your hit chance in melee combat.",
@@ -16983,6 +20266,10 @@
             "levels": "Higher levels unlock tougher rock types with rarer ores and better XP per swing. Affinity with a specific node builds over repeated hits and eventually pays out in speed.",
             "role": "You set a pickaxe to a rock face and work it until ore breaks free. That ore goes straight to Smithing, where it gets smelted into bars and then forged into metal gear. Without a steady ore supply, the forge sits cold."
           },
+          "root_lore": {
+            "blurb": "Harvest herbs, fungi and bark from the Whisperwood. Feeds Alchemy, Aetheric Tending and Cooking.",
+            "trains": "Gathering herbs at Root Lore nodes."
+          },
           "shadow_arts": {
             "blurb": "Pickpocket NPC targets across Aetheria for gold and items.",
             "levels": "Higher levels unlock harder targets with better loot. Affinity builds toward each target you work regularly.",
@@ -16997,6 +20284,10 @@
             "blurb": "Harvest raw spirit matter from nodes across Aetheria.",
             "levels": "Higher levels open more powerful nodes with rarer materials and better XP. Affinity with a specific node grows as you return to it.",
             "role": "You draw from spirit nodes to collect dust, wisps, crystals, and blooms. Everything you pull out goes to Spiritweaving, which turns it into the sigils Fracture Arts burns and into trade goods worth real gold. Most nodes are gated behind quests."
+          },
+          "spiritbond": {
+            "blurb": "Bond with a Whisperwood creature. One companion at a time, granting passive bonuses and returning materials from offline forage runs.",
+            "trains": "Bonding companions and completing forage runs."
           },
           "spiritweaving": {
             "blurb": "Weave gleaned matter into spell sigils and trade goods.",
@@ -17016,6 +20307,8 @@
         },
         "SKILL_LABELS": {
           "adventurer": "Adventurer",
+          "aetheric_tending": "Aetheric Tending",
+          "alchemy": "Alchemy",
           "attack": "Attack",
           "cooking": "Cooking",
           "crafting": "Wardcraft",
@@ -17025,12 +20318,20 @@
           "magic": "Fracture Arts",
           "meditation": "Meditation",
           "mining": "Mining",
+          "root_lore": "Root Lore",
           "shadow_arts": "Shadow Arts",
           "smithing": "Smithing",
           "spirit_harvesting": "Shard Gleaning",
+          "spiritbond": "Spiritbond",
           "spiritweaving": "Spiritweaving",
           "strength": "Strength",
           "woodcutting": "Felling"
+        },
+        "SKILL_UNLOCK_QUEST": {
+          "aetheric_tending": "w01_strange_growth",
+          "alchemy": "w08_the_hollow_pulse",
+          "root_lore": "w01_strange_growth",
+          "spiritbond": "w02_edge_of_the_wood"
         },
         "SMITHING_GEAR_BLUEPRINTS": [
           {
@@ -17104,6 +20405,12 @@
             "bar": "resonite_bar",
             "level": 85,
             "tier": "resonite"
+          },
+          {
+            "bar": "rootveined_bar",
+            "expansion": 1,
+            "level": 103,
+            "tier": "rootveined"
           }
         ],
         "SMITHING_TIER_BASE_BAR_COST": {
@@ -17113,6 +20420,7 @@
           "fracture_cast": 8,
           "mirestone": 6,
           "resonite": 10,
+          "rootveined": 12,
           "spelcast": 4,
           "thornite": 5
         },
@@ -17137,7 +20445,30 @@
             0.26,
             0.422,
             0.217,
-            0.239
+            0.239,
+            0.2389
+          ],
+          "aetheric_tending": [
+            2.199,
+            1.606,
+            1.119,
+            1.835,
+            1.531,
+            1.497,
+            1.497,
+            1.497,
+            1.797
+          ],
+          "alchemy": [
+            2.119,
+            1.784,
+            1.558,
+            2.09,
+            1.787,
+            1.631,
+            1.581,
+            1.364,
+            1.5912
           ],
           "combat": [
             0.861,
@@ -17147,7 +20478,8 @@
             0.135,
             0.135,
             0.135,
-            0.135
+            0.135,
+            0.153
           ],
           "cooking": [
             2.119,
@@ -17157,7 +20489,8 @@
             1.787,
             1.631,
             1.581,
-            1.364
+            1.364,
+            1.5912
           ],
           "crafting": [
             1.833,
@@ -17167,7 +20500,8 @@
             3.124,
             1.679,
             1.464,
-            0.925
+            0.925,
+            1.0933
           ],
           "fishing": [
             3.209,
@@ -17177,7 +20511,8 @@
             1.215,
             1.084,
             0.986,
-            0.986
+            0.986,
+            1.1855
           ],
           "magic": [
             2.446,
@@ -17187,7 +20522,8 @@
             1.511,
             1.818,
             1.818,
-            1.818
+            1.818,
+            2.1871
           ],
           "meditation": [
             4.227,
@@ -17197,7 +20533,8 @@
             1.766,
             1.851,
             1.014,
-            1.181
+            1.181,
+            1.2684
           ],
           "mining": [
             2.331,
@@ -17207,7 +20544,19 @@
             1.803,
             1.651,
             1.515,
-            1.515
+            1.515,
+            1.8213
+          ],
+          "root_lore": [
+            2.199,
+            1.606,
+            1.119,
+            1.835,
+            1.531,
+            1.497,
+            1.497,
+            1.497,
+            1.797
           ],
           "shadow_arts": [
             0.579,
@@ -17217,7 +20566,8 @@
             0.72,
             0.647,
             0.594,
-            0.579
+            0.579,
+            0.6326
           ],
           "smithing": [
             3.208,
@@ -17227,7 +20577,8 @@
             2.986,
             2.738,
             2.475,
-            2.475
+            2.475,
+            2.9374
           ],
           "spirit_harvesting": [
             2.199,
@@ -17237,7 +20588,19 @@
             1.531,
             1.497,
             1.497,
-            1.497
+            1.497,
+            1.797
+          ],
+          "spiritbond": [
+            4.227,
+            3.058,
+            2.376,
+            2.756,
+            1.766,
+            1.851,
+            1.014,
+            1.181,
+            1.2684
           ],
           "spiritweaving": [
             1.13,
@@ -17247,7 +20610,8 @@
             1.04,
             0.978,
             0.978,
-            0.978
+            0.978,
+            1.1607
           ],
           "woodcutting": [
             2.506,
@@ -17257,7 +20621,8 @@
             1.151,
             1.08,
             1.08,
-            1.003
+            1.003,
+            1.2058
           ]
         },
         "XP_BAND_EDGES": [
@@ -17268,7 +20633,8 @@
           60,
           70,
           80,
-          90
+          90,
+          100
         ],
         "XP_SCALE": 10,
         "_AFF_XP_TABLE_MAX": 100,
@@ -18735,6 +22101,167 @@
             "secondary_value": 0.08,
             "sort": 10,
             "value": 0.3
+          },
+          {
+            "branch": "nature",
+            "cost": 3,
+            "desc": "+10% Root Lore XP",
+            "effect": "root_lore_xp_pct",
+            "expansion": 1,
+            "id": "root_sense",
+            "name": "Root Sense",
+            "requires": [],
+            "sort": 1,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 5,
+            "desc": "+12% Root Lore XP additional",
+            "effect": "root_lore_xp_pct",
+            "expansion": 1,
+            "id": "deep_root_sense",
+            "name": "Deep Root Sense",
+            "requires": [
+              "root_sense"
+            ],
+            "sort": 2,
+            "value": 0.12
+          },
+          {
+            "branch": "nature",
+            "cost": 4,
+            "desc": "Root Lore gathering speed +10%",
+            "effect": "root_lore_speed_pct",
+            "expansion": 1,
+            "id": "swift_harvest",
+            "name": "Swift Harvest",
+            "requires": [
+              "root_sense"
+            ],
+            "sort": 3,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 3,
+            "desc": "Aetheric Tending harvest yield +10%",
+            "effect": "aetheric_tending_yield_pct",
+            "expansion": 1,
+            "id": "fertile_soil",
+            "name": "Fertile Soil",
+            "requires": [],
+            "sort": 4,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 5,
+            "desc": "Aetheric Tending grow time -15%",
+            "effect": "aetheric_tending_grow_time_reduction",
+            "expansion": 1,
+            "id": "accelerated_growth",
+            "name": "Accelerated Growth",
+            "requires": [
+              "fertile_soil"
+            ],
+            "sort": 5,
+            "value": 0.15
+          },
+          {
+            "branch": "nature",
+            "cost": 6,
+            "desc": "Aetheric Tending harvest yield +15% additional",
+            "effect": "aetheric_tending_yield_pct",
+            "expansion": 1,
+            "id": "bountiful_harvest",
+            "name": "Bountiful Harvest",
+            "requires": [
+              "fertile_soil"
+            ],
+            "sort": 6,
+            "value": 0.15
+          },
+          {
+            "branch": "nature",
+            "cost": 4,
+            "desc": "All companion bonuses +10%",
+            "effect": "spiritbond_companion_bonus_pct",
+            "expansion": 1,
+            "id": "companion_attunement",
+            "name": "Companion Attunement",
+            "requires": [],
+            "sort": 7,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 5,
+            "desc": "Companion forage haul +20%",
+            "effect": "spiritbond_forage_quality_pct",
+            "expansion": 1,
+            "id": "forage_mastery",
+            "name": "Forage Mastery",
+            "requires": [
+              "companion_attunement"
+            ],
+            "sort": 8,
+            "value": 0.2
+          },
+          {
+            "branch": "nature",
+            "cost": 3,
+            "desc": "+10% Alchemy XP",
+            "effect": "alchemy_xp_pct",
+            "expansion": 1,
+            "id": "alchemist_hand",
+            "name": "Alchemist's Hand",
+            "requires": [],
+            "sort": 9,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 5,
+            "desc": "Potion duration +20%",
+            "effect": "potion_duration_pct",
+            "expansion": 1,
+            "id": "extended_brew",
+            "name": "Extended Brew",
+            "requires": [
+              "alchemist_hand"
+            ],
+            "sort": 10,
+            "value": 0.2
+          },
+          {
+            "branch": "nature",
+            "cost": 5,
+            "desc": "+10% chance to brew a second potion per cycle",
+            "effect": "alchemy_double_brew_chance",
+            "expansion": 1,
+            "id": "double_yield",
+            "name": "Double Yield",
+            "requires": [
+              "alchemist_hand"
+            ],
+            "sort": 11,
+            "value": 0.1
+          },
+          {
+            "branch": "nature",
+            "cost": 4,
+            "desc": "+8% Root Lore and Alchemy XP, while both are above level 30",
+            "effect": "grove_synergy_bundle",
+            "expansion": 1,
+            "id": "grove_synergy",
+            "name": "Grove Synergy",
+            "requires": [
+              "root_sense",
+              "alchemist_hand"
+            ],
+            "sort": 12,
+            "value": 1.0
           }
         ],
         "BRANCHES": [
@@ -18797,6 +22324,13 @@
             "icon": "\u2299",
             "id": "vitality",
             "name": "Vitality"
+          },
+          {
+            "color": "#73b84c",
+            "expansion": 1,
+            "icon": "\u229a",
+            "id": "nature",
+            "name": "Nature"
           }
         ]
       },
@@ -19472,6 +23006,14 @@
             "id": "the_expected",
             "name": "The Expected",
             "quest_id": "q66_what_was_always_there",
+            "source": "quest"
+          },
+          {
+            "desc": "The Root Warren fell quiet. The letter that arrived afterward knew your name.",
+            "expansion": 1,
+            "id": "rootkeeper",
+            "name": "Rootkeeper",
+            "quest_id": "w20_a_letter_from_the_sea",
             "source": "quest"
           },
           {
