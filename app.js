@@ -3362,6 +3362,7 @@ function buildWhisperwoodEntries(
     metrics: [
       { label: "Price", value: "$5.99, one-time purchase" },
       { label: "Level cap", value: "99 -> 105" },
+      { label: "New skills", value: formatNumber(newSkills.length) },
       { label: "New quests", value: formatNumber(expQuests.length) },
       { label: "New monsters", value: formatNumber(expMonsters.length) },
       { label: "New items", value: formatNumber(expItems.length) },
