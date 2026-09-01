@@ -72,8 +72,9 @@ const SECTION_LORE = {
   patches: "How Aetheria has changed, build by build.",
 };
 
-// Skills cap at 99 (VisualIdentity._SKILL_LEVEL_CAP).
-const SKILL_LEVEL_CAP = 99;
+// Skills cap at 105 with Expansion 1 owned. Base game still reads 99 on a
+// lapsed or non-owner account; the planner models the owned cap.
+const SKILL_LEVEL_CAP = 105;
 
 // Per-skill reference copy for the skill codex. `what` answers "what is this
 // skill for", `train` answers "how do I actually gain XP in it", and `aliases`
@@ -194,6 +195,38 @@ const SKILL_CODEX = {
     what: "Levels off completed Adventurer's Hall contracts. Your Adventurer level sets which contracts are offered, how much gold they pay, and how far the streak bonuses reach.",
     train:
       "Complete contracts. XP uses an effective level window so a single maxed unrelated skill cannot vault a fresh Adventurer up the ladder.",
+  },
+  root_lore: {
+    role: "Gathering",
+    aliases:
+      "root lore herbs fungi bark yarrow ashblossom mistcap rootveil gleam thistle harvest gather whisperwood sickle",
+    what: "Harvests herbs, fungi and bark at Root Lore nodes in the Whisperwood. Those materials feed Alchemy, Aetheric Tending, and Cooking.",
+    train:
+      "Work the highest Root Lore node you have the level for and leave it running. Each action takes a fixed number of seconds for flat XP, so your XP/hour is decided by which node you can reach.",
+  },
+  aetheric_tending: {
+    role: "Artisan",
+    aliases:
+      "aetheric tending plots plant harvest crops soil grow garden patch grove herbs trowel",
+    what: "Plants herbs in soil plots that grow in real time, offline included, and harvests them on return. It is a plot skill, not an action-slot gather.",
+    train:
+      "Plant the highest crop you have the level and seed for, then collect when it is ripe. Plots keep growing while you train something else and while the app is closed.",
+  },
+  spiritbond: {
+    role: "Support",
+    aliases:
+      "spiritbond companion companions bond forage pale hound canopy sprite root stalker whisper drake ancient treant grove guardian heartwood elder tether",
+    what: "Bonds with one Whisperwood companion at a time. The companion grants passive bonuses and returns materials from offline forage runs.",
+    train:
+      "Keep a companion bonded. XP trickles while they are home and the app is open, and a larger grant lands when you collect a forage return.",
+  },
+  alchemy: {
+    role: "Artisan",
+    aliases:
+      "alchemy brew potions tonic elixir draught flask tincture distillate herbs buffs crucible",
+    what: "Brews potions from herbs. These are the first timed buffs in the game: they burn wall-clock time and carry into an offline session.",
+    train:
+      "Brew the highest recipe you have herbs for. XP is paid per brew, so Root Lore stock is what keeps the queue fed.",
   },
 };
 
@@ -693,7 +726,7 @@ function wireControls() {
     dom.playerAttackLevel,
     "playerAttackLevel",
     1,
-    99,
+    SKILL_LEVEL_CAP,
     1,
     rebuildModelAndRender,
   );
@@ -701,7 +734,7 @@ function wireControls() {
     dom.playerStrengthLevel,
     "playerStrengthLevel",
     1,
-    99,
+    SKILL_LEVEL_CAP,
     1,
     rebuildModelAndRender,
   );
@@ -709,7 +742,7 @@ function wireControls() {
     dom.playerDefenceLevel,
     "playerDefenceLevel",
     1,
-    99,
+    SKILL_LEVEL_CAP,
     1,
     rebuildModelAndRender,
   );
@@ -717,7 +750,7 @@ function wireControls() {
     dom.playerMagicLevel,
     "playerMagicLevel",
     1,
-    99,
+    SKILL_LEVEL_CAP,
     1,
     rebuildModelAndRender,
   );
@@ -725,7 +758,7 @@ function wireControls() {
     dom.playerHitpointsLevel,
     "playerHitpointsLevel",
     1,
-    99,
+    SKILL_LEVEL_CAP,
     10,
     rebuildModelAndRender,
   );
@@ -810,8 +843,8 @@ function wireControls() {
     rebuildModelAndRender,
   );
 
-  bindNumericInput(dom.xpCurrentLevel, "xpCurrentLevel", 1, 99, 1);
-  bindNumericInput(dom.xpTargetLevel, "xpTargetLevel", 1, 99, 50);
+  bindNumericInput(dom.xpCurrentLevel, "xpCurrentLevel", 1, SKILL_LEVEL_CAP, 1);
+  bindNumericInput(dom.xpTargetLevel, "xpTargetLevel", 1, SKILL_LEVEL_CAP, 50);
   bindNumericInput(dom.xpRate, "xpRate", 1, 1000000000, 25000);
 
   if (dom.dropMonster) {
@@ -850,8 +883,8 @@ function wireControls() {
     });
   }
 
-  bindNumericInput(dom.routeCurrentLevel, "routeCurrentLevel", 1, 99, 1);
-  bindNumericInput(dom.routeTargetLevel, "routeTargetLevel", 1, 99, 60);
+  bindNumericInput(dom.routeCurrentLevel, "routeCurrentLevel", 1, SKILL_LEVEL_CAP, 1);
+  bindNumericInput(dom.routeTargetLevel, "routeTargetLevel", 1, SKILL_LEVEL_CAP, 60);
 
   if (dom.routePriority) {
     dom.routePriority.addEventListener("change", () => {
@@ -885,9 +918,9 @@ function wireControls() {
 
   bindNumericInput(dom.buildBudget, "buildBudget", 1, 1000000000, 250000);
   bindNumericInput(dom.buildGpRate, "buildGpRate", 1, 1000000000, 100000);
-  bindNumericInput(dom.buildAttackLevel, "buildAttackLevel", 1, 99, 1);
-  bindNumericInput(dom.buildDefenceLevel, "buildDefenceLevel", 1, 99, 1);
-  bindNumericInput(dom.buildMagicLevel, "buildMagicLevel", 1, 99, 1);
+  bindNumericInput(dom.buildAttackLevel, "buildAttackLevel", 1, SKILL_LEVEL_CAP, 1);
+  bindNumericInput(dom.buildDefenceLevel, "buildDefenceLevel", 1, SKILL_LEVEL_CAP, 1);
+  bindNumericInput(dom.buildMagicLevel, "buildMagicLevel", 1, SKILL_LEVEL_CAP, 1);
   if (dom.buildDungeonComplete) {
     dom.buildDungeonComplete.addEventListener("change", () => {
       state.buildDungeonCompletion = dom.buildDungeonComplete.value || "all";
@@ -2039,7 +2072,7 @@ function skillActionAtLevel(skillId, catalog, level, gameStateFile) {
   return best;
 }
 
-// Full 2..99 XP table. Columns after "Total XP" are only meaningful for skills
+// Full 2..cap XP table. Columns after "Total XP" are only meaningful for skills
 // with an action model, so they are dropped entirely for combat/Adventurer.
 function buildSkillXpTable(skillId, catalog, gameStateFile) {
   const hasActions = catalog.length > 0 || skillId === "meditation";
@@ -5174,8 +5207,8 @@ function renderXpPlanner(model) {
     return;
   }
 
-  const currentLevel = clampNumber(state.xpCurrentLevel, 1, 99, 1);
-  const targetLevel = clampNumber(state.xpTargetLevel, 1, 99, 50);
+  const currentLevel = clampNumber(state.xpCurrentLevel, 1, SKILL_LEVEL_CAP, 1);
+  const targetLevel = clampNumber(state.xpTargetLevel, 1, SKILL_LEVEL_CAP, 50);
   const normalizedTarget = Math.max(currentLevel, targetLevel);
   const xpRate = Math.max(1, clampNumber(state.xpRate, 1, 1000000000, 25000));
   const currentXp = xpForLevel(currentLevel);
@@ -5362,10 +5395,10 @@ function renderRoutePlanner(model) {
   const skillId = state.routeSkill;
   const skillLabel =
     model?.skillFile?.SKILL_LABELS?.[skillId] || skillId || "Skill";
-  const currentLevel = clampNumber(state.routeCurrentLevel, 1, 99, 1);
+  const currentLevel = clampNumber(state.routeCurrentLevel, 1, SKILL_LEVEL_CAP, 1);
   const targetLevel = Math.max(
     currentLevel,
-    clampNumber(state.routeTargetLevel, 1, 99, 60),
+    clampNumber(state.routeTargetLevel, 1, SKILL_LEVEL_CAP, 60),
   );
   const priority = ["xp", "gp", "balanced"].includes(state.routePriority)
     ? state.routePriority
@@ -5530,9 +5563,9 @@ function renderBuildPlanner(model) {
     1,
     clampNumber(state.buildGpRate, 1, 1000000000, 100000),
   );
-  const attackLevel = clampNumber(state.buildAttackLevel, 1, 99, 1);
-  const defenceLevel = clampNumber(state.buildDefenceLevel, 1, 99, 1);
-  const magicLevel = clampNumber(state.buildMagicLevel, 1, 99, 1);
+  const attackLevel = clampNumber(state.buildAttackLevel, 1, SKILL_LEVEL_CAP, 1);
+  const defenceLevel = clampNumber(state.buildDefenceLevel, 1, SKILL_LEVEL_CAP, 1);
+  const magicLevel = clampNumber(state.buildMagicLevel, 1, SKILL_LEVEL_CAP, 1);
 
   const levelCaps = {
     attack: attackLevel,
@@ -5637,9 +5670,9 @@ function renderUpgradeSimulator(model) {
       state.buildFocus,
       state.buildBudget,
       {
-        attack: clampNumber(state.buildAttackLevel, 1, 99, 1),
-        defence: clampNumber(state.buildDefenceLevel, 1, 99, 1),
-        magic: clampNumber(state.buildMagicLevel, 1, 99, 1),
+        attack: clampNumber(state.buildAttackLevel, 1, SKILL_LEVEL_CAP, 1),
+        defence: clampNumber(state.buildDefenceLevel, 1, SKILL_LEVEL_CAP, 1),
+        magic: clampNumber(state.buildMagicLevel, 1, SKILL_LEVEL_CAP, 1),
       },
       {
         dungeonCompletion: state.buildDungeonCompletion || "all",
@@ -5653,9 +5686,9 @@ function renderUpgradeSimulator(model) {
     1,
     clampNumber(state.simGpRate, 1, 1000000000, 100000),
   );
-  const atkNow = clampNumber(state.buildAttackLevel, 1, 99, 1);
-  const defNow = clampNumber(state.buildDefenceLevel, 1, 99, 1);
-  const magNow = clampNumber(state.buildMagicLevel, 1, 99, 1);
+  const atkNow = clampNumber(state.buildAttackLevel, 1, SKILL_LEVEL_CAP, 1);
+  const defNow = clampNumber(state.buildDefenceLevel, 1, SKILL_LEVEL_CAP, 1);
+  const magNow = clampNumber(state.buildMagicLevel, 1, SKILL_LEVEL_CAP, 1);
   const req = plan.requirements || { attack: 1, defence: 1, magic: 1 };
 
   const atkXpNeed = Math.max(0, xpForLevel(req.attack) - xpForLevel(atkNow));
@@ -6952,11 +6985,11 @@ function getPlayerCombatProfile() {
     spellName: spell?.name || "Pale Flicker",
     spellPower: Math.max(0.1, Number(spell?.power ?? 1)),
     spellAccuracy: Number(spell?.accuracy ?? 0),
-    attack: clampNumber(state.playerAttackLevel, 1, 99, 1),
-    strength: clampNumber(state.playerStrengthLevel, 1, 99, 1),
-    defence: clampNumber(state.playerDefenceLevel, 1, 99, 1),
-    magic: clampNumber(state.playerMagicLevel, 1, 99, 1),
-    hitpoints: clampNumber(state.playerHitpointsLevel, 1, 99, 10),
+    attack: clampNumber(state.playerAttackLevel, 1, SKILL_LEVEL_CAP, 1),
+    strength: clampNumber(state.playerStrengthLevel, 1, SKILL_LEVEL_CAP, 1),
+    defence: clampNumber(state.playerDefenceLevel, 1, SKILL_LEVEL_CAP, 1),
+    magic: clampNumber(state.playerMagicLevel, 1, SKILL_LEVEL_CAP, 1),
+    hitpoints: clampNumber(state.playerHitpointsLevel, 1, SKILL_LEVEL_CAP, 10),
     atkBonus: clampNumber(state.playerAtkGearBonus, 0, 999, 0),
     strBonus: clampNumber(state.playerStrGearBonus, 0, 999, 0),
     defBonus: clampNumber(state.playerDefGearBonus, 0, 999, 0),
