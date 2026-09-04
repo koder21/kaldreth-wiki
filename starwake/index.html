@@ -19,7 +19,7 @@
     />
     <meta property="og:image" content="https://kaldreth.com/starwake/images/feature.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kaldreth.com/starwake" />
+    <meta property="og:url" content="https://kaldreth.com/starwake/" />
     <style>
       :root {
         --bg: #0a0e1a;
@@ -42,6 +42,16 @@
         font-size: 16px;
       }
       .wrap { max-width: 760px; margin: 0 auto; padding: 40px 22px 80px; }
+      .topnav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+        font-size: 14px;
+      }
+      .topnav a { color: var(--muted); text-decoration: none; }
+      .topnav a:hover { color: var(--accent); }
       header { text-align: center; margin-bottom: 28px; }
       .icon {
         width: 96px;
@@ -134,9 +144,14 @@
   </head>
   <body>
     <div class="wrap">
+      <nav class="topnav" aria-label="Site">
+        <span>Starwake · Pseudo Playgrounds</span>
+        <a href="https://kaldreth.com/starwake/privacy">Privacy Policy</a>
+      </nav>
+
       <header>
         <img class="icon" src="/starwake/images/icon.png" alt="Starwake icon: the Keeper's Lantern, half woken" />
-        <p class="eyebrow">Pseudo Playgrounds</p>
+        <p class="eyebrow">A game by Pseudo Playgrounds</p>
         <h1>Starwake</h1>
         <p class="lede">Bring sleeping constellations back to life, one quiet tap at a time.</p>
         <a
@@ -158,14 +173,33 @@
         alt="Three centerpieces in a constellation: asleep, half woken, and alight"
       />
 
+      <p>
+        <strong>Starwake</strong> is an offline, single-player puzzle game for
+        Android, published by <strong>Pseudo Playgrounds</strong>. This is its
+        public home page. You can read everything here without signing in, and
+        you can play the game without a Google account.
+      </p>
+
+      <h2>The game</h2>
       <p>The sky above you is asleep.</p>
       <p>
         Touch a piece that still holds a light. It slides away into the dark, and
         everything its path passes wakes up behind it. That is the whole rule.
+        Drive one piece into another and both of them crack; a board that cracks
+        twice goes dark and begins again. That costs the attempt and nothing else.
+        Undo is free and unlimited.
       </p>
       <p>
         Every board you finish is a fragment of a picture. Six fragments light a
         centerpiece. Centerpieces join, and a constellation comes up out of the dark.
+        World 1 is sixty boards, free, and a complete game on its own. Four more
+        worlds, Endless, a new board every day, and extra palettes are there if you
+        want them. Worlds and palettes past the first are one-time purchases.
+        Nothing expires, and nothing is taken back.
+      </p>
+      <p>
+        It is portrait, one thumb, and kind to a dark screen. There are no ads,
+        no timer, no lives, no energy, and no streaks.
       </p>
 
       <div class="shots">
@@ -197,6 +231,43 @@
         Worlds beyond the first, and Endless, are one-time purchases.
         Nothing expires, and nothing is taken back.
       </p>
+
+      <h2>Why Starwake may ask for a Google account</h2>
+      <p>
+        Starwake does not require a Google account to play. If it ever asks Google
+        for access, it is for one of the two purposes below, and only those.
+      </p>
+      <ul>
+        <li>
+          <strong>Purchases (Google Play Billing).</strong>
+          Additional worlds, Endless, and cosmetic palettes are one-time buys
+          handled by Google Play, using the account already signed into the Play
+          Store on your device. We receive a confirmation of what was bought so
+          we can unlock it. We never see your email address, password, or payment
+          details.
+        </li>
+        <li>
+          <strong>Optional cloud save (Google Play Games).</strong>
+          If you choose <em>Save to Google Play</em> in Settings, Starwake asks
+          Google to sign you in so it can store a snapshot of which boards you
+          have woken. That snapshot exists so your progress can come back after
+          a reinstall or on a new phone. We receive a Play Games player identifier
+          and display name only to show that cloud save is on. We do not read
+          your email, contacts, Drive files, or anything else in your Google
+          account. You can play the whole game without turning this on.
+        </li>
+      </ul>
+      <p>
+        We show no ads, run no analytics, and do not sell personal information.
+        The full detail is in the
+        <a href="https://kaldreth.com/starwake/privacy">Privacy Policy</a>.
+        That is the same policy linked from the game and from the Google consent
+        screen.
+      </p>
+      <p class="muted">
+        Questions: <a href="mailto:dakota.nicol@gmail.com">dakota.nicol@gmail.com</a>
+      </p>
+
       <p class="play-row">
         <a
           class="play"
@@ -213,8 +284,9 @@
 
       <footer>
         <p class="muted">
-          <a href="/starwake/privacy">Privacy Policy</a>
-          &middot; A puzzle game from Pseudo Playgrounds
+          <a href="https://kaldreth.com/starwake/privacy">Privacy Policy</a>
+          &middot; Starwake by Pseudo Playgrounds
+          &middot; Android
         </p>
         <p class="muted">&copy; 2026 Pseudo Playgrounds. All rights reserved.</p>
       </footer>
