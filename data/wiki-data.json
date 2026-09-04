@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T12:37:54.182850+00:00",
+  "generated_at": "2026-09-04T17:38:31.463391+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -512,7 +512,8 @@
           "fishing": "rare_fish_drop_pct",
           "mining": "rare_ore_drop_pct",
           "woodcutting": "rare_log_drop_pct"
-        }
+        },
+        "_SAVE_THROTTLE_SECONDS": 4.0
       },
       "specials": {
         "_monster_defs_data": {
@@ -547,7 +548,7 @@
           },
           "ancient_sentinel_construct": {
             "atk_lv": 83,
-            "attack": 130,
+            "attack": 455,
             "def_lv": 88,
             "defence": 50,
             "drops": [
@@ -812,7 +813,7 @@
           },
           "canopy_sentinel": {
             "atk_lv": 79,
-            "attack": 121,
+            "attack": 363,
             "def_lv": 79,
             "defence": 34,
             "drops": [
@@ -836,7 +837,7 @@
           },
           "canopy_stalker": {
             "atk_lv": 74,
-            "attack": 98,
+            "attack": 294,
             "def_lv": 74,
             "defence": 28,
             "drops": [
@@ -1030,7 +1031,7 @@
           },
           "corrupted_treeborn": {
             "atk_lv": 75,
-            "attack": 101,
+            "attack": 303,
             "def_lv": 74,
             "defence": 28,
             "drops": [
@@ -1112,7 +1113,7 @@
           },
           "deep_root_golem": {
             "atk_lv": 72,
-            "attack": 86,
+            "attack": 301,
             "def_lv": 91,
             "defence": 62,
             "drops": [
@@ -1400,7 +1401,7 @@
           },
           "feral_spirit_hound": {
             "atk_lv": 74,
-            "attack": 112,
+            "attack": 280,
             "def_lv": 62,
             "defence": 14,
             "drops": [
@@ -1740,7 +1741,7 @@
           },
           "hollowbark_shambler": {
             "atk_lv": 65,
-            "attack": 69,
+            "attack": 173,
             "def_lv": 79,
             "defence": 52,
             "drops": [
@@ -2102,7 +2103,7 @@
           },
           "pale_root_crawler": {
             "atk_lv": 66,
-            "attack": 73,
+            "attack": 183,
             "def_lv": 67,
             "defence": 22,
             "drops": [
@@ -2269,7 +2270,7 @@
           },
           "poacher_captain": {
             "atk_lv": 78,
-            "attack": 119,
+            "attack": 357,
             "def_lv": 78,
             "defence": 34,
             "drops": [
@@ -2299,7 +2300,7 @@
           },
           "poacher_scout": {
             "atk_lv": 71,
-            "attack": 88,
+            "attack": 220,
             "def_lv": 70,
             "defence": 28,
             "drops": [
@@ -2323,7 +2324,7 @@
           },
           "poacher_trapper": {
             "atk_lv": 72,
-            "attack": 93,
+            "attack": 233,
             "def_lv": 72,
             "defence": 28,
             "drops": [
@@ -2483,7 +2484,7 @@
           },
           "rootbound_revenant": {
             "atk_lv": 79,
-            "attack": 111,
+            "attack": 389,
             "def_lv": 78,
             "defence": 28,
             "drops": [
@@ -3262,7 +3263,7 @@
           },
           "warpwood_golem": {
             "atk_lv": 70,
-            "attack": 81,
+            "attack": 243,
             "def_lv": 84,
             "defence": 52,
             "drops": [
@@ -3286,7 +3287,7 @@
           },
           "warren_wraith": {
             "atk_lv": 85,
-            "attack": 164,
+            "attack": 565,
             "def_lv": 67,
             "defence": 10,
             "drops": [
@@ -3311,7 +3312,7 @@
           },
           "whisper_wraith": {
             "atk_lv": 77,
-            "attack": 132,
+            "attack": 330,
             "def_lv": 60,
             "defence": 10,
             "drops": [
@@ -8902,9 +8903,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.2.0",
-        "BUILD_FINGERPRINT": "1.2.0 (1788179371)",
-        "VERSION_CODE": 1788179371
+        "APP_VERSION": "1.2.2",
+        "BUILD_FINGERPRINT": "1.2.2 (1788543284)",
+        "VERSION_CODE": 1788543284
       },
       "specials": {}
     },
@@ -14369,6 +14370,7 @@
             "total": 1000
           },
           {
+            "base_game": true,
             "gold": 25000000,
             "label": "Completionist",
             "total": 1584
@@ -14380,6 +14382,22 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: Whisperwood's Nature branch of the skill tree has 12 nodes and 4 expansion auto passives, not the 15 nodes and 5 auto passives listed in the 1.2.0 notes. The tree itself is unchanged. Only the count was wrong.",
+              "Fixed: Several screens named Whisperwood content to players who do not own it. The spellbook no longer lists Warren Call or Heartroot Rune. Combat and Shadow Arts food pickers no longer show Whisperwood meals at quantity 0. Item info no longer names Alchemy or Whisperwood sources on base materials. The Hardcore dungeon checklist no longer names Whisperwood dungeons you do not own.",
+              "Fixed: Closing the game overnight now credits a potion that was still running at the start of the away window. Previously that overlap was dropped on a cold start, even though the same potion was credited if you only minimised the app.",
+              "Fixed: New characters now generate daily and weekly tasks and adventurer contracts immediately, so progress you make before opening those screens is credited. The Standard character-create warning no longer says there are no leaderboards (they shipped in 1.1.2) and no longer claims the character is fully local-only. Cloud save exists.",
+              "Fixed: The Achievements button in the Menu now counts only achievements you can actually earn. Without Whisperwood that is 48, not 61. Whisperwood achievements still appear in the count once you own the expansion.",
+              "Fixed: The Meditation Memory Archive no longer flashes and rebuilds every few seconds while Auto-Meditate is running. It now only rebuilds when a new fragment actually unlocks.",
+              "Improved: Tapping Continue to Game after an offline report now shows Loading before the hitch into the game, instead of looking like the tap was missed.",
+              "Improved: Switching to Combat and opening Inventory hitch less. Those panels are kept instead of rebuilt from scratch, and inventory quantities update in place.",
+              "Fixed: Quest total-level gates no longer briefly count expansion skills you do not own on load. A non-owner could see a quest as available for a moment, then have it flip back after a refresh."
+            ],
+            "title": "Whisperwood Visibility, Overnight Potion Credit, and Load Hitches",
+            "version": "1.2.2",
+            "version_code": 1788543284
+          },
           {
             "changes": [
               "New: Whisperwood, The Living Wilds, is Kaldreth's first expansion. It is a one-time in-app purchase at $5.99 and it opens a living forest west of the known map, with two sub-zones: The Canopy above the treeline and The Root Warren beneath the soil. Inside: 20 new quests, raising the quest total from 66 to 86; 15 new monsters, raising the Bestiary roster from 72 to 87; 69 new items, raising item collection from 529 to 598; 14 new Shadow Arts targets, raising the total from 107 to 121; 13 new achievements, raising the total from 48 to 61; a new title, Rootkeeper, for finishing the 20 quest arc; and a new faction, the Grove Covenant, with 4 reputation tiers. Everything named below as Whisperwood content sits behind that purchase. If you do not buy it, the game you have today is unchanged: no base game bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete.",
@@ -20253,6 +20271,7 @@
           },
           "magic": {
             "blurb": "The spell combat style, powered by raw spirit materials.",
+            "how": "You equip a magic weapon on a combat preset first: a wand, a staff, or another magic weapon. Once that preset is the one you fight with, you choose a spell in Combat setup and in boss dungeon setup.",
             "levels": "Higher levels unlock more powerful spells and push your hit roll and damage ceiling higher at the same time. A new spell is only usable once your Spiritweaving is high enough to weave the sigil it burns.",
             "role": "Every cast burns sigils, and sigils are woven by Spiritweaving from matter you gathered with Shard Gleaning. That is the full chain: gleaning feeds weaving, weaving feeds your spellbook. Each spell names the sigils it takes, the stronger ones costing two or three a cast, and running dry drops you back to wand melee until you weave more."
           },
@@ -22461,6 +22480,37 @@
           },
           {
             "bonus_item": [
+              "pale_yarrow",
+              "rootveil_bark",
+              "gleam_thistle",
+              "whisperwood_crown"
+            ],
+            "bonus_qty": [
+              8,
+              10,
+              12,
+              25
+            ],
+            "expansion": 1,
+            "gold": [
+              1200,
+              9000,
+              45000,
+              190000
+            ],
+            "id": "gather_herbs",
+            "label_template": "Harvest %d herbs",
+            "qty": [
+              20,
+              55,
+              120,
+              240
+            ],
+            "skill": "root_lore",
+            "type": "gather"
+          },
+          {
+            "bonus_item": [
               "",
               "",
               "",
@@ -22637,6 +22687,37 @@
               120
             ],
             "skill": "spiritweaving",
+            "type": "craft"
+          },
+          {
+            "bonus_item": [
+              "yarrow_tonic",
+              "mistcap_brew",
+              "gleam_elixir",
+              "whisperwood_concentrate"
+            ],
+            "bonus_qty": [
+              5,
+              8,
+              10,
+              20
+            ],
+            "expansion": 1,
+            "gold": [
+              1200,
+              9000,
+              45000,
+              200000
+            ],
+            "id": "brew_potions",
+            "label_template": "Brew %d potions",
+            "qty": [
+              10,
+              25,
+              60,
+              120
+            ],
+            "skill": "alchemy",
             "type": "craft"
           },
           {
@@ -23059,7 +23140,7 @@
             "threshold": 1000
           },
           {
-            "desc": "Every skill at 99. The highest honour in Aetheria.",
+            "desc": "Every base game skill at 99. The highest honour in Aetheria.",
             "id": "completionist",
             "name": "Completionist",
             "source": "milestone_total",

@@ -3365,7 +3365,7 @@ function buildWhisperwoodEntries(
     "Owning Whisperwood raises every skill's level cap from 99 to 105, including the 16 base game skills. A Heartwood rung was added to each of the 8 existing gathering and artisan ladders, and Spiritweaving gains the Warren Call spell at level 102.",
     "Two new equipment slots, hands and companion, appended to the existing ten. Hands closes a long-standing gap: gloves items existed in the data with nowhere to equip them, base game included.",
     `Two boss dungeons, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(" and ") || "The Hollow Root and The Grove's Warden"}, bringing the total from 5 to 7. Each has its own first-clear key item and memory fragment, and both pay into the same Chronicler currency the base game dungeons do.`,
-    "A Nature branch on the skill tree with 15 nodes, 5 new auto passives, and 4 new rows in the Skill Mastery store.",
+    "A Nature branch on the skill tree with 12 nodes, 4 new auto passives, and 4 new rows in the Skill Mastery store.",
     "Two new adventurer contract types, tending and foraging, that run against a deadline instead of occupying the action slot.",
     "An arrival cinematic the first time you reach Whisperwood, and a hidden meditation vision at level 105.",
   ];
