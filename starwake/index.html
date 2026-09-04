@@ -4,15 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0a0e1a" />
-    <title>Starwake</title>
+    <title>Starwake (com.pseudoplaygrounds.starwake)</title>
     <meta
       name="description"
-      content="Bring sleeping constellations back to life, one quiet tap at a time."
+      content="Starwake (com.pseudoplaygrounds.starwake) is an offline Android puzzle game by Pseudo Playgrounds. This public home page explains the app and does not require a login."
     />
+    <meta name="application-name" content="Starwake" />
     <meta name="robots" content="index,follow" />
     <link rel="icon" href="/starwake/images/icon-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="/starwake/images/icon.png" />
-    <meta property="og:title" content="Starwake" />
+    <meta property="og:title" content="Starwake (com.pseudoplaygrounds.starwake)" />
+    <meta property="og:site_name" content="Starwake" />
     <meta
       property="og:description"
       content="Bring sleeping constellations back to life, one quiet tap at a time."
@@ -20,6 +22,20 @@
     <meta property="og:image" content="https://kaldreth.com/starwake/images/feature.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kaldreth.com/starwake/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Starwake",
+        "alternateName": "com.pseudoplaygrounds.starwake",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android",
+        "url": "https://kaldreth.com/starwake/",
+        "sameAs": "https://play.google.com/store/apps/details?id=com.pseudoplaygrounds.starwake",
+        "author": { "@type": "Organization", "name": "Pseudo Playgrounds" },
+        "description": "An offline single-player Android puzzle game. Tap a lit piece; it leaves and wakes what it passes."
+      }
+    </script>
     <style>
       :root {
         --bg: #0a0e1a;
@@ -69,11 +85,24 @@
         margin: 0 0 6px;
       }
       h1 { font-size: 36px; margin: 0 0 8px; font-weight: 650; letter-spacing: 0.02em; }
+      .app-id {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 14px;
+        color: var(--accent);
+        margin: 0 0 10px;
+        word-break: break-all;
+      }
       .lede {
         color: var(--muted);
         font-size: 18px;
-        margin: 0 auto;
-        max-width: 28ch;
+        margin: 0 auto 12px;
+        max-width: 36ch;
+      }
+      .notice {
+        margin: 0 auto 8px;
+        max-width: 52ch;
+        color: var(--text);
+        font-size: 15px;
       }
       .play {
         display: inline-block;
@@ -153,18 +182,13 @@
         <img class="icon" src="/starwake/images/icon.png" alt="Starwake icon: the Keeper's Lantern, half woken" />
         <p class="eyebrow">A game by Pseudo Playgrounds</p>
         <h1>Starwake</h1>
+        <p class="app-id">com.pseudoplaygrounds.starwake</p>
         <p class="lede">Bring sleeping constellations back to life, one quiet tap at a time.</p>
-        <a
-          class="play"
-          href="https://play.google.com/store/apps/details?id=com.pseudoplaygrounds.starwake"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="/starwake/images/google-play-badge.png"
-            alt="Get it on Google Play"
-          />
-        </a>
+        <p class="notice">
+          This is a public web page. You can read it, and the
+          <a href="https://kaldreth.com/starwake/privacy">Privacy Policy</a>,
+          without creating an account or signing into anything.
+        </p>
       </header>
 
       <img
@@ -173,11 +197,15 @@
         alt="Three centerpieces in a constellation: asleep, half woken, and alight"
       />
 
+      <h2>Purpose of this application</h2>
       <p>
-        <strong>Starwake</strong> is an offline, single-player puzzle game for
-        Android, published by <strong>Pseudo Playgrounds</strong>. This is its
-        public home page. You can read everything here without signing in, and
-        you can play the game without a Google account.
+        <strong>Starwake</strong> (application ID
+        <strong>com.pseudoplaygrounds.starwake</strong>) is an offline,
+        single-player puzzle game for Android, published by
+        <strong>Pseudo Playgrounds</strong>. Its purpose is to let you wake
+        sleeping constellations by tapping lit pieces on a board. That is the
+        whole of the application: a portrait puzzle game you can play with one
+        thumb, with no ads and no required account.
       </p>
 
       <h2>The game</h2>
