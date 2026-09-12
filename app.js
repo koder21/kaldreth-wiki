@@ -44,6 +44,7 @@ const SECTION_ORDER = [
   ["titles", "Titles"],
   ["mechanics", "Mechanics"],
   ["whisperwood", "Expansion 1: Whisperwood"],
+  ["tideward", "Expansion 2: Tideward"],
   ["roadmap", "Roadmap"],
   ["patches", "Patch Notes"],
 ];
@@ -68,13 +69,16 @@ const SECTION_LORE = {
   mechanics: "The rules the Architects wrote into the world.",
   whisperwood:
     "Kaldreth's first paid expansion, and everything it added to the game.",
+  tideward:
+    "Kaldreth's second paid expansion, and everything it added to the game.",
   roadmap: "What is coming to Aetheria next, and in what order.",
   patches: "How Aetheria has changed, build by build.",
 };
 
-// Skills cap at 105 with Expansion 1 owned. Base game still reads 99 on a
-// lapsed or non-owner account; the planner models the owned cap.
-const SKILL_LEVEL_CAP = 105;
+// Skills cap at 110 with Expansion 2 owned (105 with only Expansion 1, 99
+// base game). A lapsed or non-owner account reads the lower cap; the planner
+// models the fully-owned cap.
+const SKILL_LEVEL_CAP = 110;
 
 // Per-skill reference copy for the skill codex. `what` answers "what is this
 // skill for", `train` answers "how do I actually gain XP in it", and `aliases`
@@ -228,6 +232,38 @@ const SKILL_CODEX = {
     train:
       "Brew the highest recipe you have herbs for. XP is paid per brew, so Root Lore stock is what keeps the queue fed.",
   },
+  echomind: {
+    role: "Passive",
+    aliases:
+      "echomind passive scan intel enemy read auto preset kill tideward no action slot",
+    what: "Trains from monster kills with no action slot of its own. Reveals enemy tier, ATK and DEF as it levels, and near the cap marks the right combat style and loads your best gear preset automatically.",
+    train:
+      "Just fight. XP comes from kills you were already making; there is nothing separate to do to train it.",
+  },
+  wayfaring: {
+    role: "Exploration",
+    aliases:
+      "wayfaring expedition route dispatch charted destination tideward wall clock",
+    what: "Dispatches expeditions on charted routes that run on the wall clock rather than the action slot. Set a route, come back later, and collect the return - the 4 hour offline cap does not apply to it.",
+    train:
+      "Send the highest route you have the level for, then collect on return. Longer routes pay more but tie the route up longer; XP lands on collection.",
+  },
+  ironlock: {
+    role: "Artisan",
+    aliases:
+      "ironlock guns weapons bullets ammunition forge tideward ranged smithing deadeye",
+    what: "Forges ranged weapons and the ammunition that feeds them, split across a weapons tab and a bullets tab. A gun is crafted once per tier and stays in the inventory; bullets are consumed one per shot.",
+    train:
+      "Craft the highest-tier gun you can once, then keep the bullets tab running - ammunition is the recurring XP and gameplay cost, not the gun itself.",
+  },
+  deadeye: {
+    role: "Combat",
+    aliases:
+      "deadeye ranged combat gun ammo aimed power rapid ironlock tideward bullets",
+    what: "Ranged combat using an equipped Ironlock gun, alongside melee and magic in the Combat tab. Three fire modes, Aimed, Power, and Rapid, cover the same role as style choice in melee. Running out of ammunition drops the fight back to melee automatically.",
+    train:
+      "Fight with a gun equipped and bullets in reserve. XP is paid like any other combat style; keep Ironlock's bullets tab stocked so you don't fall back to melee mid-session.",
+  },
 };
 
 // Planned releases in shipping order. Everything here is design-stage and can
@@ -239,75 +275,14 @@ const ROADMAP_DISCLAIMER =
 
 const ROADMAP = [
   {
-    id: "expansion-2",
-    order: 1,
-    name: "Expansion 2: The Salt Accord",
-    tagline: "Tideward, and the harbour that kept trading",
-    status: "Next up, second paid expansion",
-    access: "Paid expansion",
-    levelCap: "110",
-    unlock: "Requires Expansion 1, which shipped in 1.2.0.",
-    hook: "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage, but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
-    zones: [
-      [
-        "Tideward Harbor",
-        "The main port city and entry zone: human enemies, market access, and faction politics.",
-      ],
-      [
-        "The Open Shallows",
-        "Coastal waters beyond the harbour mouth, with sea creatures, cultists, and ten new fish species found nowhere else.",
-      ],
-      [
-        "The Drowned Ruins",
-        "A flooded Architect outpost beneath the harbour, reached through a submerged entrance. Both bosses are here.",
-      ],
-      [
-        "The Merchant's Isle",
-        "A fortified island seat of power, and the political flashpoint of the expansion's final act.",
-      ],
-    ],
-    skills: [
-      [
-        "Echomind",
-        "Passive",
-        "Earns XP on every monster kill, scaled by enemy difficulty. No active interaction; it levels in the background as you fight.",
-      ],
-      [
-        "Wayfaring",
-        "Exploration / Passive",
-        "Dispatch expeditions to charted destinations while idle. Set a route, come back later, collect the return. Higher levels open more distant and rewarding routes.",
-      ],
-      [
-        "Ironlock",
-        "Artisan",
-        "Craft ranged weapons and the ammunition that feeds them. Weapons persist; bullets are consumed on every attack, creating a live ore-to-ammunition supply chain.",
-      ],
-      [
-        "Deadeye",
-        "Combat",
-        "Ranged combat using Ironlock weapons, with three styles and a required ammunition supply. Running dry falls back to melee automatically.",
-      ],
-    ],
-    faction: {
-      name: "The Tide Merchants",
-      tagline: "Everything is negotiable, including the truth.",
-      desc: "A trading power split three ways: a guildmaster who wants a deal, a harbourmaster who wants outsiders gone, and an admiral running a resistance that answers to neither.",
-    },
-    features: [
-      "A twenty-quest arc, The Salt Accord, across five acts.",
-      "Two bosses: The Drowned Keeper, and Admiral Vael.",
-      "The first ranged combat line in the game, tuned for players around level 105.",
-    ],
-  },
-  {
     id: "expansion-3",
-    order: 2,
+    order: 1,
     name: "Expansion 3: Drakenhollow",
     tagline: "The first site, still running",
     status: "Planned",
     access: "Paid expansion",
     levelCap: "115",
-    unlock: "Requires Expansion 2.",
+    unlock: "Requires Expansion 2, which shipped in 1.3.0.",
     hook: "The Architect Fragments, the Drowned Ruins, and the Grove Covenant's oldest records all converge on one place: a volcanic underground network beneath the Shrouded Peaks. It was not just a mine. It was the first site. The Architects did not discover Kaldreth. They built it. And the original construction engine is still running.",
     zones: [
       [
@@ -356,7 +331,7 @@ const ROADMAP = [
   },
   {
     id: "expansion-4",
-    order: 3,
+    order: 2,
     name: "Expansion 4, Oraewyn: The Fractured Sky",
     tagline: "The capstone, and the people who have been watching",
     status: "Planned, final expansion",
@@ -1157,6 +1132,15 @@ function buildModel(data) {
     factions,
     companions,
   );
+  const tidewardEntries = buildTidewardEntries(
+    quests,
+    monsterFile,
+    items,
+    achievements,
+    titles,
+    dungeons,
+    factions,
+  );
   const roadmapEntries = buildRoadmapEntries(ROADMAP);
   const mechanicsEntries = buildMechanicEntries(
     skillFile,
@@ -1183,6 +1167,7 @@ function buildModel(data) {
     ...titleEntries,
     ...mechanicsEntries,
     ...whisperwoodEntries,
+    ...tidewardEntries,
     ...roadmapEntries,
     ...patchEntries,
     ...passiveEntries,
@@ -2619,6 +2604,7 @@ const QUEST_ARC_ORDER = {
   aftermath: 3,
   frostmere: 4,
   whisperwood: 5,
+  salt_accord: 6,
 };
 
 function titleizeId(value) {
@@ -3442,6 +3428,150 @@ function buildWhisperwoodEntries(
   return [overview];
 }
 
+// Kaldreth's second paid expansion, released as 1.3.0. Everything that ships
+// inside it is tagged "expansion": 2 in the source data, same rule as
+// Whisperwood, so the counts below are read from the same records the game
+// itself gates on rather than hand-copied from patch notes.
+function buildTidewardEntries(
+  quests,
+  monsterFile,
+  items,
+  achievements,
+  titles,
+  dungeons,
+  factions,
+) {
+  const isExp2 = (entry) => Number(entry?.expansion || 0) === 2;
+
+  const expQuests = (quests || [])
+    .filter(isExp2)
+    .slice()
+    .sort((left, right) => Number(left.sort || 0) - Number(right.sort || 0));
+  const expMonsters = Object.values(monsterFile?._monster_defs_data || {}).filter(isExp2);
+  const expShadowTargets = Object.values(monsterFile?._shadow_target_defs_data || {}).filter(
+    isExp2,
+  );
+  const expItems = Object.values(items || {}).filter(isExp2);
+  const expAchievements = (achievements || []).filter(isExp2);
+  const expTitles = (titles || []).filter(isExp2);
+  const expDungeons = (dungeons || []).filter(isExp2);
+  const tideMerchants = (factions || []).find((f) => f.id === "tide_merchants");
+
+  const zones = [
+    [
+      "Tideward Harbor",
+      "The main port city and entry zone: human enemies, market access, and faction politics.",
+    ],
+    [
+      "The Open Shallows",
+      "Coastal waters beyond the harbour mouth, with sea creatures, cultists, and ten new fish species found nowhere else.",
+    ],
+    [
+      "The Drowned Ruins",
+      "A flooded Architect outpost beneath the harbour, reached through a submerged entrance. Both bosses are here.",
+    ],
+    [
+      "The Merchant's Isle",
+      "A fortified island seat of power, and the political flashpoint of the expansion's final act.",
+    ],
+  ];
+
+  const newSkills = [
+    [
+      "Echomind",
+      "Passive",
+      "Trains from every monster kill with no action slot of its own. Reveals enemy tier, ATK and DEF as it levels, and near the cap marks the right combat style and loads your best gear preset automatically.",
+    ],
+    [
+      "Wayfaring",
+      "Exploration",
+      "Dispatches expeditions on 8 charted routes that run on the wall clock rather than the action slot - a deadline, not a rate, so the 4 hour offline cap never applies to it.",
+    ],
+    [
+      "Ironlock",
+      "Artisan",
+      "Forges ranged weapons and the ammunition that feeds them across separate weapons and bullets tabs. Guns persist; bullets are consumed one per shot.",
+    ],
+    [
+      "Deadeye",
+      "Combat",
+      "Ranged combat alongside melee and magic, using an equipped Ironlock gun and three fire modes: Aimed, Power, and Rapid. Running out of ammunition falls back to melee automatically.",
+    ],
+  ];
+
+  const featureLines = [
+    "Four new skills - Echomind, Wayfaring, Ironlock, and Deadeye - sit alongside the 20 existing skills without replacing anything in them.",
+    "Owning Tideward raises every skill's level cap from 105 to 110, including all 16 base game skills and Whisperwood's 4. A new tier was added to each of the 8 base game gathering and artisan ladders, and Fracture Arts gains the Brine Pressure spell at level 106.",
+    "The first ranged combat line in the game: Deadeye's hit chance and damage are driven by a gun's own deadeye stat, and each gun sets a minimum Deadeye level to equip, separate from its craft level.",
+    `Two boss dungeons, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(" and ") || "The Drowned Keeper and Admiral Vael"}, bringing the total from 7 to 9. Both ship with their own BGM track and phase-change sound from launch, unlike Whisperwood's two, which launched with neither.`,
+    "A Tide branch on the skill tree with 12 nodes and 4 new auto passives.",
+    "An arrival cinematic the first time you reach Tideward, and a hidden meditation vision at Meditation level 110.",
+  ];
+
+  const overview = {
+    kind: "Expansion",
+    section: "tideward",
+    id: "tideward-overview",
+    name: "Expansion 2: Tideward, The Salt Accord",
+    title: "Expansion 2: Tideward, The Salt Accord",
+    subtitle: "Kaldreth's second paid expansion, shipped in 1.3.0",
+    badges: ["paid expansion", "$5.99", "level cap 110", "shipped in 1.3.0"],
+    searchText: normalizeSearchText(
+      [
+        "tideward the salt accord expansion 2 paid dlc in-app purchase the_sunken_coast",
+        "echomind wayfaring ironlock deadeye tide branch ranged combat guns bullets ammunition",
+        "tide merchants pria solenne guildmaster harbourmaster admiral vael drowned keeper saltsworn",
+        ...zones.flat(),
+        ...newSkills.flat(),
+        ...featureLines,
+      ].join(" "),
+    ),
+    sortKey: "tideward 0 overview",
+    spoiler: true,
+    metrics: [
+      { label: "Price", value: "$5.99, one-time purchase" },
+      { label: "Level cap", value: "105 -> 110" },
+      { label: "New skills", value: formatNumber(newSkills.length) },
+      { label: "New quests", value: formatNumber(expQuests.length) },
+      { label: "New monsters", value: formatNumber(expMonsters.length) },
+      { label: "New items", value: formatNumber(expItems.length) },
+      { label: "New dungeons", value: formatNumber(expDungeons.length) },
+      {
+        label: "New achievements",
+        value: formatNumber(expAchievements.length),
+      },
+      {
+        label: "New Shadow Arts targets",
+        value: formatNumber(expShadowTargets.length),
+      },
+    ],
+    body: `
+      <div class="note-box"><strong>If you don't buy it</strong><span>The game you already have is unchanged. No base game or Whisperwood bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete. Play Console product id <code>the_sunken_coast</code>. Requires owning Whisperwood first - the purchase and the map region are both locked until that entitlement is confirmed.</span></div>
+      ${renderDetailBlock("The hook", [
+        "A letter signed by the Salt Accord leads to Tideward Harbor, a coastal city-state that has been trading with the old Accord in secret for decades. The Tide Merchants have technology, answers about the Architects, and leverage, but Tideward is not unified, and a resistance has been quietly protecting something in the flooded ruins beneath the harbour.",
+      ])}
+      ${renderSimpleTable("Areas", ["Zone", "What it is"], zones)}
+      ${renderSimpleTable("New skills", ["Skill", "Type", "What it does"], newSkills)}
+      ${
+        tideMerchants
+          ? `<div class="note-box"><strong>New faction: ${escapeHtml(tideMerchants.name || "The Tide Merchants")}</strong><span>${escapeHtml(tideMerchants.tagline || "")} ${escapeHtml(tideMerchants.leader ? `Led by ${tideMerchants.leader}.` : "")} 4 reputation tiers.</span></div>`
+          : ""
+      }
+      ${renderDetailBlock("Also included", featureLines)}
+      ${renderDetailBlock("Level cap and lapsed entitlements", [
+        "Skill XP already earned is never rewritten - the expansion only changes what the level reads. If the entitlement ever lapses, levels read 105 again and not one point of XP is lost; buying back restores the level immediately.",
+        "Tideward's content enters every completion tracker gated on both the numerator and the denominator from day one, so a non-owner sees no movement in any of them - the gap Whisperwood briefly had at launch before its 1.2.2 fix.",
+      ])}
+      ${renderDetailBlock("The Salt Accord quest arc", [
+        `A twenty-quest arc across five acts, from "${expQuests[0]?.name || "The Salt Letter"}" to "${expQuests[expQuests.length - 1]?.name || "A Map with No Road"}". Completing it awards the ${expTitles[0]?.name || "Saltsworn"} title.`,
+        "See the Quests section, filtered to the Salt Accord arc, for the full quest-by-quest breakdown with NPC dialogue and rewards.",
+      ])}
+    `,
+  };
+
+  return [overview];
+}
+
 function buildRoadmapEntries(releases) {
   const overview = {
     kind: "Roadmap",
@@ -3478,7 +3608,7 @@ function buildRoadmapEntries(releases) {
           release.levelCap,
         ]),
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, and Expansion 1: Whisperwood shipped in 1.2.0 as the first paid one. Neither is on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood has its own Expansion 1: Whisperwood section alongside those. The remaining three expansions release one at a time and are sequential; each one requires the one before it.</span></div>
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, Expansion 1: Whisperwood shipped in 1.2.0, and Expansion 2: Tideward shipped in 1.3.0. None of the three are on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood and Tideward each have their own Expansion section alongside those. The remaining two expansions release one at a time and are sequential; each one requires the one before it.</span></div>
     `,
   };
 
