@@ -45,6 +45,7 @@ const SECTION_ORDER = [
   ["mechanics", "Mechanics"],
   ["whisperwood", "Expansion 1: Whisperwood"],
   ["tideward", "Expansion 2: Tideward"],
+  ["drakenhollow", "Expansion 3: Drakenhollow"],
   ["roadmap", "Roadmap"],
   ["patches", "Patch Notes"],
 ];
@@ -71,14 +72,16 @@ const SECTION_LORE = {
     "Kaldreth's first paid expansion, and everything it added to the game.",
   tideward:
     "Kaldreth's second paid expansion, and everything it added to the game.",
+  drakenhollow:
+    "Kaldreth's third paid expansion, and everything it added to the game.",
   roadmap: "What is coming to Aetheria next, and in what order.",
   patches: "How Aetheria has changed, build by build.",
 };
 
-// Skills cap at 110 with Expansion 2 owned (105 with only Expansion 1, 99
-// base game). A lapsed or non-owner account reads the lower cap; the planner
-// models the fully-owned cap.
-const SKILL_LEVEL_CAP = 110;
+// Skills cap at 115 with Expansion 3 owned (110 with Expansion 2, 105 with
+// only Expansion 1, 99 base game). A lapsed or non-owner account reads the
+// lower cap; the planner models the fully-owned cap.
+const SKILL_LEVEL_CAP = 115;
 
 // Per-skill reference copy for the skill codex. `what` answers "what is this
 // skill for", `train` answers "how do I actually gain XP in it", and `aliases`
@@ -264,6 +267,30 @@ const SKILL_CODEX = {
     train:
       "Fight with a gun equipped and bullets in reserve. XP is paid like any other combat style; keep Ironlock's bullets tab stocked so you don't fall back to melee mid-session.",
   },
+  hollowing: {
+    role: "Gathering",
+    aliases:
+      "hollowing dig seam excavation relic veinkore slagstone origin ore ashforge pale spirit drakenhollow session wall clock",
+    what: "Dispatches a dig at a seam. Duration is wall-clock, not a mining tick. The bag is a discovery: materials, and sometimes a relic, hidden until you collect. A session already in progress is not cut by the 4 hour offline cap.",
+    train:
+      "Pick the highest seam you have the level and Ashborne standing for, send the dig, and collect when it ends. XP lands on collection. A second slot opens at Forge-Friend.",
+  },
+  spiritforging: {
+    role: "Artisan",
+    aliases:
+      "spiritforging forge trigger on kill damage taken combat start low hp ember slag origin ritual offering drakenhollow",
+    what: "Forges gear that waits for a combat condition, then acts: on kill, on damage taken, on combat start, or at low HP. Also crafts the four offerings the Origin Engine ritual requires.",
+    train:
+      "Craft the highest recipe you have bars and spirit materials for. Gated on Smithing 80, Spiritweaving 70, and the Forge-Friend trial.",
+  },
+  geomancy: {
+    role: "Combat / Magic",
+    aliases:
+      "geomancy stone lava earth fire dot earthen shield rockfall first fire drakenhollow ore spells",
+    what: "Stone and lava combat magic, a parallel school to Fracture Arts. Stone hits now. Lava keeps burning after. Every cast burns material from the seams: Veinkore Ore, Slagstone, Origin Ore. Run dry and the fight falls back to melee. Earthen Shield is a Cast of its own and does not take the offensive spell slot.",
+    train:
+      "Fight with a Geomancy spell selected in Combat setup. XP is paid like any other combat style. Gated on Fracture Arts 60, Shard Gleaning 50, and the first Drakenhollow quest.",
+  },
 };
 
 // Planned releases in shipping order. Everything here is design-stage and can
@@ -275,69 +302,14 @@ const ROADMAP_DISCLAIMER =
 
 const ROADMAP = [
   {
-    id: "expansion-3",
-    order: 1,
-    name: "Expansion 3: Drakenhollow",
-    tagline: "The first site, still running",
-    status: "Planned",
-    access: "Paid expansion",
-    levelCap: "115",
-    unlock: "Requires Expansion 2, which shipped in 1.3.0.",
-    hook: "The Architect Fragments, the Drowned Ruins, and the Grove Covenant's oldest records all converge on one place: a volcanic underground network beneath the Shrouded Peaks. It was not just a mine. It was the first site. The Architects did not discover Kaldreth. They built it. And the original construction engine is still running.",
-    zones: [
-      [
-        "The Ashfall Descent",
-        "The volcanic tunnel system down from the Shrouded Peaks, lined with centuries-stale Accord survey markers. The heat is manageable at first.",
-      ],
-      [
-        "Drakenhollow Proper",
-        "The main underground settlement, built over generations from Architect remnants and volcanic stone. Forge-pits, market stalls, and grudging hospitality.",
-      ],
-      [
-        "The Forge Caverns",
-        "The deep, partially Architect-operational forge complex. Spiritforging is only possible here, at temperatures no surface forge can match.",
-      ],
-      [
-        "The Origin Chamber",
-        "Sealed until the expansion's final acts. No one alive has stood inside it.",
-      ],
-    ],
-    skills: [
-      [
-        "Hollowing",
-        "Gathering",
-        "Precision digging for ancient materials and buried caches. Runs in fixed-duration dig sessions that end in a multi-item discovery, with a hidden chance to surface an equippable Relic.",
-      ],
-      [
-        "Spiritforging",
-        "Artisan",
-        "Combines Smithing bars with spirit materials to produce gear with active trigger effects: conditional bonuses that fire during combat rather than flat stats. The artisan endgame.",
-      ],
-      [
-        "Geomancy",
-        "Combat / Magic",
-        "An earth-and-fire magic school parallel to Fracture Arts but mechanically distinct: lava spells add damage over time, stone spells hit in burst.",
-      ],
-    ],
-    faction: {
-      name: "The Ashborne",
-      tagline: "Built from what the Architects left behind.",
-      desc: "The generations-old underground community that made Drakenhollow habitable, holding their ground against regular raids and extending hospitality only to outsiders who have earned it.",
-    },
-    features: [
-      "A twenty-quest arc, The First Breath, across five acts.",
-      "Fifteen new enemies and three bosses: The Smelter, Forge-Warden Korrath, and The Origin Engine.",
-    ],
-  },
-  {
     id: "expansion-4",
-    order: 2,
+    order: 1,
     name: "Expansion 4, Oraewyn: The Fractured Sky",
     tagline: "The capstone, and the people who have been watching",
     status: "Planned, final expansion",
     access: "Paid expansion",
     levelCap: "120",
-    unlock: "Requires Expansion 3. Intended for players who have completed everything before it.",
+    unlock: "Requires Expansion 3, which shipped in 1.4.0. Intended for players who have completed everything before it.",
     hook: "The Origin Engine is not only a construction machine. It is a relay, and it has been broadcasting upward. Oraewyn, the floating island chain visible on clear days above the Shrouded Peaks, is where the signal goes. It is also where the original Architects came from. They have been watching.",
     zones: [
       [
@@ -1141,6 +1113,16 @@ function buildModel(data) {
     dungeons,
     factions,
   );
+  const drakenhollowEntries = buildDrakenhollowEntries(
+    quests,
+    monsterFile,
+    items,
+    achievements,
+    titles,
+    dungeons,
+    factions,
+    companions,
+  );
   const roadmapEntries = buildRoadmapEntries(ROADMAP);
   const mechanicsEntries = buildMechanicEntries(
     skillFile,
@@ -1168,6 +1150,7 @@ function buildModel(data) {
     ...mechanicsEntries,
     ...whisperwoodEntries,
     ...tidewardEntries,
+    ...drakenhollowEntries,
     ...roadmapEntries,
     ...patchEntries,
     ...passiveEntries,
@@ -1996,6 +1979,85 @@ function buildMonsterEntries(monsters, itemFile, playerCombatProfile) {
 // the XP table can ask "what is the best thing I can do at level N".
 // Meditation is deliberately absent: its XP scales with your level rather than
 // with the action, so it is modelled in skillActionAtLevel instead.
+function isSpellSchool(skillId, skillFile) {
+  return (skillFile?.SPELL_SCHOOLS || ["magic"]).includes(skillId);
+}
+
+function hollowingXpForSite(site, playerLevel, gameStateFile) {
+  const duration = Number(site?.duration_seconds || 0);
+  const baseSeconds = Number(gameStateFile?.HOLLOWING_BASE_SECONDS || 3600);
+  const flat = Number(gameStateFile?.HOLLOWING_XP_FLAT || 0);
+  const perLevel = Number(gameStateFile?.HOLLOWING_XP_PER_LEVEL || 0);
+  const mult = Number(site?.mult || 1);
+  if (duration <= 0 || baseSeconds <= 0) {
+    return 0;
+  }
+  return (flat + perLevel * playerLevel) * (duration / baseSeconds) * mult;
+}
+
+function formatYieldRange(yieldDict, items) {
+  return (
+    Object.entries(yieldDict || {})
+      .map(([itemId, range]) => {
+        const name = items?.[itemId]?.name || titleizeId(itemId);
+        const bounds = Array.isArray(range) ? range : [range, range];
+        const lo = Number(bounds[0] || 0);
+        const hi = Number(bounds[1] ?? lo);
+        return lo === hi ? `${name} x${lo}` : `${name} x${lo}-${hi}`;
+      })
+      .join(", ") || "-"
+  );
+}
+
+function describeSpellExtras(spell, labels) {
+  const notes = [];
+  if (spell?.defensive) {
+    notes.push(
+      `Shield +${formatNumber(spell.def_buff_flat || 0)} DEF for ${formatNumber(spell.buff_ticks || 0)} ticks`,
+    );
+  }
+  if (spell?.dot_ticks) {
+    notes.push(
+      `DoT ${formatNumber(spell.dot_ticks)} ticks at ${formatPercent(spell.dot_power_pct || 0)} of power`,
+    );
+  }
+  if (spell?.hits) {
+    notes.push(`${formatNumber(spell.hits)} hits`);
+  }
+  if (spell?.def_debuff_pct) {
+    notes.push(
+      `DEF -${formatPercent(spell.def_debuff_pct)} for ${formatNumber(spell.def_debuff_ticks || 0)} ticks`,
+    );
+  }
+  if (spell?.def_ignore_pct) {
+    notes.push(`Ignores ${formatPercent(spell.def_ignore_pct)} DEF`);
+  }
+  const secondary = spell?.secondary_skill_required;
+  if (secondary?.skill) {
+    notes.push(
+      `Requires ${labels?.[secondary.skill] || titleizeId(secondary.skill)} ${formatNumber(secondary.level || 0)}`,
+    );
+  }
+  for (const trait of spell?.traits || []) {
+    if (trait?.note) {
+      notes.push(trait.note);
+    }
+  }
+  return notes.join("; ") || "-";
+}
+
+function formatImmuneTo(value) {
+  if (Array.isArray(value)) {
+    return value.length
+      ? value.map((entry) => capitalize(String(entry))).join(", ")
+      : "None";
+  }
+  if (!value) {
+    return "None";
+  }
+  return capitalize(String(value));
+}
+
 function buildSkillActionCatalog(skillId, skillFile, gameStateFile) {
   const actions = [];
   for (const node of skillFile.GATHERING_NODES?.[skillId] || []) {
@@ -2029,6 +2091,18 @@ function buildSkillActionCatalog(skillId, skillFile, gameStateFile) {
       });
     }
   }
+  if (skillId === "hollowing") {
+    for (const site of gameStateFile?.HOLLOWING_SITES || []) {
+      const seconds = Number(site.duration_seconds || 0);
+      const xp = hollowingXpForSite(site, Number(site.level || 1), gameStateFile);
+      actions.push({
+        name: site.name || site.id,
+        level: Number(site.level || 1),
+        xp,
+        seconds,
+      });
+    }
+  }
   return actions.filter((action) => action.xp > 0 && action.seconds > 0);
 }
 
@@ -2044,6 +2118,29 @@ function skillActionAtLevel(skillId, catalog, level, gameStateFile) {
       xp: (25 + Math.floor(level * 2)) * 2,
       seconds,
     };
+  }
+  if (skillId === "hollowing") {
+    let best = null;
+    for (const site of gameStateFile?.HOLLOWING_SITES || []) {
+      const siteLevel = Number(site.level || 1);
+      if (siteLevel > level) {
+        continue;
+      }
+      const seconds = Number(site.duration_seconds || 0);
+      const xp = hollowingXpForSite(site, level, gameStateFile);
+      if (seconds <= 0 || xp <= 0) {
+        continue;
+      }
+      if (!best || xp / seconds > best.xp / best.seconds) {
+        best = {
+          name: site.name || site.id,
+          level: siteLevel,
+          xp,
+          seconds,
+        };
+      }
+    }
+    return best;
   }
   let best = null;
   for (const action of catalog) {
@@ -2116,14 +2213,34 @@ function buildSkillUnlockTimeline({
     }
   };
 
+  const spellSchool = isSpellSchool(skillId, skillFile);
   for (const node of skillFile.GATHERING_NODES?.[skillId] || []) {
     const cost = Object.entries(node.requires || {})
       .map(([id, qty]) => `${itemName(id)} x${qty}`)
       .join(", ");
+    if (spellSchool) {
+      add(
+        node.level,
+        "Spell",
+        `${node.name || node.id} - ${formatDecimal(Number(node.power || 0))}x power${cost ? ` (uses ${cost})` : ""}`,
+      );
+    } else {
+      add(
+        node.level,
+        "Node",
+        `${node.name || node.id} - ${formatNumber(Number(node.xp_per_action || 0))} XP / ${formatDecimal(Number(node.seconds_per_action || 0))}s → ${itemName(node.item_yield)}${cost ? ` (uses ${cost})` : ""}`,
+      );
+    }
+  }
+
+  for (const site of gameStateFile?.HOLLOWING_SITES || []) {
+    if (skillId !== "hollowing") {
+      continue;
+    }
     add(
-      node.level,
-      "Node",
-      `${node.name || node.id} - ${formatNumber(Number(node.xp_per_action || 0))} XP / ${formatDecimal(Number(node.seconds_per_action || 0))}s → ${itemName(node.item_yield)}${cost ? ` (uses ${cost})` : ""}`,
+      site.level,
+      "Seam",
+      `${site.name || site.id} - ${formatDuration(Number(site.duration_seconds || 0) / 3600)}, relic ${formatPercent(site.relic_chance || 0)}`,
     );
   }
 
@@ -2386,7 +2503,8 @@ function buildSkillEntries(
     const name = labels[skillId] || skillId;
     const gatheringNodes = gathering[skillId] || [];
     const recipeList = recipes[skillId] || [];
-    const isGathering = gatheringNodes.length > 0;
+    const spellSchool = isSpellSchool(skillId, skillFile);
+    const isGathering = gatheringNodes.length > 0 && !spellSchool;
     const isArtisan = recipeList.length > 0;
     const nodeRows = gatheringNodes.map((node) => {
       const itemName = items[node.item_yield]?.name || node.item_yield;
@@ -2443,7 +2561,34 @@ function buildSkillEntries(
       };
     });
 
-    const efficiency = [...nodeRows, ...recipeRows];
+    const hollowingSites =
+      skillId === "hollowing" ? gameStateFile?.HOLLOWING_SITES || [] : [];
+    const hollowingRows = hollowingSites.map((site) => {
+      const seconds = Number(site.duration_seconds || 1);
+      const xp = hollowingXpForSite(
+        site,
+        Number(site.level || 1),
+        gameStateFile,
+      );
+      return {
+        name: site.name || site.id,
+        level: Number(site.level || 0),
+        duration: formatDuration(seconds / 3600),
+        yield: formatYieldRange(site.yield, items),
+        relic: formatPercent(site.relic_chance || 0),
+        xpPerHour: seconds > 0 ? (xp / seconds) * 3600 : 0,
+        gpPerHour: 0,
+      };
+    });
+    const hollowingTable = hollowingRows.map((row) => [
+      row.name,
+      formatNumber(row.level),
+      row.duration,
+      row.yield,
+      row.relic,
+      `${formatNumber(row.xpPerHour)} XP/hr`,
+    ]);
+    const efficiency = [...nodeRows, ...recipeRows, ...hollowingRows];
     const bestXp =
       efficiency
         .slice()
@@ -2451,6 +2596,7 @@ function buildSkillEntries(
     const bestGp =
       efficiency
         .slice()
+        .filter((entry) => Number(entry.gpPerHour || 0) > 0)
         .sort((left, right) => right.gpPerHour - left.gpPerHour)[0] || null;
     const bestRatio =
       efficiency
@@ -2477,6 +2623,37 @@ function buildSkillEntries(
     const treeBranch = (skillTreeBranches || []).find(
       (branch) => branch.id === skillId,
     );
+    const unlockQuestId = skillFile.SKILL_UNLOCK_QUEST?.[skillId] || "";
+    const unlockQuest = (quests || []).find(
+      (quest) => quest.id === unlockQuestId,
+    );
+    const unlockLevelReqs = skillFile.SKILL_UNLOCK_LEVELS?.[skillId] || [];
+    const gateLines = [
+      unlockQuest
+        ? `Opens after ${unlockQuest.name || unlockQuestId}.`
+        : unlockQuestId
+          ? `Opens after ${titleizeId(unlockQuestId)}.`
+          : null,
+      ...unlockLevelReqs.map((req) => {
+        const reqName = labels[req.skill] || titleizeId(req.skill);
+        return `Requires ${reqName} ${formatNumber(req.level || 0)}.`;
+      }),
+    ].filter(Boolean);
+    const spellRows = spellSchool
+      ? gatheringNodes.map((spell) => [
+          formatNumber(spell.level || 0),
+          spell.name || spell.id,
+          spell.power !== undefined ? `${formatDecimal(Number(spell.power))}x` : "-",
+          spell.accuracy !== undefined
+            ? formatPercent(Number(spell.accuracy || 0))
+            : "-",
+          capitalize(String(spell.element || (spell.damage_types || []).join("/"))),
+          Object.entries(spell.requires || {})
+            .map(([itemId, count]) => `${items[itemId]?.name || itemId} x${count}`)
+            .join(", ") || "-",
+          describeSpellExtras(spell, labels),
+        ])
+      : [];
     const totalXpToCap = xpForLevel(SKILL_LEVEL_CAP);
 
     const searchText = [
@@ -2491,6 +2668,9 @@ function buildSkillEntries(
       ...unlocks.map((unlock) => `${unlock.kind} ${unlock.text}`),
       ...nodeRows.map((row) => row.name),
       ...recipeRows.map((row) => row.name),
+      ...hollowingRows.map((row) => row.name),
+      ...spellRows.flat(),
+      ...gateLines,
       bestXp?.name,
       bestGp?.name,
       bestRatio?.name,
@@ -2567,6 +2747,11 @@ function buildSkillEntries(
             ? `<div class="note-box"><strong>Skill tree</strong><span>Has its own ${escapeHtml(treeBranch.name)} branch in the Mastery tree.</span></div>`
             : ""
         }
+        ${
+          gateLines.length
+            ? `<div class="note-box"><strong>Unlocks</strong><span>${escapeHtml(gateLines.join(" "))}</span></div>`
+            : ""
+        }
         ${bestXp ? renderStatSummary("Best XP/hour", bestXp.name, `${formatNumber(bestXp.xpPerHour)} XP/hr`) : ""}
         ${bestGp ? renderStatSummary("Best GP/hour", bestGp.name, `${formatNumber(bestGp.gpPerHour)} gp/hr`) : ""}
         ${bestRatio ? renderStatSummary("Best GP per XP", bestRatio.name, formatDecimal(bestRatio.gpPerXp)) : ""}
@@ -2584,6 +2769,24 @@ function buildSkillEntries(
         )}
         ${affinityLines.length ? renderDetailBlock("Affinity", affinityLines) : ""}
         ${isGathering ? renderEfficiencyTable("Gathering nodes", nodeRows, ["Level", "XP/action", "Seconds", "Output", "XP/hr", "GP/hr"]) : ""}
+        ${
+          spellRows.length
+            ? renderSimpleTable(
+                "Spells",
+                ["Level", "Spell", "Power", "Accuracy", "Element", "Reagents", "Notes"],
+                spellRows,
+              )
+            : ""
+        }
+        ${
+          hollowingTable.length
+            ? renderSimpleTable(
+                "Dig sites",
+                ["Seam", "Level", "Duration", "Yield", "Relic chance", "XP/hr at unlock"],
+                hollowingTable,
+              )
+            : ""
+        }
         ${isArtisan ? renderEfficiencyTable("Artisan recipes", recipeRows, ["Level", "XP/action", "Seconds", "Output", "Input cost", "Profit/action", "XP/hr", "GP/hr", "GP/XP"]) : ""}
         ${renderSimpleTable(
           "Milestone lore",
@@ -2605,6 +2808,7 @@ const QUEST_ARC_ORDER = {
   frostmere: 4,
   whisperwood: 5,
   salt_accord: 6,
+  first_breath: 7,
 };
 
 function titleizeId(value) {
@@ -3089,8 +3293,13 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       `${Math.round(Number(phase.trigger_pct || 0) * 100)}% HP`,
       capitalize(String(phase.style || "balanced")),
       `${formatNumber(phase.damage_per_tick || 0)}/tick`,
-      phase.immune_to ? capitalize(phase.immune_to) : "None",
+      formatImmuneTo(phase.immune_to),
       phase.desc || "",
+    ]);
+    const terminalRows = (boss.terminals || []).map((terminal) => [
+      terminal.name || itemName(terminal.item_id),
+      itemName(terminal.item_id),
+      terminal.placement_lore || "",
     ]);
 
     // A phase can carry a defence-penetrating attack, which is not visible
@@ -3126,8 +3335,11 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       id: dungeon.id || String(index),
       name: dungeon.name || dungeon.id || `Dungeon ${index + 1}`,
       title: dungeon.name || dungeon.id || `Dungeon ${index + 1}`,
-      subtitle: dungeon.subtitle || "Boss dungeon",
-      badges: [boss.name ? `Boss: ${boss.name}` : null].filter(Boolean),
+      subtitle: dungeon.subtitle || (dungeon.ritual ? "Ritual encounter" : "Boss dungeon"),
+      badges: [
+        dungeon.ritual ? "ritual" : null,
+        boss.name ? `${dungeon.ritual ? "Encounter" : "Boss"}: ${boss.name}` : null,
+      ].filter(Boolean),
       tags: [dungeon.req_display].filter(Boolean),
       searchText: collectSearchText(dungeon),
       sortKey: `${dungeon.name || dungeon.id || ""}`.toLowerCase(),
@@ -3147,16 +3359,26 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
         ${dungeon.subtitle ? `<div class="faction-crest" style="border-color:${escapeHtml(color)}"><span class="faction-dot" style="background:${escapeHtml(color)}"></span><em>${escapeHtml(dungeon.subtitle)}</em></div>` : ""}
         ${dungeon.lore ? renderDetailBlock("Lore", [dungeon.lore]) : ""}
         ${dungeon.req_display ? renderDetailBlock("Requirement", [dungeon.req_display]) : ""}
+        ${
+          dungeon.ritual
+            ? renderDetailBlock("Ritual encounter", [
+                "This is not a fight. Place four Spiritforged offerings on four terminals in any order within a single attempt. The offering items are consumed only once all four terminals are filled.",
+              ])
+            : ""
+        }
         ${renderSimpleTable("Waves", ["Wave", "Count", "Style", "HP", "Damage"], waveRows, { open: false })}
         ${
           boss.name
             ? `<div class="grid-2">
-                 <div class="stat-box"><strong>Boss</strong><span>${escapeHtml(boss.name)}</span></div>
-                 <div class="stat-box"><strong>Boss HP</strong><span>${formatNumber(boss.max_hp || 0)}</span></div>
+                 <div class="stat-box"><strong>${dungeon.ritual ? "Encounter" : "Boss"}</strong><span>${escapeHtml(boss.name)}</span></div>
+                 <div class="stat-box"><strong>${dungeon.ritual ? "Terminals" : "Boss HP"}</strong><span>${dungeon.ritual ? formatNumber(terminalRows.length) : formatNumber(boss.max_hp || 0)}</span></div>
                </div>`
             : ""
         }
         ${boss.lore ? renderDetailBlock(`${boss.name || "Boss"} lore`, [boss.lore]) : ""}
+        ${boss.entry_log ? renderDetailBlock("Entry", [boss.entry_log]) : ""}
+        ${boss.completion_log ? renderDetailBlock("Completion", [boss.completion_log]) : ""}
+        ${renderSimpleTable("Terminals", ["Terminal", "Offering", "Placement"], terminalRows)}
         ${renderSimpleTable("Boss phases", ["Phase", "Triggers", "Style", "Damage", "Immune to", "Behaviour"], phaseRows, { open: false })}
         ${penetratingLines.length ? renderDetailBlock("Defence-penetrating attacks", penetratingLines) : ""}
         ${firstClearLines.length ? renderDetailBlock("First-clear bonus", firstClearLines) : ""}
@@ -3572,6 +3794,187 @@ function buildTidewardEntries(
   return [overview];
 }
 
+// Kaldreth's third paid expansion, released as 1.4.0. Everything that ships
+// inside it is tagged "expansion": 3 in the source data, same rule as
+// Whisperwood and Tideward, so the counts below are read from the same
+// records the game itself gates on rather than hand-copied from patch notes.
+function buildDrakenhollowEntries(
+  quests,
+  monsterFile,
+  items,
+  achievements,
+  titles,
+  dungeons,
+  factions,
+  companions,
+) {
+  const isExp3 = (entry) => Number(entry?.expansion || 0) === 3;
+
+  const expQuests = (quests || [])
+    .filter(isExp3)
+    .slice()
+    .sort((left, right) => Number(left.sort || 0) - Number(right.sort || 0));
+  const expMonsters = Object.values(monsterFile?._monster_defs_data || {}).filter(isExp3);
+  const expShadowTargets = Object.values(monsterFile?._shadow_target_defs_data || {}).filter(
+    isExp3,
+  );
+  const expItems = Object.values(items || {}).filter(isExp3);
+  const expAchievements = (achievements || []).filter(isExp3);
+  const expTitles = (titles || []).filter(isExp3);
+  const expDungeons = (dungeons || []).filter(isExp3);
+  const ashborne = (factions || []).find((f) => f.id === "ashborne");
+  const expCompanions = (companions || []).filter(isExp3);
+
+  const zones = [
+    [
+      "The Ashfall Descent",
+      "The volcanic tunnel system down from the Shrouded Peaks, lined with centuries-stale Accord survey markers. The heat is manageable at first.",
+    ],
+    [
+      "Drakenhollow Proper",
+      "The main underground settlement, built over generations from Architect remnants and volcanic stone. Forge-pits, market stalls, and grudging hospitality.",
+    ],
+    [
+      "The Forge Caverns",
+      "The deep, partially Architect-operational forge complex. Spiritforging is only possible here, at temperatures no surface forge can match.",
+    ],
+    [
+      "The Origin Chamber",
+      "Sealed until the expansion's final acts. The Origin Engine is still running inside it.",
+    ],
+  ];
+
+  const newSkills = [
+    [
+      "Hollowing",
+      "Gathering",
+      "Dispatches a fixed-duration dig at one of six seams. The session resolves as a single discovery event when the timer ends, with a chance to surface an equippable relic. The 4 hour offline cap does not apply to a session already in progress.",
+    ],
+    [
+      "Spiritforging",
+      "Artisan",
+      "Forges gear with conditional combat triggers (on kill, on damage taken, on combat start, at low HP) rather than flat stat bonuses, and crafts the four offerings the Origin Engine ritual requires.",
+    ],
+    [
+      "Geomancy",
+      "Combat / Magic",
+      "A parallel magic school to Fracture Arts. Stone spells hit now; lava spells keep burning after. Earthen Shield is a Cast of its own and does not take the offensive spell slot.",
+    ],
+  ];
+
+  const companionRows = expCompanions
+    .slice()
+    .sort((left, right) => Number(left.level || 0) - Number(right.level || 0))
+    .map((companion) => {
+      const bonuses =
+        [
+          companion.combat_xp_pct
+            ? `+${formatPercent(companion.combat_xp_pct)} combat XP`
+            : null,
+          companion.gathering_speed_pct
+            ? `+${formatPercent(companion.gathering_speed_pct)} gathering speed`
+            : null,
+          companion.all_xp_pct ? `+${formatPercent(companion.all_xp_pct)} all XP` : null,
+        ]
+          .filter(Boolean)
+          .join(", ") || "-";
+      const unlock =
+        companion.rep_required
+          ? `${titleizeId(companion.rep_required.faction_id)} ${formatNumber(companion.rep_required.rep || 0)}`
+          : `Spiritbond ${formatNumber(companion.level || 0)}`;
+      return [
+        companion.name || titleizeId(companion.id),
+        unlock,
+        bonuses,
+        formatDuration(Number(companion.forage_seconds || 0) / 3600),
+      ];
+    });
+
+  const featureLines = [
+    "Three new skills - Hollowing, Spiritforging, and Geomancy - sit alongside the 24 existing skills without replacing anything in them.",
+    "Owning Drakenhollow raises every skill's level cap from 110 to 115, including all 16 base game skills, Whisperwood's 4, and Tideward's 4.",
+    "Hollowing relics occupy a dedicated equipment slot. Eight Architect-era objects are discovered through digging; they are never craftable and have no vendor source.",
+    `Three encounters, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Smelter, Forge-Warden Korrath, and The Origin Engine"}, bringing the total from 9 to 12. The Smelter and Forge-Warden Korrath are multi-phase boss dungeons with BGM and phase-change sound from launch. The Origin Engine is a ritual encounter: four Spiritforged offerings placed on four terminals, and it has no leaderboard board.`,
+    "Fourteen skill tree nodes across the Warrior, Artisan, Explorer, and Harmony branches, including Fracture Resonance, a cross-skill synergy that opens at Geomancy 80 and Fracture Arts 80. Three new auto passives, one per new skill.",
+    "An arrival cinematic the first time you descend into Drakenhollow, and a hidden meditation vision at Meditation level 115.",
+    "The Culling, a new AFK combat mode, ships in the same build as a free base-game feature. It unlocks at Attack 10 and is not gated on any expansion.",
+  ];
+
+  const overview = {
+    kind: "Expansion",
+    section: "drakenhollow",
+    id: "drakenhollow-overview",
+    name: "Expansion 3: Drakenhollow",
+    title: "Expansion 3: Drakenhollow",
+    subtitle: "Kaldreth's third paid expansion, shipped in 1.4.0",
+    badges: ["paid expansion", "$5.99", "level cap 115", "shipped in 1.4.0"],
+    searchText: normalizeSearchText(
+      [
+        "drakenhollow the first breath expansion 3 paid dlc in-app purchase drakenhollow",
+        "hollowing spiritforging geomancy ashborne krenn korrath smelter origin engine",
+        "veinkore slagstone origin ore ashforge relic ritual culling",
+        ...zones.flat(),
+        ...newSkills.flat(),
+        ...featureLines,
+        ...companionRows.flat(),
+      ].join(" "),
+    ),
+    sortKey: "drakenhollow 0 overview",
+    spoiler: true,
+    metrics: [
+      { label: "Price", value: "$5.99, one-time purchase" },
+      { label: "Level cap", value: "110 -> 115" },
+      { label: "New skills", value: formatNumber(newSkills.length) },
+      { label: "New quests", value: formatNumber(expQuests.length) },
+      { label: "New monsters", value: formatNumber(expMonsters.length) },
+      { label: "New items", value: formatNumber(expItems.length) },
+      { label: "New dungeons", value: formatNumber(expDungeons.length) },
+      {
+        label: "New achievements",
+        value: formatNumber(expAchievements.length),
+      },
+      {
+        label: "New Shadow Arts targets",
+        value: formatNumber(expShadowTargets.length),
+      },
+      { label: "Companions", value: formatNumber(expCompanions.length) },
+    ],
+    body: `
+      <div class="note-box"><strong>If you don't buy it</strong><span>The game you already have is unchanged. No base game, Whisperwood, or Tideward bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete. Play Console product id <code>drakenhollow</code>. Requires owning Tideward first - the purchase and the map region are both locked until that entitlement is confirmed.</span></div>
+      ${renderDetailBlock("The hook", [
+        "Tideward's route leads under the Shrouded Peaks to the first site. The Architects did not discover Kaldreth. They built it, and the original construction engine is still running. The Ashborne have been sitting on that truth for longer than anyone currently alive has been alive.",
+      ])}
+      ${renderSimpleTable("Areas", ["Zone", "What it is"], zones)}
+      ${renderSimpleTable("New skills", ["Skill", "Type", "What it does"], newSkills)}
+      ${
+        ashborne
+          ? `<div class="note-box"><strong>New faction: ${escapeHtml(ashborne.name || "The Ashborne")}</strong><span>${escapeHtml(ashborne.tagline || "")} ${escapeHtml(ashborne.leader ? `Led by ${ashborne.leader}.` : "")} 4 reputation tiers. Reputation builds through Hollowing sessions and Spiritforging completions. Reaching 75 unlocks the Ashborne Forge Armor set and the Ashborne Warden companion.</span></div>`
+          : ""
+      }
+      ${
+        companionRows.length
+          ? renderSimpleTable(
+              "Spiritbond companions",
+              ["Companion", "Unlocks at", "Passive bonus", "Forage run"],
+              companionRows,
+            )
+          : ""
+      }
+      ${renderDetailBlock("Also included", featureLines)}
+      ${renderDetailBlock("Level cap and lapsed entitlements", [
+        "Skill XP already earned is never rewritten - the expansion only changes what the level reads. If the entitlement ever lapses, levels read 110 again and not one point of XP is lost; buying back restores the level immediately.",
+        "Drakenhollow's content enters every completion tracker gated on both the numerator and the denominator from day one, so a non-owner sees no movement in any of them.",
+      ])}
+      ${renderDetailBlock("The First Breath quest arc", [
+        `A twenty-quest arc across five acts, from "${expQuests[0]?.name || "The Ashfall Road"}" to "${expQuests[expQuests.length - 1]?.name || "The Broadcast"}". Completing the arc awards ${expTitles.map((t) => t.name).filter(Boolean).join(", ") || "Forge-Tested, Korrath's Witness, and Truthbearer"}.`,
+        "See the Quests section, filtered to The First Breath arc, for the full quest-by-quest breakdown with NPC dialogue and rewards.",
+      ])}
+    `,
+  };
+
+  return [overview];
+}
+
 function buildRoadmapEntries(releases) {
   const overview = {
     kind: "Roadmap",
@@ -3608,7 +4011,7 @@ function buildRoadmapEntries(releases) {
           release.levelCap,
         ]),
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, Expansion 1: Whisperwood shipped in 1.2.0, and Expansion 2: Tideward shipped in 1.3.0. None of the three are on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood and Tideward each have their own Expansion section alongside those. The remaining two expansions release one at a time and are sequential; each one requires the one before it.</span></div>
+      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, Expansion 1: Whisperwood shipped in 1.2.0, Expansion 2: Tideward shipped in 1.3.0, and Expansion 3: Drakenhollow shipped in 1.4.0. None of the four are on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood, Tideward, and Drakenhollow each have their own Expansion section alongside those. The remaining expansion releases after Drakenhollow and requires it.</span></div>
     `,
   };
 
@@ -4299,6 +4702,32 @@ function buildMechanicEntries(
     body: `
       ${renderEfficiencyTable("Stock (level-gated)", vendorCatalog, ["Item", "Adventurer", "Cost"])}
       ${renderDetailBlock("Item effects", vendorDetails)}
+    `,
+  });
+
+  const cullingUnlock = Number(monsterFile.CULLING_UNLOCK_ATTACK_LEVEL || 10);
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "the-culling",
+    name: "The Culling",
+    title: "The Culling",
+    subtitle: "AFK combat against a player-chosen monster pool",
+    badges: ["combat", "afk", "base game"],
+    searchText:
+      "the culling afk combat quarry hunt monster pool attack 10 continuous kills contracts bestiary",
+    sortKey: "mechanics the culling",
+    spoiler: false,
+    metrics: [
+      { label: "Unlocks at", value: `Attack ${formatNumber(cullingUnlock)}` },
+      { label: "Access", value: "Free, every character" },
+    ],
+    body: `
+      ${renderDetailBlock("How it works", [
+        `Unlocks at Attack ${formatNumber(cullingUnlock)}. The Culling is a base-game AFK combat mode: pick a pool of monsters the character can already fight in overworld combat, then the mode runs continuous kills against that pool using the same engine as a normal fight.`,
+        "Every kill counts toward contracts, achievement counters, and Bestiary discovery on equal terms with any overworld kill. The pool is stored per character and can be changed between sessions.",
+        "The candidate list is restricted to content the character already owns, so expansion monsters stay behind their own purchase. The mode itself is free and is not gated on Drakenhollow.",
+      ])}
     `,
   });
 
