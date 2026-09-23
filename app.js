@@ -46,6 +46,7 @@ const SECTION_ORDER = [
   ["whisperwood", "Expansion 1: Whisperwood"],
   ["tideward", "Expansion 2: Tideward"],
   ["drakenhollow", "Expansion 3: Drakenhollow"],
+  ["oraewyn", "Expansion 4: Oraewyn"],
   ["roadmap", "Roadmap"],
   ["patches", "Patch Notes"],
 ];
@@ -74,14 +75,16 @@ const SECTION_LORE = {
     "Kaldreth's second paid expansion, and everything it added to the game.",
   drakenhollow:
     "Kaldreth's third paid expansion, and everything it added to the game.",
-  roadmap: "What is coming to Aetheria next, and in what order.",
+  oraewyn:
+    "Kaldreth's fourth and final paid expansion, where the Fracture story ends.",
+  roadmap: "Every release of the Fracture story, in the order it shipped.",
   patches: "How Aetheria has changed, build by build.",
 };
 
-// Skills cap at 115 with Expansion 3 owned (110 with Expansion 2, 105 with
-// only Expansion 1, 99 base game). A lapsed or non-owner account reads the
-// lower cap; the planner models the fully-owned cap.
-const SKILL_LEVEL_CAP = 115;
+// Skills cap at 120 with Expansion 4 owned (115 with Expansion 3, 110 with
+// Expansion 2, 105 with only Expansion 1, 99 base game). A lapsed or non-owner
+// account reads the lower cap; the planner models the fully-owned cap.
+const SKILL_LEVEL_CAP = 120;
 
 // Per-skill reference copy for the skill codex. `what` answers "what is this
 // skill for", `train` answers "how do I actually gain XP in it", and `aliases`
@@ -291,6 +294,22 @@ const SKILL_CODEX = {
     train:
       "Fight with a Geomancy spell selected in Combat setup. XP is paid like any other combat style. Gated on Fracture Arts 60, Shard Gleaning 50, and the first Drakenhollow quest.",
   },
+  astromancy: {
+    role: "Combat / Magic",
+    aliases:
+      "astromancy star celestial cycle window dawn midday dusk night comet moonveil starfall void chord eclipse convergence first light keystone last word watchers eye oraewyn spells",
+    what: "The third magic school, alongside Fracture Arts and Geomancy. Some spells are written for one stretch of the day (Dawn, Midday, Dusk, or Night by the device's local clock) and do more in it. The window is read once when a fight starts and held for that fight. Every cast burns Resonance Crystals; The Keystone and The Last Word also burn a Celestial Bar.",
+    train:
+      "Fight with an Astromancy spell selected in Combat setup. XP is paid like any other combat style. Gated on Fracture Arts 80, Geomancy 70, and the quest Two Voices.",
+  },
+  lorekeeper: {
+    role: "Passive",
+    aliases:
+      "lorekeeper discovery memory fragments relics rare achievements finds passive no action slot oraewyn artifacts true record",
+    what: "Trains only from first finds: memory fragments, Hollowing relics, and a set of rare achievements. A find pays XP the moment it happens and the same find never pays twice. There is no node, no craft, and no action slot. Artifacts are granted at levels 30, 50, 70, and 120 and equip in the relic slot.",
+    train:
+      "Find things you have not found yet. A character that already holds fragments and relics when Oraewyn is bought is paid for all of them once, on first unlock.",
+  },
 };
 
 // Planned releases in shipping order. Everything here is design-stage and can
@@ -300,64 +319,10 @@ const SKILL_CODEX = {
 const ROADMAP_DISCLAIMER =
   "Everything on this page is planned, not promised. Content, names, and numbers are still in design and can change before release.";
 
-const ROADMAP = [
-  {
-    id: "expansion-4",
-    order: 1,
-    name: "Expansion 4, Oraewyn: The Fractured Sky",
-    tagline: "The capstone, and the people who have been watching",
-    status: "Planned, final expansion",
-    access: "Paid expansion",
-    levelCap: "120",
-    unlock: "Requires Expansion 3, which shipped in 1.4.0. Intended for players who have completed everything before it.",
-    hook: "The Origin Engine is not only a construction machine. It is a relay, and it has been broadcasting upward. Oraewyn, the floating island chain visible on clear days above the Shrouded Peaks, is where the signal goes. It is also where the original Architects came from. They have been watching.",
-    zones: [
-      [
-        "The Sky Ascent",
-        "The vertical route up to Oraewyn's lower edge, a Wayfaring route series with combat encounters at each altitude threshold. No one from the surface has climbed this high since before the Accord.",
-      ],
-      [
-        "Oraewyn Lowlands",
-        "The first solid ground on the islands, deliberately kept accessible as a buffer zone. The landscape is older and more deliberate than anything in Aetheria: built rather than grown.",
-      ],
-      [
-        "The Watcher's Spire",
-        "The Conclave's central structure: archives spanning centuries and instruments pointed at the surface. Every faction NPC you have met has a file here. So do you.",
-      ],
-      [
-        "The Threshold",
-        "The final zone. A circular chamber at the Spire's peak, open to the sky, built as a convergence point.",
-      ],
-    ],
-    skills: [
-      [
-        "Astromancy",
-        "Combat / Magic",
-        "The third and final magic school, drawn from star charts and orbital resonance. Spells key off celestial cycle windows and several require deep investment in Geomancy and Lorekeeper.",
-      ],
-      [
-        "Lorekeeper",
-        "Passive / Collection",
-        "Levels through discovery rather than active play: memory fragments, flagged Hollowing artifacts, rare achievements, and hidden zone finds. Milestones every ten levels unlock hidden lore entries and passive bonuses.",
-      ],
-      [
-        "Transcendence",
-        "Meta-system",
-        "A post-mastery prestige loop. Condense any skill at 99 or above to reset it to level 1 in exchange for a Transcendence Point, each granting a permanent global bonus that stacks. Nothing is locked away; all content stays available to re-earn.",
-      ],
-    ],
-    faction: {
-      name: "The Watcher Conclave",
-      tagline: "They have a file on you.",
-      desc: "The observers above the surface, split into two wings whose tension has been building for longer than the Fracture has existed.",
-    },
-    features: [
-      "A twenty-five-quest arc, The Fractured Sky, the longest in the game.",
-      "Sixteen new enemies and four bosses, ending with the Resonance Wraith and the Threshold itself.",
-      "A significant difficulty spike by design: every system built across four expansions has a moment of payoff here.",
-    ],
-  },
-];
+// Oraewyn shipped in 1.5.0 as the fourth and final expansion, so nothing is
+// planned any more. The list stays so a future card renders through the same
+// path; while it is empty the roadmap section is the release history alone.
+const ROADMAP = [];
 
 const BUILD_FOCUS_VALUES = ["attack", "magic", "defence"];
 const GAME_RESPAWN_TICKS = 2;
@@ -1005,6 +970,8 @@ function buildModel(data) {
   const autoPassiveFile = getConstFile(files, "client/data/AutoPassiveData.gd");
   const skillTreeFile = getConstFile(files, "client/data/SkillTreeData.gd");
   const monsterFile = getConstFile(files, "client/autoload/GameState.gd");
+  const cullingFile = getConstFile(files, "client/data/CullingData.gd");
+  const astromancyFile = getConstFile(files, "client/data/AstromancyData.gd");
 
   const items = itemFile.ITEMS || {};
   const playerCombatProfile = getPlayerCombatProfile();
@@ -1123,6 +1090,18 @@ function buildModel(data) {
     factions,
     companions,
   );
+  const oraewynEntries = buildOraewynEntries(
+    quests,
+    monsterFile,
+    items,
+    achievements,
+    titles,
+    dungeons,
+    factions,
+    skillFile,
+    astromancyFile,
+    autoPassives,
+  );
   const roadmapEntries = buildRoadmapEntries(ROADMAP);
   const mechanicsEntries = buildMechanicEntries(
     skillFile,
@@ -1130,6 +1109,8 @@ function buildModel(data) {
     adventurerFile,
     buildInfoFile,
     itemFile,
+    cullingFile,
+    titles,
   );
 
   const allEntries = [
@@ -1151,6 +1132,7 @@ function buildModel(data) {
     ...whisperwoodEntries,
     ...tidewardEntries,
     ...drakenhollowEntries,
+    ...oraewynEntries,
     ...roadmapEntries,
     ...patchEntries,
     ...passiveEntries,
@@ -2022,7 +2004,35 @@ function describeSpellExtras(spell, labels) {
     );
   }
   if (spell?.hits) {
-    notes.push(`${formatNumber(spell.hits)} hits`);
+    notes.push(
+      spell.hit_power_pct
+        ? `${formatNumber(spell.hits)} hits at ${formatPercent(spell.hit_power_pct)} of power each`
+        : `${formatNumber(spell.hits)} hits`,
+    );
+  }
+  if (spell?.cycle_window) {
+    const windowName = capitalize(String(spell.cycle_window));
+    if (spell.cycle_power_pct) {
+      notes.push(`+${formatPercent(spell.cycle_power_pct)} power at ${windowName}`);
+    }
+    if (spell.cycle_def_buff_flat) {
+      notes.push(`+${formatNumber(spell.cycle_def_buff_flat)} more DEF at ${windowName}`);
+    }
+    if (!spell.cycle_power_pct && !spell.cycle_def_buff_flat && !spell.bonus_dot) {
+      notes.push(`Stronger at ${windowName}`);
+    }
+  }
+  if (spell?.bonus_dot?.skill) {
+    notes.push(
+      `DoT deepens at ${capitalize(String(spell.cycle_window || "its window"))} with ${labels?.[spell.bonus_dot.skill] || titleizeId(spell.bonus_dot.skill)} ${formatNumber(spell.bonus_dot.level || 0)}`,
+    );
+  }
+  if (spell?.immune_effective_pct) {
+    notes.push(
+      Number(spell.immune_effective_pct) >= 1
+        ? "Full damage through immunity"
+        : `${formatPercent(spell.immune_effective_pct)} damage through immunity`,
+    );
   }
   if (spell?.def_debuff_pct) {
     notes.push(
@@ -2032,11 +2042,18 @@ function describeSpellExtras(spell, labels) {
   if (spell?.def_ignore_pct) {
     notes.push(`Ignores ${formatPercent(spell.def_ignore_pct)} DEF`);
   }
-  const secondary = spell?.secondary_skill_required;
-  if (secondary?.skill) {
-    notes.push(
-      `Requires ${labels?.[secondary.skill] || titleizeId(secondary.skill)} ${formatNumber(secondary.level || 0)}`,
-    );
+  const secondaryReqs = Array.isArray(spell?.secondary_skill_required)
+    ? spell.secondary_skill_required
+    : [spell?.secondary_skill_required];
+  for (const secondary of secondaryReqs) {
+    if (secondary?.skill) {
+      notes.push(
+        `Requires ${labels?.[secondary.skill] || titleizeId(secondary.skill)} ${formatNumber(secondary.level || 0)}`,
+      );
+    }
+  }
+  if (spell?.quest_required) {
+    notes.push(`Requires quest ${titleizeId(String(spell.quest_required).replace(/^[a-z]?\d+_/, ""))}`);
   }
   for (const trait of spell?.traits || []) {
     if (trait?.note) {
@@ -2061,6 +2078,11 @@ function formatImmuneTo(value) {
 function buildSkillActionCatalog(skillId, skillFile, gameStateFile) {
   const actions = [];
   for (const node of skillFile.GATHERING_NODES?.[skillId] || []) {
+    // A defensive Cast (Earthen Shield, Moonveil) is not an attack, so it is
+    // never the "best action" a combat magic school trains on.
+    if (node.defensive) {
+      continue;
+    }
     actions.push({
       name: node.name || node.id,
       level: Number(node.level || 1),
@@ -2222,7 +2244,7 @@ function buildSkillUnlockTimeline({
       add(
         node.level,
         "Spell",
-        `${node.name || node.id} - ${formatDecimal(Number(node.power || 0))}x power${cost ? ` (uses ${cost})` : ""}`,
+        `${node.name || node.id} - ${node.defensive ? "defensive Cast" : `${formatDecimal(Number(node.power || 0))}x power`}${cost ? ` (uses ${cost})` : ""}`,
       );
     } else {
       add(
@@ -2588,6 +2610,22 @@ function buildSkillEntries(
       row.relic,
       `${formatNumber(row.xpPerHour)} XP/hr`,
     ]);
+    const wayfaringRoutes =
+      skillId === "wayfaring" ? gameStateFile?.WAYFARING_ROUTES || [] : [];
+    const routeMonsters = gameStateFile?._monster_defs_data || {};
+    const wayfaringTable = wayfaringRoutes
+      .slice()
+      .sort((left, right) => Number(left.level || 0) - Number(right.level || 0))
+      .map((route) => [
+        route.name || route.id,
+        formatNumber(route.level || 0),
+        formatDuration(Number(route.duration_seconds || 0) / 3600),
+        `${formatNumber(route.gold_min || 0)}-${formatNumber(route.gold_max || 0)} gp`,
+        formatYieldRange(route.items, items),
+        route.encounter_monster_id
+          ? `${routeMonsters[route.encounter_monster_id]?.name || titleizeId(route.encounter_monster_id)} (Sky Ascent leg ${formatNumber(route.ascent_leg || 0)})`
+          : "-",
+      ]);
     const efficiency = [...nodeRows, ...recipeRows, ...hollowingRows];
     const bestXp =
       efficiency
@@ -2669,6 +2707,7 @@ function buildSkillEntries(
       ...nodeRows.map((row) => row.name),
       ...recipeRows.map((row) => row.name),
       ...hollowingRows.map((row) => row.name),
+      ...wayfaringTable.map((row) => row[0]),
       ...spellRows.flat(),
       ...gateLines,
       bestXp?.name,
@@ -2787,6 +2826,15 @@ function buildSkillEntries(
               )
             : ""
         }
+        ${
+          wayfaringTable.length
+            ? renderSimpleTable(
+                "Routes",
+                ["Route", "Level", "Duration", "Gold", "Returns", "Encounter"],
+                wayfaringTable,
+              )
+            : ""
+        }
         ${isArtisan ? renderEfficiencyTable("Artisan recipes", recipeRows, ["Level", "XP/action", "Seconds", "Output", "Input cost", "Profit/action", "XP/hr", "GP/hr", "GP/XP"]) : ""}
         ${renderSimpleTable(
           "Milestone lore",
@@ -2809,6 +2857,7 @@ const QUEST_ARC_ORDER = {
   whisperwood: 5,
   salt_accord: 6,
   first_breath: 7,
+  fractured_sky: 8,
 };
 
 function titleizeId(value) {
@@ -3296,6 +3345,23 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       formatImmuneTo(phase.immune_to),
       phase.desc || "",
     ]);
+    const isChoice = dungeon.ritual && dungeon.ritual_kind === "choice";
+    const choiceRows = (boss.choices || []).map((choice) => [
+      choice.label || "-",
+      titleizeId(String(choice.path || "").replace(/^q\d+_path_/, "")),
+      choice.lore || "",
+    ]);
+    const questNames = Object.fromEntries(
+      (questFile?.ALL_QUESTS || []).map((quest) => [quest.id, quest.name]),
+    );
+    const phaseNoteLines = (boss.phases || []).flatMap((phase) =>
+      [
+        phase.immune_hint ? `${phase.name || "Phase"}: ${phase.immune_hint}` : null,
+        phase.skip_if_quest
+          ? `${phase.name || "Phase"} is skipped entirely if you completed ${questNames[phase.skip_if_quest] || titleizeId(phase.skip_if_quest)}.`
+          : null,
+      ].filter(Boolean),
+    );
     const terminalRows = (boss.terminals || []).map((terminal) => [
       terminal.name || itemName(terminal.item_id),
       itemName(terminal.item_id),
@@ -3335,9 +3401,10 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
       id: dungeon.id || String(index),
       name: dungeon.name || dungeon.id || `Dungeon ${index + 1}`,
       title: dungeon.name || dungeon.id || `Dungeon ${index + 1}`,
-      subtitle: dungeon.subtitle || (dungeon.ritual ? "Ritual encounter" : "Boss dungeon"),
+      subtitle: dungeon.subtitle || (isChoice ? "Choice encounter" : dungeon.ritual ? "Ritual encounter" : "Boss dungeon"),
       badges: [
-        dungeon.ritual ? "ritual" : null,
+        isChoice ? "choice" : dungeon.ritual ? "ritual" : null,
+        boss.construct ? "construct" : null,
         boss.name ? `${dungeon.ritual ? "Encounter" : "Boss"}: ${boss.name}` : null,
       ].filter(Boolean),
       tags: [dungeon.req_display].filter(Boolean),
@@ -3360,7 +3427,11 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
         ${dungeon.lore ? renderDetailBlock("Lore", [dungeon.lore]) : ""}
         ${dungeon.req_display ? renderDetailBlock("Requirement", [dungeon.req_display]) : ""}
         ${
-          dungeon.ritual
+          isChoice
+            ? renderDetailBlock("Choice encounter", [
+                "This is not a fight. The Threshold offers the three paths you have already walked, and you pick one to enter into the record. The choice cannot be undone. It shapes the text and fight length of the final quest; every item, title, achievement, and faction bonus stays obtainable whichever path you take.",
+              ])
+            : dungeon.ritual
             ? renderDetailBlock("Ritual encounter", [
                 "This is not a fight. Place four Spiritforged offerings on four terminals in any order within a single attempt. The offering items are consumed only once all four terminals are filled.",
               ])
@@ -3371,7 +3442,7 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
           boss.name
             ? `<div class="grid-2">
                  <div class="stat-box"><strong>${dungeon.ritual ? "Encounter" : "Boss"}</strong><span>${escapeHtml(boss.name)}</span></div>
-                 <div class="stat-box"><strong>${dungeon.ritual ? "Terminals" : "Boss HP"}</strong><span>${dungeon.ritual ? formatNumber(terminalRows.length) : formatNumber(boss.max_hp || 0)}</span></div>
+                 <div class="stat-box"><strong>${isChoice ? "Paths" : dungeon.ritual ? "Terminals" : "Boss HP"}</strong><span>${isChoice ? formatNumber(choiceRows.length) : dungeon.ritual ? formatNumber(terminalRows.length) : formatNumber(boss.max_hp || 0)}</span></div>
                </div>`
             : ""
         }
@@ -3379,7 +3450,10 @@ function buildDungeonEntries(dungeons, itemFile, questFile) {
         ${boss.entry_log ? renderDetailBlock("Entry", [boss.entry_log]) : ""}
         ${boss.completion_log ? renderDetailBlock("Completion", [boss.completion_log]) : ""}
         ${renderSimpleTable("Terminals", ["Terminal", "Offering", "Placement"], terminalRows)}
+        ${renderSimpleTable("Paths", ["Choice", "Path", "What it means"], choiceRows)}
+        ${boss.construct ? renderDetailBlock("Construct", ["This boss is a construct. Effects that deal bonus damage to constructs, such as Watcher's Eye, apply here."]) : ""}
         ${renderSimpleTable("Boss phases", ["Phase", "Triggers", "Style", "Damage", "Immune to", "Behaviour"], phaseRows, { open: false })}
+        ${phaseNoteLines.length ? renderDetailBlock("Phase notes", phaseNoteLines) : ""}
         ${penetratingLines.length ? renderDetailBlock("Defence-penetrating attacks", penetratingLines) : ""}
         ${firstClearLines.length ? renderDetailBlock("First-clear bonus", firstClearLines) : ""}
         ${renderSimpleTable("Loot table", ["Item", "Chance", "Qty", "Expected value"], lootRows)}
@@ -3975,17 +4049,344 @@ function buildDrakenhollowEntries(
   return [overview];
 }
 
+// Kaldreth's fourth and final paid expansion, released as 1.5.0. Same rule as
+// the three before it: everything inside is tagged "expansion": 4 in the
+// source data, so the counts below are read from the records the game gates
+// on. Transcendence, Lorekeeper and the Astromancy day windows get their own
+// cards because none of them fits an existing section.
+function buildOraewynEntries(
+  quests,
+  monsterFile,
+  items,
+  achievements,
+  titles,
+  dungeons,
+  factions,
+  skillFile,
+  astromancyFile,
+  autoPassives,
+) {
+  const isExp4 = (entry) => Number(entry?.expansion || 0) === 4;
+  const labels = skillFile?.SKILL_LABELS || {};
+
+  const expQuests = (quests || [])
+    .filter(isExp4)
+    .slice()
+    .sort((left, right) => Number(left.sort || 0) - Number(right.sort || 0));
+  const expMonsters = Object.values(monsterFile?._monster_defs_data || {}).filter(isExp4);
+  const expShadowTargets = Object.values(monsterFile?._shadow_target_defs_data || {}).filter(
+    isExp4,
+  );
+  const expItems = Object.values(items || {}).filter(isExp4);
+  const expAchievements = (achievements || []).filter(isExp4);
+  const expTitles = (titles || []).filter(isExp4);
+  const expDungeons = (dungeons || []).filter(isExp4);
+  const conclave = (factions || []).find((f) => f.id === "watcher_conclave");
+  const skyLegs = (monsterFile?.WAYFARING_ROUTES || [])
+    .filter((route) => route.ascent_leg)
+    .sort((left, right) => Number(left.ascent_leg) - Number(right.ascent_leg));
+  const astroSpells = skillFile?.GATHERING_NODES?.astromancy || [];
+  const watchersEye = (autoPassives || []).find((p) => p.id === "watchers_eye");
+  const itemName = (id) => items?.[id]?.name || titleizeId(id);
+  const monsterName = (id) =>
+    monsterFile?._monster_defs_data?.[id]?.name || titleizeId(id);
+
+  const zones = [
+    [
+      "The Sky Ascent",
+      "The vertical route up to Oraewyn's lower edge: four Wayfaring legs, each ending in a fight at its altitude threshold.",
+    ],
+    [
+      "Oraewyn Lowlands",
+      "The first solid ground on the islands, kept accessible as a buffer zone. The landscape is older and more deliberate than anything in Aetheria: built rather than grown.",
+    ],
+    [
+      "The Watcher's Spire",
+      "The Conclave's central structure: archives spanning centuries and instruments pointed at the surface. Every faction NPC you have met has a file here. So do you.",
+    ],
+    [
+      "The Threshold",
+      "A circular chamber at the Spire's peak, open to the sky. Where the record ends and the decision begins.",
+    ],
+  ];
+
+  const newSkills = [
+    [
+      "Astromancy",
+      "Combat / Magic",
+      `The third magic school, alongside Fracture Arts and Geomancy, with ${formatNumber(astroSpells.length)} castable spells from level 1 to 120 plus the Watcher's Eye passive. Some spells are stronger in one of four daily windows read from the device clock.`,
+    ],
+    [
+      "Lorekeeper",
+      "Passive",
+      "Trains only from first finds: memory fragments, Hollowing relics, and rare achievements. No node, no craft, no action slot. Grants four equippable artifacts along the way.",
+    ],
+    [
+      "Transcendence",
+      "Meta-system",
+      "Not a skill. Condense a skill at 99 or higher back to level 1 for a Transcendence Point; points climb a ladder of permanent bonuses.",
+    ],
+  ];
+
+  const legRows = skyLegs.map((leg) => [
+    leg.name || leg.id,
+    formatNumber(leg.level || 0),
+    formatDuration(Number(leg.duration_seconds || 0) / 3600),
+    monsterName(leg.encounter_monster_id),
+    formatYieldRange(leg.items, items),
+  ]);
+
+  const featureLines = [
+    "Owning Oraewyn raises every skill's level cap from 115 to 120, on all 16 base game skills, Whisperwood's 4, Tideward's 4, Drakenhollow's 3, and Oraewyn's 2. A Celestial rung is added to each of the 8 base game gathering and artisan ladders.",
+    `Four encounters: ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Gate Warden, First Watcher Aelun, The Resonance Wraith, and The Threshold"}. The first three are boss dungeons with their own BGM and phase-change sound. Completing the Shadow Hand's Path quest skips Aelun's final phase. The Threshold is not a fight: it asks you to choose one of the three paths you have walked, and that choice shapes the text and fight length of the last quest. Nothing is locked out by the choice.`,
+    "Sky Ascent: four Wayfaring legs that run on the wall clock and end in a fight. Starting another fight or opening the Culling parks the encounter behind a Resume button; it is lost only if you die inside it.",
+    "The Watcher Conclave, a new faction with 4 reputation tiers. Reputation 75 opens the Conclave Armor store.",
+    "A new Transcendence branch in the skill tree, and three new auto passives: Watcher's Eye, Skybound, and Long Finder.",
+    "An arrival cinematic when quest Arrival is claimed, the final meditation vision at Meditation 120, and an end card when the arc closes.",
+    "The Complete Arc bundle grants all four expansions in one purchase to an account that owns none of them yet.",
+  ];
+
+  const overview = {
+    kind: "Expansion",
+    section: "oraewyn",
+    id: "oraewyn-overview",
+    name: "Expansion 4: Oraewyn",
+    title: "Expansion 4: Oraewyn, The Fractured Sky",
+    subtitle: "Kaldreth's fourth and final paid expansion, shipped in 1.5.0",
+    badges: ["paid expansion", "$5.99", "level cap 120", "shipped in 1.5.0", "final expansion"],
+    searchText: normalizeSearchText(
+      [
+        "oraewyn the fractured sky expansion 4 final expansion paid dlc in-app purchase complete arc bundle",
+        "astromancy lorekeeper transcendence watcher conclave aelun lira vorath gate warden resonance wraith threshold sky ascent",
+        ...zones.flat(),
+        ...newSkills.flat(),
+        ...featureLines,
+        ...legRows.flat(),
+      ].join(" "),
+    ),
+    sortKey: "oraewyn 0 overview",
+    spoiler: true,
+    metrics: [
+      { label: "Price", value: "$5.99, one-time purchase" },
+      { label: "Level cap", value: "115 -> 120" },
+      { label: "New skills", value: "2, plus Transcendence" },
+      { label: "New quests", value: formatNumber(expQuests.length) },
+      { label: "New monsters", value: formatNumber(expMonsters.length) },
+      { label: "New items", value: formatNumber(expItems.length) },
+      { label: "New encounters", value: formatNumber(expDungeons.length) },
+      { label: "New achievements", value: formatNumber(expAchievements.length) },
+      { label: "New Shadow Arts targets", value: formatNumber(expShadowTargets.length) },
+      { label: "New titles", value: formatNumber(expTitles.length) },
+    ],
+    body: `
+      <div class="note-box"><strong>If you don't buy it</strong><span>The game you already have is unchanged. No base game, Whisperwood, Tideward, or Drakenhollow bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete. Play Console product id <code>oraewyn</code>. Requires owning Drakenhollow first - the purchase and the map region are both locked until that entitlement is confirmed.</span></div>
+      ${renderDetailBlock("The hook", [
+        "The Origin Engine was never only a construction machine. It is a relay, and it has been broadcasting upward to Oraewyn, the floating island chain above the Shrouded Peaks, where the original Architects came from. The Watcher Conclave has been keeping a file on the surface the whole time. Yours included. This is where the Fracture story ends.",
+      ])}
+      ${renderSimpleTable("Areas", ["Zone", "What it is"], zones)}
+      ${renderSimpleTable("New skills and systems", ["Name", "Type", "What it does"], newSkills)}
+      ${
+        conclave
+          ? `<div class="note-box"><strong>New faction: ${escapeHtml(conclave.name || "The Watcher Conclave")}</strong><span>${escapeHtml(conclave.tagline || "")} ${escapeHtml(conclave.leader ? `Led by ${conclave.leader}.` : "")} 4 reputation tiers; the top two also make earned Transcendence bonuses count extra points. Reputation 75 opens the Conclave Armor store.</span></div>`
+          : ""
+      }
+      ${renderSimpleTable("Sky Ascent legs", ["Leg", "Wayfaring", "Duration", "Encounter", "Returns"], legRows)}
+      ${renderDetailBlock("Also included", featureLines)}
+      ${renderDetailBlock("Level cap and lapsed entitlements", [
+        "Skill XP already earned is never rewritten - the expansion only changes what the level reads. If the entitlement ever lapses, levels read 115 again and not one point of XP is lost; buying back restores the level immediately. Skill tree, passive, and faction bonuses from an expansion stop while it is lapsed and resume on re-purchase.",
+        "Oraewyn's content enters every completion tracker gated on both the numerator and the denominator from day one, so a non-owner sees no movement in any of them.",
+      ])}
+      ${renderDetailBlock("The Fractured Sky quest arc", [
+        `A twenty-five-quest arc, the longest in the game, from "${expQuests[0]?.name || "Sky Road"}" to "${expQuests[expQuests.length - 1]?.name || "What Comes After"}". Titles from the arc: ${expTitles.map((t) => t.name).filter(Boolean).join(", ") || "-"}.`,
+        "See the Quests section, filtered to The Fractured Sky arc, for the full quest-by-quest breakdown with NPC dialogue and rewards.",
+      ])}
+    `,
+  };
+
+  const windows = Array.isArray(astromancyFile?.WINDOWS) ? astromancyFile.WINDOWS : [];
+  const pad = (hour) => `${String(hour).padStart(2, "0")}:00`;
+  const windowRows = windows.map((w) => {
+    const spells = astroSpells
+      .filter((spell) => spell.cycle_window === w.id)
+      .map((spell) => spell.name || spell.id);
+    return [w.label || capitalize(String(w.id)), `${pad(w.start_hour)} - ${pad(w.end_hour)}`, spells.join(", ") || "-"];
+  });
+  const astromancyCard = {
+    kind: "Mechanic",
+    section: "oraewyn",
+    id: "astromancy-day-windows",
+    name: "Astromancy Day Windows",
+    title: "Astromancy Day Windows",
+    subtitle: "Which spells are stronger at which time of day",
+    badges: ["astromancy", "real-world time", "magic"],
+    searchText: normalizeSearchText(
+      `astromancy cycle window dawn midday dusk night local time clock watchers eye ${windowRows.flat().join(" ")}`,
+    ),
+    sortKey: "oraewyn 1 astromancy day windows",
+    spoiler: false,
+    metrics: [
+      { label: "Windows", value: formatNumber(windows.length || 4) },
+      { label: "Clock", value: "Device local time" },
+    ],
+    body: `
+      ${renderDetailBlock("How it works", [
+        "The day is split into four 6-hour windows by the device's local clock. The window is read once when a fight, dungeon run, or Culling run starts, and held for that whole fight.",
+        "Offline progress weights each window by how much real time the game was away during it, so a long absence averages the windows it spanned.",
+        "See the Astromancy skill page for the full spell table, including which spells carry a window bonus.",
+      ])}
+      ${renderSimpleTable("Windows", ["Window", "Local time", "Spells that care"], windowRows)}
+      ${
+        watchersEye
+          ? renderDetailBlock("Watcher's Eye", [
+              `A spellbook passive at ${labels.astromancy || "Astromancy"} ${formatNumber(watchersEye.threshold || 0)}: ${watchersEye.desc || ""}. The construct bonus also needs ${labels[watchersEye.secondary_skill] || titleizeId(watchersEye.secondary_skill || "")} ${formatNumber(watchersEye.secondary_threshold || 0)}. It does not take the spell slot.`,
+            ])
+          : ""
+      }
+    `,
+  };
+
+  const ladder = monsterFile?.TRANSCENDENCE_LADDER || {};
+  const describeStep = (step) =>
+    Object.entries(step || {})
+      .map(([key, value]) => {
+        const v = Number(value || 0);
+        switch (key) {
+          case "all_xp_pct":
+            return `All XP +${formatPercent(v)} (total, not added)`;
+          case "offline_cap_bonus_seconds":
+            return `Offline cap +${formatDuration(v / 3600)}`;
+          case "gathering_yield_pct":
+            return `Gathering yield +${formatPercent(v)}`;
+          case "combat_damage_pct":
+            return `Combat damage +${formatPercent(v)}`;
+          case "artisan_cycle_mult":
+            return `Artisan cycles ${formatPercent(1 - v)} faster`;
+          default:
+            return `${titleizeId(key)} ${formatDecimal(v)}`;
+        }
+      })
+      .join(", ");
+  const ladderRows = Object.entries(ladder)
+    .sort((left, right) => Number(left[0]) - Number(right[0]))
+    .map(([tp, step]) => [`${tp} TP`, describeStep(step)]);
+  const tailStart = Number(monsterFile?.TRANSCENDENCE_TAIL_START_TP || 9);
+  const tailPer = Number(monsterFile?.TRANSCENDENCE_TAIL_ALL_XP_PER_TP || 0.005);
+  const xpCap = Number(monsterFile?.TRANSCENDENCE_ALL_XP_CAP || 0.1);
+  const minLevel = Number(monsterFile?.TRANSCENDENCE_MIN_LEVEL || 99);
+  const excluded = (monsterFile?.TRANSCENDENCE_EXCLUDED_SKILLS || []).map(
+    (id) => labels[id] || titleizeId(id),
+  );
+  const transcendenceCard = {
+    kind: "Mechanic",
+    section: "oraewyn",
+    id: "transcendence",
+    name: "Transcendence",
+    title: "Transcendence",
+    subtitle: "Condense a maxed skill for a permanent bonus",
+    badges: ["prestige", "post-game", "meta-system"],
+    searchText: normalizeSearchText(
+      `transcendence condense prestige reset transcendence point tp ladder first key threshold ${ladderRows.flat().join(" ")}`,
+    ),
+    sortKey: "oraewyn 2 transcendence",
+    spoiler: true,
+    metrics: [
+      { label: "Condense from", value: `Level ${formatNumber(minLevel)}` },
+      { label: "Ladder steps", value: formatNumber(ladderRows.length) },
+      { label: "All XP cap", value: formatPercent(xpCap) },
+    ],
+    body: `
+      ${renderDetailBlock("How it works", [
+        `Condense any skill at level ${formatNumber(minLevel)} or higher back to level 1 and earn one Transcendence Point (TP). ${excluded.length ? `${excluded.join(", ")} cannot be condensed.` : ""}`,
+        "Gear that no longer meets its equip requirement after a condense is unequipped and listed in a toast. Content you have already unlocked stays available.",
+        `Unlocks once you hold ${itemName(monsterFile?.TRANSCENDENCE_UNLOCK_ITEM_ID || "the_first_key")} (a Hollowing relic from the Architect Vaults), have completed The Threshold Choice, and have cleared The Threshold.`,
+      ])}
+      ${renderSimpleTable("Ladder", ["Reached at", "Bonus"], ladderRows)}
+      ${renderDetailBlock("Past the ladder", [
+        `From ${formatNumber(tailStart)} TP, every further point adds ${formatPercent(tailPer)} all XP, up to a ${formatPercent(xpCap)} total from Transcendence.`,
+        "Watcher Conclave reputation at 75 and 100 makes your earned bonuses count as 1 and 2 extra points once you have earned at least one real point.",
+      ])}
+    `,
+  };
+
+  const artifacts = Object.entries(monsterFile?.LOREKEEPER_ARTIFACTS || {})
+    .sort((left, right) => Number(left[0]) - Number(right[0]))
+    .map(([level, id]) => [formatNumber(Number(level)), itemName(id)]);
+  const rungParts = {};
+  const addRung = (level, text) => {
+    (rungParts[level] = rungParts[level] || []).push(text);
+  };
+  for (const [level, pct] of Object.entries(monsterFile?.LOREKEEPER_RUNG_ALL_XP || {})) {
+    addRung(Number(level), `All XP +${formatPercent(pct)}`);
+  }
+  for (const [level, seconds] of Object.entries(monsterFile?.LOREKEEPER_RUNG_OFFLINE_SECONDS || {})) {
+    addRung(Number(level), `Offline cap +${formatNumber(Number(seconds) / 60)} min`);
+  }
+  for (const [level, mp] of Object.entries(monsterFile?.LOREKEEPER_RUNG_MP || {})) {
+    addRung(Number(level), `+${formatNumber(mp)} Mastery Points`);
+  }
+  const rungRows = Object.entries(rungParts)
+    .sort((left, right) => Number(left[0]) - Number(right[0]))
+    .map(([level, parts]) => [formatNumber(Number(level)), parts.join(", ")]);
+  const achievementNames = Object.fromEntries(
+    (achievements || []).map((a) => [a.id, a.name]),
+  );
+  const rareAchievements = (monsterFile?.LOREKEEPER_RARE_ACHIEVEMENTS || []).map(
+    (id) => achievementNames[id] || titleizeId(id),
+  );
+  const lorekeeperCard = {
+    kind: "Mechanic",
+    section: "oraewyn",
+    id: "lorekeeper-finds",
+    name: "Lorekeeper Finds and Rewards",
+    title: "Lorekeeper Finds and Rewards",
+    subtitle: "What pays Lorekeeper XP, and what its levels give back",
+    badges: ["lorekeeper", "passive", "discovery"],
+    searchText: normalizeSearchText(
+      `lorekeeper finds discovery memory fragments relics rare achievements artifacts rungs ${artifacts.flat().join(" ")} ${rareAchievements.join(" ")}`,
+    ),
+    sortKey: "oraewyn 3 lorekeeper",
+    spoiler: false,
+    metrics: [
+      { label: "Artifacts", value: formatNumber(artifacts.length) },
+      { label: "Rare achievements", value: formatNumber(rareAchievements.length) },
+    ],
+    body: `
+      ${renderDetailBlock("What counts as a find", [
+        "The first time you collect a memory fragment, discover a Hollowing relic, or earn one of the rare achievements below, Lorekeeper pays XP on the spot. The same find never pays twice.",
+        "A character that already has fragments and relics when Oraewyn is bought is paid for all of them in one sweep the first time the skill unlocks.",
+        rareAchievements.length ? `Rare achievements: ${rareAchievements.join(", ")}.` : null,
+      ].filter(Boolean))}
+      ${renderSimpleTable("Artifacts (relic slot)", ["Granted at level", "Artifact"], artifacts)}
+      ${renderSimpleTable("Level rewards", ["Level", "Reward"], rungRows)}
+      <p class="helper">All XP and offline rewards are the running value for your current level, not added together.</p>
+    `,
+  };
+
+  return [overview, astromancyCard, transcendenceCard, lorekeeperCard];
+}
+
 function buildRoadmapEntries(releases) {
+  const shipped = [
+    ["1.1.0", "Frostmere", "Free base game update", "99"],
+    ["1.2.0", "Expansion 1: Whisperwood", "Paid expansion", "105"],
+    ["1.3.0", "Expansion 2: Tideward", "Paid expansion", "110"],
+    ["1.4.0", "Expansion 3: Drakenhollow", "Paid expansion", "115"],
+    ["1.5.0", "Expansion 4: Oraewyn, The Fractured Sky", "Paid expansion, final", "120"],
+  ];
   const overview = {
     kind: "Roadmap",
     section: "roadmap",
     id: "roadmap-overview",
     name: "Release Order",
     title: "Release Order",
-    subtitle: "What ships next, and in what order",
-    badges: ["overview", "planned"],
+    subtitle: releases.length
+      ? "What ships next, and in what order"
+      : "Every release of the Fracture story, in the order it shipped",
+    badges: releases.length ? ["overview", "planned"] : ["overview", "complete"],
     searchText: normalizeSearchText(
-      `roadmap release order upcoming future coming soon whats next expansions level cap ${releases
+      `roadmap release order upcoming future coming soon whats next expansions level cap final expansion complete arc ${shipped
+        .flat()
+        .join(" ")} ${releases
         .map(
           (release) =>
             `${release.name} ${release.tagline} ${release.levelCap}`,
@@ -3995,12 +4396,14 @@ function buildRoadmapEntries(releases) {
     sortKey: "roadmap 0 release order",
     spoiler: false,
     metrics: [
+      { label: "Expansions shipped", value: "4 of 4" },
       { label: "Planned releases", value: formatNumber(releases.length) },
-      { label: "Next up", value: releases[0]?.name || "-" },
-      { label: "Final level cap", value: releases[releases.length - 1]?.levelCap || "-" },
+      { label: "Final level cap", value: "120" },
     ],
     body: `
-      <div class="note-box"><strong>Plans, not promises</strong><span>${escapeHtml(ROADMAP_DISCLAIMER)}</span></div>
+      ${
+        releases.length
+          ? `<div class="note-box"><strong>Plans, not promises</strong><span>${escapeHtml(ROADMAP_DISCLAIMER)}</span></div>
       ${renderSimpleTable(
         "Planned order",
         ["#", "Release", "Access", "Level cap"],
@@ -4010,8 +4413,15 @@ function buildRoadmapEntries(releases) {
           release.access,
           release.levelCap,
         ]),
+      )}`
+          : `<div class="note-box"><strong>The story is complete</strong><span>Oraewyn shipped in 1.5.0 as Kaldreth's fourth and final expansion, and the Fracture story ends there. There will be no fifth expansion. The Complete Arc bundle grants all four expansions in one purchase to an account that owns none of them yet.</span></div>`
+      }
+      ${renderSimpleTable(
+        "Shipped releases",
+        ["Version", "Release", "Access", "Level cap"],
+        shipped,
       )}
-      <div class="note-box"><strong>How the order works</strong><span>Frostmere shipped in 1.1.0 as a free base game update, Expansion 1: Whisperwood shipped in 1.2.0, Expansion 2: Tideward shipped in 1.3.0, and Expansion 3: Drakenhollow shipped in 1.4.0. None of the four are on this page any more - Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the released game, and Whisperwood, Tideward, and Drakenhollow each have their own Expansion section alongside those. The remaining expansion releases after Drakenhollow and requires it.</span></div>
+      <div class="note-box"><strong>Where they live now</strong><span>Frostmere lives in Quests, Monsters, Dungeons, and Patch Notes with the rest of the base game. Whisperwood, Tideward, Drakenhollow, and Oraewyn each have their own Expansion section alongside those. Each expansion requires the one before it.</span></div>
     `,
   };
 
@@ -4549,6 +4959,8 @@ function buildMechanicEntries(
   adventurerFile,
   buildInfoFile,
   itemFile,
+  cullingFile,
+  titles,
 ) {
   const mechanics = [];
   itemFile = itemFile || {};
@@ -4706,6 +5118,22 @@ function buildMechanicEntries(
   });
 
   const cullingUnlock = Number(monsterFile.CULLING_UNLOCK_ATTACK_LEVEL || 10);
+  cullingFile = cullingFile || {};
+  const cullTitleNames = Object.fromEntries(
+    (titles || []).map((title) => [title.id, title.name]),
+  );
+  const cullLadderRows = (cullingFile.KILL_MILESTONES || []).map((rung) => [
+    formatNumber(rung.kills || 0),
+    `${formatNumber(rung.gold || 0)} gp`,
+    cullTitleNames[rung.title_id] || titleizeId(rung.title_id || ""),
+  ]);
+  const diversityPct = Number(cullingFile.DIVERSITY_PCT_PER_REGION || 0.03);
+  const diversityCap = Number(cullingFile.DIVERSITY_REGION_CAP || 8);
+  const checkpointMinutes = Number(cullingFile.CHECKPOINT_INTERVAL_SECONDS || 900) / 60;
+  const checkpointKills = Number(cullingFile.CHECKPOINT_KILL_EQUIV || 3);
+  const eliteChance = Number(cullingFile.ELITE_CHANCE || 0.03);
+  const eliteStat = Number(cullingFile.ELITE_STAT_MULT || 1.75);
+  const eliteGold = Number(cullingFile.ELITE_GOLD_MULT || 2);
   mechanics.push({
     kind: "Mechanic",
     section: "mechanics",
@@ -4715,7 +5143,7 @@ function buildMechanicEntries(
     subtitle: "AFK combat against a player-chosen monster pool",
     badges: ["combat", "afk", "base game"],
     searchText:
-      "the culling afk combat quarry hunt monster pool attack 10 continuous kills contracts bestiary",
+      "the culling afk combat quarry hunt monster pool attack 10 continuous kills contracts bestiary kill ladder listkeeper elite diversity hunt marks risk dial prefer stronger weaker food",
     sortKey: "mechanics the culling",
     spoiler: false,
     metrics: [
@@ -4727,7 +5155,16 @@ function buildMechanicEntries(
         `Unlocks at Attack ${formatNumber(cullingUnlock)}. The Culling is a base-game AFK combat mode: pick a pool of monsters the character can already fight in overworld combat, then the mode runs continuous kills against that pool using the same engine as a normal fight.`,
         "Every kill counts toward contracts, achievement counters, and Bestiary discovery on equal terms with any overworld kill. The pool is stored per character and can be changed between sessions.",
         "The candidate list is restricted to content the character already owns, so expansion monsters stay behind their own purchase. The mode itself is free and is not gated on Drakenhollow.",
+        "At least one food is required to start a run. Stacks under 100 show a low stock warning that does not block starting.",
       ])}
+      ${renderDetailBlock("Run bonuses", [
+        `Diversity: +${formatPercent(diversityPct)} XP and gold for each parent region in the quarry pool, up to ${formatNumber(diversityCap)} regions.`,
+        `Hunt marks: every ${formatNumber(checkpointMinutes)} minutes of hunt time pays gold equal to ${formatNumber(checkpointKills)} average kills from the current pool.`,
+        `Elites: ${formatPercent(eliteChance)} of quarries are elites, the same monster with ${formatDecimal(eliteStat)}x HP and attack, ${formatDecimal(eliteGold)}x gold, and an extra drop roll.`,
+        "Risk dial: Even makes each marked quarry equally likely. Prefer stronger leans toward the highest Attack-level marks; Prefer weaker leans toward the lowest.",
+      ])}
+      ${renderSimpleTable("Kill ladder", ["Culling kills", "Gold", "Title"], cullLadderRows)}
+      ${cullLadderRows.length ? `<p class="helper">Only kills made inside The Culling count, from 1.4.1 onward. Earlier Culling kills were not backfilled. Standard and Hardcore post to one Culling Kills leaderboard.</p>` : ""}
     `,
   });
 

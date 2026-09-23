@@ -29,6 +29,8 @@ SOURCE_FILES = [
     "client/data/SkillTreeData.gd",
     "client/data/MonsterData.gd",
     "client/data/ShadowTargetData.gd",
+    "client/data/CullingData.gd",
+    "client/data/AstromancyData.gd",
     "client/autoload/GameState.gd",
 ]
 
@@ -243,7 +245,36 @@ def parse_consts(text: str) -> Dict[str, Any]:
                 line_end = len(text)
             expr = text[start:line_end].strip()
         consts[name] = parse_literal(expr)
+    _resolve_same_file_string_consts(consts)
     return consts
+
+
+def _resolve_same_file_string_consts(consts: Dict[str, Any]) -> None:
+    """Retry array/dict consts that name another string const of the same file.
+
+    ``const WINDOWS = [{"id": WINDOW_DAWN, ...}]`` fails ``literal_eval`` on the
+    bare identifier. Substitute each same-file ``String`` const by its value and
+    keep the result only if it now parses.
+    """
+    names = {
+        key: value
+        for key, value in consts.items()
+        if isinstance(value, str) and re.fullmatch(r"[A-Z][A-Z0-9_]*", key)
+    }
+    for key, value in list(consts.items()):
+        if not isinstance(value, str) or value[:1] not in "[{":
+            continue
+        resolved = re.sub(
+            r"(?<![\w\"'])([A-Z][A-Z0-9_]*)(?![\w\"'])",
+            lambda m: repr(names[m.group(1)]) if m.group(1) in names else m.group(1),
+            value,
+        )
+        if resolved == value:
+            continue
+        try:
+            consts[key] = ast.literal_eval(resolved)
+        except Exception:
+            pass
 
 
 def parse_special_blocks(text: str, block_names: Iterable[str]) -> Dict[str, Any]:
