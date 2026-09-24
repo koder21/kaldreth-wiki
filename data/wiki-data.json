@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T15:32:22.775913+00:00",
+  "generated_at": "2026-09-24T13:44:38.622638+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -67,7 +67,7 @@
         "ECHOMIND_AUTO_PRESET_KILLS": 10,
         "ECHOMIND_CADENCE_RESPAWN_TICKS": 1,
         "ECHOMIND_DEFAULT_RESPAWN_TICKS": 2,
-        "ECHOMIND_MATCH_DAMAGE": 0.1,
+        "ECHOMIND_MATCH_DAMAGE": 0.2,
         "ECHOMIND_MATCH_TAKEN": 0.1,
         "ECHOMIND_READ_HIT": 0.03,
         "ECHOMIND_RESONANT_BULLET_SAVE": 0.12,
@@ -115,7 +115,7 @@
             "name": "Phase Echo"
           },
           {
-            "desc": "Best preset can be toggled on. A weak enemy takes more damage and deals less while you wear it. A blocked dungeon phase still swaps you off that style.",
+            "desc": "Best preset can be toggled on. Each fight swaps to the preset for the enemy's weakness, or your best backup. On the weak style you deal 20% more on top and take 10% less. A blocked dungeon phase still swaps you off that style.",
             "id": "full_auto",
             "level": 99,
             "name": "Full Automation"
@@ -127,7 +127,6 @@
             "name": "Resonant Echo"
           }
         ],
-        "ECHOMIND_SUSCEPT_MARGIN": 0.15,
         "ECHOMIND_TELL_DODGE": 0.08,
         "ECHOMIND_XP_TIERS": {
           "boss": {
@@ -650,6 +649,11 @@
         "ITEMLESS_EQUIP_SLOT_IDS": [
           "companion"
         ],
+        "JOURNAL_EXCLUDED_SKILLS": [
+          "lorekeeper"
+        ],
+        "JOURNAL_ITEM_ID": "pathfinders_journal",
+        "JOURNAL_LEVEL_FRACTION": 0.02,
         "LOREKEEPER_ARTIFACTS": {
           "30": "watchers_lens",
           "50": "conclave_archive_fragment",
@@ -869,6 +873,8 @@
         "MAX_XP_DELTA_PER_WATCHDOG": 4000000,
         "MEDITATION_COOLDOWN_SECONDS": 60,
         "MEDITATION_MIN_COOLDOWN_SECONDS": 5,
+        "MELEE_ATK_ACCURACY_WEIGHT": 1.6,
+        "MELEE_STR_MAXHIT_COEF": 0.57,
         "MINING_AFFINITY_PROSPECT_CHANCE_MAX": 0.2,
         "MINING_AFFINITY_PROSPECT_CHANCE_PER_LEVEL": 0.004,
         "MIN_INVENTORY_CAPACITY": 50,
@@ -906,6 +912,7 @@
             "summary": "One killing blow leaves you at 1 HP and ends the fight. Arm it from the Inventory."
           }
         ],
+        "RANGED_GEAR_ACCURACY_WEIGHT": 1.6,
         "RANGED_STYLE_PROFILES": {
           "aimed": {
             "accuracy": 0.08,
@@ -947,6 +954,9 @@
         "SHADOW_STEAL_MIN_COOLDOWN_SECONDS": 0.9,
         "SMITHING_AFFINITY_EFFICIENCY_MAX": 0.15,
         "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL": 0.003,
+        "SPELL_DOT_TICK_SCALE": 0.22,
+        "SPELL_MAG_MAXHIT_COEF": 0.32,
+        "SPELL_MIN_HIT_DIVISOR": 5.0,
         "SPIRITBOND_FORAGE_BASE_SECONDS": 1800,
         "SPIRITBOND_FORAGE_REP": 10,
         "SPIRITBOND_FORAGE_XP_FLAT": 2254,
@@ -1031,6 +1041,7 @@
         "UNWRITTEN_MONSTER_ID": "the_unwritten",
         "USABLE_CONSUMABLES": {
           "index_echo": "Arm",
+          "pathfinders_journal": "Read",
           "scar_ward_draught": "Drink"
         },
         "WATCHDOG_INTERVAL_SECONDS": 2.5,
@@ -1275,6 +1286,9 @@
         ],
         "WAYFARING_XP_FLAT": 4000,
         "WAYFARING_XP_PER_LEVEL": 190,
+        "WEAKNESS_DAMAGE_MULT": 1.3,
+        "WEAKNESS_DEF_MARGIN": 0.15,
+        "WEAKNESS_SIBLING_MULT": 1.1,
         "WEALTH_GOLD_TARGETS": {
           "coin_collector": 10000,
           "fortunes_hand": 1000000,
@@ -1344,7 +1358,8 @@
             "magic_lv": 12,
             "melee_defence": 8,
             "name": "Alley Thug",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "melee"
           },
           "ancient_drowned_guard": {
             "atk_lv": 117,
@@ -1376,7 +1391,8 @@
             "magic_lv": 117,
             "melee_defence": 70,
             "name": "Ancient Drowned Guard",
-            "region": "The Drowned Ruins"
+            "region": "The Drowned Ruins",
+            "weakness": "ranged"
           },
           "ancient_sentinel_construct": {
             "atk_lv": 83,
@@ -1406,7 +1422,8 @@
             "magic_lv": 78,
             "melee_defence": 50,
             "name": "Ancient Sentinel Construct",
-            "region": "The Root Warren"
+            "region": "The Root Warren",
+            "weakness": "magic"
           },
           "architect_engineer_prime": {
             "atk_lv": 130,
@@ -1438,7 +1455,8 @@
             "melee_defence": 150,
             "name": "Architect Engineer Prime",
             "region": "Forge Caverns",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "ashborne_challenger": {
             "atk_lv": 124,
@@ -1470,7 +1488,8 @@
             "magic_lv": 124,
             "melee_defence": 115,
             "name": "Ashborne Challenger",
-            "region": "Ashfall Descent"
+            "region": "Ashfall Descent",
+            "weakness": "melee"
           },
           "ashborne_forge_guard": {
             "atk_lv": 128,
@@ -1502,7 +1521,8 @@
             "magic_lv": 128,
             "melee_defence": 125,
             "name": "Ashborne Forge-Guard",
-            "region": "Drakenhollow Proper"
+            "region": "Drakenhollow Proper",
+            "weakness": "melee"
           },
           "ashen_monk": {
             "atk_lv": 40,
@@ -1538,7 +1558,8 @@
             "melee_defence": 13,
             "name": "Ashen Monk",
             "region": "The Ashen Vault",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "melee"
           },
           "ashfall_crawler": {
             "atk_lv": 121,
@@ -1563,7 +1584,8 @@
             "magic_lv": 121,
             "melee_defence": 95,
             "name": "Ashfall Crawler",
-            "region": "Ashfall Descent"
+            "region": "Ashfall Descent",
+            "weakness": "ranged"
           },
           "ashfall_sentinel": {
             "atk_lv": 123,
@@ -1589,7 +1611,8 @@
             "melee_defence": 130,
             "name": "Ashfall Sentinel",
             "region": "Ashfall Descent",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "ashford_duelist": {
             "atk_lv": 33,
@@ -1624,7 +1647,8 @@
             "magic_lv": 20,
             "melee_defence": 9,
             "name": "Ashford Duelist",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "ranged"
           },
           "avalanche_brute": {
             "atk_lv": 28,
@@ -1659,7 +1683,8 @@
             "magic_lv": 17,
             "melee_defence": 16,
             "name": "Avalanche Brute",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "magic"
           },
           "bog_leech": {
             "atk_lv": 15,
@@ -1688,7 +1713,8 @@
             "magic_lv": 9,
             "melee_defence": 6,
             "name": "Bog Leech",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "ranged"
           },
           "briar_mystic": {
             "atk_lv": 30,
@@ -1724,7 +1750,8 @@
             "melee_defence": 8,
             "name": "Briar Mystic",
             "region": "Mire Road",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "cairn_crawler": {
             "atk_lv": 7,
@@ -1753,7 +1780,8 @@
             "magic_lv": 4,
             "melee_defence": 9,
             "name": "Cairn Crawler",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "magic"
           },
           "canal_mudskipper": {
             "atk_lv": 4,
@@ -1788,7 +1816,8 @@
             "magic_lv": 2,
             "melee_defence": 3,
             "name": "Canal Mudskipper",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "ranged"
           },
           "canopy_sentinel": {
             "atk_lv": 79,
@@ -1818,7 +1847,8 @@
             "magic_lv": 73,
             "melee_defence": 34,
             "name": "Canopy Sentinel",
-            "region": "The Canopy"
+            "region": "The Canopy",
+            "weakness": "magic"
           },
           "canopy_stalker": {
             "atk_lv": 74,
@@ -1848,7 +1878,8 @@
             "magic_lv": 70,
             "melee_defence": 28,
             "name": "Canopy Stalker",
-            "region": "The Canopy"
+            "region": "The Canopy",
+            "weakness": "ranged"
           },
           "cave_bat": {
             "atk_lv": 5,
@@ -1889,7 +1920,8 @@
             "magic_lv": 3,
             "melee_defence": 1,
             "name": "Cave Bat",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "ranged"
           },
           "celestial_sentinel": {
             "atk_lv": 148,
@@ -1917,12 +1949,13 @@
             "hp": 600,
             "hp_lv": 148,
             "lore": "Posted at the last door. The Architects weighted what they wanted protected, and this is what they left standing there.",
-            "magic_defence": 148,
+            "magic_defence": 128,
             "magic_lv": 148,
             "melee_defence": 205,
             "name": "Celestial Sentinel",
             "region": "The Threshold",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "cinder_drake": {
             "atk_lv": 120,
@@ -1948,7 +1981,8 @@
             "melee_defence": 30,
             "name": "Cinder Drake",
             "region": "Ashfall Descent",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "ranged"
           },
           "cinder_smelter": {
             "atk_lv": 45,
@@ -1984,7 +2018,8 @@
             "melee_defence": 18,
             "name": "Cinder Smelter",
             "region": "The Ashen Vault",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "melee"
           },
           "cinderling_swarm": {
             "atk_lv": 41,
@@ -2013,7 +2048,8 @@
             "magic_lv": 25,
             "melee_defence": 10,
             "name": "Cinderling Swarm",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "ranged"
           },
           "collapsed_titan": {
             "atk_lv": 64,
@@ -2042,7 +2078,8 @@
             "magic_lv": 22,
             "melee_defence": 38,
             "name": "Collapsed Titan",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "magic"
           },
           "conclave_construct_mk_ii": {
             "atk_lv": 138,
@@ -2063,12 +2100,13 @@
             "hp": 420,
             "hp_lv": 138,
             "lore": "Original Architect watch-work, still running. The Conclave never stood them down because they never needed to.",
-            "magic_defence": 122,
+            "magic_defence": 105,
             "magic_lv": 138,
             "melee_defence": 170,
             "name": "Conclave Construct Mk II",
             "region": "Oraewyn Lowlands",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "conclave_dreadnought": {
             "atk_lv": 146,
@@ -2096,12 +2134,13 @@
             "hp": 560,
             "hp_lv": 146,
             "lore": "Massive Architect load-work, walked rarely. It does not rush; it has the mass to not need to.",
-            "magic_defence": 142,
+            "magic_defence": 122,
             "magic_lv": 146,
             "melee_defence": 198,
             "name": "Conclave Dreadnought",
             "region": "Watcher's Spire",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "conclave_guardian": {
             "atk_lv": 142,
@@ -2122,12 +2161,13 @@
             "hp": 460,
             "hp_lv": 142,
             "lore": "Posted watch in the Spire halls. Contact or Veil, the casing is the same, because the assignment predates the argument.",
-            "magic_defence": 128,
+            "magic_defence": 110,
             "magic_lv": 142,
             "melee_defence": 178,
             "name": "Conclave Guardian",
             "region": "Watcher's Spire",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "corrupted_colossus": {
             "atk_lv": 42,
@@ -2162,7 +2202,8 @@
             "magic_lv": 30,
             "melee_defence": 28,
             "name": "Corrupted Colossus",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "magic"
           },
           "corrupted_treeborn": {
             "atk_lv": 75,
@@ -2192,7 +2233,8 @@
             "magic_lv": 70,
             "melee_defence": 28,
             "name": "Corrupted Treeborn",
-            "region": "The Canopy"
+            "region": "The Canopy",
+            "weakness": "melee"
           },
           "crag_drake": {
             "atk_lv": 35,
@@ -2221,7 +2263,8 @@
             "magic_lv": 28,
             "melee_defence": 18,
             "name": "Crag Drake",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "ranged"
           },
           "crypt_skeleton": {
             "atk_lv": 24,
@@ -2250,7 +2293,8 @@
             "magic_lv": 16,
             "melee_defence": 9,
             "name": "Crypt Skeleton",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "magic"
           },
           "deep_construct": {
             "atk_lv": 114,
@@ -2283,12 +2327,13 @@
             "hp": 700,
             "hp_lv": 114,
             "lore": "A Keeper-grade machine that never made it back to the outpost. The casing is almost intact. Magic finds the joints the salt has not sealed.",
-            "magic_defence": 56,
+            "magic_defence": 50,
             "magic_lv": 114,
             "melee_defence": 75,
             "name": "Deep Construct",
             "region": "The Drowned Ruins",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "deep_ember": {
             "atk_lv": 127,
@@ -2314,7 +2359,8 @@
             "melee_defence": 32,
             "name": "Deep Ember",
             "region": "Drakenhollow Proper",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "deep_root_golem": {
             "atk_lv": 72,
@@ -2338,7 +2384,8 @@
             "magic_lv": 75,
             "melee_defence": 62,
             "name": "Deep Root Golem",
-            "region": "The Root Warren"
+            "region": "The Root Warren",
+            "weakness": "magic"
           },
           "dire_wolf": {
             "atk_lv": 17,
@@ -2367,7 +2414,8 @@
             "magic_lv": 10,
             "melee_defence": 8,
             "name": "Dire Wolf",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "ranged"
           },
           "dockyard_enforcer": {
             "atk_lv": 23,
@@ -2402,13 +2450,14 @@
             "magic_lv": 12,
             "melee_defence": 12,
             "name": "Dockyard Enforcer",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "magic"
           },
           "drowned_accord_zealot": {
             "atk_lv": 106,
             "attack": 720,
             "def_lv": 106,
-            "defence": 26,
+            "defence": 32,
             "drops": [
               {
                 "chance": 0.1,
@@ -2423,12 +2472,13 @@
             "hp": 265,
             "hp_lv": 106,
             "lore": "A leftover of the Accord's coastal cell, still running rites no one sanctioned. They hit fast and they hit with spirit, because that is all they kept when the cell went under.",
-            "magic_defence": 26,
+            "magic_defence": 32,
             "magic_lv": 106,
-            "melee_defence": 26,
+            "melee_defence": 32,
             "name": "Drowned Accord Zealot",
             "region": "Tideward Harbor",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "drowned_sentinel": {
             "atk_lv": 115,
@@ -2461,12 +2511,13 @@
             "hp": 540,
             "hp_lv": 115,
             "lore": "Still walking its original circuit through the flooded halls. Balanced because that is how it was specified: enough armour, enough force, no specialty, no rest.",
-            "magic_defence": 58,
+            "magic_defence": 48,
             "magic_lv": 115,
             "melee_defence": 58,
             "name": "Drowned Sentinel",
             "region": "The Drowned Ruins",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "echo_of_the_patrol": {
             "atk_lv": 31,
@@ -2496,7 +2547,8 @@
             "melee_defence": 7,
             "name": "Echo of the Patrol",
             "region": "Shrouded Peaks",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "eclipse_horror": {
             "atk_lv": 57,
@@ -2531,7 +2583,8 @@
             "magic_lv": 48,
             "melee_defence": 18,
             "name": "Eclipse Horror",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "melee"
           },
           "emberbound_hound": {
             "atk_lv": 39,
@@ -2566,7 +2619,8 @@
             "magic_lv": 23,
             "melee_defence": 14,
             "name": "Emberbound Hound",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "ranged"
           },
           "entropy_wisp": {
             "atk_lv": 63,
@@ -2602,7 +2656,8 @@
             "melee_defence": 8,
             "name": "Entropy Wisp",
             "region": "Void's Edge",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "ranged"
           },
           "fallen_lantern_knight": {
             "atk_lv": 23,
@@ -2631,7 +2686,8 @@
             "magic_lv": 10,
             "melee_defence": 13,
             "name": "Fallen Lantern Knight",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "magic"
           },
           "fen_stalker": {
             "atk_lv": 24,
@@ -2666,7 +2722,8 @@
             "magic_lv": 14,
             "melee_defence": 9,
             "name": "Fen Stalker",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "ranged"
           },
           "feral_spirit_hound": {
             "atk_lv": 74,
@@ -2690,7 +2747,8 @@
             "magic_lv": 66,
             "melee_defence": 14,
             "name": "Feral Spirit Hound",
-            "region": "Whisperwood"
+            "region": "Whisperwood",
+            "weakness": "ranged"
           },
           "forge_golem": {
             "atk_lv": 129,
@@ -2716,13 +2774,14 @@
             "melee_defence": 155,
             "name": "Forge Golem",
             "region": "Forge Caverns",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "fracture_echo": {
             "atk_lv": 150,
             "attack": 1480,
             "def_lv": 150,
-            "defence": 40,
+            "defence": 90,
             "drops": [
               {
                 "chance": 0.1,
@@ -2737,12 +2796,13 @@
             "hp": 480,
             "hp_lv": 150,
             "lore": "The Threshold copies people you have already met and sends the copy walking. The face is familiar, and that is not a kindness.",
-            "magic_defence": 40,
+            "magic_defence": 90,
             "magic_lv": 150,
-            "melee_defence": 40,
+            "melee_defence": 90,
             "name": "Fracture Echo",
             "region": "The Threshold",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "fracture_weather_elemental": {
             "atk_lv": 80,
@@ -2779,7 +2839,8 @@
             "name": "Fracture-Weather Elemental",
             "quest_required": "q63_cartography_of_damage",
             "region": "Frostmere",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "frost_basilisk": {
             "atk_lv": 32,
@@ -2814,7 +2875,8 @@
             "magic_lv": 20,
             "melee_defence": 16,
             "name": "Frost Basilisk",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "ranged"
           },
           "frost_wolf": {
             "atk_lv": 14,
@@ -2849,7 +2911,8 @@
             "magic_lv": 8,
             "melee_defence": 7,
             "name": "Frost Wolf",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "ranged"
           },
           "frostglass_golem": {
             "atk_lv": 74,
@@ -2891,7 +2954,8 @@
             "melee_defence": 50,
             "name": "Frostglass Golem",
             "quest_required": "q61_long_way_north",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "magic"
           },
           "frostmere_pack_alpha": {
             "atk_lv": 62,
@@ -2927,7 +2991,8 @@
             "melee_defence": 18,
             "name": "Frostmere Pack Alpha",
             "quest_required": "q61_long_way_north",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "ranged"
           },
           "grave_hexer": {
             "atk_lv": 30,
@@ -2963,7 +3028,8 @@
             "melee_defence": 7,
             "name": "Grave Hexer",
             "region": "Ashford",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "greyfen_revenant": {
             "atk_lv": 76,
@@ -3000,7 +3066,8 @@
             "name": "Greyfen Revenant",
             "quest_required": "q61_long_way_north",
             "region": "Frostmere",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "greyspine_boar": {
             "atk_lv": 16,
@@ -3029,7 +3096,8 @@
             "magic_lv": 10,
             "melee_defence": 9,
             "name": "Greyspine Boar",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "magic"
           },
           "harbor_cutthroat": {
             "atk_lv": 103,
@@ -3054,7 +3122,8 @@
             "magic_lv": 103,
             "melee_defence": 22,
             "name": "Harbor Cutthroat",
-            "region": "Tideward Harbor"
+            "region": "Tideward Harbor",
+            "weakness": "ranged"
           },
           "highwayman": {
             "atk_lv": 13,
@@ -3083,7 +3152,8 @@
             "magic_lv": 9,
             "melee_defence": 7,
             "name": "Highwayman",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "melee"
           },
           "hollowbark_shambler": {
             "atk_lv": 65,
@@ -3107,7 +3177,8 @@
             "magic_lv": 66,
             "melee_defence": 52,
             "name": "Hollowbark Shambler",
-            "region": "Whisperwood"
+            "region": "Whisperwood",
+            "weakness": "magic"
           },
           "hollowvein_sprite": {
             "atk_lv": 19,
@@ -3137,7 +3208,8 @@
             "melee_defence": 4,
             "name": "Hollowvein Sprite",
             "region": "Caelmora",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "index_sentinel": {
             "atk_lv": 84,
@@ -3185,7 +3257,8 @@
             "melee_defence": 30,
             "name": "Index Sentinel",
             "quest_required": "q65_into_the_scar",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "magic"
           },
           "iron_sentinel": {
             "atk_lv": 26,
@@ -3220,7 +3293,8 @@
             "magic_lv": 16,
             "melee_defence": 24,
             "name": "Iron Sentinel",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "magic"
           },
           "ironbark_treant": {
             "atk_lv": 68,
@@ -3256,7 +3330,8 @@
             "melee_defence": 30,
             "name": "Ironbark Treant",
             "quest_required": "q61_long_way_north",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "magic"
           },
           "marsh_troll": {
             "atk_lv": 25,
@@ -3285,7 +3360,8 @@
             "magic_lv": 12,
             "melee_defence": 14,
             "name": "Marsh Troll",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "magic"
           },
           "mire_hag": {
             "atk_lv": 33,
@@ -3315,7 +3391,8 @@
             "melee_defence": 6,
             "name": "Mire Hag",
             "region": "Mire Road",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "mistveil_stalker": {
             "atk_lv": 27,
@@ -3350,7 +3427,8 @@
             "magic_lv": 16,
             "melee_defence": 11,
             "name": "Mistveil Stalker",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "ranged"
           },
           "molten_construct": {
             "atk_lv": 126,
@@ -3382,7 +3460,8 @@
             "melee_defence": 140,
             "name": "Molten Construct",
             "region": "Drakenhollow Proper",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "mountain_rat": {
             "atk_lv": 1,
@@ -3411,7 +3490,8 @@
             "magic_lv": 1,
             "melee_defence": 1,
             "name": "Mountain Rat",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "ranged"
           },
           "null_phantom": {
             "atk_lv": 59,
@@ -3447,7 +3527,8 @@
             "melee_defence": 6,
             "name": "Null Phantom",
             "region": "Void's Edge",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "oraewyn_wind_sprite": {
             "atk_lv": 135,
@@ -3473,7 +3554,8 @@
             "melee_defence": 36,
             "name": "Oraewyn Wind Sprite",
             "region": "Sky Ascent",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "ranged"
           },
           "origin_sentinel": {
             "atk_lv": 134,
@@ -3506,7 +3588,8 @@
             "melee_defence": 165,
             "name": "Origin Sentinel",
             "region": "Origin Chamber",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "pale_lantern_acolyte": {
             "atk_lv": 12,
@@ -3536,7 +3619,8 @@
             "melee_defence": 4,
             "name": "Pale Lantern Acolyte",
             "region": "Caelmora",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "pale_root_crawler": {
             "atk_lv": 66,
@@ -3561,7 +3645,8 @@
             "melee_defence": 22,
             "name": "Pale Root Crawler",
             "quest_required": "w01_strange_growth",
-            "region": "Whisperwood"
+            "region": "Whisperwood",
+            "weakness": "ranged"
           },
           "peak_harrier": {
             "atk_lv": 29,
@@ -3596,7 +3681,8 @@
             "magic_lv": 22,
             "melee_defence": 11,
             "name": "Peak Harrier",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "melee"
           },
           "permafrost_wight": {
             "atk_lv": 65,
@@ -3633,7 +3719,8 @@
             "name": "Permafrost Wight",
             "quest_required": "q61_long_way_north",
             "region": "Frostmere",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "plateau_goblin": {
             "atk_lv": 10,
@@ -3674,7 +3761,8 @@
             "magic_lv": 5,
             "melee_defence": 3,
             "name": "Plateau Goblin",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "melee"
           },
           "plateau_sparrowhawk": {
             "atk_lv": 3,
@@ -3703,7 +3791,8 @@
             "magic_lv": 2,
             "melee_defence": 2,
             "name": "Plateau Sparrowhawk",
-            "region": "Caelmora"
+            "region": "Caelmora",
+            "weakness": "ranged"
           },
           "poacher_captain": {
             "atk_lv": 78,
@@ -3739,7 +3828,8 @@
             "magic_lv": 72,
             "melee_defence": 34,
             "name": "Poacher Captain",
-            "region": "The Canopy"
+            "region": "The Canopy",
+            "weakness": "melee"
           },
           "poacher_scout": {
             "atk_lv": 71,
@@ -3763,7 +3853,8 @@
             "magic_lv": 66,
             "melee_defence": 28,
             "name": "Poacher Scout",
-            "region": "Whisperwood"
+            "region": "Whisperwood",
+            "weakness": "ranged"
           },
           "poacher_trapper": {
             "atk_lv": 72,
@@ -3799,7 +3890,8 @@
             "magic_lv": 68,
             "melee_defence": 28,
             "name": "Poacher Trapper",
-            "region": "Whisperwood"
+            "region": "Whisperwood",
+            "weakness": "melee"
           },
           "resonant_echo": {
             "atk_lv": 36,
@@ -3829,7 +3921,8 @@
             "melee_defence": 3,
             "name": "Resonant Echo",
             "region": "Ashford",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "ridge_banshee": {
             "atk_lv": 30,
@@ -3865,7 +3958,8 @@
             "melee_defence": 5,
             "name": "Ridge Banshee",
             "region": "Shrouded Peaks",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "rift_devourer": {
             "atk_lv": 66,
@@ -3900,7 +3994,8 @@
             "magic_lv": 54,
             "melee_defence": 29,
             "name": "Rift Devourer",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "ranged"
           },
           "riftspawn_howler": {
             "atk_lv": 61,
@@ -3929,7 +4024,8 @@
             "magic_lv": 37,
             "melee_defence": 20,
             "name": "Riftspawn Howler",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "ranged"
           },
           "rootbound_revenant": {
             "atk_lv": 79,
@@ -3959,13 +4055,14 @@
             "magic_lv": 74,
             "melee_defence": 28,
             "name": "Rootbound Revenant",
-            "region": "The Root Warren"
+            "region": "The Root Warren",
+            "weakness": "ranged"
           },
           "ruin_wraith": {
             "atk_lv": 119,
             "attack": 1059,
             "def_lv": 119,
-            "defence": 24,
+            "defence": 34,
             "drops": [
               {
                 "chance": 0.07,
@@ -3986,12 +4083,13 @@
             "hp": 390,
             "hp_lv": 119,
             "lore": "Spirit residue from the navigation chamber, expelled when the Keeper's casing first cracked. Almost no body left to armour. What remains is the record of every strike the chamber ever took, and it spends that record all at once.",
-            "magic_defence": 24,
+            "magic_defence": 34,
             "magic_lv": 119,
-            "melee_defence": 24,
+            "melee_defence": 34,
             "name": "Ruin Wraith",
             "region": "The Drowned Ruins",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "salt_golem": {
             "atk_lv": 113,
@@ -4018,17 +4116,18 @@
             "hp": 620,
             "hp_lv": 113,
             "lore": "Compressed brine and wreck-matter, packed until it holds a shape. You are not cutting through it. You are waiting for the packing to fail.",
-            "magic_defence": 85,
+            "magic_defence": 68,
             "magic_lv": 113,
             "melee_defence": 85,
             "name": "Salt Golem",
-            "region": "The Drowned Ruins"
+            "region": "The Drowned Ruins",
+            "weakness": "magic"
           },
           "salt_leech": {
             "atk_lv": 109,
             "attack": 860,
             "def_lv": 109,
-            "defence": 18,
+            "defence": 28,
             "drops": [
               {
                 "chance": 0.14,
@@ -4043,11 +4142,12 @@
             "hp": 210,
             "hp_lv": 109,
             "lore": "It has almost no hide because it does not stay long enough to need one. It attaches, it takes, and if you do not kill it in the first few beats it will take more than you can spare.",
-            "magic_defence": 18,
+            "magic_defence": 28,
             "magic_lv": 109,
-            "melee_defence": 18,
+            "melee_defence": 28,
             "name": "Salt Leech",
-            "region": "The Open Shallows"
+            "region": "The Open Shallows",
+            "weakness": "melee"
           },
           "scar_touched_stalker": {
             "atk_lv": 70,
@@ -4083,7 +4183,8 @@
             "melee_defence": 16,
             "name": "Scar-Touched Stalker",
             "quest_required": "q61_long_way_north",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "ranged"
           },
           "scarborn_horror": {
             "atk_lv": 88,
@@ -4119,7 +4220,8 @@
             "melee_defence": 26,
             "name": "Scarborn Horror",
             "quest_required": "q65_into_the_scar",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "ranged"
           },
           "scorch_pact_raker": {
             "atk_lv": 125,
@@ -4144,7 +4246,8 @@
             "magic_lv": 125,
             "melee_defence": 98,
             "name": "Scorch Pact Raker",
-            "region": "Drakenhollow Proper"
+            "region": "Drakenhollow Proper",
+            "weakness": "ranged"
           },
           "scorch_pact_scout": {
             "atk_lv": 122,
@@ -4169,7 +4272,8 @@
             "magic_lv": 122,
             "melee_defence": 100,
             "name": "Scorch Pact Scout",
-            "region": "Ashfall Descent"
+            "region": "Ashfall Descent",
+            "weakness": "ranged"
           },
           "scorch_pact_shaman": {
             "atk_lv": 131,
@@ -4195,7 +4299,8 @@
             "melee_defence": 34,
             "name": "Scorch Pact Shaman",
             "region": "Forge Caverns",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "sealed_construct": {
             "atk_lv": 52,
@@ -4230,7 +4335,8 @@
             "magic_lv": 29,
             "melee_defence": 26,
             "name": "Sealed Construct",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "magic"
           },
           "sewer_rat": {
             "atk_lv": 1,
@@ -4259,7 +4365,8 @@
             "magic_lv": 1,
             "melee_defence": 2,
             "name": "Sewer Rat",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "ranged"
           },
           "shale_golem": {
             "atk_lv": 24,
@@ -4294,7 +4401,8 @@
             "magic_lv": 12,
             "melee_defence": 20,
             "name": "Shale Golem",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "magic"
           },
           "shallows_crawler": {
             "atk_lv": 108,
@@ -4325,7 +4433,8 @@
             "magic_lv": 108,
             "melee_defence": 30,
             "name": "Shallows Crawler",
-            "region": "The Open Shallows"
+            "region": "The Open Shallows",
+            "weakness": "magic"
           },
           "shallows_leviathan": {
             "atk_lv": 112,
@@ -4363,7 +4472,8 @@
             "magic_lv": 112,
             "melee_defence": 44,
             "name": "Shallows Leviathan",
-            "region": "The Open Shallows"
+            "region": "The Open Shallows",
+            "weakness": "ranged"
           },
           "shattered_knight": {
             "atk_lv": 60,
@@ -4398,7 +4508,8 @@
             "magic_lv": 30,
             "melee_defence": 34,
             "name": "Shattered Knight",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "magic"
           },
           "shoal_stalker": {
             "atk_lv": 111,
@@ -4430,7 +4541,8 @@
             "magic_lv": 111,
             "melee_defence": 40,
             "name": "Shoal Stalker",
-            "region": "The Open Shallows"
+            "region": "The Open Shallows",
+            "weakness": "ranged"
           },
           "sky_predator": {
             "atk_lv": 139,
@@ -4462,7 +4574,8 @@
             "magic_lv": 139,
             "melee_defence": 130,
             "name": "Sky Predator",
-            "region": "Oraewyn Lowlands"
+            "region": "Oraewyn Lowlands",
+            "weakness": "ranged"
           },
           "sky_stalker": {
             "atk_lv": 136,
@@ -4487,7 +4600,8 @@
             "magic_lv": 136,
             "melee_defence": 110,
             "name": "Sky Stalker",
-            "region": "Sky Ascent"
+            "region": "Sky Ascent",
+            "weakness": "ranged"
           },
           "slag_beast": {
             "atk_lv": 133,
@@ -4519,7 +4633,8 @@
             "magic_lv": 133,
             "melee_defence": 120,
             "name": "Slag Beast",
-            "region": "Forge Caverns"
+            "region": "Forge Caverns",
+            "weakness": "ranged"
           },
           "slagbound_automaton": {
             "atk_lv": 44,
@@ -4554,7 +4669,8 @@
             "magic_lv": 15,
             "melee_defence": 30,
             "name": "Slagbound Automaton",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "magic"
           },
           "smuggler_brawler": {
             "atk_lv": 107,
@@ -4592,7 +4708,8 @@
             "magic_lv": 107,
             "melee_defence": 32,
             "name": "Smuggler Brawler",
-            "region": "Tideward Harbor"
+            "region": "Tideward Harbor",
+            "weakness": "ranged"
           },
           "spire_gargoyle": {
             "atk_lv": 28,
@@ -4627,7 +4744,8 @@
             "magic_lv": 15,
             "melee_defence": 22,
             "name": "Spire Gargoyle",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "magic"
           },
           "spire_wraith": {
             "atk_lv": 38,
@@ -4651,7 +4769,8 @@
             "melee_defence": 4,
             "name": "Spire Wraith",
             "region": "Ashford",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "spirit_touched_boar": {
             "atk_lv": 22,
@@ -4680,13 +4799,14 @@
             "magic_lv": 13,
             "melee_defence": 11,
             "name": "Spirit-Touched Boar",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "magic"
           },
           "starfall_elemental": {
             "atk_lv": 140,
             "attack": 1375,
             "def_lv": 140,
-            "defence": 38,
+            "defence": 85,
             "drops": [
               {
                 "chance": 0.12,
@@ -4701,12 +4821,13 @@
             "hp": 380,
             "hp_lv": 140,
             "lore": "Formed from the starfall, not from weather. The Lowlands keep producing them because the signal has not stopped.",
-            "magic_defence": 38,
+            "magic_defence": 85,
             "magic_lv": 140,
-            "melee_defence": 38,
+            "melee_defence": 85,
             "name": "Starfall Elemental",
             "region": "Oraewyn Lowlands",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "summit_warden": {
             "atk_lv": 34,
@@ -4735,7 +4856,8 @@
             "magic_lv": 12,
             "melee_defence": 30,
             "name": "Summit Warden",
-            "region": "Shrouded Peaks"
+            "region": "Shrouded Peaks",
+            "weakness": "magic"
           },
           "sunken_knight": {
             "atk_lv": 27,
@@ -4770,7 +4892,8 @@
             "magic_lv": 15,
             "melee_defence": 26,
             "name": "Sunken Knight",
-            "region": "Mire Road"
+            "region": "Mire Road",
+            "weakness": "magic"
           },
           "tally_debt_collector": {
             "atk_lv": 20,
@@ -4805,7 +4928,8 @@
             "magic_lv": 11,
             "melee_defence": 10,
             "name": "Tally Debt-Collector",
-            "region": "Ashford"
+            "region": "Ashford",
+            "weakness": "magic"
           },
           "the_reclaimed": {
             "atk_lv": 132,
@@ -4837,7 +4961,8 @@
             "melee_defence": 145,
             "name": "The Reclaimed",
             "region": "Forge Caverns",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "the_tethered": {
             "atk_lv": 144,
@@ -4864,12 +4989,13 @@
             "hp": 420,
             "hp_lv": 144,
             "lore": "Humans the Architects archived and never released. They still walk the Spire halls they were stored in.",
-            "magic_defence": 108,
+            "magic_defence": 95,
             "magic_lv": 144,
             "melee_defence": 145,
             "name": "The Tethered",
             "region": "Watcher's Spire",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "the_unwritten": {
             "atk_lv": 95,
@@ -4923,7 +5049,8 @@
             "melee_defence": 34,
             "name": "The Unwritten",
             "quest_required": "q65_into_the_scar",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "magic"
           },
           "the_venting_maw": {
             "atk_lv": 92,
@@ -4965,13 +5092,14 @@
             "melee_defence": 40,
             "name": "The Venting Maw",
             "quest_required": "q65_into_the_scar",
-            "region": "Frostmere"
+            "region": "Frostmere",
+            "weakness": "ranged"
           },
           "threshold_wraith": {
             "atk_lv": 149,
             "attack": 1506,
             "def_lv": 149,
-            "defence": 42,
+            "defence": 92,
             "drops": [
               {
                 "chance": 0.12,
@@ -4986,18 +5114,19 @@
             "hp": 520,
             "hp_lv": 149,
             "lore": "Residue of the Resonance before it holds a full shape. It is already here, and it is not finished.",
-            "magic_defence": 42,
+            "magic_defence": 92,
             "magic_lv": 149,
-            "melee_defence": 42,
+            "melee_defence": 92,
             "name": "Threshold Wraith",
             "region": "The Threshold",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "tide_enforcer": {
             "atk_lv": 104,
             "attack": 510,
             "def_lv": 104,
-            "defence": 34,
+            "defence": 40,
             "drops": [
               {
                 "chance": 0.08,
@@ -5018,11 +5147,12 @@
             "hp": 290,
             "hp_lv": 104,
             "lore": "Kael's people. They hold the gates and they do not improvise. The extra armour is the point: they are here to last, not to finish anyone quickly.",
-            "magic_defence": 34,
+            "magic_defence": 40,
             "magic_lv": 104,
-            "melee_defence": 34,
+            "melee_defence": 40,
             "name": "Tide Enforcer",
-            "region": "Tideward Harbor"
+            "region": "Tideward Harbor",
+            "weakness": "melee"
           },
           "tidewalker_construct": {
             "atk_lv": 110,
@@ -5054,7 +5184,8 @@
             "melee_defence": 48,
             "name": "Tidewalker Construct",
             "region": "The Open Shallows",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "toll_wraith": {
             "atk_lv": 19,
@@ -5090,7 +5221,8 @@
             "melee_defence": 5,
             "name": "Toll Wraith",
             "region": "Mire Road",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "umbra_magus": {
             "atk_lv": 62,
@@ -5126,7 +5258,8 @@
             "melee_defence": 16,
             "name": "Umbra Magus",
             "region": "Void's Edge",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "vaels_lieutenant": {
             "atk_lv": 116,
@@ -5164,7 +5297,8 @@
             "magic_lv": 116,
             "melee_defence": 52,
             "name": "Vael's Lieutenant",
-            "region": "The Drowned Ruins"
+            "region": "The Drowned Ruins",
+            "weakness": "melee"
           },
           "vault_archivist_wraith": {
             "atk_lv": 48,
@@ -5194,7 +5328,8 @@
             "melee_defence": 9,
             "name": "Vault Archivist Wraith",
             "region": "The Ashen Vault",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "vault_pyromancer": {
             "atk_lv": 55,
@@ -5230,7 +5365,8 @@
             "melee_defence": 12,
             "name": "Vault Pyromancer",
             "region": "The Ashen Vault",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "ranged"
           },
           "vault_revenant": {
             "atk_lv": 36,
@@ -5259,7 +5395,8 @@
             "magic_lv": 28,
             "melee_defence": 17,
             "name": "Vault Revenant",
-            "region": "The Ashen Vault"
+            "region": "The Ashen Vault",
+            "weakness": "magic"
           },
           "veil_enforcer": {
             "atk_lv": 141,
@@ -5284,7 +5421,8 @@
             "magic_lv": 141,
             "melee_defence": 122,
             "name": "Veil Enforcer",
-            "region": "Watcher's Spire"
+            "region": "Watcher's Spire",
+            "weakness": "melee"
           },
           "veil_initiate": {
             "atk_lv": 137,
@@ -5309,13 +5447,14 @@
             "magic_lv": 137,
             "melee_defence": 115,
             "name": "Veil Initiate",
-            "region": "Oraewyn Lowlands"
+            "region": "Oraewyn Lowlands",
+            "weakness": "ranged"
           },
           "veil_war_priest": {
             "atk_lv": 145,
             "attack": 1441,
             "def_lv": 145,
-            "defence": 40,
+            "defence": 88,
             "drops": [
               {
                 "chance": 0.11,
@@ -5330,12 +5469,13 @@
             "hp": 400,
             "hp_lv": 145,
             "lore": "The Veil does have priests. Their theology is the silence, and they will hold it from a distance if they cannot hold it at the door.",
-            "magic_defence": 40,
+            "magic_defence": 88,
             "magic_lv": 145,
-            "melee_defence": 40,
+            "melee_defence": 88,
             "name": "Veil War-Priest",
             "region": "Watcher's Spire",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "veil_zealot": {
             "atk_lv": 147,
@@ -5360,7 +5500,8 @@
             "magic_lv": 147,
             "melee_defence": 125,
             "name": "Veil Zealot",
-            "region": "Watcher's Spire"
+            "region": "Watcher's Spire",
+            "weakness": "ranged"
           },
           "voidbound_revenant": {
             "atk_lv": 68,
@@ -5395,7 +5536,8 @@
             "magic_lv": 41,
             "melee_defence": 26,
             "name": "Voidbound Revenant",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "magic"
           },
           "voidwalker": {
             "atk_lv": 58,
@@ -5424,7 +5566,8 @@
             "magic_lv": 50,
             "melee_defence": 22,
             "name": "Voidwalker",
-            "region": "Void's Edge"
+            "region": "Void's Edge",
+            "weakness": "ranged"
           },
           "warpwood_golem": {
             "atk_lv": 70,
@@ -5454,7 +5597,8 @@
             "magic_lv": 71,
             "melee_defence": 52,
             "name": "Warpwood Golem",
-            "region": "The Canopy"
+            "region": "The Canopy",
+            "weakness": "magic"
           },
           "warren_wraith": {
             "atk_lv": 85,
@@ -5485,7 +5629,8 @@
             "melee_defence": 10,
             "name": "Warren Wraith",
             "region": "The Root Warren",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           },
           "watcher_sentinel": {
             "atk_lv": 143,
@@ -5507,12 +5652,13 @@
             "hp": 500,
             "hp_lv": 143,
             "lore": "Spire guard-work, built to stop blades. The assignment is older than the people who still give it.",
-            "magic_defence": 135,
+            "magic_defence": 116,
             "magic_lv": 143,
             "melee_defence": 188,
             "name": "Watcher Sentinel",
             "region": "Watcher's Spire",
-            "style": "hybrid"
+            "style": "hybrid",
+            "weakness": "magic"
           },
           "whisper_wraith": {
             "atk_lv": 77,
@@ -5537,7 +5683,8 @@
             "melee_defence": 10,
             "name": "Whisper Wraith",
             "region": "Whisperwood",
-            "style": "magic"
+            "style": "magic",
+            "weakness": "melee"
           }
         },
         "_shadow_target_defs_data": {
@@ -11114,6 +11261,10 @@
           "spiritforging": "Forge",
           "spiritweaving": "Weave"
         },
+        "CRATE_PICKS": 3,
+        "CRATE_QTY": 40,
+        "CRATE_SHADOW_MIN_CHANCE": 0.15,
+        "CRATE_SHADOW_QTY": 10,
         "DIG_REWARD_MULT": 2.0,
         "DIG_SKILLS": [
           "hollowing"
@@ -11315,6 +11466,29 @@
           "steal:shadow_arts:architect_overseer": "High-Stakes Theft (Overseer)",
           "steal:shadow_arts:fracture_warden": "High-Stakes Theft (Warden)"
         },
+        "LEGENDARY_CHANCE": 0.02,
+        "LEGENDARY_MIN_LEVEL": 70,
+        "LEGENDARY_NAMES": [
+          "The Long Commission",
+          "The Standing Order",
+          "Open Circuit",
+          "Full Round",
+          "The Surveyor's Work",
+          "The Breadth of It",
+          "Guildhall Priority",
+          "The Extended Mark",
+          "No Short Road",
+          "The Running Ledger",
+          "Field Standard",
+          "The Weighted Haul",
+          "From End to End",
+          "The Full Reckoning",
+          "The Earned Seal",
+          "Three-Stage Order"
+        ],
+        "LEGENDARY_PAY_MULT": 1.5,
+        "LEGENDARY_SEAL_MULT": 10,
+        "LEGENDARY_STEPS": 3,
         "LOCKED_AREAS": [
           {
             "adv_req": 20,
@@ -11368,6 +11542,71 @@
             5
           ]
         },
+        "ROTATION_POOL": [
+          {
+            "cost": 1500,
+            "desc": "The next contract generated in any slot will be legendary.",
+            "id": "rot_legendary_writ",
+            "level_req": 70,
+            "name": "Legendary Writ",
+            "payload": {},
+            "type": "writ"
+          },
+          {
+            "cost": 1200,
+            "desc": "Grants one Weekly Coffer roll.",
+            "id": "rot_trailmaster_coffer",
+            "level_req": 30,
+            "name": "Trailmaster's Coffer",
+            "payload": {},
+            "type": "coffer"
+          },
+          {
+            "cost": 420,
+            "desc": "Three Pathfinder's Journals at a fifth off.",
+            "id": "rot_journal_bundle",
+            "level_req": 40,
+            "name": "Journal Bundle",
+            "payload": {
+              "qty": 3
+            },
+            "type": "journal"
+          },
+          {
+            "cost": 75,
+            "desc": "Three Streak Insurance charges at a discount.",
+            "id": "rot_insurance_bundle",
+            "level_req": 10,
+            "name": "Insurance Bundle",
+            "payload": {
+              "qty": 3
+            },
+            "type": "insurance"
+          },
+          {
+            "cost": 160,
+            "desc": "Double all contract progress for 2 hours.",
+            "id": "rot_long_draught",
+            "level_req": 25,
+            "name": "Long Cartographer's Draught",
+            "payload": {
+              "secs": 7200
+            },
+            "type": "draught"
+          },
+          {
+            "cost": 200,
+            "desc": "Closes 30% of your current Adventurer level gap.",
+            "id": "rot_field_feast",
+            "level_req": 75,
+            "name": "Field Feast",
+            "payload": {
+              "fraction": 0.3
+            },
+            "type": "xp_pct"
+          }
+        ],
+        "ROTATION_SIZE": 3,
         "STREAK_THRESHOLDS": [
           5,
           10,
@@ -11503,9 +11742,296 @@
               "item_id": "compass_amulet"
             },
             "type": "gear"
+          },
+          {
+            "cost": 175,
+            "desc": "Read into any skill for a share of its current level gap.",
+            "id": "pathfinders_journal",
+            "level_req": 40,
+            "name": "Pathfinder's Journal",
+            "payload": {
+              "qty": 1
+            },
+            "type": "journal",
+            "weekly_cap": 5
+          },
+          {
+            "cost": 200,
+            "desc": "A weekly bundle of gathered materials. Restocks every week.",
+            "id": "supply_crate_0",
+            "level_req": 50,
+            "name": "Supply Crate",
+            "payload": {
+              "crate_expansion": 0
+            },
+            "type": "crate",
+            "weekly_cap": 3
+          },
+          {
+            "cost": 80,
+            "desc": "Closes 10% of your current Adventurer level gap in one meal.",
+            "id": "seasoned_rations",
+            "level_req": 75,
+            "name": "Seasoned Rations",
+            "payload": {
+              "fraction": 0.1
+            },
+            "type": "xp_pct"
+          },
+          {
+            "cost": 1500,
+            "desc": "Regalia head. Waxed canvas, brass compass rose at the crown.",
+            "id": "buy_pathfinder_cap",
+            "level_req": 80,
+            "name": "Pathfinder's Cap",
+            "payload": {
+              "item_id": "pathfinder_cap"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 1800,
+            "desc": "Regalia feet. Waxed leather, brass eyelets, thick trail soles.",
+            "id": "buy_pathfinder_boots",
+            "level_req": 83,
+            "name": "Pathfinder's Boots",
+            "payload": {
+              "item_id": "pathfinder_boots"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 2100,
+            "desc": "Regalia belt. Map-roll loops and a compass holder.",
+            "id": "buy_pathfinder_belt",
+            "level_req": 86,
+            "name": "Pathfinder's Belt",
+            "payload": {
+              "item_id": "pathfinder_belt"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 2400,
+            "desc": "Regalia legs. Knee-reinforced waxed canvas.",
+            "id": "buy_pathfinder_trousers",
+            "level_req": 89,
+            "name": "Pathfinder's Trousers",
+            "payload": {
+              "item_id": "pathfinder_trousers"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 3000,
+            "desc": "Permanently gain one more grace day per week for the Diligence streak.",
+            "id": "diligence_charter",
+            "level_req": 90,
+            "name": "Diligence Charter",
+            "one_time": true,
+            "payload": {
+              "flag": "grace_plus"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 2800,
+            "desc": "Regalia chest. Brass buckles, storm-stiffened collar.",
+            "id": "buy_pathfinder_coat",
+            "level_req": 92,
+            "name": "Pathfinder's Coat",
+            "payload": {
+              "item_id": "pathfinder_coat"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 3400,
+            "desc": "Regalia ring, stamped with the guild's field mark.",
+            "id": "buy_pathfinder_seal_ring",
+            "level_req": 95,
+            "name": "Pathfinder's Seal Ring",
+            "payload": {
+              "item_id": "pathfinder_seal_ring"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 4000,
+            "desc": "Regalia necklace. The needle still holds True.",
+            "id": "buy_pathfinder_compass",
+            "level_req": 99,
+            "name": "Trail Compass",
+            "payload": {
+              "item_id": "pathfinder_compass"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 6000,
+            "desc": "Permanently unlock a fifth contract slot.",
+            "expansion": 1,
+            "id": "quartermasters_commission",
+            "level_req": 100,
+            "name": "Quartermaster's Commission",
+            "one_time": true,
+            "payload": {
+              "flag": "extra_slot2"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 400,
+            "desc": "A weekly bundle of Whisperwood materials.",
+            "expansion": 1,
+            "id": "supply_crate_1",
+            "level_req": 100,
+            "name": "Whisperwood Crate",
+            "payload": {
+              "crate_expansion": 1
+            },
+            "type": "crate",
+            "weekly_cap": 3
+          },
+          {
+            "cost": 5000,
+            "desc": "Root-woven gloves for the hands slot of your Adventurer gear.",
+            "expansion": 1,
+            "id": "buy_rootwarden_gloves",
+            "level_req": 101,
+            "name": "Rootwarden Gloves",
+            "payload": {
+              "item_id": "rootwarden_gloves"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 5000,
+            "desc": "Permanently raise the streak XP cap by a further +5% (55% -> 60%).",
+            "expansion": 2,
+            "id": "second_trailkeepers_knot",
+            "level_req": 105,
+            "name": "Second Trailkeeper's Knot",
+            "one_time": true,
+            "payload": {
+              "flag": "streak_cap10"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 400,
+            "desc": "A weekly bundle of Tideward materials.",
+            "expansion": 2,
+            "id": "supply_crate_2",
+            "level_req": 105,
+            "name": "Tideward Crate",
+            "payload": {
+              "crate_expansion": 2
+            },
+            "type": "crate",
+            "weekly_cap": 3
+          },
+          {
+            "cost": 6000,
+            "desc": "Brine-cured cape. Fills the cape slot of your Adventurer gear.",
+            "expansion": 2,
+            "id": "buy_saltsworn_cape",
+            "level_req": 106,
+            "name": "Saltsworn Cape",
+            "payload": {
+              "item_id": "saltsworn_cape"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 5000,
+            "desc": "Permanently gain +15% more Pathfinder Seals from every source.",
+            "expansion": 3,
+            "id": "guild_ledger",
+            "level_req": 110,
+            "name": "Guild Ledger",
+            "one_time": true,
+            "payload": {
+              "amount": 0.15,
+              "flag": "seal_gain2"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 400,
+            "desc": "A weekly bundle of Drakenhollow materials.",
+            "expansion": 3,
+            "id": "supply_crate_3",
+            "level_req": 110,
+            "name": "Drakenhollow Crate",
+            "payload": {
+              "crate_expansion": 3
+            },
+            "type": "crate",
+            "weekly_cap": 3
+          },
+          {
+            "cost": 7000,
+            "desc": "An ember core that never goes cold. Fills your Adventurer relic slot.",
+            "expansion": 3,
+            "id": "buy_ashborne_lantern",
+            "level_req": 111,
+            "name": "Ashborne Forge Lantern",
+            "payload": {
+              "item_id": "ashborne_lantern"
+            },
+            "type": "gear"
+          },
+          {
+            "cost": 8000,
+            "desc": "Permanently double your chance of drawing a legendary contract.",
+            "expansion": 4,
+            "id": "legend_seekers_mark",
+            "level_req": 115,
+            "name": "Legend-Seeker's Mark",
+            "one_time": true,
+            "payload": {
+              "flag": "legend_mark"
+            },
+            "type": "upgrade"
+          },
+          {
+            "cost": 400,
+            "desc": "A weekly bundle of Oraewyn materials.",
+            "expansion": 4,
+            "id": "supply_crate_4",
+            "level_req": 115,
+            "name": "Oraewyn Crate",
+            "payload": {
+              "crate_expansion": 4
+            },
+            "type": "crate",
+            "weekly_cap": 3
+          },
+          {
+            "cost": 8000,
+            "desc": "Refracts starlight into Conclave patterns. Adventurer off-hand.",
+            "expansion": 4,
+            "id": "buy_sky_glass_prism",
+            "level_req": 116,
+            "name": "Sky-Glass Prism",
+            "payload": {
+              "item_id": "sky_glass_prism"
+            },
+            "type": "gear"
           }
         ],
-        "XP_LEVEL_WINDOW": 3
+        "XP_LEVEL_WINDOW": 3,
+        "_LEGENDARY_MIRROR_KEYS": [
+          "pool_id",
+          "type",
+          "target",
+          "area",
+          "label",
+          "qty_needed",
+          "xp",
+          "gold"
+        ]
       },
       "specials": {}
     },
@@ -11958,7 +12484,8 @@
                   "immune_to": [],
                   "name": "Lantern's Shadow",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 50,
@@ -11970,7 +12497,8 @@
                   ],
                   "name": "Fracture Surge",
                   "style": "attack",
-                  "trigger_pct": 0.6
+                  "trigger_pct": 0.6,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 42,
@@ -11983,7 +12511,8 @@
                   ],
                   "name": "Hollow Resolve",
                   "style": "defence",
-                  "trigger_pct": 0.3
+                  "trigger_pct": 0.3,
+                  "weakness": "magic"
                 }
               ],
               "portrait": "res://assets/images/boss_second_knight.png"
@@ -12071,21 +12600,24 @@
                 "damage": 18,
                 "hp": 180,
                 "name": "Fracture-Touched Sentinels",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "magic"
               },
               {
                 "count": 4,
                 "damage": 28,
                 "hp": 130,
                 "name": "Lantern Wraiths",
-                "style": "attack"
+                "style": "attack",
+                "weakness": "melee"
               },
               {
                 "count": 2,
                 "damage": 16,
                 "hp": 280,
                 "name": "The Pale Guard",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "ranged"
               }
             ]
           },
@@ -12103,7 +12635,8 @@
                   "immune_to": [],
                   "name": "Query Protocol",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 70,
@@ -12116,7 +12649,8 @@
                   ],
                   "name": "Error State",
                   "style": "magic",
-                  "trigger_pct": 0.65
+                  "trigger_pct": 0.65,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 54,
@@ -12128,7 +12662,8 @@
                   ],
                   "name": "Final Recursion",
                   "style": "defence",
-                  "trigger_pct": 0.35
+                  "trigger_pct": 0.35,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_echo_of_architect.png"
@@ -12218,21 +12753,24 @@
                 "damage": 24,
                 "hp": 200,
                 "name": "Resonance Constructs",
-                "style": "magic"
+                "style": "magic",
+                "weakness": "magic"
               },
               {
                 "count": 5,
                 "damage": 20,
                 "hp": 120,
                 "name": "Logic Fragments",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               },
               {
                 "count": 2,
                 "damage": 18,
                 "hp": 350,
                 "name": "The Spire's Defenders",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "melee"
               }
             ]
           },
@@ -12250,7 +12788,8 @@
                   "immune_to": [],
                   "name": "Archive State",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 70,
@@ -12262,7 +12801,8 @@
                   ],
                   "name": "Fracture Breach",
                   "style": "attack",
-                  "trigger_pct": 0.7
+                  "trigger_pct": 0.7,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 58,
@@ -12275,7 +12815,8 @@
                   ],
                   "name": "Containment Protocol",
                   "style": "magic",
-                  "trigger_pct": 0.4
+                  "trigger_pct": 0.4,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 96,
@@ -12285,7 +12826,8 @@
                   "immune_to": [],
                   "name": "Terminal Phase",
                   "style": "strength",
-                  "trigger_pct": 0.15
+                  "trigger_pct": 0.15,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_sealed_accord.png"
@@ -12374,21 +12916,24 @@
                 "damage": 24,
                 "hp": 280,
                 "name": "Accord Vault Guards",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "magic"
               },
               {
                 "count": 3,
                 "damage": 38,
                 "hp": 220,
                 "name": "Fracture-Branded Elite",
-                "style": "attack"
+                "style": "attack",
+                "weakness": "ranged"
               },
               {
                 "count": 1,
                 "damage": 30,
                 "hp": 600,
                 "name": "The Accord's Last Ward",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "melee"
               }
             ]
           },
@@ -12407,7 +12952,8 @@
                   "immune_to": [],
                   "name": "Protocol Awakening",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 76,
@@ -12419,7 +12965,8 @@
                   ],
                   "name": "Fracture Resonance",
                   "style": "attack",
-                  "trigger_pct": 0.75
+                  "trigger_pct": 0.75,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 68,
@@ -12432,7 +12979,8 @@
                   ],
                   "name": "Architect's Calculus",
                   "style": "magic",
-                  "trigger_pct": 0.55
+                  "trigger_pct": 0.55,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 100,
@@ -12442,7 +12990,8 @@
                   "immune_to": [],
                   "name": "Keystone Collapse",
                   "style": "strength",
-                  "trigger_pct": 0.35
+                  "trigger_pct": 0.35,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 120,
@@ -12452,7 +13001,8 @@
                   "immune_to": [],
                   "name": "The Final Variable",
                   "style": "balanced",
-                  "trigger_pct": 0.15
+                  "trigger_pct": 0.15,
+                  "weakness": "melee"
                 }
               ],
               "portrait": "res://assets/images/boss_keystone_entity.png"
@@ -12553,28 +13103,32 @@
                 "damage": 30,
                 "hp": 240,
                 "name": "Fracture-Saturated Constructs",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "magic"
               },
               {
                 "count": 3,
                 "damage": 45,
                 "hp": 380,
                 "name": "Protocol Enforcers",
-                "style": "attack"
+                "style": "attack",
+                "weakness": "ranged"
               },
               {
                 "count": 2,
                 "damage": 38,
                 "hp": 550,
                 "name": "Keystone Wardens",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "magic"
               },
               {
                 "count": 1,
                 "damage": 55,
                 "hp": 900,
                 "name": "The Architect's Memory",
-                "style": "magic"
+                "style": "magic",
+                "weakness": "melee"
               }
             ]
           },
@@ -12592,7 +13146,8 @@
                   "immune_to": [],
                   "name": "Initialising",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 100,
@@ -12605,7 +13160,8 @@
                   ],
                   "name": "Pattern Recognition",
                   "style": "magic",
-                  "trigger_pct": 0.65
+                  "trigger_pct": 0.65,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 150,
@@ -12624,7 +13180,8 @@
                     "windup": "The Index stops writing. Every mark in the chamber turns to face you."
                   },
                   "style": "attack",
-                  "trigger_pct": 0.3
+                  "trigger_pct": 0.3,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_the_index.png"
@@ -12750,7 +13307,8 @@
                 "damage": 42,
                 "hp": 300,
                 "name": "Scar Emergence",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               },
               {
                 "construct": true,
@@ -12758,7 +13316,8 @@
                 "damage": 58,
                 "hp": 460,
                 "name": "Index Constructs",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "magic"
               }
             ]
           },
@@ -12776,7 +13335,8 @@
                   "immune_to": [],
                   "name": "Wounded",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 112,
@@ -12786,7 +13346,8 @@
                   "immune_to": [],
                   "name": "Lashing Out",
                   "style": "balanced",
-                  "trigger_pct": 0.65
+                  "trigger_pct": 0.65,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 150,
@@ -12796,7 +13357,8 @@
                   "immune_to": [],
                   "name": "Root Collapse",
                   "style": "magic",
-                  "trigger_pct": 0.3
+                  "trigger_pct": 0.3,
+                  "weakness": "melee"
                 }
               ],
               "portrait": "res://assets/images/boss_the_hollow_root.png"
@@ -12881,14 +13443,16 @@
                 "damage": 62,
                 "hp": 420,
                 "name": "Warren Approach",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               },
               {
                 "count": 3,
                 "damage": 78,
                 "hp": 520,
                 "name": "Rootbound Dead",
-                "style": "defence"
+                "style": "defence",
+                "weakness": "melee"
               }
             ]
           },
@@ -12906,7 +13470,8 @@
                   "immune_to": [],
                   "name": "Controlled",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 175,
@@ -12916,7 +13481,8 @@
                   "immune_to": [],
                   "name": "Overwhelmed",
                   "style": "magic",
-                  "trigger_pct": 0.5
+                  "trigger_pct": 0.5,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_the_groves_warden.png"
@@ -13001,14 +13567,16 @@
                 "damage": 74,
                 "hp": 480,
                 "name": "Sanctum Wards",
-                "style": "magic"
+                "style": "magic",
+                "weakness": "melee"
               },
               {
                 "count": 3,
                 "damage": 92,
                 "hp": 560,
                 "name": "Overwritten",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               }
             ]
           },
@@ -13027,7 +13595,8 @@
                   "immune_to": [],
                   "name": "Methodical",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 165,
@@ -13037,17 +13606,22 @@
                   "immune_to": [],
                   "name": "Casing Damaged",
                   "style": "balanced",
-                  "trigger_pct": 0.6
+                  "trigger_pct": 0.6,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 230,
                   "defense_bonus": -0.25,
                   "desc": "The core is exposed. This is a DPS race, not a trade.",
-                  "immune_hint": "",
-                  "immune_to": [],
+                  "immune_hint": "The exposed core is venting raw discharge - closing to arm's reach puts you inside the field, not past it. Spells arc toward the resonance and unravel on contact. There is a gap in the upper housing where a shot clears the discharge before the field pulls it apart.",
+                  "immune_to": [
+                    "melee",
+                    "magic"
+                  ],
                   "name": "Fully Exposed",
                   "style": "magic",
-                  "trigger_pct": 0.25
+                  "trigger_pct": 0.25,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_the_drowned_keeper.png"
@@ -13118,7 +13692,8 @@
                 "damage": 88,
                 "hp": 620,
                 "name": "Ruin Guardians",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               },
               {
                 "construct": true,
@@ -13126,7 +13701,8 @@
                 "damage": 105,
                 "hp": 700,
                 "name": "Flooded Constructs",
-                "style": "magic"
+                "style": "magic",
+                "weakness": "magic"
               }
             ]
           },
@@ -13139,12 +13715,16 @@
                 {
                   "damage_per_tick": 120,
                   "defense_bonus": 0.0,
-                  "desc": "The Lieutenants are down. Vael fights alongside no one now - deal with them first, or focus him; both are valid.",
-                  "immune_hint": "",
-                  "immune_to": [],
+                  "desc": "The Lieutenants are down. He fights alone now - the best shot in the room, and prepared for everything except someone closing to arm's reach.",
+                  "immune_hint": "His salt-warded coat sheds spells on contact - the coating is old but it holds. He reads the shot before you take it, and at range his return is better than yours. Inside his guard is the one place he has not prepared for.",
+                  "immune_to": [
+                    "magic",
+                    "ranged"
+                  ],
                   "name": "Commanded",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 220,
@@ -13154,7 +13734,8 @@
                   "immune_to": [],
                   "name": "Alone",
                   "style": "balanced",
-                  "trigger_pct": 0.45
+                  "trigger_pct": 0.45,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_admiral_vael.png"
@@ -13243,7 +13824,8 @@
                 "damage": 95,
                 "hp": 500,
                 "name": "Vael's Lieutenants",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "magic"
               }
             ]
           },
@@ -13262,7 +13844,8 @@
                   "immune_to": [],
                   "name": "Dormant State",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 160,
@@ -13275,29 +13858,36 @@
                   ],
                   "name": "Awakened",
                   "style": "balanced",
-                  "trigger_pct": 0.8
+                  "trigger_pct": 0.8,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 200,
                   "defense_bonus": -0.15,
                   "desc": "Thermal conduits open to the lava layer. The heat interference dissolves arcane coherence - spells lose shape before they land, and even the ground's own resonance barely gets through.",
-                  "immune_hint": "The Forge Caverns' thermal channels saturate everything here. Arcane force loses coherence in the interference - Fracture Arts and Geomancy spells alike dissolve before they land, and even stone-sourced resonance cannot hold its shape. Direct physical force is the only thing the heat cannot touch.",
+                  "immune_hint": "Arcane force loses coherence in the thermal interference - Fracture Arts and Geomancy spells alike dissolve before they land, and even stone-sourced resonance cannot hold its shape here. Rounds soften and veer wide in the heat shimmer. Direct physical force is the only thing the heat cannot touch.",
                   "immune_to": [
-                    "magic"
+                    "magic",
+                    "ranged"
                   ],
                   "name": "Critical Repair",
                   "style": "magic",
-                  "trigger_pct": 0.5
+                  "trigger_pct": 0.5,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 240,
                   "defense_bonus": -0.2,
                   "desc": "All limiters off. The Smelter is burning through its own tolerances now. Hit it before the question resolves itself.",
-                  "immune_hint": "",
-                  "immune_to": [],
+                  "immune_hint": "Every vent is open - the heat pouring off it makes closing to arm's reach impossible. The thermal interference still eats spells the same as before. The plating has split along a seam near the top of the housing and the core shows through. That is the only gap.",
+                  "immune_to": [
+                    "melee",
+                    "magic"
+                  ],
                   "name": "Overload",
                   "style": "balanced",
-                  "trigger_pct": 0.25
+                  "trigger_pct": 0.25,
+                  "weakness": "ranged"
                 }
               ],
               "portrait": "res://assets/images/boss_the_smelter.png"
@@ -13369,14 +13959,16 @@
                 "damage": 100,
                 "hp": 740,
                 "name": "Forge Cavern Constructs",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "magic"
               },
               {
                 "count": 2,
                 "damage": 112,
                 "hp": 820,
                 "name": "Slag Beast Pack",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               }
             ]
           },
@@ -13394,7 +13986,8 @@
                   "immune_to": [],
                   "name": "The Warden",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 255,
@@ -13407,7 +14000,8 @@
                   ],
                   "name": "The Ashborn King",
                   "style": "balanced",
-                  "trigger_pct": 0.55
+                  "trigger_pct": 0.55,
+                  "weakness": "magic"
                 }
               ],
               "portrait": "res://assets/images/boss_forge_warden_korrath.png"
@@ -13478,7 +14072,8 @@
                 "damage": 118,
                 "hp": 840,
                 "name": "Scorch Pact Elite Guard",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               }
             ]
           },
@@ -13555,11 +14150,15 @@
                   "damage_per_tick": 145,
                   "defense_bonus": 0.1,
                   "desc": "Measuring the approach. The assessment is not complete, and it is not hurrying.",
-                  "immune_hint": "",
-                  "immune_to": [],
+                  "immune_hint": "It measures what approaches the gate line. Any force that crosses from range - a shot or a spell - it has already counted and turned aside before it arrives. Something standing inside its own reach is not crossing the gate. The assessment has not covered that.",
+                  "immune_to": [
+                    "magic",
+                    "ranged"
+                  ],
                   "name": "Checkpoint",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 265,
@@ -13572,7 +14171,8 @@
                   ],
                   "name": "Denied",
                   "style": "balanced",
-                  "trigger_pct": 0.55
+                  "trigger_pct": 0.55,
+                  "weakness": "magic"
                 }
               ],
               "portrait": "res://assets/images/boss_the_gate_warden.png"
@@ -13638,7 +14238,8 @@
                 "damage": 122,
                 "hp": 880,
                 "name": "Ascent Sentinels",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               }
             ]
           },
@@ -13656,19 +14257,22 @@
                   "immune_to": [],
                   "name": "The Diplomat",
                   "style": "balanced",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 220,
                   "defense_bonus": -0.1,
                   "desc": "The ward goes up and the assessment ends. He has nothing left to negotiate and he is fighting to hold the outcome.",
-                  "immune_hint": "His ward closes over him - the Conclave spent decades studying this exact exchange. Your spells lose shape before they complete. Physical force finds the gaps. Something built to pierce wards will not be fully stopped, but it will not land clean.",
+                  "immune_hint": "His ward closes over him - the Conclave spent decades on this exact exchange. Spells lose shape before they complete. The inner layer catches anything within arm's reach. A shot from distance finds a gap at the ward's outer edge. Something built to pierce wards will not be fully stopped, but it will not land clean.",
                   "immune_to": [
+                    "melee",
                     "magic"
                   ],
                   "name": "The Verdict",
                   "style": "magic",
-                  "trigger_pct": 0.68
+                  "trigger_pct": 0.68,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 280,
@@ -13683,7 +14287,8 @@
                   "skip_if_quest": "q23_path_shadow_hand",
                   "skip_log": "Aelun stops at the phase boundary. He reads how you came through the vault, and he lets you pass.",
                   "style": "balanced",
-                  "trigger_pct": 0.29
+                  "trigger_pct": 0.29,
+                  "weakness": "magic"
                 }
               ],
               "portrait": "res://assets/images/boss_first_watcher_aelun.png"
@@ -13754,7 +14359,8 @@
                 "damage": 126,
                 "hp": 920,
                 "name": "Veil Inner Guard",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "ranged"
               }
             ]
           },
@@ -13775,7 +14381,8 @@
                   ],
                   "name": "The Echo",
                   "style": "magic",
-                  "trigger_pct": 1.0
+                  "trigger_pct": 1.0,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 225,
@@ -13787,7 +14394,8 @@
                   ],
                   "name": "The Resonance",
                   "style": "balanced",
-                  "trigger_pct": 0.77
+                  "trigger_pct": 0.77,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 260,
@@ -13797,7 +14405,8 @@
                   "immune_to": [],
                   "name": "The Fracture",
                   "style": "balanced",
-                  "trigger_pct": 0.48
+                  "trigger_pct": 0.48,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 295,
@@ -13807,7 +14416,8 @@
                   "immune_to": [],
                   "name": "The Wraith",
                   "style": "balanced",
-                  "trigger_pct": 0.23
+                  "trigger_pct": 0.23,
+                  "weakness": "melee"
                 }
               ],
               "portrait": "res://assets/images/boss_the_resonance_wraith.png"
@@ -13878,7 +14488,8 @@
                 "damage": 130,
                 "hp": 960,
                 "name": "Fracture Echoes",
-                "style": "balanced"
+                "style": "balanced",
+                "weakness": "melee"
               }
             ]
           },
@@ -13949,9 +14560,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.5.0",
-        "BUILD_FINGERPRINT": "1.5.0 (1790174849)",
-        "VERSION_CODE": 1790174849
+        "APP_VERSION": "1.5.2",
+        "BUILD_FINGERPRINT": "1.5.2 (1790257112)",
+        "VERSION_CODE": 1790257112
       },
       "specials": {}
     },
@@ -14800,12 +15411,19 @@
           "oraewyn_boots": 100,
           "origin_touched_ring": 109,
           "pale_willow_ward": 20,
+          "pathfinder_belt": 40,
+          "pathfinder_boots": 40,
+          "pathfinder_cap": 40,
+          "pathfinder_coat": 40,
+          "pathfinder_trousers": 40,
           "pilgrim_boots": 15,
           "priest_leggings": 15,
           "ranger_hood": 5,
           "river_belt": 1,
+          "rootwarden_gloves": 50,
           "rootweave_girdle": 103,
           "sacred_belt": 15,
+          "saltsworn_cape": 55,
           "scout_helm": 10,
           "sentinel_helm": 25,
           "shade_cowl": 8,
@@ -14814,6 +15432,7 @@
           "shadow_wraps": 5,
           "shield_plate": 25,
           "silent_leggings": 8,
+          "sky_glass_prism": 65,
           "sky_walk_leggings": 100,
           "skywoven_chestplate": 113,
           "slag_core_chestplate": 107,
@@ -14899,7 +15518,11 @@
           "spire_key_fragment",
           "sealed_accord_fragment",
           "accord_cipher_key",
-          "chroniclers_band"
+          "chroniclers_band",
+          "rootwarden_gloves",
+          "saltsworn_cape",
+          "ashborne_lantern",
+          "sky_glass_prism"
         ],
         "ITEMS": {
           "accord_cipher_key": {
@@ -15104,6 +15727,13 @@
               "pct": 0.05,
               "type": "xp_bonus_pct_chance"
             }
+          },
+          "ashborne_lantern": {
+            "category": "relic",
+            "expansion": 3,
+            "name": "Ashborne Forge Lantern",
+            "slot": "relic",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 111)"
           },
           "ashborne_torc": {
             "category": "jewel",
@@ -16880,6 +17510,53 @@
             "slot": "off_hand",
             "source_hint": "Store - Mastery Relic (Spiritweaving Lv. 99)"
           },
+          "pathfinder_belt": {
+            "category": "armour",
+            "name": "Pathfinder's Belt",
+            "slot": "belt",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 86)"
+          },
+          "pathfinder_boots": {
+            "category": "armour",
+            "name": "Pathfinder's Boots",
+            "slot": "feet",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 83)"
+          },
+          "pathfinder_cap": {
+            "category": "armour",
+            "name": "Pathfinder's Cap",
+            "slot": "head",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 80)"
+          },
+          "pathfinder_coat": {
+            "category": "armour",
+            "name": "Pathfinder's Coat",
+            "slot": "chest",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 92)"
+          },
+          "pathfinder_compass": {
+            "category": "jewel",
+            "name": "Trail Compass",
+            "slot": "necklace",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 99)"
+          },
+          "pathfinder_seal_ring": {
+            "category": "jewel",
+            "name": "Pathfinder's Seal Ring",
+            "slot": "ring",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 95)"
+          },
+          "pathfinder_trousers": {
+            "category": "armour",
+            "name": "Pathfinder's Trousers",
+            "slot": "legs",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 89)"
+          },
+          "pathfinders_journal": {
+            "category": "consumable",
+            "name": "Pathfinder's Journal",
+            "source_hint": "Daily Cache, Weekly Coffer, Pathfinders' Quartermaster"
+          },
           "permafrost_shard": {
             "category": "material",
             "name": "Permafrost Shard"
@@ -17068,6 +17745,13 @@
             "expansion": 1,
             "name": "Rootveined Ore"
           },
+          "rootwarden_gloves": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Rootwarden Gloves",
+            "slot": "hands",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 101)"
+          },
           "rootweave_girdle": {
             "category": "jewel",
             "expansion": 1,
@@ -17119,6 +17803,13 @@
             "name": "Saltlock Hammer",
             "slot": "weapon",
             "source_hint": "Store - Mastery Relic (Ironlock Lv. 99)"
+          },
+          "saltsworn_cape": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Saltsworn Cape",
+            "slot": "cape",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 106)"
           },
           "sanctum_relic": {
             "category": "relic",
@@ -17267,6 +17958,13 @@
             "category": "armour",
             "name": "Silent Leggings",
             "slot": "legs"
+          },
+          "sky_glass_prism": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Sky-Glass Prism",
+            "slot": "off_hand",
+            "source_hint": "Pathfinders' Quartermaster (Adventurer Lv. 116)"
           },
           "sky_salt": {
             "category": "material",
@@ -18501,6 +19199,7 @@
           "ashblossom_draft": 110,
           "ashborne_chestplate": 260000,
           "ashborne_iron_gauntlets": 340000,
+          "ashborne_lantern": 180000,
           "ashborne_torc": 245000,
           "ashfall_sliver": 120000,
           "ashfen_carp": 30,
@@ -18814,6 +19513,14 @@
           "pale_yarrow": 4,
           "palewater_eel": 40,
           "paleweave_spindle": 5000000,
+          "pathfinder_belt": 38000,
+          "pathfinder_boots": 34000,
+          "pathfinder_cap": 30000,
+          "pathfinder_coat": 48000,
+          "pathfinder_compass": 60000,
+          "pathfinder_seal_ring": 54000,
+          "pathfinder_trousers": 42000,
+          "pathfinders_journal": 5000,
           "permafrost_shard": 44,
           "pilgrim_boots": 8750,
           "pilgrim_heart": 5000000,
@@ -18851,6 +19558,7 @@
           "rootveil_extract": 240,
           "rootveined_bar": 96,
           "rootveined_ore": 38,
+          "rootwarden_gloves": 120000,
           "rootweave_girdle": 115000,
           "sacred_belt": 2100,
           "salt_carp": 8,
@@ -18860,6 +19568,7 @@
           "saltcured_log": 40,
           "saltcured_weave": 140,
           "saltlock_hammer": 5000000,
+          "saltsworn_cape": 150000,
           "sanctum_relic": 260,
           "scar_index_seal": 0,
           "scar_resonance_dust": 48,
@@ -18890,6 +19599,7 @@
           "shield_plate": 6300,
           "shoal_drifter": 30,
           "silent_leggings": 23500,
+          "sky_glass_prism": 210000,
           "sky_salt": 280,
           "sky_salt_tincture": 950,
           "sky_walk_leggings": 305000,
@@ -19097,6 +19807,13 @@
           "watcher_dreadnought_arm": true
         },
         "RARE": [
+          "pathfinder_cap",
+          "pathfinder_coat",
+          "pathfinder_belt",
+          "pathfinder_trousers",
+          "pathfinder_boots",
+          "pathfinder_compass",
+          "pathfinder_seal_ring",
           "thornite_ore",
           "mirestone_ore",
           "fracture_iron_ore",
@@ -19131,6 +19848,7 @@
         "STYLE_FAMILY_MELEE": "melee",
         "STYLE_FAMILY_RANGED": "ranged",
         "UNCOMMON": [
+          "pathfinders_journal",
           "ashvein_ore",
           "dawnsilver_ore",
           "emberbark_log",
@@ -19732,6 +20450,12 @@
             "def": 46,
             "mag": -14,
             "str": 0
+          },
+          "ashborne_lantern": {
+            "atk": 2,
+            "def": 6,
+            "mag": 2,
+            "str": 3
           },
           "ashborne_torc": {
             "atk": 0,
@@ -20603,6 +21327,48 @@
             "mag": 10,
             "str": 0
           },
+          "pathfinder_belt": {
+            "atk": 0,
+            "def": 4,
+            "mag": 0,
+            "str": 2
+          },
+          "pathfinder_boots": {
+            "atk": 0,
+            "def": 4,
+            "mag": 2,
+            "str": 2
+          },
+          "pathfinder_cap": {
+            "atk": 0,
+            "def": 4,
+            "mag": 2,
+            "str": 2
+          },
+          "pathfinder_coat": {
+            "atk": 0,
+            "def": 6,
+            "mag": 2,
+            "str": 2
+          },
+          "pathfinder_compass": {
+            "atk": 2,
+            "def": 4,
+            "mag": 2,
+            "str": 2
+          },
+          "pathfinder_seal_ring": {
+            "atk": 0,
+            "def": 2,
+            "mag": 2,
+            "str": 2
+          },
+          "pathfinder_trousers": {
+            "atk": 0,
+            "def": 4,
+            "mag": 2,
+            "str": 2
+          },
           "pilgrim_boots": {
             "atk": 0,
             "def": 3,
@@ -20672,6 +21438,12 @@
             "mag": 10,
             "str": 2
           },
+          "rootwarden_gloves": {
+            "atk": 1,
+            "def": 5,
+            "mag": 1,
+            "str": 2
+          },
           "rootweave_girdle": {
             "atk": 0,
             "def": 26,
@@ -20689,6 +21461,12 @@
             "def": 12,
             "mag": 0,
             "str": 16
+          },
+          "saltsworn_cape": {
+            "atk": 1,
+            "def": 6,
+            "mag": 2,
+            "str": 2
           },
           "scout_helm": {
             "atk": 0,
@@ -20761,6 +21539,12 @@
             "def": 2,
             "mag": 1,
             "str": 0
+          },
+          "sky_glass_prism": {
+            "atk": 2,
+            "def": 6,
+            "mag": 3,
+            "str": 3
           },
           "sky_walk_leggings": {
             "atk": 0,
@@ -21587,17 +22371,25 @@
         },
         "_MASTERY_FLAT_DMG_REDUCTION": {
           "bulwark_null_seal": 0.1,
+          "celestial_longarm": 0.07,
           "knights_purified_mantle": 0.05,
+          "resonite_longarm": 0.07,
+          "smelters_slagthrower": 0.07,
+          "tideward_relic_arm": 0.07,
           "unwritten_greaves": 0.11,
           "unwritten_helm": 0.11,
           "unwritten_plate": 0.11,
           "unwritten_sabatons": 0.11,
+          "vaels_longarm": 0.07,
+          "vaels_pattern_longarm": 0.07,
+          "veinkore_repeater": 0.07,
           "warden_permafrost_aegis": 0.11,
           "warden_permafrost_focus": 0.09,
           "warden_permafrost_girdle": 0.09,
           "warden_permafrost_mantle": 0.09,
           "warden_permafrost_signet": 0.09,
-          "warden_permafrost_torc": 0.09
+          "warden_permafrost_torc": 0.09,
+          "watcher_dreadnought_arm": 0.07
         },
         "_MASTERY_HIT_CHANCE": {
           "aethercoil_focus": {
@@ -21983,6 +22775,9 @@
             "smithing": 0.08,
             "spiritforging": 0.1
           },
+          "ashborne_lantern": {
+            "adventurer": 0.12
+          },
           "ashborne_torc": {
             "geomancy": 0.1,
             "spiritforging": 0.15
@@ -22271,6 +23066,27 @@
             "geomancy": 0.12,
             "magic": 0.08
           },
+          "pathfinder_belt": {
+            "adventurer": 0.11
+          },
+          "pathfinder_boots": {
+            "adventurer": 0.11
+          },
+          "pathfinder_cap": {
+            "adventurer": 0.14
+          },
+          "pathfinder_coat": {
+            "adventurer": 0.14
+          },
+          "pathfinder_compass": {
+            "adventurer": 0.16
+          },
+          "pathfinder_seal_ring": {
+            "adventurer": 0.16
+          },
+          "pathfinder_trousers": {
+            "adventurer": 0.11
+          },
           "pilgrim_boots": {
             "hp": 0.08
           },
@@ -22286,8 +23102,14 @@
           "river_belt": {
             "fishing": 0.08
           },
+          "rootwarden_gloves": {
+            "adventurer": 0.08
+          },
           "sacred_belt": {
             "hp": 0.08
+          },
+          "saltsworn_cape": {
+            "adventurer": 0.1
           },
           "scout_helm": {
             "adventurer": 0.1
@@ -22322,6 +23144,9 @@
           },
           "silent_leggings": {
             "shadow_arts": 0.08
+          },
+          "sky_glass_prism": {
+            "adventurer": 0.14
           },
           "sky_walk_leggings": {
             "astromancy": 0.08
@@ -23388,6 +24213,38 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "New: Daily and weekly tasks now keep scaling past total level 1000. Three new reward tiers unlock at total level 1584 (Grandmaster), 2100 (Exalted, needs an expansion owned) and 2800 (Mythic). At Grandmaster and above, gathering, cooking and alchemy task bonus items become the best material you can currently make instead of a fixed base game item. Condensing a skill through Transcendence never lowers your task tier.",
+              "New: Every daily and weekly task now pays Pathfinder Seals, the same currency the Quartermaster uses, and every Seal bonus you own applies to them. Claiming all three daily tasks opens the Daily Cache, and claiming every weekly opens the Weekly Coffer. Both hold Seals, Pathfinder's Journals and bundles of your best gatherable materials, and each has a small chance to be gilded and pay triple.",
+              "New: Diligence tracks consecutive days you open the Daily Cache and raises Cache and Coffer rewards as it grows. You get 2 grace days per week, refilled at the weekly reset, so a missed day does not break the streak. The Monthly Logbook counts Caches opened each month and pays extra Coffer rolls at 20.",
+              "New: Bounty of the Day is an optional fourth daily task with bigger targets and a larger Seal payout. A featured boss of the week adds a third weekly task keyed to one boss dungeon you can already enter. One daily task can be rerolled for free each day, and further rerolls cost Seals. New task types cover Aetheric Tending, Spiritbond, Wayfaring, Ironlock, Hollowing and Spiritforging for owners of those expansions.",
+              "New: The Pathfinder's Journal is a consumable used from the Inventory. Pick a skill and it grants a share of the XP to that skill's next level. It cannot be used on a skill at cap, on Lorekeeper, or on a skill you have not unlocked.",
+              "New: The Pathfinders' Quartermaster now stocks goods up to Adventurer level 116. Additions include the 7-piece Pathfinder Regalia (Adventurer 80-99), Journals, Seasoned Rations, weekly Supply Crates, the Diligence Charter, a fifth contract slot, a Guild Ledger Seal bonus, and one relic for each expansion you own. Three rotating rows change every week, including the Legendary Writ and the Trailmaster's Coffer.",
+              "New: From Adventurer level 70, a contract can occasionally roll as Legendary: three steps of different kinds, paid out together at the end with a 50% bonus. A Legendary Writ from the Quartermaster guarantees the next one.",
+              "New: 11 guild titles for Adventurer peak level, total contracts, Legendary contracts, Diligence streaks and Logbooks. They are counted from your existing progress, so anything you have already done counts toward them."
+            ],
+            "title": "The Guild Overhaul",
+            "version": "1.5.2",
+            "version_code": 1790257112
+          },
+          {
+            "changes": [
+              "New: Every monster in the game now has an authored weakness: melee, ranged, or magic, distributed roughly a third each per region. Hitting with the weak family deals +30% damage. Hitting with the physical sibling (melee against a ranged weakness, or ranged against a melee weakness) deals +10%. Echomind 99's matched-style bonus rises from +10% to +20%. Every monster card in the combat screen, the monster picker, and the Bestiary now shows \"Weak: X\". If your available styles cannot cover that family, the card reads e.g. \"Weak: Deadeye - use Melee\" with a tooltip explaining the +30% and +10% bonuses. This replaces the earlier \"Use melee/magic\" hint, which could contradict the weakness. The bonus applies in overworld combat, offline, The Culling, and boss dungeons.",
+              "Changed: At high levels, spell schools were dealing roughly 1.5x to 4.7x what melee and Deadeye dealt against armoured late-expansion enemies. Melee, Deadeye, Fracture Arts, Geomancy, and Astromancy now land within a few percent of each other on evenly-defended enemies at levels 99, 110, and 120, with the weak family as the best pick on every monster. How it was done: melee max hit and accuracy raised; Deadeye gear now adds to ranged accuracy (it previously did not); spell max hit from magic gear lowered slightly and spell minimum hit lowered; Geomancy and Astromancy damage-over-time ticks scaled down, Volcanic Core in particular; guns from the Resonite tier upward carry a 7% damage reduction so a ranged kit can reach 90% like the other styles. Some Tideward and Oraewyn enemies had defence evened so that enemies weak to the same family are similarly tough - several Oraewyn casters' defence raised, Conclave and celestial hybrids' magic defence lowered 14-21%. Being direct: this is a buff to melee and Deadeye and a reduction to spell damage at the top end.",
+              "New: Every wave and boss phase across all 14 boss dungeons now has a weakness. The stage banner shows \"Weak: X\" under the wave count and phase text. A phase is never assigned a weakness to a family it is immune to. The +30% and +10% damage bonuses, Echomind 99's matched-style bonus, and Echomind auto-swap all now work inside dungeons.",
+              "New: Six boss phases in Tideward, Drakenhollow, and Oraewyn now block two style families and leave only one open. Ranged only: Drowned Keeper \"Fully Exposed\", Smelter \"Overload\", Aelun \"The Verdict\". Melee only: Admiral Vael \"Commanded\", Smelter \"Critical Repair\", Gate Warden \"Checkpoint\". Each phase hint explains why the open family gets through. No HP, damage, or reward values changed.",
+              "Fixed: Echomind 99's auto-swap no longer swaps into a preset that has no weapon equipped. Previously it could leave the character fighting unarmed.",
+              "New: A Drink tab has been added to the Alchemy panel for drinking, stacking, replacing, and removing potions in one place. Drinking a different potion into an occupied slot now asks for confirmation and replaces it on accept. A check that previously refused unrelated potions and permanently locked a slot has been removed. Potions can no longer be drunk from the Inventory.",
+              "Changed: Every skill now earns bonus XP at level 111 and above in that skill, with a second tier at level 116 and above, so levels 111-120 take roughly as long per level as the Tideward band. The multiplier varies by skill and band, from roughly 1.1x to 3.2x. Overall average time to reach level 120 across base skills drops by about a quarter. This applies to every character and no existing XP is removed.",
+              "Changed: Additional XP adjustments, all upward. Melee, Deadeye, and Hitpoints XP from level 90-116 content +25%. Smithing, Spiritweaving, Alchemy, and Wardcraft XP from Oraewyn content +30%. Artisan recipes generally +10%. Hollowing XP doubled. Spiritbond XP doubled, and quadrupled on the path to level 99. Aetheric Tending XP raised substantially at high player levels.",
+              "Fixed: Spiritforging could not be trained below level 10 because the first recipe required level 10. The Ember-Forged Helm now requires level 1.",
+              "Fixed: With a full inventory, a boss dungeon drop that was discarded was still marked as obtained in the dungeon's loot list. A discarded drop now correctly stays unmarked. Only drops that reach the inventory are recorded as obtained."
+            ],
+            "title": "Enemy Weaknesses, Combat Parity, and Faster Late Levels",
+            "version": "1.5.1",
+            "version_code": 1790252447
+          },
           {
             "changes": [
               "New: Oraewyn is Kaldreth's fourth and final expansion. It is a one-time in-app purchase at $5.99. It requires owning Drakenhollow first - the purchase is blocked and the Oraewyn region is locked until that entitlement is confirmed. Oraewyn is also where the Fracture story ends. The 25-quest arc The Fractured Sky (o01-o25) closes the series, and there will be no fifth expansion. The region spans four sub-zones: Sky Ascent, Oraewyn Lowlands, Watcher's Spire, and The Threshold. Inside: 25 new quests, raising the quest total from 126 to 151; 16 new monsters, raising the Bestiary roster from 117 to 133; 15 new Shadow Arts targets, raising the total from 150 to 165; 12 new achievements, raising the total from 84 to 96, including a new completionist achievement scored over the Oraewyn set alone and separate from every base game and prior expansion count; 7 new titles; and a new faction, the Watcher Conclave, with 4 reputation tiers. Reaching reputation 75 with the Watcher Conclave unlocks the Conclave Armor store, where 7 pieces of gear are available for gold. Everything named below as Oraewyn content sits behind that purchase. If you own Drakenhollow but have not bought Oraewyn, the game you have today is unchanged: no base game, Whisperwood, Tideward, or Drakenhollow bar moves, nothing you have already earned is touched, and no existing content becomes harder to complete.",
@@ -28895,6 +29752,9 @@
       "consts": {
         "ADVENTURER_GRANDMASTER_LEVEL": 100,
         "ADVENTURER_GRANDMASTER_MULT": 10.0,
+        "AETHERIC_TENDING_XP_MULT_100_115": 2.5,
+        "AETHERIC_TENDING_XP_MULT_116_UP": 3.5,
+        "AETHERIC_TENDING_XP_MULT_TO_99": 3.5,
         "AFFINITY_XPA_PER_SKILL": {
           "alchemy": 1,
           "cooking": 1,
@@ -30423,7 +31283,7 @@
             {
               "expansion": 3,
               "id": "ember_forged_helm",
-              "level": 10,
+              "level": 1,
               "produces": "ember_forged_helm",
               "requires": {
                 "fracture_cast_bar": 2,
@@ -32335,6 +33195,116 @@
           "adventurer",
           "shadow_arts"
         ],
+        "LATE_EXPANSION_XP_DIAL": {
+          "adventurer": [
+            2.055,
+            1.739
+          ],
+          "aetheric_tending": [
+            1.758,
+            1.93
+          ],
+          "alchemy": [
+            1.773,
+            2.057
+          ],
+          "astromancy": [
+            1.874,
+            2.941
+          ],
+          "attack": [
+            2.106,
+            1.764
+          ],
+          "cooking": [
+            1.586,
+            2.554
+          ],
+          "crafting": [
+            1.791,
+            2.77
+          ],
+          "deadeye": [
+            2.106,
+            1.764
+          ],
+          "defence": [
+            1.802,
+            1.557
+          ],
+          "fishing": [
+            1.281,
+            2.186
+          ],
+          "geomancy": [
+            2.332,
+            2.941
+          ],
+          "hollowing": [
+            2.102,
+            3.041
+          ],
+          "hp": [
+            1.805,
+            1.55
+          ],
+          "ironlock": [
+            1.313,
+            2.218
+          ],
+          "magic": [
+            1.874,
+            2.941
+          ],
+          "meditation": [
+            2.114,
+            3.188
+          ],
+          "mining": [
+            1.527,
+            2.479
+          ],
+          "root_lore": [
+            1.528,
+            2.485
+          ],
+          "shadow_arts": [
+            1.083,
+            1.284
+          ],
+          "smithing": [
+            1.796,
+            2.77
+          ],
+          "spirit_harvesting": [
+            1.518,
+            2.471
+          ],
+          "spiritbond": [
+            2.077,
+            3.01
+          ],
+          "spiritforging": [
+            1.87,
+            2.816
+          ],
+          "spiritweaving": [
+            1.794,
+            2.776
+          ],
+          "strength": [
+            2.107,
+            1.765
+          ],
+          "wayfaring": [
+            1.984,
+            2.931
+          ],
+          "woodcutting": [
+            1.506,
+            2.457
+          ]
+        },
         "SKILL_EXPANSION": {
           "aetheric_tending": 1,
           "alchemy": 1,
@@ -32743,18 +33713,18 @@
             1.0
           ],
           "alchemy": [
-            2.119,
-            1.784,
-            1.558,
-            2.09,
-            1.787,
-            1.631,
-            1.581,
-            1.364,
-            1.5912,
-            1.4435,
+            2.3309,
+            1.9624,
+            1.7138,
+            2.299,
+            1.9657,
+            1.7941,
+            1.7391,
+            1.5004,
+            1.7503,
+            1.5879,
             0.0005,
-            1.4451
+            2.0665
           ],
           "astromancy": [
             2.446,
@@ -32778,11 +33748,11 @@
             0.135,
             0.135,
             0.135,
-            0.135,
-            0.153,
-            0.1396,
-            0.1231,
-            0.224
+            0.1688,
+            0.1913,
+            0.1745,
+            0.1539,
+            0.28
           ],
           "cooking": [
             2.119,
@@ -32799,18 +33769,18 @@
             1.4451
           ],
           "crafting": [
-            1.833,
-            2.974,
-            1.031,
-            1.555,
-            3.124,
-            1.679,
-            1.464,
-            0.925,
-            1.0933,
-            1.0335,
-            1.0,
-            1.0
+            2.0163,
+            3.2714,
+            1.1341,
+            1.7105,
+            3.4364,
+            1.8469,
+            1.6104,
+            1.0175,
+            1.2026,
+            1.1369,
+            1.1,
+            1.43
           ],
           "echomind": [
             0.579,
@@ -32855,18 +33825,18 @@
             1.0
           ],
           "hollowing": [
-            4.227,
-            3.058,
-            2.376,
-            2.756,
-            1.766,
-            1.851,
-            1.014,
-            1.181,
-            1.2684,
-            1.1686,
-            1.0,
-            1.0
+            8.454,
+            6.116,
+            4.752,
+            5.512,
+            3.532,
+            3.702,
+            2.028,
+            2.362,
+            2.5368,
+            2.3372,
+            2.0,
+            2.0
           ],
           "ironlock": [
             3.208,
@@ -32964,7 +33934,7 @@
             2.9374,
             2.7815,
             2.8169,
-            1.0
+            1.3
           ],
           "spirit_harvesting": [
             2.199,
@@ -32981,18 +33951,18 @@
             1.0
           ],
           "spiritbond": [
-            4.227,
-            3.058,
-            2.376,
-            2.756,
-            1.766,
-            1.851,
-            1.014,
-            1.181,
-            1.2684,
-            1.1686,
-            1.0,
-            1.0
+            16.908,
+            12.232,
+            9.504,
+            11.024,
+            7.064,
+            7.404,
+            4.056,
+            4.724,
+            2.5368,
+            2.3372,
+            2.0,
+            2.0
           ],
           "spiritforging": [
             3.208,
@@ -33009,18 +33979,18 @@
             2.744
           ],
           "spiritweaving": [
-            1.13,
-            1.044,
-            0.893,
-            1.21,
-            1.04,
-            0.978,
-            0.978,
-            0.978,
-            1.1607,
-            1.0377,
+            1.243,
+            1.1484,
+            0.9823,
+            1.331,
+            1.144,
+            1.0758,
+            1.0758,
+            1.0758,
+            1.2768,
+            1.1415,
             0.0005,
-            1.0
+            1.43
           ],
           "wayfaring": [
             4.227,
@@ -35310,8 +36280,65 @@
     },
     "client/data/TaskData.gd": {
       "consts": {
+        "BOUNTY_GOLD_MULT": 3.0,
+        "BOUNTY_JOURNAL_MIN_TIER": 3,
+        "BOUNTY_MIN_TIER": 1,
+        "BOUNTY_QTY_MULT": 2.5,
+        "BOUNTY_SEAL_FLAT": 20,
+        "BOUNTY_SEAL_MULT": 4,
+        "CACHE_BUNDLES": 2,
+        "CACHE_BUNDLE_QTY": [
+          10,
+          15,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "CACHE_GILDED_CHANCE": 0.05,
+        "CACHE_JOURNALS": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "CACHE_SEALS": [
+          10,
+          20,
+          35,
+          50,
+          70,
+          90,
+          110
+        ],
+        "COFFER_BUNDLES": 4,
+        "COFFER_BUNDLE_QTY_MULT": 2.0,
+        "COFFER_GILDED_CHANCE": 0.1,
+        "COFFER_JOURNALS": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ],
+        "COFFER_SEALS": [
+          50,
+          100,
+          175,
+          250,
+          350,
+          450,
+          550
+        ],
         "DAILY_POOL": [
           {
+            "bonus_dynamic": "mining",
             "bonus_item": [
               "cairn_ore",
               "ashvein_ore",
@@ -35342,6 +36369,7 @@
             "type": "gather"
           },
           {
+            "bonus_dynamic": "woodcutting",
             "bonus_item": [
               "greyspine_log",
               "emberbark_log",
@@ -35372,6 +36400,7 @@
             "type": "gather"
           },
           {
+            "bonus_dynamic": "fishing",
             "bonus_item": [
               "plateau_carp",
               "canal_trout",
@@ -35402,6 +36431,7 @@
             "type": "gather"
           },
           {
+            "bonus_dynamic": "spirit_harvesting",
             "bonus_item": [
               "hollow_wisp",
               "gleam_dust",
@@ -35432,6 +36462,7 @@
             "type": "gather"
           },
           {
+            "bonus_dynamic": "root_lore",
             "bonus_item": [
               "pale_yarrow",
               "rootveil_bark",
@@ -35523,6 +36554,8 @@
             "type": "steal"
           },
           {
+            "bonus_dynamic": "cooking",
+            "bonus_dynamic_kind": "recipe",
             "bonus_item": [
               "seared_carp",
               "poached_canal_trout",
@@ -35553,6 +36586,7 @@
             "type": "craft"
           },
           {
+            "bonus_dynamic": "mining",
             "bonus_item": [
               "cairn_ore",
               "thornite_ore",
@@ -35613,6 +36647,7 @@
             "type": "craft"
           },
           {
+            "bonus_dynamic": "spirit_harvesting",
             "bonus_item": [
               "wisp_strand",
               "gleam_binding",
@@ -35643,6 +36678,8 @@
             "type": "craft"
           },
           {
+            "bonus_dynamic": "alchemy",
+            "bonus_dynamic_kind": "recipe",
             "bonus_item": [
               "yarrow_tonic",
               "mistcap_brew",
@@ -35700,6 +36737,7 @@
               6,
               8
             ],
+            "qty_cap": 10,
             "skill": "meditation",
             "type": "meditate"
           },
@@ -35730,6 +36768,7 @@
               3,
               5
             ],
+            "qty_cap": 6,
             "skill": "",
             "type": "dungeon_clear"
           },
@@ -35762,13 +36801,292 @@
             ],
             "skill": "adventurer",
             "type": "contract"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 1,
+            "gold": [
+              1500,
+              10000,
+              50000,
+              220000
+            ],
+            "id": "tend_plots",
+            "label_template": "Harvest %d tending plots",
+            "qty": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "qty_cap": 6,
+            "skill": "aetheric_tending",
+            "type": "tend"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 1,
+            "gold": [
+              1500,
+              10000,
+              50000,
+              220000
+            ],
+            "id": "forage_runs",
+            "label_template": "Finish %d forage runs",
+            "qty": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "qty_cap": 3,
+            "skill": "spiritbond",
+            "type": "forage"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 2,
+            "gold": [
+              1500,
+              10000,
+              50000,
+              220000
+            ],
+            "id": "run_expeditions",
+            "label_template": "Complete %d expeditions",
+            "qty": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "qty_cap": 3,
+            "skill": "wayfaring",
+            "type": "expedition"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 2,
+            "gold": [
+              1200,
+              9000,
+              45000,
+              200000
+            ],
+            "id": "forge_ironlock",
+            "label_template": "Forge %d Ironlock pieces",
+            "qty": [
+              8,
+              20,
+              50,
+              100
+            ],
+            "skill": "ironlock",
+            "type": "craft"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 3,
+            "gold": [
+              1500,
+              10000,
+              50000,
+              220000
+            ],
+            "id": "dig_sites",
+            "label_template": "Excavate %d Hollowing sites",
+            "qty": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "qty_cap": 12,
+            "skill": "hollowing",
+            "type": "dig"
+          },
+          {
+            "bonus_item": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "bonus_qty": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "expansion": 3,
+            "gold": [
+              1200,
+              9000,
+              45000,
+              200000
+            ],
+            "id": "spiritforge_items",
+            "label_template": "Forge %d Spiritforged pieces",
+            "qty": [
+              5,
+              12,
+              30,
+              60
+            ],
+            "skill": "spiritforging",
+            "type": "craft"
           }
         ],
+        "DILIGENCE_GRACE_PER_WEEK": 2,
+        "DILIGENCE_TIERS": [
+          {
+            "min": 100,
+            "mult": 1.75
+          },
+          {
+            "min": 60,
+            "mult": 1.6
+          },
+          {
+            "min": 30,
+            "mult": 1.4
+          },
+          {
+            "min": 14,
+            "mult": 1.25
+          },
+          {
+            "min": 7,
+            "mult": 1.1
+          },
+          {
+            "min": 0,
+            "mult": 1.0
+          }
+        ],
+        "FEATURED_GOLD_MULT": 0.75,
+        "FEATURED_QTY": [
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5
+        ],
+        "FEATURED_SEAL_MULT": 1.5,
+        "GILDED_MULT": 3,
         "LABELS": [
           "Beginner",
           "Journeyman",
           "Veteran",
-          "Master"
+          "Master",
+          "Grandmaster",
+          "Exalted",
+          "Mythic"
+        ],
+        "LOGBOOK_COFFERS": 2,
+        "LOGBOOK_TARGET": 20,
+        "MAX_TIER": 6,
+        "REROLL_FREE_PER_DAY": 1,
+        "REROLL_SEALS": [
+          25,
+          50,
+          100,
+          200
+        ],
+        "SEALS_DAILY": [
+          0,
+          3,
+          6,
+          10,
+          14,
+          18,
+          22
+        ],
+        "SEALS_WEEKLY": [
+          0,
+          15,
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "TIER_GOLD_MULT": [
+          1.5,
+          2.0,
+          2.75
+        ],
+        "TIER_QTY_MULT": [
+          1.25,
+          1.5,
+          1.75
+        ],
+        "TIER_THRESHOLDS": [
+          0,
+          201,
+          501,
+          1000,
+          1584,
+          2100,
+          2800
         ],
         "WEEKLY_POOL": [
           {
@@ -35918,6 +37236,7 @@
               15,
               30
             ],
+            "qty_cap": 40,
             "skill": "",
             "type": "dungeon_clear"
           },
@@ -35948,6 +37267,7 @@
               21,
               28
             ],
+            "qty_cap": 35,
             "skill": "meditation",
             "type": "meditate"
           },
@@ -36225,6 +37545,97 @@
             "name": "The Witnessed",
             "source": "faction_rep",
             "threshold": 100
+          },
+          {
+            "desc": "The Pathfinder's ledger has your name at level 100. You earned the entry.",
+            "expansion": 1,
+            "id": "adv_peak_100",
+            "name": "Road-Tested",
+            "source": "guild",
+            "stat": "adv_peak",
+            "threshold": 100
+          },
+          {
+            "desc": "You have carried the guild's work further than most routes go.",
+            "expansion": 2,
+            "id": "adv_peak_110",
+            "name": "Trail-Worn",
+            "source": "guild",
+            "stat": "adv_peak",
+            "threshold": 110
+          },
+          {
+            "desc": "Level 120. The full route from Adv 1 to here is longer than any charter names.",
+            "expansion": 4,
+            "id": "adv_peak_120",
+            "name": "The Circuit",
+            "source": "guild",
+            "stat": "adv_peak",
+            "threshold": 120
+          },
+          {
+            "desc": "Twenty-five hundred contracts claimed. The Quartermaster stopped checking your work.",
+            "id": "contracts_2500",
+            "name": "The Reliable",
+            "source": "guild",
+            "stat": "contracts",
+            "threshold": 2500
+          },
+          {
+            "desc": "Five thousand contracts. You are, at this point, part of the building.",
+            "id": "contracts_5000",
+            "name": "The Fixture",
+            "source": "guild",
+            "stat": "contracts",
+            "threshold": 5000
+          },
+          {
+            "desc": "Ten legendary commissions finished. The three-stage work was not for everyone.",
+            "id": "legendary_10",
+            "name": "Long Game",
+            "source": "guild",
+            "stat": "legendary",
+            "threshold": 10
+          },
+          {
+            "desc": "Fifty legendary commissions completed. Not many Pathfinders get that far.",
+            "id": "legendary_50",
+            "name": "Full Charter",
+            "source": "guild",
+            "stat": "legendary",
+            "threshold": 50
+          },
+          {
+            "desc": "Thirty consecutive days on the cache. That is not luck. That is a schedule.",
+            "id": "diligence_30",
+            "name": "The Habit",
+            "source": "guild",
+            "stat": "diligence",
+            "threshold": 30
+          },
+          {
+            "desc": "One hundred days. The streak counter did not restart once.",
+            "id": "diligence_100",
+            "name": "Unbroken",
+            "source": "guild",
+            "stat": "diligence",
+            "threshold": 100
+          },
+          {
+            "desc": "Three Logbooks completed. You showed up enough months in a row to count.",
+            "id": "logbook_3",
+            "name": "Quarterly",
+            "source": "guild",
+            "stat": "logbook",
+            "threshold": 3
+          },
+          {
+            "desc": "Twelve Logbooks. Every month for a year, the cache was opened and the pages filled.",
+            "id": "logbook_12",
+            "name": "The Full Year",
+            "source": "guild",
+            "stat": "logbook",
+            "threshold": 12
           }
         ]
       },

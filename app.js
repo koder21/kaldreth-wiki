@@ -1111,6 +1111,7 @@ function buildModel(data) {
     itemFile,
     cullingFile,
     titles,
+    taskFile,
   );
 
   const allEntries = [
@@ -4961,8 +4962,10 @@ function buildMechanicEntries(
   itemFile,
   cullingFile,
   titles,
+  taskFile,
 ) {
   const mechanics = [];
+  taskFile = taskFile || {};
   itemFile = itemFile || {};
 
   const burnSamples = [
@@ -5114,6 +5117,49 @@ function buildMechanicEntries(
     body: `
       ${renderEfficiencyTable("Stock (level-gated)", vendorCatalog, ["Item", "Adventurer", "Cost"])}
       ${renderDetailBlock("Item effects", vendorDetails)}
+    `,
+  });
+
+  const taskTierLabels = taskFile.LABELS || [];
+  const taskTierRows = (taskFile.TIER_THRESHOLDS || []).map((min, i) => ({
+    tier: String(taskTierLabels[i] || `Tier ${i}`),
+    total: formatNumber(min),
+    seals: `${Number((taskFile.SEALS_DAILY || [])[i] || 0)} / ${Number((taskFile.SEALS_WEEKLY || [])[i] || 0)}`,
+    chests: `${Number((taskFile.CACHE_SEALS || [])[i] || 0)} / ${Number((taskFile.COFFER_SEALS || [])[i] || 0)}`,
+  }));
+  const diligenceRows = (taskFile.DILIGENCE_TIERS || [])
+    .filter((t) => Number(t.min || 0) > 0)
+    .map((t) => ({ days: `${Number(t.min)}+`, mult: `x${Number(t.mult || 1)}` }))
+    .reverse();
+  const rerollCosts = (taskFile.REROLL_SEALS || []).join(", ");
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "guild-tasks",
+    name: "Daily & Weekly Tasks",
+    title: "Daily & Weekly Tasks",
+    subtitle: "Guild tasks, Seals, the Daily Cache, Weekly Coffer, and Diligence",
+    badges: ["tasks", "seals", "base game"],
+    searchText:
+      "daily weekly tasks guild seals daily cache weekly coffer diligence streak grace bounty of the day featured boss reroll monthly logbook pathfinder's journal grandmaster exalted mythic gilded",
+    sortKey: "mechanics daily weekly tasks",
+    spoiler: false,
+    metrics: [
+      { label: "Reward tiers", value: `${taskTierRows.length}` },
+      { label: "Currency", value: "Pathfinder Seals" },
+    ],
+    body: `
+      ${renderEfficiencyTable("Reward tiers (by total level)", taskTierRows, ["Tier", "Total level", "Seals daily / weekly", "Cache / Coffer Seals"])}
+      ${renderDetailBlock("How it works", [
+        "Three daily tasks and two weekly tasks are drawn from skill pools. The reward tier follows total level; a skill condensed through Transcendence counts as 99, so condensing never lowers the tier. Exalted needs an expansion owned, Mythic needs Tideward or later.",
+        "Every task pays Pathfinder Seals, the same currency the Quartermaster takes. Seal upgrades from the Quartermaster apply here too. From Grandmaster, gathering, cooking and alchemy bonus items become the best material the character can currently make.",
+        "Claiming all three dailies opens the Daily Cache. Claiming every weekly opens the Weekly Coffer. Both hold Seals, Pathfinder's Journals and bundles of the best gatherable materials, and can roll gilded for x" + Number(taskFile.GILDED_MULT || 3) + " rewards.",
+        "Bounty of the Day is an optional fourth daily with bigger targets and more Seals. A featured boss of the week adds a third weekly keyed to one boss dungeon the character can already enter.",
+        `One daily reroll is free each day; further rerolls cost ${rerollCosts} Seals. Claimed tasks cannot be rerolled.`,
+        `Diligence counts consecutive days the Daily Cache is opened, with ${Number(taskFile.DILIGENCE_GRACE_PER_WEEK || 2)} grace days per week refilled at the weekly reset. The Monthly Logbook counts Caches per month; ${Number(taskFile.LOGBOOK_TARGET || 20)} earns ${Number(taskFile.LOGBOOK_COFFERS || 2)} extra Coffer rolls.`,
+        "The Pathfinder's Journal is used from the Inventory on a chosen skill and grants a share of the XP to that skill's next level. It cannot be used on a capped skill, Lorekeeper, or a locked skill.",
+      ])}
+      ${renderEfficiencyTable("Diligence bonus (Cache and Coffer)", diligenceRows, ["Streak days", "Multiplier"])}
     `,
   });
 
