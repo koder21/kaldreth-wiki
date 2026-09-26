@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T13:44:38.622638+00:00",
+  "generated_at": "2026-09-26T18:49:18.762648+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -883,6 +883,7 @@
         "OFFLINE_SECONDS_CAP": 14400,
         "OFFLINE_SIM_MAX_COMBAT_BATCHES": 600,
         "OFFLINE_SIM_MAX_SHADOW_ATTEMPTS": 40000,
+        "OFFLINE_YIELD_BUDGET_MSEC": 50,
         "ORAEWYN_GHOST_STEALS": 100,
         "ORAEWYN_HUNTER_KILLS": 1000,
         "ORAEWYN_STEAL_KEYS": [
@@ -1314,6 +1315,18 @@
           "q23_path_shadow_hand",
           "q24_path_sovereign"
         ],
+        "_EFFECT_FIELDS": [
+          "effect",
+          "secondary_effect",
+          "tertiary_effect",
+          "quaternary_effect"
+        ],
+        "_EFFECT_VALUE_FIELDS": [
+          "value",
+          "secondary_value",
+          "tertiary_value",
+          "quaternary_value"
+        ],
         "_EQUIP_REQ_LABELS": {
           "attack": "Atk",
           "deadeye": "Deadeye",
@@ -1321,12 +1334,18 @@
           "magic": "Fracture Arts"
         },
         "_EXP_GRACE_SECONDS": 2592000,
+        "_EXP_KEYS": [
+          "",
+          "exp1",
+          "exp2",
+          "exp3",
+          "exp4"
+        ],
         "_GATHERING_RARE_BONUS_KEY": {
           "fishing": "rare_fish_drop_pct",
           "mining": "rare_ore_drop_pct",
           "woodcutting": "rare_log_drop_pct"
         },
-        "_REPLAY_YIELD_BUDGET_MSEC": 40,
         "_SAVE_THROTTLE_SECONDS": 4.0
       },
       "specials": {
@@ -14560,9 +14579,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.5.2",
-        "BUILD_FINGERPRINT": "1.5.2 (1790257112)",
-        "VERSION_CODE": 1790257112
+        "APP_VERSION": "1.6.0",
+        "BUILD_FINGERPRINT": "1.6.0 (1790448272)",
+        "VERSION_CODE": 1790448272
       },
       "specials": {}
     },
@@ -15239,6 +15258,12 @@
             "name": "The Watcher Conclave",
             "tagline": "We wrote it down. That has been the work."
           }
+        ],
+        "_TIERS_DESC": [
+          100,
+          75,
+          50,
+          25
         ]
       },
       "specials": {}
@@ -24213,6 +24238,26 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "New: Kaldreth is now organised around four tabs: Skills, Combat, Store and Journal. Everything is two taps from a tab, Back steps out one level at a time, and a one-time card shows where each screen now lives. The Journal home shows your name, total level and title above four hubs: Rewards, Hero, World and Compendium. Settings now also holds Switch character and What's new.",
+              "New: The Combat tab holds Hunt, the Culling and Boss Dungeons under one switch. A shared Loadout strip sets food, auto-eat, combat style, preset, spell and ammunition once for all three, and it locks while a Culling or dungeon run is under way. Hunt and Culling results have a Run again button.",
+              "New: Hero > Gear shows your equipped pieces and your bag on one screen. Tap a slot to list the pieces that fit it, best first, with the score change and any level requirement shown. Tap one to equip it through the compare dialog. Stats open as a sheet with Gear, Bonuses and Totals.",
+              "New: World > Standing shows Factions and Popularity on one page. Map region cards now open with art of the zone and link straight to that region's monsters and standing. Compendium > Entries holds the Item Collection and the Bestiary behind one search and one Hide found toggle, and each item card lists the monsters you have seen drop it.",
+              "New: Rewards > Ready gathers every quest, task and contract waiting to be claimed, with Claim all for tasks, and the number on the Journal tab counts them all. New achievements are marked NEW and turn over with a card reveal, and Acknowledge all clears them. Achievements earned before this update are not marked. The offline report gains Ready, Resume and Run again buttons, and a daily reset reminder can be switched on or off in Settings.",
+              "New: The Market. The Store tab now has Vendors and Premium, with a wallet strip showing gold, Pathfinder Seals and shards. Every shop in the game is on the Vendors page, each with its own keeper: the Quartermaster, the Chronicler, Faction Rewards, Relics, the Outfitter and Greyfen Provisions. Prices and stock have not changed. Very large purchases now ask for confirmation first.",
+              "Changed: A fresh look across the whole game. New fonts, a hand-drawn icon set that looks the same on every phone, monster portraits in place of emoji, a larger minimum text size, and stronger contrast on dimmed text. Every locked row now shows a lock and what it needs, and every screen keeps a clear margin from the edges of the display.",
+              "New: Pages slide in and out, tabs crossfade, sheets can be dragged or flicked closed, claimed rewards fly to the Journal tab, and balances count up. Six new interface sounds cover taps, opening, closing, claims, reveals and refused actions. Reduce motion in Settings holds animations still. The Culling heavy-hit vibration now respects the haptics setting.",
+              "Changed: Offline progress is worked out 3 to 13 times faster when you return to the game. The results are exactly the same as before.",
+              "Changed: Melee and Deadeye now earn 50% more combat XP. Focused Attack, Strength, Defence and Deadeye pay 9 XP per point of damage instead of 6, and Balanced pays 3 to each skill instead of 2. Hitpoints and magic are unchanged. Reaching 99 in a melee skill takes about a third less time.",
+              "Changed: A locked expansion on the Map or in Premium now names every earlier expansion you still need, and its button buys the first missing one instead of sitting disabled.",
+              "Fixed: Several pop-ups drew without a background, including onboarding, the delete, exit and cloud save conflict prompts, the bug report and the level-up card. The level-up card now stays up for 2.5 seconds instead of vanishing in under one. Dungeon and Culling action buttons no longer run off the edge of the screen, the offline progress screen fits narrow phones, and inventory names fit on two lines alongside the price.",
+              "Fixed: Pressing Back during a boss dungeon ending no longer loses the clear. The Culling low-HP screen flash no longer carries over into a restarted run."
+            ],
+            "title": "A New Kaldreth: Journal, Market and a Fresh Look",
+            "version": "1.6.0",
+            "version_code": 1790448272
+          },
           {
             "changes": [
               "New: Daily and weekly tasks now keep scaling past total level 1000. Three new reward tiers unlock at total level 1584 (Grandmaster), 2100 (Exalted, needs an expansion owned) and 2800 (Mythic). At Grandmaster and above, gathering, cooking and alchemy task bonus items become the best material you can currently make instead of a fixed base game item. Condensing a skill through Transcendence never lowers your task tier.",
