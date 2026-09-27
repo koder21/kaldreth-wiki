@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T18:49:18.762648+00:00",
+  "generated_at": "2026-09-27T16:55:39.607553+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -482,6 +482,12 @@
             }
           ]
         },
+        "GEAR_OPT_COMBAT_FAMILIES": "[\n    ItemData.STYLE_FAMILY_MELEE, ItemData.STYLE_FAMILY_RANGED, ItemData.STYLE_FAMILY_MAGIC,\n]",
+        "GEAR_OPT_DR_CAP": 0.9,
+        "GEAR_OPT_DR_WEIGHT": 1000000.0,
+        "GEAR_OPT_EPSILON": 1e-06,
+        "GEAR_OPT_MAX_PASSES": 6,
+        "GEAR_OPT_SECONDARY_WEIGHT": 0.02,
         "GREYFEN_GHOST_STEALS": 100,
         "GREYFEN_STEAL_KEY": "_steals_area_greyfen",
         "HC_AUTO_EAT_BANDS": [
@@ -14579,9 +14585,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.0",
-        "BUILD_FINGERPRINT": "1.6.0 (1790448272)",
-        "VERSION_CODE": 1790448272
+        "APP_VERSION": "1.6.1",
+        "BUILD_FINGERPRINT": "1.6.1 (1790527876)",
+        "VERSION_CODE": 1790527876
       },
       "specials": {}
     },
@@ -24238,6 +24244,21 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: Melee and Deadeye earn more combat XP. Focused Attack, Strength, Defence and Deadeye now pay 15 XP per point of damage (up from 9), and Balanced pays 5 to each of Attack, Strength and Defence instead of 3. Hitpoints and magic are unchanged. That is about two-thirds more XP for the same damage.",
+              "New: A Gear Optimizer is available on every Gear screen. On a skill screen it picks for most XP per hour, switching to output and speed once the skill is at the level cap. On a combat preset it stacks damage reduction to the 90% cap first, then picks the highest damage for the current style. The Gear button on a skill card pulses when you own a piece that outperforms what is equipped. Meditation cooldown gear now shows its effect in seconds.",
+              "New: The boss dungeon results screen now has a Run Again button that replays the same starting loadout: run order, starting preset, and each preset's spells, bullet, food and tonic. If food or a tonic ran out during the run, it opens setup instead.",
+              "New: Combat style is now set per preset. In Culling and boss dungeon setup, each preset row has its own Style setting: Balanced, Attack, Strength or Defence for melee, Aimed, Power or Rapid for guns, or Optimize with Echomind. Swapping presets mid-run keeps each preset's own style. Existing characters start with their current style set on every preset.",
+              "Changed: Fracture Surge now also halves Aetheric Tending grow times, Wayfaring expedition times, Hollowing dig times and Spiritbond forage times, and doubles the Spiritbond idle trickle. Anything planted or dispatched during a surge keeps the halved timer even after the surge ends. Hollowing XP is still paid on the full dig time, so nothing is lost.",
+              "Changed: Echomind no longer plays a chime on every kill. The Store's Premium tab pulses with a light amber glow, held still with Reduce motion. Faction Quartermasters now have a portrait. The Skills grid shows at least 4 square-tile columns and adds more on wider screens, with names and levels fitted to each tile.",
+              "Changed: The offline report's Resume and Run again buttons are replaced by a single Continue to Game button, which takes you to the fight that is running or just ended. On gathering, artisan, meditation and Shadow Arts screens, Active bonuses fold into a tap-to-expand row; the action status line is removed (errors now appear as a short pop-up message instead), and the session drawer at the bottom stays at two lines, hiding the least important details first.",
+              "Fixed: The Journal skill picker no longer slides under the session drawer and tab bar. The Leaderboards trophy icon no longer overflows the Combat tab's mode bar. The Meditation header now matches the other skill screens so its icons fit within their row. The Worldroot notification dot on the Hero tab and hub card is gone. The Compendium overview no longer shows View links on Affinity Mastery, Skill Mastery and Hidden Passives that led nowhere."
+            ],
+            "title": "Gear Optimizer, Per-Preset Combat Style, and Run Again",
+            "version": "1.6.1",
+            "version_code": 1790527876
+          },
           {
             "changes": [
               "New: Kaldreth is now organised around four tabs: Skills, Combat, Store and Journal. Everything is two taps from a tab, Back steps out one level at a time, and a one-time card shows where each screen now lives. The Journal home shows your name, total level and title above four hubs: Rewards, Hero, World and Compendium. Settings now also holds Switch character and What's new.",
