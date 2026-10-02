@@ -1035,7 +1035,12 @@ function buildModel(data) {
   const questEntries = buildQuestEntries(quests, itemFile, skillFile, questFile);
   const fragmentEntries = buildFragmentEntries(questFile);
   const npcEntries = buildNpcEntries(quests);
-  const vendorEntries = buildVendorEntries(itemFile, monsterFile);
+  const vendorEntries = [
+    ...buildVendorEntries(itemFile, monsterFile),
+    ...buildSinkVendorEntries(
+      getConstFile(files, "client/data/SinkVendorData.gd"),
+    ),
+  ].sort((left, right) => left.title.localeCompare(right.title));
   const dungeonEntries = buildDungeonEntries(dungeons, itemFile, questFile);
   const factionEntries = buildFactionEntries(factions);
   const achievementEntries = buildAchievementEntries(achievements);
@@ -3191,6 +3196,128 @@ function buildVendorEntries(itemFile, monsterFile) {
       };
     })
     .sort((left, right) => left.title.localeCompare(right.title));
+}
+
+// The Caelmora Exchange and the Still Hall sell services, not ItemData rows, so
+// they are built from SinkVendorData instead of item source hints.
+function buildSinkVendorEntries(sinkFile) {
+  sinkFile = sinkFile || {};
+  const exchangeRows = sinkFile.EXCHANGE_ROWS || [];
+  const incenses = sinkFile.INCENSES || [];
+  if (!exchangeRows.length && !incenses.length) {
+    return [];
+  }
+  const expansionNames = {
+    1: "Whisperwood",
+    2: "Tideward",
+    3: "Drakenhollow",
+    4: "Oraewyn",
+  };
+  const needs = (row) => expansionNames[Number(row.expansion || 0)] || "Base game";
+
+  const lessonsPerDay = Number(sinkFile.LESSONS_PER_DAY || 3);
+  const lessonPct = Math.round(Number(sinkFile.LESSON_FRACTION || 0.1) * 100);
+  const lessonRows = (sinkFile.LESSON_BRACKETS || []).map((b) => [
+    `${Number(b.from)}-${Number(b.to)}`,
+    `${formatNumber(Number(b.rate))} gp per XP`,
+    needs(b),
+  ]);
+  const hireRows = exchangeRows.map((row) => [
+    String(row.name || row.id),
+    row.price_mult
+      ? `${Number(row.price_mult)}x the items' value`
+      : `${formatNumber(Number(row.price || 0))} gp`,
+    `${Number(row.limit || 0)} a day`,
+    needs(row),
+    row.standard_only
+      ? `${String(row.desc || "")} Standard characters only.`
+      : String(row.desc || ""),
+  ]);
+  const fundRows = (sinkFile.FUND_RANKS || []).map((rank) => [
+    String(rank.name),
+    `${formatNumber(Number(rank.at))} gp`,
+  ]);
+
+  const incensePrice = Number(sinkFile.INCENSE_PRICE || 0);
+  const incenseHours = Number(sinkFile.INCENSE_HOURS || 0);
+  const incenseRows = incenses.map((row) => [
+    String(row.name || row.id),
+    String(row.branch || "-"),
+    needs(row),
+    String(row.desc || ""),
+  ]);
+  const charmRows = (sinkFile.CHARM_ROWS || []).map((row) => [
+    String(row.name || row.id),
+    `${formatNumber(Number(row.price || 0))} MP`,
+    `${Number(row.limit || 0)} a day`,
+    String(row.desc || ""),
+  ]);
+  const practiceRows = (sinkFile.PRACTICE_RANKS || []).map((rank) => [
+    String(rank.name),
+    `${formatNumber(Number(rank.at))} MP`,
+  ]);
+  const searchOf = (...tables) =>
+    normalizeSearchText(tables.flat(2).map(String).join(" "));
+
+  return [
+    {
+      kind: "Vendor",
+      section: "vendors",
+      id: "caelmora_exchange",
+      name: "The Caelmora Exchange",
+      title: "The Caelmora Exchange",
+      subtitle: "Factor Ilse Marrow · spends gold",
+      badges: ["market", "gp", "titles"],
+      tags: ["vendor", "caelmora_exchange"],
+      searchText: `caelmora exchange factor ilse marrow lessons hire board lantern fund gold ${searchOf(hireRows, fundRows)}`,
+      sortKey: "vendor the caelmora exchange",
+      spoiler: false,
+      metrics: [
+        { label: "Hire board", value: hireRows.length },
+        { label: "Lessons", value: `${lessonsPerDay} a day` },
+        { label: "Fund titles", value: fundRows.length },
+      ],
+      body: `
+        ${renderDetailBlock("Vendor details", [
+          "Found on the Market's Vendors page. Everything here is paid for in gold, and nothing it sells can be resold at a profit.",
+          `A Lesson grants ${lessonPct}% of the XP between a skill's current level and the next. ${lessonsPerDay} Lessons can be bought a day. The price is that XP times the rate for the skill's level, rounded to three figures.`,
+          "Timed hires run on real time and are extended when bought again. Charges are held until used.",
+          "The Lantern Fund takes donations of any size. Each rank reached awards a title.",
+        ])}
+        ${renderSimpleTable("Lesson rates", ["Skill level", "Rate", "Requires"], lessonRows)}
+        ${renderSimpleTable("Hire board", ["Hire", "Price", "Limit", "Requires", "Effect"], hireRows)}
+        ${renderSimpleTable("The Lantern Fund", ["Title", "Total donated"], fundRows)}
+      `,
+    },
+    {
+      kind: "Vendor",
+      section: "vendors",
+      id: "still_hall",
+      name: "The Still Hall",
+      title: "The Still Hall",
+      subtitle: "Preceptor Maelis · spends surplus Mastery Points",
+      badges: ["market", "mastery points", "titles"],
+      tags: ["vendor", "still_hall"],
+      searchText: `still hall preceptor maelis incense burner echo charm archive tally long practice mastery points ${searchOf(incenseRows, charmRows, practiceRows)}`,
+      sortKey: "vendor the still hall",
+      spoiler: false,
+      metrics: [
+        { label: "Incenses", value: incenseRows.length },
+        { label: "Incense price", value: `${formatNumber(incensePrice)} MP` },
+        { label: "Practice titles", value: practiceRows.length },
+      ],
+      body: `
+        ${renderDetailBlock("Vendor details", [
+          "Found on the Market's Vendors page. It takes surplus Mastery Points only.",
+          `Each incense costs ${formatNumber(incensePrice)} MP and burns for ${incenseHours} hours. ${Number(sinkFile.INCENSE_BURNERS || 2)} can burn at once and ${Number(sinkFile.INCENSE_PER_DAY || 4)} can be bought a day. A burning incense keeps paying its share while the game is closed.`,
+          "The Long Practice takes offerings of any size. Each rank reached awards a title.",
+        ])}
+        ${renderSimpleTable("Focus incense", ["Incense", "Branch", "Requires", "Effect"], incenseRows)}
+        ${renderSimpleTable("Charms", ["Charm", "Price", "Limit", "Effect"], charmRows)}
+        ${renderSimpleTable("The Long Practice", ["Title", "Total offered"], practiceRows)}
+      `,
+    },
+  ];
 }
 
 function buildInventoryExpandDetails(monsterFile) {

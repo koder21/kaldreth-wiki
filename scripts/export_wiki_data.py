@@ -31,6 +31,7 @@ SOURCE_FILES = [
     "client/data/ShadowTargetData.gd",
     "client/data/CullingData.gd",
     "client/data/AstromancyData.gd",
+    "client/data/SinkVendorData.gd",
     "client/autoload/GameState.gd",
 ]
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T16:55:39.607553+00:00",
+  "generated_at": "2026-10-02T18:55:41.670185+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -132,26 +132,26 @@
           "boss": {
             "hp_max": 7200,
             "hp_min": 6400,
-            "xp_max": 4200,
-            "xp_min": 1734
+            "xp_max": 6300,
+            "xp_min": 2601
           },
           "exp2_elite": {
             "hp_max": 800,
             "hp_min": 300,
-            "xp_max": 1734,
-            "xp_min": 1084
+            "xp_max": 2601,
+            "xp_min": 1626
           },
           "exp2_standard": {
             "hp_max": 700,
             "hp_min": 200,
-            "xp_max": 477,
-            "xp_min": 325
+            "xp_max": 716,
+            "xp_min": 488
           },
           "standard": {
             "hp_max": 520,
             "hp_min": 12,
-            "xp_max": 390,
-            "xp_min": 43
+            "xp_max": 585,
+            "xp_min": 65
           }
         },
         "EQUIP_SLOT_EXPANSION": {
@@ -339,44 +339,72 @@
               "speed_multiplier": 1.0
             },
             {
+              "bar": "ashvein_bar",
+              "bar_qty": 25,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "ashvein_rod",
+              "level_required": 15,
               "name": "Ashvein Rod",
               "speed_multiplier": 1.09
             },
             {
+              "bar": "dawnsilver_bar",
+              "bar_qty": 40,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "dawnsilver_rod",
+              "level_required": 20,
               "name": "Dawnsilver Rod",
               "speed_multiplier": 1.18
             },
             {
+              "bar": "spelcast_bar",
+              "bar_qty": 60,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "spelcast_rod",
+              "level_required": 30,
               "name": "Spelcast Rod",
               "speed_multiplier": 1.28
             },
             {
+              "bar": "thornite_bar",
+              "bar_qty": 80,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "thornite_rod",
+              "level_required": 40,
               "name": "Thornite Rod",
               "speed_multiplier": 1.38
             },
             {
+              "bar": "mirestone_bar",
+              "bar_qty": 100,
+              "boss_part": "knights_whetstone",
               "is_starting": false,
               "item_id": "mirestone_rod",
+              "level_required": 55,
               "name": "Mirestone Rod",
               "speed_multiplier": 1.48
             },
             {
+              "bar": "fracture_cast_bar",
+              "bar_qty": 120,
+              "boss_part": "accord_temper",
               "is_starting": false,
               "item_id": "fracture_rod",
+              "level_required": 70,
               "name": "Fracture Rod",
               "speed_multiplier": 1.63
             },
             {
+              "bar": "resonite_bar",
+              "bar_qty": 150,
+              "boss_part": "keystone_core",
               "is_starting": false,
               "item_id": "resonite_rod",
+              "level_required": 85,
               "name": "Resonite Rod",
               "speed_multiplier": 1.83
             }
@@ -389,44 +417,72 @@
               "speed_multiplier": 1.0
             },
             {
+              "bar": "ashvein_bar",
+              "bar_qty": 25,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "ashvein_pickaxe",
+              "level_required": 15,
               "name": "Ashvein Pickaxe",
               "speed_multiplier": 1.08
             },
             {
+              "bar": "dawnsilver_bar",
+              "bar_qty": 40,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "dawnsilver_pickaxe",
+              "level_required": 20,
               "name": "Dawnsilver Pickaxe",
               "speed_multiplier": 1.16
             },
             {
+              "bar": "spelcast_bar",
+              "bar_qty": 60,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "spelcast_pickaxe",
+              "level_required": 30,
               "name": "Spelcast Pickaxe",
               "speed_multiplier": 1.25
             },
             {
+              "bar": "thornite_bar",
+              "bar_qty": 80,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "thornite_pickaxe",
+              "level_required": 40,
               "name": "Thornite Pickaxe",
               "speed_multiplier": 1.35
             },
             {
+              "bar": "mirestone_bar",
+              "bar_qty": 100,
+              "boss_part": "knights_whetstone",
               "is_starting": false,
               "item_id": "mirestone_pickaxe",
+              "level_required": 55,
               "name": "Mirestone Pickaxe",
               "speed_multiplier": 1.45
             },
             {
+              "bar": "fracture_cast_bar",
+              "bar_qty": 120,
+              "boss_part": "accord_temper",
               "is_starting": false,
               "item_id": "fracture_pickaxe",
+              "level_required": 70,
               "name": "Fracture Pickaxe",
               "speed_multiplier": 1.6
             },
             {
+              "bar": "resonite_bar",
+              "bar_qty": 150,
+              "boss_part": "keystone_core",
               "is_starting": false,
               "item_id": "resonite_pickaxe",
+              "level_required": 85,
               "name": "Resonite Pickaxe",
               "speed_multiplier": 1.8
             }
@@ -439,44 +495,72 @@
               "speed_multiplier": 1.0
             },
             {
+              "bar": "ashvein_bar",
+              "bar_qty": 25,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "ashvein_axe",
+              "level_required": 15,
               "name": "Ashvein Axe",
               "speed_multiplier": 1.08
             },
             {
+              "bar": "dawnsilver_bar",
+              "bar_qty": 40,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "dawnsilver_axe",
+              "level_required": 20,
               "name": "Dawnsilver Axe",
               "speed_multiplier": 1.16
             },
             {
+              "bar": "spelcast_bar",
+              "bar_qty": 60,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "spelcast_axe",
+              "level_required": 30,
               "name": "Spelcast Axe",
               "speed_multiplier": 1.25
             },
             {
+              "bar": "thornite_bar",
+              "bar_qty": 80,
+              "boss_part": "",
               "is_starting": false,
               "item_id": "thornite_axe",
+              "level_required": 40,
               "name": "Thornite Axe",
               "speed_multiplier": 1.35
             },
             {
+              "bar": "mirestone_bar",
+              "bar_qty": 100,
+              "boss_part": "knights_whetstone",
               "is_starting": false,
               "item_id": "mirestone_axe",
+              "level_required": 55,
               "name": "Mirestone Axe",
               "speed_multiplier": 1.45
             },
             {
+              "bar": "fracture_cast_bar",
+              "bar_qty": 120,
+              "boss_part": "accord_temper",
               "is_starting": false,
               "item_id": "fracture_axe",
+              "level_required": 70,
               "name": "Fracture Axe",
               "speed_multiplier": 1.6
             },
             {
+              "bar": "resonite_bar",
+              "bar_qty": 150,
+              "boss_part": "keystone_core",
               "is_starting": false,
               "item_id": "resonite_axe",
+              "level_required": 85,
               "name": "Resonite Axe",
               "speed_multiplier": 1.8
             }
@@ -488,6 +572,14 @@
         "GEAR_OPT_EPSILON": 1e-06,
         "GEAR_OPT_MAX_PASSES": 6,
         "GEAR_OPT_SECONDARY_WEIGHT": 0.02,
+        "GEAR_TAB_ADDED_SKILLS": [
+          "aetheric_tending",
+          "spiritbond",
+          "echomind",
+          "wayfaring",
+          "hollowing",
+          "lorekeeper"
+        ],
         "GREYFEN_GHOST_STEALS": 100,
         "GREYFEN_STEAL_KEY": "_steals_area_greyfen",
         "HC_AUTO_EAT_BANDS": [
@@ -648,10 +740,47 @@
         "HOLLOWING_XP_PER_LEVEL": 397,
         "HP_REGEN_INTERVAL_SECONDS": 12.0,
         "HP_REGEN_POLL_SECONDS": 1.0,
+        "IDLE_DUNGEON_LIVE_WINDOW_SECONDS": "BACKGROUND_RESUME_GAP_SECONDS",
+        "IDLE_DUNGEON_RARE_MIN_RARITY": 4,
+        "IDLE_DUNGEON_SPEED": 0.75,
+        "IDLE_DUNGEON_UNLOCK_CLEARS": 20,
         "INDEX_ECHO_MAX_CHARGES": 1,
+        "INVENTORY_BAND_UNLOCKS": [
+          {
+            "dungeon_id": "hollow_sanctum",
+            "slots": 50
+          },
+          {
+            "dungeon_id": "keystone_chamber",
+            "slots": 50
+          },
+          {
+            "dungeon_id": "fracture_scar",
+            "slots": 50
+          },
+          {
+            "dungeon_id": "the_groves_warden",
+            "slots": 25
+          },
+          {
+            "dungeon_id": "admiral_vael",
+            "slots": 25
+          },
+          {
+            "dungeon_id": "forge_warden_korrath",
+            "slots": 25
+          },
+          {
+            "dungeon_id": "the_threshold",
+            "slots": 25
+          }
+        ],
+        "INVENTORY_BASE_PURCHASE_CAP": 100,
         "INVENTORY_EXPAND_BASE_COST_PER_SLOT": 1250,
         "INVENTORY_EXPAND_GROWTH_RATE": 1.045,
         "INVENTORY_EXPAND_MAX_COST_PER_SLOT": 2000000000,
+        "INVENTORY_EXPAND_TAIL_GROWTH_RATE": 1.05,
+        "INVENTORY_EXPAND_TAIL_START_TIER": 100,
         "ITEMLESS_EQUIP_SLOT_IDS": [
           "companion"
         ],
@@ -943,6 +1072,8 @@
         "RESUME_HANDLE_DEBOUNCE_SECONDS": 3.0,
         "ROOT_LORE_XP_PER_REP": 50,
         "SAVE_AUTO_EAT_CAP_KEY": "auto_eat_cap_v1",
+        "SAVE_GEAR_TABS_KEY": "gear_tabs_v1",
+        "SAVE_LOADOUT_RESERVED_KEY": "loadout_reserve_v1",
         "SAVE_XP_SCALED_KEY": "xp_scale_v10",
         "SCAR_WARD_DR": 0.3,
         "SCAR_WARD_SECONDS": 1200,
@@ -959,6 +1090,7 @@
         "SHADOW_FISHING_BONUS_ITEM": "dockmaster_hookknife",
         "SHADOW_FISHING_BONUS_XP": 2,
         "SHADOW_STEAL_MIN_COOLDOWN_SECONDS": 0.9,
+        "SINK_EXPIRED_KEEP_SECONDS": 172800,
         "SMITHING_AFFINITY_EFFICIENCY_MAX": 0.15,
         "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL": 0.003,
         "SPELL_DOT_TICK_SCALE": 0.22,
@@ -12574,6 +12706,12 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 1.0,
+                  "item_id": "knights_whetstone",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 0.85,
                   "item_id": "mirestone_bar",
                   "qty_max": 4,
@@ -12890,6 +13028,12 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 1.0,
+                  "item_id": "accord_temper",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 0.85,
                   "item_id": "resonite_bar",
                   "qty_max": 4,
@@ -13073,6 +13217,12 @@
                   "item_id": "architect_shard",
                   "qty_max": 3,
                   "qty_min": 2
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "keystone_core",
+                  "qty_max": 1,
+                  "qty_min": 1
                 },
                 {
                   "chance": 0.9,
@@ -13659,13 +13809,14 @@
             "locked_lore": "The deepest chamber of the Drowned Ruins has power moving through it that predates the Accord. Vael's people have been carefully working around it for years. Sustained presence woke it.",
             "lore": "An Architect construct assigned to maintain and protect the navigation records in the flooded outpost. It does not distinguish between Vael's people, who have been working around it, and new intruders - it treats everyone as a threat.",
             "name": "The Drowned Keeper",
-            "req_display": "Attack 106  \u2022  Defence 100  \u2022  Q: The Keeper Wakes",
+            "req_display": "Attack 106  \u2022  Defence 100  \u2022  Deadeye 70  \u2022  Q: The Keeper Wakes",
             "requirements": {
               "questsCompleted": [
                 "s15_the_keeper_wakes"
               ],
               "skillLevels": {
                 "attack": 106,
+                "deadeye": 70,
                 "defence": 100
               }
             },
@@ -13773,13 +13924,14 @@
             "locked_lore": "The Keeper has fallen. Vael is not running - he is waiting on the Merchant's Isle, because he knows the timeline has collapsed.",
             "lore": "A former Tide Merchant navigator who found the Drowned Ruins twenty years ago, read what was inside, and spent his career quietly keeping the Merchants from excavating it. He is not a villain. He is a desperate man protecting information he believes the world is not ready for.",
             "name": "Admiral Vael",
-            "req_display": "Attack 110  \u2022  Defence 106  \u2022  Q: Accord or War",
+            "req_display": "Attack 110  \u2022  Defence 106  \u2022  Deadeye 99  \u2022  Q: Accord or War",
             "requirements": {
               "questsCompleted": [
                 "s18_accord_or_war"
               ],
               "skillLevels": {
                 "attack": 110,
+                "deadeye": 99,
                 "defence": 106
               }
             },
@@ -14585,9 +14737,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.1",
-        "BUILD_FINGERPRINT": "1.6.1 (1790527876)",
-        "VERSION_CODE": 1790527876
+        "APP_VERSION": "1.6.3",
+        "BUILD_FINGERPRINT": "1.6.3 (1790967034)",
+        "VERSION_CODE": 1790967034
       },
       "specials": {}
     },
@@ -15549,6 +15701,9 @@
           "spire_key_fragment",
           "sealed_accord_fragment",
           "accord_cipher_key",
+          "knights_whetstone",
+          "accord_temper",
+          "keystone_core",
           "chroniclers_band",
           "rootwarden_gloves",
           "saltsworn_cape",
@@ -15576,6 +15731,10 @@
             "name": "Accord Null-Blade: Unbound",
             "slot": "weapon",
             "source_hint": "Chronicler Vendor (exchange Accord Null-Blade)"
+          },
+          "accord_temper": {
+            "category": "material",
+            "name": "Accord Temper"
           },
           "aeluns_starfall_conduit": {
             "category": "weapon",
@@ -15792,7 +15951,7 @@
           "ashvein_axe": {
             "category": "tool",
             "name": "Ashvein Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 15, gold + 25 Ashvein Bars"
           },
           "ashvein_bar": {
             "category": "bar",
@@ -15825,7 +15984,7 @@
           "ashvein_pickaxe": {
             "category": "tool",
             "name": "Ashvein Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 15, gold + 25 Ashvein Bars"
           },
           "ashvein_pistol": {
             "category": "weapon",
@@ -15836,7 +15995,7 @@
           "ashvein_rod": {
             "category": "tool",
             "name": "Ashvein Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 15, gold + 25 Ashvein Bars"
           },
           "ashvein_sabatons": {
             "category": "armour",
@@ -16373,7 +16532,7 @@
           "dawnsilver_axe": {
             "category": "tool",
             "name": "Dawnsilver Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 20, gold + 40 Dawnsilver Bars"
           },
           "dawnsilver_bar": {
             "category": "bar",
@@ -16386,7 +16545,7 @@
           "dawnsilver_pickaxe": {
             "category": "tool",
             "name": "Dawnsilver Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 20, gold + 40 Dawnsilver Bars"
           },
           "dawnsilver_pistol": {
             "category": "weapon",
@@ -16397,7 +16556,7 @@
           "dawnsilver_rod": {
             "category": "tool",
             "name": "Dawnsilver Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 20, gold + 40 Dawnsilver Bars"
           },
           "dawnsilver_shot": {
             "category": "ammo",
@@ -16708,7 +16867,7 @@
           "fracture_axe": {
             "category": "tool",
             "name": "Fracture Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 70, gold + 120 Fracture-Cast Bars + Accord Temper (Accord Vault)"
           },
           "fracture_bloom": {
             "category": "spirit",
@@ -16736,7 +16895,7 @@
           "fracture_pickaxe": {
             "category": "tool",
             "name": "Fracture Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 70, gold + 120 Fracture-Cast Bars + Accord Temper (Accord Vault)"
           },
           "fracture_pike": {
             "category": "fish",
@@ -16749,7 +16908,7 @@
           "fracture_rod": {
             "category": "tool",
             "name": "Fracture Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 70, gold + 120 Fracture-Cast Bars + Accord Temper (Accord Vault)"
           },
           "fracture_rune": {
             "category": "sigil",
@@ -17057,6 +17216,10 @@
               }
             ]
           },
+          "keystone_core": {
+            "category": "material",
+            "name": "Keystone Core"
+          },
           "kitchen_clogs": {
             "category": "armour",
             "name": "Kitchen Clogs",
@@ -17072,6 +17235,10 @@
             "name": "Knight's Purified Mantle",
             "slot": "chest",
             "source_hint": "Chronicler Vendor (exchange Corrupted Lantern Shard)"
+          },
+          "knights_whetstone": {
+            "category": "material",
+            "name": "Knight's Whetstone"
           },
           "korraths_forge_brand": {
             "category": "weapon",
@@ -17260,7 +17427,7 @@
           "mirestone_axe": {
             "category": "tool",
             "name": "Mirestone Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 55, gold + 100 Mirestone Bars + Knight's Whetstone (Hollow Sanctum)"
           },
           "mirestone_bar": {
             "category": "bar",
@@ -17278,7 +17445,7 @@
           "mirestone_pickaxe": {
             "category": "tool",
             "name": "Mirestone Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 55, gold + 100 Mirestone Bars + Knight's Whetstone (Hollow Sanctum)"
           },
           "mirestone_rifle": {
             "category": "weapon",
@@ -17289,7 +17456,7 @@
           "mirestone_rod": {
             "category": "tool",
             "name": "Mirestone Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 55, gold + 100 Mirestone Bars + Knight's Whetstone (Hollow Sanctum)"
           },
           "mirestone_shot": {
             "category": "ammo",
@@ -17660,7 +17827,7 @@
           "resonite_axe": {
             "category": "tool",
             "name": "Resonite Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 85, gold + 150 Resonite Bars + Keystone Core (Keystone Chamber)"
           },
           "resonite_bar": {
             "category": "bar",
@@ -17679,12 +17846,12 @@
           "resonite_pickaxe": {
             "category": "tool",
             "name": "Resonite Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 85, gold + 150 Resonite Bars + Keystone Core (Keystone Chamber)"
           },
           "resonite_rod": {
             "category": "tool",
             "name": "Resonite Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 85, gold + 150 Resonite Bars + Keystone Core (Keystone Chamber)"
           },
           "resonite_shot": {
             "category": "ammo",
@@ -18131,7 +18298,7 @@
           "spelcast_axe": {
             "category": "tool",
             "name": "Spelcast Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 30, gold + 60 Spelcast Bars"
           },
           "spelcast_bar": {
             "category": "bar",
@@ -18146,12 +18313,12 @@
           "spelcast_pickaxe": {
             "category": "tool",
             "name": "Spelcast Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 30, gold + 60 Spelcast Bars"
           },
           "spelcast_rod": {
             "category": "tool",
             "name": "Spelcast Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 30, gold + 60 Spelcast Bars"
           },
           "spelcast_shot": {
             "category": "ammo",
@@ -18364,7 +18531,7 @@
           "thornite_axe": {
             "category": "tool",
             "name": "Thornite Axe",
-            "source_hint": "Store - Gold purchase (Felling)"
+            "source_hint": "Outfitter - Felling 40, gold + 80 Thornite Bars"
           },
           "thornite_bar": {
             "category": "bar",
@@ -18383,12 +18550,12 @@
           "thornite_pickaxe": {
             "category": "tool",
             "name": "Thornite Pickaxe",
-            "source_hint": "Store - Gold purchase (Mining)"
+            "source_hint": "Outfitter - Mining 40, gold + 80 Thornite Bars"
           },
           "thornite_rod": {
             "category": "tool",
             "name": "Thornite Rod",
-            "source_hint": "Store - Gold purchase (Fishing)"
+            "source_hint": "Outfitter - Fishing 40, gold + 80 Thornite Bars"
           },
           "thornite_shot": {
             "category": "ammo",
@@ -18947,6 +19114,12 @@
             "name": "Weaver's Circlet",
             "slot": "head"
           },
+          "whetting_oil": {
+            "category": "consumable",
+            "name": "Whetting Oil",
+            "no_collection": true,
+            "source_hint": "The Caelmora Exchange (Factor Ilse Marrow)"
+          },
           "whisperbloom_focus": {
             "category": "armour",
             "expansion": 1,
@@ -19197,6 +19370,7 @@
           "accord_field_signet": 70000,
           "accord_null_blade": 200000,
           "accord_null_blade_unbound": 350000,
+          "accord_temper": 0,
           "aeluns_starfall_conduit": 4500000,
           "aethercoil_focus": 5000000,
           "ancient_coral": 320,
@@ -19235,12 +19409,12 @@
           "ashfall_sliver": 120000,
           "ashfen_carp": 30,
           "ashforge_shard": 190,
-          "ashvein_axe": 900,
+          "ashvein_axe": 2500,
           "ashvein_bar": 35,
           "ashvein_ore": 5,
-          "ashvein_pickaxe": 900,
+          "ashvein_pickaxe": 2500,
           "ashvein_pistol": 22000,
-          "ashvein_rod": 1100,
+          "ashvein_rod": 3000,
           "ashvein_shot": 5,
           "ashwood_bulwark": 140,
           "ashwood_log": 10,
@@ -19331,12 +19505,12 @@
           "cured_ancient_reef_carp": 58,
           "cured_resonance_eel": 95,
           "cured_tideward_sunfish": 90,
-          "dawnsilver_axe": 5200,
+          "dawnsilver_axe": 12000,
           "dawnsilver_bar": 55,
           "dawnsilver_ore": 8,
-          "dawnsilver_pickaxe": 5200,
+          "dawnsilver_pickaxe": 12000,
           "dawnsilver_pistol": 34000,
-          "dawnsilver_rod": 6100,
+          "dawnsilver_rod": 14000,
           "dawnsilver_shot": 9,
           "deep_brine": 60,
           "deep_brine_concentrate": 780,
@@ -19391,16 +19565,16 @@
           "fortifying_brew": 140,
           "fortress_boots": 33000,
           "fracture_arcanist_pin": 62000,
-          "fracture_axe": 900000,
+          "fracture_axe": 2500000,
           "fracture_bloom": 35,
           "fracture_cast_bar": 160,
           "fracture_cast_repeater": 210000,
           "fracture_cast_shot": 38,
           "fracture_iron_ore": 20,
-          "fracture_pickaxe": 900000,
+          "fracture_pickaxe": 2500000,
           "fracture_pike": 20,
           "fracture_rime": 52,
-          "fracture_rod": 1100000,
+          "fracture_rod": 3000000,
           "fracture_rune": 2,
           "fracture_tonic": 5000,
           "fracture_weave": 165,
@@ -19457,9 +19631,11 @@
           "ironbound_helm": 1250,
           "keystone_architects_seal": 5000000,
           "keystone_blade": 3000000,
+          "keystone_core": 0,
           "kitchen_clogs": 13500,
           "knights_corrupted_mantle": 75000,
           "knights_purified_mantle": 150000,
+          "knights_whetstone": 0,
           "korraths_forge_brand": 2800000,
           "lantern_reaper_torc": 5000000,
           "ledger_of_tithes": 26000,
@@ -19495,12 +19671,12 @@
           "mirefish": 5,
           "mirefish_stew": 40,
           "mirepath_spool": 36000,
-          "mirestone_axe": 240000,
+          "mirestone_axe": 600000,
           "mirestone_bar": 120,
           "mirestone_ore": 15,
-          "mirestone_pickaxe": 240000,
+          "mirestone_pickaxe": 600000,
           "mirestone_rifle": 140000,
-          "mirestone_rod": 290000,
+          "mirestone_rod": 700000,
           "mirestone_shot": 28,
           "mistcap_brew": 160,
           "mistcap_fungus": 14,
@@ -19567,12 +19743,12 @@
           "resonance_eel": 35,
           "resonance_rune": 12,
           "resonance_ward": 85,
-          "resonite_axe": 3500000,
+          "resonite_axe": 10000000,
           "resonite_bar": 220,
           "resonite_longarm": 300000,
           "resonite_ore": 30,
-          "resonite_pickaxe": 3500000,
-          "resonite_rod": 4200000,
+          "resonite_pickaxe": 10000000,
+          "resonite_rod": 12000000,
           "resonite_shot": 50,
           "rift_sinew": 38,
           "ring_of_embers": 180,
@@ -19651,11 +19827,11 @@
           "smuggler_manifest": 0,
           "snare_coil": 45,
           "spectral_leggings": 12000,
-          "spelcast_axe": 18000,
+          "spelcast_axe": 45000,
           "spelcast_bar": 75,
           "spelcast_musket": 58000,
-          "spelcast_pickaxe": 18000,
-          "spelcast_rod": 22000,
+          "spelcast_pickaxe": 45000,
+          "spelcast_rod": 55000,
           "spelcast_shot": 14,
           "spellweaver_leggings": 23500,
           "spelstone": 10,
@@ -19690,12 +19866,12 @@
           "the_first_key": 600000,
           "the_true_record": 0,
           "thornite_assayer_loupe": 52000,
-          "thornite_axe": 65000,
+          "thornite_axe": 150000,
           "thornite_bar": 90,
           "thornite_carbine": 90000,
           "thornite_ore": 12,
-          "thornite_pickaxe": 65000,
-          "thornite_rod": 78000,
+          "thornite_pickaxe": 150000,
+          "thornite_rod": 180000,
           "thornite_shot": 20,
           "thornrend_sickle": 5000000,
           "thread_ring": 45500,
@@ -19794,6 +19970,7 @@
           "wayfarer_belt": 2600,
           "weaver_amulet": 45500,
           "weaver_circlet": 1350,
+          "whetting_oil": 20000,
           "whisperbloom_focus": 190000,
           "whisperrend_axe": 5000000,
           "whisperwood_concentrate": 820,
@@ -19901,7 +20078,8 @@
           "spirit_focus",
           "wisp_strand",
           "gleam_binding",
-          "fracture_tonic"
+          "fracture_tonic",
+          "whetting_oil"
         ],
         "UPGRADE_RECIPES": {
           "arcweave_confluence": {
@@ -24246,10 +24424,44 @@
         "RELEASES": [
           {
             "changes": [
+              "New: Two new vendors are available on the Market's Vendors page. The Caelmora Exchange (Factor Ilse Marrow) spends gold: Lessons buy 10% toward a skill's next level, three a day, at a price that scales with your level in that skill; an 11-item hire board covers bag slots, food, a dungeon damage tonic, Culling bonuses, expedition shortcuts and more; and the Lantern Fund takes donations toward five titles. The Still Hall (Preceptor Maelis) spends surplus Mastery Points only: 12 branch incenses (two can burn at once, four a day), the Echo Charm, Archive Tally and the Long Practice ladder of five more titles. Ten titles in total are available across both vendors.",
+              "Changed: Each incense burns for two hours and keeps paying its effect while you are away. Nothing sold at either vendor can be resold at a profit. The Vendors page now fits all eight vendor cards without scrolling, and the wallet strip now also shows your Mastery Point balance.",
+              "New: The HUD now shows a single buffs chip. Tap it to open a sheet listing every buff currently running.",
+              "Changed: The Shadow Arts screen now has a card pinned to the bottom of the page holding the HP bar, cycle bar, last-steal result, Auto Pickpocket and the Eat button. The buttons no longer move while you play. The steal result is a single fixed line: gold, drop icons, and a leading caught line with the HP lost if you were hit. Above the card: Mark, Setup, loot, bonuses and contract. The success bar that repeated the Chance tile is gone.",
+              "New: The Mark card is now drawn over a painting of its area. Thornite Depths, Fracture Spire and Architect's Gate each have their own zone painting.",
+              "Fixed: The cycle bar now runs from empty to full on every wait. Previously it could start partway through and then sit full while the timer was still running, causing roughly one take in ten to require an extra wait.",
+              "Changed: The boss dungeon run log now stays on its newest line during a run and cannot be scrolled by hand until the run ends. Every line of the run is kept. When the run ends the log unlocks, and a Full log button on the results screen opens the whole run in a reader.",
+              "New: Gear screens are now available for Aetheric Tending, Spiritbond, Echomind, Wayfaring, Hollowing and Lorekeeper. Gear you already had equipped for those skills is carried over automatically the first time.",
+              "Changed: Echomind earns 50% more XP per kill. Boss dungeon requirement cards now split into Needs and Done sections, and a quest requirement names the dungeon to clear. The gear picker ranks items for the family of your worn weapon.",
+              "Changed: In the Store's Premium tab, Auto-Meditate and Fracture Surge now sit under Extended Offline Cap. The surge card shows your current stack and offers to add time or top up to the cap. Boost buttons show a live countdown. A failed ad shows its message only on the screen where it was tapped. The surge button on the Skills screen now counts a part-used stack correctly.",
+              "Changed: The Warden's Mark now shows as one HUD chip. Session XP/h now leaves out skills that run on real-time timers. At the Meditation level cap, the Auto-Meditate chip and its XP token are hidden. Monsters with a Deadeye weakness show 'Weak: Unavailable' if you do not own the expansion that adds Deadeye, with no Deadeye gear button or immunity label. The Drowned Keeper now needs Deadeye 70 and Admiral Vael needs Deadeye 99."
+            ],
+            "title": "Market Vendors, Shadow Arts Rework, and the Boss Run Log",
+            "version": "1.6.3",
+            "version_code": 1790967034
+          },
+          {
+            "changes": [
+              "Changed: Gear listed on a skill's Gear screen now comes out of your bag, the same way gear on a combat preset does, so it can no longer be sold by mistake. Every skill loadout and combat preset draws on one shared pool, so a single copy can be listed by any number of skills and presets, and it only goes back to your bag once nothing lists it. Existing loadouts are moved over automatically. A slot naming an item you no longer have is cleared, since it was not giving a bonus anyway.",
+              "New: Hollow Sanctum, Accord Vault and Keystone Chamber each have their own phase-change sound.",
+              "Changed: Every sound in the game has been levelled against the main music. Boss dungeon music no longer plays much louder than the rest of the game, phase-change, victory, death and ritual sounds sit just above it, and skill and contract sounds are all at a similar volume instead of some being far louder than others. The music now dips only slightly under a phase-change sound and comes back quickly. The Fracture Scar phase sound can now be heard on a phone speaker.",
+              "Fixed: The Culling results screen fits narrow phones. The stat tiles wrap onto two rows instead of running off the side, the screen no longer scrolls sideways, and long loot and Bestiary names wrap.",
+              "Changed: Gathering tools now need a skill level and that tier's smithing bars as well as gold, from level 15 for Ashvein up to level 85 for Resonite. Mirestone, Fracture and Resonite tools also need a boss part: a Knight's Whetstone from Hollow Sanctum, an Accord Temper from Accord Vault or a Keystone Core from Keystone Chamber, one of which drops on every clear. Tool prices are higher. Tools you already own are kept.",
+              "Changed: Bag space now opens up as you progress. You can buy up to 100 slots at first, 150 after clearing Hollow Sanctum, 200 after Keystone Chamber and 250 after Fracture Scar, plus 25 for each expansion's final boss, up to 350. Slots past 150 cost more each. Faction slots still come on top, and slots you already have are kept.",
+              "New: Hero > Gear has a Hide loadout button that folds the loadout card away so your bag fills the screen. The folded bar names the open preset, and your choice is remembered."
+            ],
+            "title": "Shared Skill Gear and Levelled Sound",
+            "version": "1.6.2",
+            "version_code": 1790692690
+          },
+          {
+            "changes": [
               "Changed: Melee and Deadeye earn more combat XP. Focused Attack, Strength, Defence and Deadeye now pay 15 XP per point of damage (up from 9), and Balanced pays 5 to each of Attack, Strength and Defence instead of 3. Hitpoints and magic are unchanged. That is about two-thirds more XP for the same damage.",
               "New: A Gear Optimizer is available on every Gear screen. On a skill screen it picks for most XP per hour, switching to output and speed once the skill is at the level cap. On a combat preset it stacks damage reduction to the 90% cap first, then picks the highest damage for the current style. The Gear button on a skill card pulses when you own a piece that outperforms what is equipped. Meditation cooldown gear now shows its effect in seconds.",
               "New: The boss dungeon results screen now has a Run Again button that replays the same starting loadout: run order, starting preset, and each preset's spells, bullet, food and tonic. If food or a tonic ran out during the run, it opens setup instead.",
               "New: Combat style is now set per preset. In Culling and boss dungeon setup, each preset row has its own Style setting: Balanced, Attack, Strength or Defence for melee, Aimed, Power or Rapid for guns, or Optimize with Echomind. Swapping presets mid-run keeps each preset's own style. Existing characters start with their current style set on every preset.",
+              "New: Idle boss dungeon runs. After 20 clears of a boss dungeon, it can run on its own at 75% speed, with the app open or closed, using the loadout from its setup screen. Each dungeon card shows your progress toward 20 clears. Idle runs eat at your auto-eat threshold, swap off a style the boss is immune to, and stop early if food or needed bullets run out. A rare drop can only come from an idle run while you own no copy of it. Idle runs appear on the HUD and in the offline report.",
+              "Changed: Losing a boss dungeon run, live or idle, no longer counts as a death. It is not added to your death totals or stats.",
               "Changed: Fracture Surge now also halves Aetheric Tending grow times, Wayfaring expedition times, Hollowing dig times and Spiritbond forage times, and doubles the Spiritbond idle trickle. Anything planted or dispatched during a surge keeps the halved timer even after the surge ends. Hollowing XP is still paid on the full dig time, so nothing is lost.",
               "Changed: Echomind no longer plays a chime on every kill. The Store's Premium tab pulses with a light amber glow, held still with Reduce motion. Faction Quartermasters now have a portrait. The Skills grid shows at least 4 square-tile columns and adds more on wider screens, with names and levels fitted to each tile.",
               "Changed: The offline report's Resume and Run again buttons are replaced by a single Continue to Game button, which takes you to the fight that is running or just ended. On gathering, artisan, meditation and Shadow Arts screens, Active bonuses fold into a tap-to-expand row; the action status line is removed (errors now appear as a short pop-up message instead), and the session drawer at the bottom stays at two lines, hiding the least important details first.",
@@ -24257,7 +24469,7 @@
             ],
             "title": "Gear Optimizer, Per-Preset Combat Style, and Run Again",
             "version": "1.6.1",
-            "version_code": 1790527876
+            "version_code": 1790597812
           },
           {
             "changes": [
@@ -27537,7 +27749,7 @@
             "name": "What Was Always There",
             "npc_dialogue": "The file was flagged twelve years ago. A name. Crossover probability: 0.94 - the highest score I ever recorded. We were to monitor for a crossing event and report to the Accord. I didn't report. I kept it, came north, and waited. I told myself I was protecting it. The truth is I wanted to be here when it happened. Wanted to tell the person myself. So. Here you are. Rynen Calloway. I have been waiting for you.",
             "npc_name": "Osric Meld",
-            "req_display": "Meditation 80  \u2022  Q: Into the Scar (dungeon cleared)",
+            "req_display": "Meditation 80  \u2022  Q: Into the Scar  \u2022  Clear: The Fracture Scar",
             "requirements": {
               "dungeonClears": [
                 "fracture_scar"
@@ -27924,7 +28136,7 @@
             "name": "The Warden's Burden",
             "npc_dialogue": "I heard him. Under the other voice, when it lost focus - his voice for two or three seconds. He's still in there and he's fighting it. Don't kill him. Disrupt whatever has him and give him room to push back.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 85  \u2022  Q: The Hollow Root Stirs (dungeon cleared)",
+            "req_display": "Root Lore 85  \u2022  Q: The Hollow Root Stirs  \u2022  Clear: The Hollow Root",
             "requirements": {
               "dungeonClears": [
                 "the_hollow_root"
@@ -27952,7 +28164,7 @@
             "name": "The Covenant Holds",
             "npc_dialogue": "The engine is still running. We cut off its most direct reach, not the source. Vaethos is resting. He will speak when he can. Whatever we are building between us - the Covenant stands, and so does that.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: The Warden's Burden (dungeon cleared)",
+            "req_display": "Q: The Warden's Burden  \u2022  Clear: The Grove's Warden",
             "requirements": {
               "dungeonClears": [
                 "the_groves_warden"
@@ -28380,7 +28592,7 @@
             "name": "Finding Vael",
             "npc_dialogue": "I got word two hours ago. I've been expecting this conversation for longer than that. Come in. I'll tell you what you've been walking toward.",
             "npc_name": "Admiral Vael",
-            "req_display": "Q: The Keeper Wakes (dungeon cleared)",
+            "req_display": "Q: The Keeper Wakes  \u2022  Clear: The Drowned Keeper",
             "requirements": {
               "dungeonClears": [
                 "the_drowned_keeper"
@@ -28449,7 +28661,7 @@
             "name": "The Coordinates",
             "npc_dialogue": "The Merchants have controlled the coastal routes for sixty years. Not one survey ever pointed here. If Vael knew this and kept it quiet, I want to know what else he kept quiet.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Accord or War (dungeon cleared)",
+            "req_display": "Q: Accord or War  \u2022  Clear: Admiral Vael",
             "requirements": {
               "dungeonClears": [
                 "admiral_vael"
@@ -28818,7 +29030,7 @@
             "name": "After the Forge",
             "npc_dialogue": "You took longer than I expected. I've made good use of the time.",
             "npc_name": "Forge-Warden Korrath",
-            "req_display": "Q: The Smelter Awakens (dungeon cleared)",
+            "req_display": "Q: The Smelter Awakens  \u2022  Clear: The Smelter",
             "requirements": {
               "dungeonClears": [
                 "the_smelter"
@@ -28865,7 +29077,7 @@
             "name": "Opening the Chamber",
             "npc_dialogue": "I kept this sealed because I believed it was right. I still believe that. But the keeping is over now, and someone has to go in first, and it should be you.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: The Warden's Case (dungeon cleared)",
+            "req_display": "Q: The Warden's Case  \u2022  Clear: Forge-Warden Korrath",
             "requirements": {
               "dungeonClears": [
                 "forge_warden_korrath"
@@ -28990,7 +29202,7 @@
             "name": "Arrival",
             "npc_dialogue": "I watched it test a person. The other watched it remove a threat, and neither of us is wrong.",
             "npc_name": "Contact Scout",
-            "req_display": "Q: Gate Protocol (dungeon cleared)",
+            "req_display": "Q: Gate Protocol  \u2022  Clear: The Gate Warden",
             "requirements": {
               "dungeonClears": [
                 "the_gate_warden"
@@ -29348,7 +29560,7 @@
             "name": "The Fracture Circuit",
             "npc_dialogue": "That tone is in every hall at once. No one I know is outside it.",
             "npc_name": "Lira",
-            "req_display": "Q: Aelun's Last Offer (dungeon cleared)",
+            "req_display": "Q: Aelun's Last Offer  \u2022  Clear: First Watcher Aelun",
             "requirements": {
               "dungeonClears": [
                 "first_watcher_aelun"
@@ -29419,7 +29631,7 @@
             "name": "After the Wraith",
             "npc_dialogue": "I knew the reason. I still would not have opened it, and I do not take that back.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: The Threshold (dungeon cleared)",
+            "req_display": "Q: The Threshold  \u2022  Clear: The Resonance Wraith",
             "requirements": {
               "dungeonClears": [
                 "the_resonance_wraith"
@@ -29486,7 +29698,7 @@
             "name": "What Comes After",
             "npc_dialogue": "Look at the year. It kept what you stood for.",
             "npc_name": "Lira",
-            "req_display": "Q: The Threshold Choice (dungeon cleared)",
+            "req_display": "Q: The Threshold Choice  \u2022  Clear: The Threshold",
             "requirements": {
               "dungeonClears": [
                 "the_threshold"
@@ -29811,6 +30023,382 @@
             "title": "Entry 47"
           }
         }
+      },
+      "specials": {}
+    },
+    "client/data/SinkVendorData.gd": {
+      "consts": {
+        "CHARM_ROWS": [
+          {
+            "art": "ui_still_echo_charm",
+            "desc": "The next dungeon you clear by hand pays its loot twice.",
+            "grant": 1,
+            "hold": 1,
+            "id": "echo_charm",
+            "kind": "charge",
+            "limit": 1,
+            "name": "Echo Charm",
+            "price": 40
+          },
+          {
+            "art": "ui_still_archive_tally",
+            "desc": "Your next 10 dungeon clears each pay one more of that dungeon's shard.",
+            "grant": 10,
+            "hold": 10,
+            "id": "archive_tally",
+            "kind": "charge",
+            "limit": 1,
+            "name": "Archive Tally",
+            "price": 30
+          }
+        ],
+        "CONFIRM_GOLD": 1000000,
+        "COURIER_TIME_CUT": 0.25,
+        "CREW_DISCOVERY": 0.2,
+        "EXCHANGE_ROWS": [
+          {
+            "art": "ui_exchange_porter",
+            "desc": "+25 bag slots for 24 hours. When the contract ends you keep everything in them.",
+            "hours": 24.0,
+            "id": "porter",
+            "kind": "timed",
+            "limit": 1,
+            "name": "Porter's Contract",
+            "price": 2000000,
+            "slots": 25
+          },
+          {
+            "art": "ui_exchange_hamper",
+            "desc": "200 of the best food your Cooking level can make, cooked for you.",
+            "id": "hamper",
+            "kind": "item",
+            "limit": 2,
+            "name": "Caterer's Hamper",
+            "pick": "food",
+            "price_mult": 3.0,
+            "qty": 200
+          },
+          {
+            "art": "unique_whetting_oil",
+            "desc": "+10% damage for one dungeon run. It goes in the tonic slot, so it is this or a Fracture Tonic.",
+            "id": "oil",
+            "item_id": "whetting_oil",
+            "kind": "item",
+            "limit": 20,
+            "name": "Whetting Oil",
+            "price": 150000,
+            "qty": 1
+          },
+          {
+            "art": "ui_exchange_bounty",
+            "desc": "Your next Culling run meets elites twice as often.",
+            "hold": 2,
+            "id": "bounty",
+            "kind": "charge",
+            "limit": 2,
+            "name": "Bounty Posting",
+            "price": 1500000
+          },
+          {
+            "art": "ui_exchange_freight_lot",
+            "desc": "An unclaimed crate of materials from the places you work. Sometimes there is Whetting Oil in the straw.",
+            "id": "lot",
+            "kind": "lot",
+            "limit": 5,
+            "name": "Sealed Freight Lot",
+            "price": 5000000
+          },
+          {
+            "art": "ui_exchange_ransom_bond",
+            "desc": "Your next death costs no gold.",
+            "hold": 1,
+            "id": "ransom",
+            "kind": "charge",
+            "limit": 1,
+            "name": "Ransom Bond",
+            "price": 400000,
+            "standard_only": true
+          },
+          {
+            "art": "ui_exchange_forager_feast",
+            "desc": "Your companion's next forage brings back half as much again.",
+            "expansion": 1,
+            "hold": 1,
+            "id": "feast",
+            "kind": "charge",
+            "limit": 1,
+            "name": "Forager's Feast",
+            "price": 2000000
+          },
+          {
+            "art": "ui_exchange_shot_crate",
+            "desc": "500 of the best shot your Ironlock level can cast.",
+            "expansion": 2,
+            "id": "shot",
+            "kind": "item",
+            "limit": 2,
+            "name": "Shot Crate",
+            "pick": "shot",
+            "price_mult": 3.0,
+            "qty": 500
+          },
+          {
+            "art": "ui_exchange_courier",
+            "desc": "Cuts a quarter off the time left on your longest-running expedition. Once per expedition.",
+            "expansion": 2,
+            "id": "courier",
+            "kind": "instant",
+            "limit": 3,
+            "name": "Courier's Fee",
+            "price": 2500000
+          },
+          {
+            "art": "ui_exchange_delving_crew",
+            "desc": "+20% Hollowing discovery rate on every dig sent out in the next 2 hours.",
+            "expansion": 3,
+            "hours": 2.0,
+            "id": "crew",
+            "kind": "timed",
+            "limit": 2,
+            "name": "Delving Crew",
+            "price": 3000000
+          },
+          {
+            "art": "ui_exchange_star_reader",
+            "desc": "For 6 hours, an Astromancy window's bonus lingers 30 minutes longer after it ends.",
+            "expansion": 4,
+            "hours": 6.0,
+            "id": "star",
+            "kind": "timed",
+            "limit": 2,
+            "name": "Star-Reader's Hour",
+            "price": 3000000
+          }
+        ],
+        "FEAST_FORAGE_MULT": 1.5,
+        "FUND_CHIPS": [
+          1000000,
+          10000000,
+          100000000
+        ],
+        "FUND_RANKS": [
+          {
+            "at": 25000000,
+            "name": "Benefactor",
+            "title": "lantern_benefactor"
+          },
+          {
+            "at": 250000000,
+            "name": "Patron",
+            "title": "lantern_patron"
+          },
+          {
+            "at": 1000000000,
+            "name": "Grand Patron",
+            "title": "lantern_grand_patron"
+          },
+          {
+            "at": 5000000000,
+            "name": "Lantern Patron",
+            "title": "lantern_lantern_patron"
+          },
+          {
+            "at": 25000000000,
+            "name": "Pillar of Caelmora",
+            "title": "lantern_pillar"
+          }
+        ],
+        "INCENSES": [
+          {
+            "branch": "Spirit",
+            "desc": "Meditation cooldown -15%.",
+            "id": "stillwater",
+            "key": "meditation_cooldown_pct",
+            "name": "Stillwater Incense",
+            "value": 0.15
+          },
+          {
+            "branch": "Warrior",
+            "desc": "+8% combat damage in the overworld and the Culling.",
+            "id": "ironbark",
+            "key": "combat_damage_pct",
+            "name": "Ironbark Incense",
+            "value": 0.08
+          },
+          {
+            "branch": "Artisan",
+            "desc": "Smithing, Cooking and Spiritforging cycles run 8% faster.",
+            "id": "forgehand",
+            "key": "forge_cycle_pct",
+            "name": "Forgehand Incense",
+            "value": 0.08
+          },
+          {
+            "branch": "Explorer",
+            "desc": "+10% gathering yield while you are away.",
+            "id": "wayfinder",
+            "key": "offline_gather_pct",
+            "name": "Wayfinder's Incense",
+            "value": 0.1
+          },
+          {
+            "branch": "Harmony",
+            "desc": "+25% faction reputation gain.",
+            "id": "concord",
+            "key": "faction_rep_gain_pct",
+            "name": "Concord Incense",
+            "value": 0.25
+          },
+          {
+            "branch": "Conquest",
+            "desc": "+10% dungeon loot rates.",
+            "id": "delver",
+            "key": "dungeon_loot_pct",
+            "name": "Delver's Incense",
+            "value": 0.1
+          },
+          {
+            "branch": "Fracture Arts",
+            "desc": "+25% Resonance Crystal drop chance.",
+            "id": "riftglass",
+            "key": "resonance_crystal_drop_pct",
+            "name": "Riftglass Incense",
+            "value": 0.25
+          },
+          {
+            "branch": "Vitality",
+            "desc": "HP regenerates 20% faster.",
+            "id": "heartwood",
+            "key": "hp_regen_pct",
+            "name": "Heartwood Incense",
+            "value": 0.2
+          },
+          {
+            "branch": "Nature",
+            "desc": "Potions you drink while it burns last 20% longer.",
+            "expansion": 1,
+            "id": "grove",
+            "key": "potion_duration_pct",
+            "name": "Grove Incense",
+            "value": 0.2
+          },
+          {
+            "branch": "Tide",
+            "desc": "+10% chance to cast a double batch of shot.",
+            "expansion": 2,
+            "id": "brine",
+            "key": "ironlock_double_craft_chance",
+            "name": "Brine Incense",
+            "value": 0.1
+          },
+          {
+            "branch": "Drakenhollow",
+            "desc": "Hollowing digs sent out while it burns take 15% less time.",
+            "expansion": 3,
+            "id": "ember",
+            "key": "hollowing_time_pct",
+            "name": "Ember Incense",
+            "value": 0.15
+          },
+          {
+            "branch": "Transcendence",
+            "desc": "+5% XP in every skill you have condensed.",
+            "expansion": 4,
+            "id": "starfall",
+            "key": "condensed_skill_xp_pct",
+            "name": "Starfall Incense",
+            "value": 0.05
+          }
+        ],
+        "INCENSE_BURNERS": 2,
+        "INCENSE_HOURS": 2.0,
+        "INCENSE_PER_DAY": 4,
+        "INCENSE_PRICE": 15,
+        "LESSONS_PER_DAY": 3,
+        "LESSON_BRACKETS": [
+          {
+            "from": 1,
+            "rate": 2.0,
+            "to": 49
+          },
+          {
+            "from": 50,
+            "rate": 4.0,
+            "to": 79
+          },
+          {
+            "from": 80,
+            "rate": 8.0,
+            "to": 98
+          },
+          {
+            "expansion": 1,
+            "from": 99,
+            "rate": 10.0,
+            "to": 104
+          },
+          {
+            "expansion": 2,
+            "from": 105,
+            "rate": 12.0,
+            "to": 109
+          },
+          {
+            "expansion": 3,
+            "from": 110,
+            "rate": 14.0,
+            "to": 114
+          },
+          {
+            "expansion": 4,
+            "from": 115,
+            "rate": 16.0,
+            "to": 119
+          }
+        ],
+        "LESSON_FRACTION": 0.1,
+        "LOT_MAX_QTY": 10000,
+        "LOT_OIL_CHANCE": 0.1,
+        "LOT_OIL_QTY": 3,
+        "LOT_ROLLS": 3,
+        "LOT_VALUE_SHARE": 0.4,
+        "OIL_DUNGEON_DAMAGE": 0.1,
+        "OIL_ITEM_ID": "whetting_oil",
+        "PORTER_SLOTS": 25,
+        "PRACTICE_CHIPS": [
+          10,
+          100,
+          1000
+        ],
+        "PRACTICE_RANKS": [
+          {
+            "at": 250,
+            "name": "Practiced",
+            "title": "practice_practiced"
+          },
+          {
+            "at": 1000,
+            "name": "Adept",
+            "title": "practice_adept"
+          },
+          {
+            "at": 5000,
+            "name": "Preceptor's Equal",
+            "title": "practice_equal"
+          },
+          {
+            "at": 20000,
+            "name": "Stillmind",
+            "title": "practice_stillmind"
+          },
+          {
+            "at": 50000,
+            "name": "Beyond Mastery",
+            "title": "practice_beyond"
+          }
+        ],
+        "SAVE_KEY": "sink_vendors_v1",
+        "STAR_EXTENSION_SECONDS": 1800
       },
       "specials": {}
     },
@@ -33259,7 +33847,13 @@
         "GEAR_OVERLAY_OTHER_SKILLS": [
           "meditation",
           "adventurer",
-          "shadow_arts"
+          "shadow_arts",
+          "aetheric_tending",
+          "spiritbond",
+          "echomind",
+          "wayfaring",
+          "hollowing",
+          "lorekeeper"
         ],
         "LATE_EXPANSION_XP_DIAL": {
           "adventurer": [
@@ -33748,6 +34342,13 @@
           "magic",
           "geomancy",
           "astromancy"
+        ],
+        "WALL_CLOCK_XP_SKILLS": [
+          "meditation",
+          "aetheric_tending",
+          "spiritbond",
+          "wayfaring",
+          "hollowing"
         ],
         "XP_BANDS": {
           "adventurer": [
@@ -37702,6 +38303,76 @@
             "source": "guild",
             "stat": "logbook",
             "threshold": 12
+          },
+          {
+            "desc": "Twenty-five million gold to the Lantern Fund. A street in the lower city stays lit because of it.",
+            "id": "lantern_benefactor",
+            "name": "Benefactor",
+            "source": "lantern_fund",
+            "threshold": 25000000
+          },
+          {
+            "desc": "Two hundred and fifty million given. The lamplighters know your name.",
+            "id": "lantern_patron",
+            "name": "Patron",
+            "source": "lantern_fund",
+            "threshold": 250000000
+          },
+          {
+            "desc": "A billion in the Fund's ledger. Factor Marrow stopped asking why.",
+            "id": "lantern_grand_patron",
+            "name": "Grand Patron",
+            "source": "lantern_fund",
+            "threshold": 1000000000
+          },
+          {
+            "desc": "Five billion given. There is a lantern on the upper bridge with your mark on its plate.",
+            "id": "lantern_lantern_patron",
+            "name": "Lantern Patron",
+            "source": "lantern_fund",
+            "threshold": 5000000000
+          },
+          {
+            "desc": "Twenty-five billion. The city would notice if you stopped.",
+            "id": "lantern_pillar",
+            "name": "Pillar of Caelmora",
+            "source": "lantern_fund",
+            "threshold": 25000000000
+          },
+          {
+            "desc": "Two hundred and fifty Mastery Points offered at the Still Hall. You came back, which is the first lesson.",
+            "id": "practice_practiced",
+            "name": "Practiced",
+            "source": "long_practice",
+            "threshold": 250
+          },
+          {
+            "desc": "A thousand offered. The Preceptor nods when you come in.",
+            "id": "practice_adept",
+            "name": "Adept",
+            "source": "long_practice",
+            "threshold": 1000
+          },
+          {
+            "desc": "Five thousand offered. Maelis says so, and does not say it often.",
+            "id": "practice_equal",
+            "name": "Preceptor's Equal",
+            "source": "long_practice",
+            "threshold": 5000
+          },
+          {
+            "desc": "Twenty thousand offered. Mastery with nowhere to go, and no need for it to go anywhere.",
+            "id": "practice_stillmind",
+            "name": "Stillmind",
+            "source": "long_practice",
+            "threshold": 20000
+          },
+          {
+            "desc": "Fifty thousand offered. The bowl has not been empty since.",
+            "id": "practice_beyond",
+            "name": "Beyond Mastery",
+            "source": "long_practice",
+            "threshold": 50000
           }
         ]
       },
