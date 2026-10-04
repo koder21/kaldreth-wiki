@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T16:37:03.347838+00:00",
+  "generated_at": "2026-10-04T20:29:49.386907+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -97,7 +97,7 @@
             "name": "Style Echo"
           },
           {
-            "desc": "Unlocks Optimize per enemy in Combat Style. Each fight uses the best style for that enemy.",
+            "desc": "Unlocks Optimize per enemy in Combat Style. Each fight uses the best style for that enemy. With a melee weapon it trains whichever of Attack, Strength and Defence is lowest.",
             "id": "auto_style",
             "level": 60,
             "name": "Auto Style-Switch"
@@ -1072,6 +1072,14 @@
         "RESPAWN_GOLD_LOSS_PERCENT": 0.08,
         "RESUME_HANDLE_DEBOUNCE_SECONDS": 3.0,
         "ROOT_LORE_XP_PER_REP": 50,
+        "SAFETY_FOOD_MARGIN": 1.2,
+        "SAFETY_FOOD_SIM_SEED": 1262570564,
+        "SAFETY_FOOD_SIM_TICKS": 12000,
+        "SAFETY_HORIZON_HOURS": [
+          1,
+          5,
+          10
+        ],
         "SAVE_AUTO_EAT_CAP_KEY": "auto_eat_cap_v1",
         "SAVE_GEAR_TABS_KEY": "gear_tabs_v1",
         "SAVE_LOADOUT_RESERVED_KEY": "loadout_reserve_v1",
@@ -1091,6 +1099,9 @@
         "SHADOW_FISHING_BONUS_ITEM": "dockmaster_hookknife",
         "SHADOW_FISHING_BONUS_XP": 2,
         "SHADOW_STEAL_MIN_COOLDOWN_SECONDS": 0.9,
+        "SHADOW_WARY_COST_PER_STEALTH": 0.01,
+        "SHADOW_WARY_EPSILON": 0.0001,
+        "SHADOW_WARY_SEEN_KEY": "waryRuleSeen",
         "SINK_EXPIRED_KEEP_SECONDS": 172800,
         "SMITHING_AFFINITY_EFFICIENCY_MAX": 0.15,
         "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL": 0.003,
@@ -5871,6 +5882,7 @@
             "name": "Accord Auditor",
             "period_seconds": 8.2,
             "quest_required": "s18_accord_or_war",
+            "wary": 0.912,
             "xp": 1270
           },
           "accord_informant": {
@@ -5907,7 +5919,7 @@
           },
           "anchorite_sage": {
             "area": "Architect's Gate",
-            "base_success": 0.19,
+            "base_success": 0.283,
             "drops": [
               {
                 "chance": 0.12,
@@ -5932,7 +5944,7 @@
           },
           "angler": {
             "area": "Ashford",
-            "base_success": 0.36,
+            "base_success": 0.46,
             "drops": [
               {
                 "chance": 0.09,
@@ -5957,7 +5969,7 @@
           },
           "anvil_keeper": {
             "area": "Thornite Depths",
-            "base_success": 0.21,
+            "base_success": 0.282,
             "drops": [
               {
                 "chance": 0.1,
@@ -5982,7 +5994,7 @@
           },
           "apprentice_chef": {
             "area": "Ashford",
-            "base_success": 0.44,
+            "base_success": 0.504,
             "drops": [
               {
                 "chance": 0.08,
@@ -6007,7 +6019,7 @@
           },
           "apprentice_mage": {
             "area": "Caelmora",
-            "base_success": 0.38,
+            "base_success": 0.44,
             "drops": [
               {
                 "chance": 0.08,
@@ -6032,7 +6044,7 @@
           },
           "arcane_sovereign": {
             "area": "Architect's Gate",
-            "base_success": 0.13,
+            "base_success": 0.184,
             "drops": [
               {
                 "chance": 0.12,
@@ -6057,7 +6069,7 @@
           },
           "arcane_weaver": {
             "area": "Fracture Spire",
-            "base_success": 0.19,
+            "base_success": 0.263,
             "drops": [
               {
                 "chance": 0.1,
@@ -6082,7 +6094,7 @@
           },
           "architect_emissary": {
             "area": "Architect's Gate",
-            "base_success": 0.09,
+            "base_success": 0.184,
             "drops": [
               {
                 "chance": 0.08,
@@ -6119,7 +6131,7 @@
           },
           "architect_overseer": {
             "area": "Architect's Gate",
-            "base_success": 0.07,
+            "base_success": 0.163,
             "drops": [
               {
                 "chance": 0.14,
@@ -6152,6 +6164,7 @@
             "max_hit": 65,
             "name": "Architect's Overseer",
             "period_seconds": 7.0,
+            "wary": 0.682,
             "xp": 140
           },
           "architect_reader": {
@@ -6191,6 +6204,7 @@
             "name": "Architect Reader",
             "period_seconds": 7.2,
             "quest_required": "w15_the_hollow_root_stirs",
+            "wary": 0.782,
             "xp": 764
           },
           "archive_hand": {
@@ -6218,11 +6232,12 @@
             "name": "Archive Hand",
             "period_seconds": 9.2,
             "quest_required": "o11_the_watchers_spire",
+            "wary": 1.012,
             "xp": 2170
           },
           "archmage": {
             "area": "Thornite Depths",
-            "base_success": 0.2,
+            "base_success": 0.31,
             "drops": [
               {
                 "chance": 0.1,
@@ -6247,7 +6262,7 @@
           },
           "artificer": {
             "area": "Thornite Depths",
-            "base_success": 0.2,
+            "base_success": 0.302,
             "drops": [
               {
                 "chance": 0.1,
@@ -6295,11 +6310,12 @@
             "name": "Ash Tallyman",
             "period_seconds": 8.3,
             "quest_required": "d02_the_ashborne_gate",
+            "wary": 0.912,
             "xp": 1350
           },
           "blade_lord": {
             "area": "Thornite Depths",
-            "base_success": 0.2,
+            "base_success": 0.27,
             "drops": [
               {
                 "chance": 0.1,
@@ -6353,11 +6369,12 @@
             "name": "Brine Smuggler",
             "period_seconds": 7.7,
             "quest_required": "s08_shallows_charts",
+            "wary": 0.812,
             "xp": 1065
           },
           "brute_fighter": {
             "area": "Caelmora",
-            "base_success": 0.41,
+            "base_success": 0.531,
             "drops": [
               {
                 "chance": 0.08,
@@ -6444,7 +6461,7 @@
           },
           "canopy_overseer": {
             "area": "The Canopy",
-            "base_success": 0.19,
+            "base_success": 0.191,
             "drops": [
               {
                 "chance": 0.27,
@@ -6539,6 +6556,7 @@
             "name": "Cavern Extorter",
             "period_seconds": 8.9,
             "quest_required": "d14_korraths_move",
+            "wary": 0.982,
             "xp": 1800
           },
           "chart_thief": {
@@ -6572,11 +6590,12 @@
             "name": "Chart Thief",
             "period_seconds": 7.8,
             "quest_required": "s08_shallows_charts",
+            "wary": 0.812,
             "xp": 1115
           },
           "cipher_prefect": {
             "area": "Architect's Gate",
-            "base_success": 0.078,
+            "base_success": 0.172,
             "drops": [
               {
                 "chance": 0.24,
@@ -6603,6 +6622,7 @@
             "max_hit": 61,
             "name": "Cipher Prefect",
             "period_seconds": 6.8,
+            "wary": 0.652,
             "xp": 132
           },
           "circuit_witness": {
@@ -6630,6 +6650,7 @@
             "name": "Circuit Witness",
             "period_seconds": 9.7,
             "quest_required": "o23_after_the_wraith",
+            "wary": 1.112,
             "xp": 2750
           },
           "contact_archivist": {
@@ -6657,11 +6678,12 @@
             "name": "Contact Archivist",
             "period_seconds": 9.4,
             "quest_required": "o16_contacts_evidence",
+            "wary": 1.012,
             "xp": 2380
           },
           "contemplative_adept": {
             "area": "Mire Road",
-            "base_success": 0.32,
+            "base_success": 0.391,
             "drops": [
               {
                 "chance": 0.1,
@@ -6721,6 +6743,7 @@
             "name": "Covenant Arbiter",
             "period_seconds": 6.4,
             "quest_required": "w10_marked_cargo",
+            "wary": 0.652,
             "xp": 645
           },
           "covenant_courier": {
@@ -6758,7 +6781,7 @@
           },
           "crafter_novice": {
             "area": "Ashford",
-            "base_success": 0.46,
+            "base_success": 0.571,
             "drops": [
               {
                 "chance": 0.08,
@@ -6814,7 +6837,7 @@
           },
           "deep_quarry_foreman": {
             "area": "Thornite Depths",
-            "base_success": 0.17,
+            "base_success": 0.301,
             "drops": [
               {
                 "chance": 0.22,
@@ -6845,7 +6868,7 @@
           },
           "deepwood_warden": {
             "area": "Thornite Depths",
-            "base_success": 0.22,
+            "base_success": 0.32,
             "drops": [
               {
                 "chance": 0.1,
@@ -6893,6 +6916,7 @@
             "name": "Descent Clerk",
             "period_seconds": 8.5,
             "quest_required": "d06_the_deeper_seams",
+            "wary": 0.912,
             "xp": 1470
           },
           "dock_scribe": {
@@ -6920,6 +6944,7 @@
             "name": "Dock Scribe",
             "period_seconds": 7.5,
             "quest_required": "s01_the_salt_letter",
+            "wary": 0.812,
             "xp": 940
           },
           "drowned_clerk": {
@@ -6953,6 +6978,7 @@
             "name": "Drowned Clerk",
             "period_seconds": 8.0,
             "quest_required": "s15_the_keeper_wakes",
+            "wary": 0.812,
             "xp": 1190
           },
           "ember_cloister_adept": {
@@ -6988,7 +7014,7 @@
           },
           "ethereal_guide": {
             "area": "Ashford",
-            "base_success": 0.31,
+            "base_success": 0.411,
             "drops": [
               {
                 "chance": 0.1,
@@ -7039,7 +7065,7 @@
           },
           "fisher_novice": {
             "area": "Caelmora",
-            "base_success": 0.48,
+            "base_success": 0.601,
             "drops": [
               {
                 "chance": 0.08,
@@ -7064,7 +7090,7 @@
           },
           "fissure_analyst": {
             "area": "Greyfen",
-            "base_success": 0.25,
+            "base_success": 0.251,
             "drops": [
               {
                 "chance": 0.1,
@@ -7090,7 +7116,7 @@
           },
           "forge_apprentice": {
             "area": "Ashford",
-            "base_success": 0.45,
+            "base_success": 0.542,
             "drops": [
               {
                 "chance": 0.08,
@@ -7138,11 +7164,12 @@
             "name": "Forge Archivist",
             "period_seconds": 8.8,
             "quest_required": "d13_what_the_forge_remembers",
+            "wary": 0.952,
             "xp": 1750
           },
           "forge_journeyman": {
             "area": "Mire Road",
-            "base_success": 0.3,
+            "base_success": 0.382,
             "drops": [
               {
                 "chance": 0.1,
@@ -7190,11 +7217,12 @@
             "name": "Forge Ledger",
             "period_seconds": 8.5,
             "quest_required": "d07_korraths_offer",
+            "wary": 0.912,
             "xp": 1510
           },
           "fortress_keeper": {
             "area": "Thornite Depths",
-            "base_success": 0.18,
+            "base_success": 0.301,
             "drops": [
               {
                 "chance": 0.1,
@@ -7219,7 +7247,7 @@
           },
           "fracture_arcanist": {
             "area": "Fracture Spire",
-            "base_success": 0.11,
+            "base_success": 0.183,
             "drops": [
               {
                 "chance": 0.2,
@@ -7308,7 +7336,7 @@
           },
           "fracture_engineer": {
             "area": "Thornite Depths",
-            "base_success": 0.21,
+            "base_success": 0.31,
             "drops": [
               {
                 "chance": 0.2,
@@ -7371,7 +7399,7 @@
           },
           "fracture_warden": {
             "area": "Fracture Spire",
-            "base_success": 0.12,
+            "base_success": 0.262,
             "drops": [
               {
                 "chance": 0.12,
@@ -7408,7 +7436,7 @@
           },
           "gate_attache": {
             "area": "Architect's Gate",
-            "base_success": 0.085,
+            "base_success": 0.182,
             "drops": [
               {
                 "chance": 0.1,
@@ -7462,6 +7490,7 @@
             "name": "Gate Recorder",
             "period_seconds": 9.0,
             "quest_required": "o04_arrival",
+            "wary": 1.012,
             "xp": 1960
           },
           "gate_watcher": {
@@ -7489,6 +7518,7 @@
             "name": "Gate Watcher",
             "period_seconds": 8.3,
             "quest_required": "d03_forge_or_fight",
+            "wary": 0.912,
             "xp": 1380
           },
           "glyph_fence": {
@@ -7522,11 +7552,12 @@
             "name": "Glyph Fence",
             "period_seconds": 8.1,
             "quest_required": "s15_the_keeper_wakes",
+            "wary": 0.812,
             "xp": 1215
           },
           "grandmaster_artisan": {
             "area": "Architect's Gate",
-            "base_success": 0.15,
+            "base_success": 0.253,
             "drops": [
               {
                 "chance": 0.12,
@@ -7606,6 +7637,7 @@
             "name": "Grid Keeper",
             "period_seconds": 9.1,
             "quest_required": "o06_the_conclaves_terms",
+            "wary": 1.012,
             "xp": 2040
           },
           "grove_inspector": {
@@ -7645,11 +7677,12 @@
             "name": "Grove Inspector",
             "period_seconds": 6.5,
             "quest_required": "w14_the_voice_below",
+            "wary": 0.652,
             "xp": 677
           },
           "grove_ranger": {
             "area": "Ashford",
-            "base_success": 0.33,
+            "base_success": 0.371,
             "drops": [
               {
                 "chance": 0.1,
@@ -7761,6 +7794,7 @@
             "name": "Harbor Fix",
             "period_seconds": 7.6,
             "quest_required": "s06_merchant_terms",
+            "wary": 0.812,
             "xp": 1010
           },
           "harvest_factor": {
@@ -7804,7 +7838,7 @@
           },
           "head_cook": {
             "area": "Mire Road",
-            "base_success": 0.29,
+            "base_success": 0.33,
             "drops": [
               {
                 "chance": 0.1,
@@ -7829,7 +7863,7 @@
           },
           "high_priestess": {
             "area": "Fracture Spire",
-            "base_success": 0.18,
+            "base_success": 0.292,
             "drops": [
               {
                 "chance": 0.14,
@@ -7883,6 +7917,7 @@
             "name": "Hollow Scout",
             "period_seconds": 8.6,
             "quest_required": "d09_old_arguments",
+            "wary": 0.912,
             "xp": 1590
           },
           "index_analyst": {
@@ -7945,7 +7980,7 @@
           },
           "initiated_monk": {
             "area": "Ashford",
-            "base_success": 0.38,
+            "base_success": 0.44,
             "drops": [
               {
                 "chance": 0.09,
@@ -7993,11 +8028,12 @@
             "name": "Instrument Keeper",
             "period_seconds": 9.4,
             "quest_required": "o14_aeluns_argument",
+            "wary": 1.012,
             "xp": 2320
           },
           "ironbound_warrior": {
             "area": "Ashford",
-            "base_success": 0.3,
+            "base_success": 0.382,
             "drops": [
               {
                 "chance": 0.1,
@@ -8051,6 +8087,7 @@
             "name": "Keeper Acolyte",
             "period_seconds": 8.0,
             "quest_required": "s13_the_signal_below",
+            "wary": 0.812,
             "xp": 1165
           },
           "lane_apothecary": {
@@ -8146,11 +8183,12 @@
             "name": "Ledger Runner",
             "period_seconds": 8.1,
             "quest_required": "s06_merchant_terms",
+            "wary": 0.882,
             "xp": 1240
           },
           "legendary_adventurer": {
             "area": "Architect's Gate",
-            "base_success": 0.19,
+            "base_success": 0.263,
             "drops": [
               {
                 "chance": 0.12,
@@ -8204,11 +8242,12 @@
             "name": "Leviathan Spotter",
             "period_seconds": 7.8,
             "quest_required": "s08_shallows_charts",
+            "wary": 0.812,
             "xp": 1090
           },
           "life_keeper": {
             "area": "Thornite Depths",
-            "base_success": 0.23,
+            "base_success": 0.282,
             "drops": [
               {
                 "chance": 0.1,
@@ -8233,7 +8272,7 @@
           },
           "loom_keeper": {
             "area": "Architect's Gate",
-            "base_success": 0.16,
+            "base_success": 0.235,
             "drops": [
               {
                 "chance": 0.12,
@@ -8281,11 +8320,12 @@
             "name": "Lowland Assessor",
             "period_seconds": 9.2,
             "quest_required": "o08_voraths_price",
+            "wary": 1.012,
             "xp": 2120
           },
           "mage_scholar": {
             "area": "Ashford",
-            "base_success": 0.24,
+            "base_success": 0.27,
             "drops": [
               {
                 "chance": 0.1,
@@ -8372,7 +8412,7 @@
           },
           "master_chef": {
             "area": "Thornite Depths",
-            "base_success": 0.21,
+            "base_success": 0.282,
             "drops": [
               {
                 "chance": 0.1,
@@ -8397,7 +8437,7 @@
           },
           "master_crafter": {
             "area": "Mire Road",
-            "base_success": 0.25,
+            "base_success": 0.28,
             "drops": [
               {
                 "chance": 0.1,
@@ -8422,7 +8462,7 @@
           },
           "master_smelter": {
             "area": "Architect's Gate",
-            "base_success": 0.16,
+            "base_success": 0.235,
             "drops": [
               {
                 "chance": 0.12,
@@ -8447,7 +8487,7 @@
           },
           "mire_ranger": {
             "area": "Thornite Depths",
-            "base_success": 0.24,
+            "base_success": 0.331,
             "drops": [
               {
                 "chance": 0.25,
@@ -8515,7 +8555,7 @@
           },
           "novice_monk": {
             "area": "Caelmora",
-            "base_success": 0.45,
+            "base_success": 0.581,
             "drops": [
               {
                 "chance": 0.08,
@@ -8540,7 +8580,7 @@
           },
           "ore_keeper": {
             "area": "Thornite Depths",
-            "base_success": 0.22,
+            "base_success": 0.311,
             "drops": [
               {
                 "chance": 0.1,
@@ -8594,6 +8634,7 @@
             "name": "Origin Fence",
             "period_seconds": 9.0,
             "quest_required": "d17_the_wardens_case",
+            "wary": 1.012,
             "xp": 1900
           },
           "outer_watchman": {
@@ -8647,11 +8688,12 @@
             "name": "Pact Runner",
             "period_seconds": 8.7,
             "quest_required": "d10_the_forge_friend_trial",
+            "wary": 0.912,
             "xp": 1630
           },
           "pale_chancellor": {
             "area": "Architect's Gate",
-            "base_success": 0.065,
+            "base_success": 0.159,
             "drops": [
               {
                 "chance": 0.16,
@@ -8678,11 +8720,12 @@
             "max_hit": 70,
             "name": "Pale Chancellor",
             "period_seconds": 7.2,
+            "wary": 0.712,
             "xp": 150
           },
           "pathfinder": {
             "area": "Mire Road",
-            "base_success": 0.32,
+            "base_success": 0.391,
             "drops": [
               {
                 "chance": 0.1,
@@ -8707,7 +8750,7 @@
           },
           "poacher_quartermaster": {
             "area": "Whisperwood",
-            "base_success": 0.215,
+            "base_success": 0.271,
             "drops": [
               {
                 "chance": 0.3,
@@ -8740,7 +8783,7 @@
           },
           "priest_elder": {
             "area": "Ashford",
-            "base_success": 0.33,
+            "base_success": 0.451,
             "drops": [
               {
                 "chance": 0.1,
@@ -8765,7 +8808,7 @@
           },
           "priest_novice": {
             "area": "Caelmora",
-            "base_success": 0.47,
+            "base_success": 0.572,
             "drops": [
               {
                 "chance": 0.08,
@@ -8790,7 +8833,7 @@
           },
           "prospector": {
             "area": "Ashford",
-            "base_success": 0.42,
+            "base_success": 0.542,
             "drops": [
               {
                 "chance": 0.07,
@@ -8815,7 +8858,7 @@
           },
           "quarry_master": {
             "area": "Mire Road",
-            "base_success": 0.29,
+            "base_success": 0.391,
             "drops": [
               {
                 "chance": 0.11,
@@ -8894,6 +8937,7 @@
             "name": "Quay Lookout",
             "period_seconds": 7.6,
             "quest_required": "s03_the_guild_floor",
+            "wary": 0.812,
             "xp": 990
           },
           "record_sealer": {
@@ -8921,6 +8965,7 @@
             "name": "Record Sealer",
             "period_seconds": 9.5,
             "quest_required": "o18_reclaiming_the_archive",
+            "wary": 1.012,
             "xp": 2500
           },
           "resonance_surveyor": {
@@ -8948,11 +8993,12 @@
             "name": "Resonance Surveyor",
             "period_seconds": 9.6,
             "quest_required": "o22_the_threshold",
+            "wary": 1.082,
             "xp": 2640
           },
           "resonant_broker": {
             "area": "Fracture Spire",
-            "base_success": 0.15,
+            "base_success": 0.28,
             "drops": [
               {
                 "chance": 0.14,
@@ -8989,7 +9035,7 @@
           },
           "river_keeper": {
             "area": "Mire Road",
-            "base_success": 0.28,
+            "base_success": 0.31,
             "drops": [
               {
                 "chance": 0.1,
@@ -9043,6 +9089,7 @@
             "name": "Ruin Tender",
             "period_seconds": 7.9,
             "quest_required": "s11_beneath_the_harbor",
+            "wary": 0.812,
             "xp": 1140
           },
           "salt_extorter": {
@@ -9070,6 +9117,7 @@
             "name": "Salt Extorter",
             "period_seconds": 7.5,
             "quest_required": "s02_kaels_price",
+            "wary": 0.812,
             "xp": 960
           },
           "scar_prefect": {
@@ -9155,11 +9203,12 @@
             "name": "Scorch Informant",
             "period_seconds": 8.4,
             "quest_required": "d04_scorch_pact_warning",
+            "wary": 0.912,
             "xp": 1410
           },
           "scout_recruit": {
             "area": "Caelmora",
-            "base_success": 0.46,
+            "base_success": 0.571,
             "drops": [
               {
                 "chance": 0.08,
@@ -9207,11 +9256,12 @@
             "name": "Seam Assessor",
             "period_seconds": 8.4,
             "quest_required": "d05_krenns_approval",
+            "wary": 0.912,
             "xp": 1440
           },
           "seasoned_explorer": {
             "area": "Thornite Depths",
-            "base_success": 0.22,
+            "base_success": 0.302,
             "drops": [
               {
                 "chance": 0.1,
@@ -9236,7 +9286,7 @@
           },
           "sentinel": {
             "area": "Mire Road",
-            "base_success": 0.24,
+            "base_success": 0.3,
             "drops": [
               {
                 "chance": 0.1,
@@ -9294,7 +9344,7 @@
           },
           "shadow_adept": {
             "area": "Ashford",
-            "base_success": 0.35,
+            "base_success": 0.371,
             "drops": [
               {
                 "chance": 0.1,
@@ -9319,7 +9369,7 @@
           },
           "shadow_initiate": {
             "area": "Caelmora",
-            "base_success": 0.5,
+            "base_success": 0.513,
             "drops": [
               {
                 "chance": 0.005,
@@ -9344,7 +9394,7 @@
           },
           "shadow_master": {
             "area": "Fracture Spire",
-            "base_success": 0.2,
+            "base_success": 0.31,
             "drops": [
               {
                 "chance": 0.11,
@@ -9375,7 +9425,7 @@
           },
           "shield_guard": {
             "area": "Ashford",
-            "base_success": 0.39,
+            "base_success": 0.431,
             "drops": [
               {
                 "chance": 0.08,
@@ -9400,7 +9450,7 @@
           },
           "shield_master": {
             "area": "Architect's Gate",
-            "base_success": 0.13,
+            "base_success": 0.19,
             "drops": [
               {
                 "chance": 0.12,
@@ -9448,6 +9498,7 @@
             "name": "Signal Scribe",
             "period_seconds": 9.5,
             "quest_required": "o17_the_veil_moves",
+            "wary": 1.012,
             "xp": 2440
           },
           "signal_tender": {
@@ -9475,11 +9526,12 @@
             "name": "Signal Tender",
             "period_seconds": 9.1,
             "quest_required": "o07_liras_archive",
+            "wary": 1.012,
             "xp": 2080
           },
           "silent_master": {
             "area": "Thornite Depths",
-            "base_success": 0.25,
+            "base_success": 0.29,
             "drops": [
               {
                 "chance": 0.12,
@@ -9527,6 +9579,7 @@
             "name": "Slagstone Broker",
             "period_seconds": 8.8,
             "quest_required": "d12_the_slagstone_records",
+            "wary": 0.912,
             "xp": 1710
           },
           "smelter_warden": {
@@ -9554,11 +9607,12 @@
             "name": "Smelter Warden",
             "period_seconds": 8.9,
             "quest_required": "d15_the_smelter_awakens",
+            "wary": 0.982,
             "xp": 1850
           },
           "spire_archivist": {
             "area": "Fracture Spire",
-            "base_success": 0.18,
+            "base_success": 0.292,
             "drops": [
               {
                 "chance": 0.22,
@@ -9626,7 +9680,7 @@
           },
           "spire_levy_clerk": {
             "area": "Fracture Spire",
-            "base_success": 0.14,
+            "base_success": 0.244,
             "drops": [
               {
                 "chance": 0.18,
@@ -9657,7 +9711,7 @@
           },
           "spirit_archon": {
             "area": "Architect's Gate",
-            "base_success": 0.17,
+            "base_success": 0.26,
             "drops": [
               {
                 "chance": 0.12,
@@ -9705,11 +9759,12 @@
             "name": "Spirit Broker",
             "period_seconds": 8.6,
             "quest_required": "d08_spirit_in_the_stone",
+            "wary": 0.912,
             "xp": 1550
           },
           "spirit_keeper": {
             "area": "Caelmora",
-            "base_success": 0.42,
+            "base_success": 0.522,
             "drops": [
               {
                 "chance": 0.005,
@@ -9734,7 +9789,7 @@
           },
           "strength_colossus": {
             "area": "Fracture Spire",
-            "base_success": 0.14,
+            "base_success": 0.183,
             "drops": [
               {
                 "chance": 0.12,
@@ -9782,6 +9837,7 @@
             "name": "Subject Analyst",
             "period_seconds": 9.3,
             "quest_required": "o12_what_they_watched",
+            "wary": 1.012,
             "xp": 2220
           },
           "survey_scribe": {
@@ -9812,7 +9868,7 @@
           },
           "sword_trainer": {
             "area": "Caelmora",
-            "base_success": 0.45,
+            "base_success": 0.551,
             "drops": [
               {
                 "chance": 0.08,
@@ -9837,7 +9893,7 @@
           },
           "swordmaster": {
             "area": "Mire Road",
-            "base_success": 0.26,
+            "base_success": 0.33,
             "drops": [
               {
                 "chance": 0.1,
@@ -9862,7 +9918,7 @@
           },
           "taste_sage": {
             "area": "Architect's Gate",
-            "base_success": 0.16,
+            "base_success": 0.28,
             "drops": [
               {
                 "chance": 0.12,
@@ -9887,7 +9943,7 @@
           },
           "thornite_assayer": {
             "area": "Thornite Depths",
-            "base_success": 0.2,
+            "base_success": 0.263,
             "drops": [
               {
                 "chance": 0.34,
@@ -9918,7 +9974,7 @@
           },
           "thornite_merchant": {
             "area": "Thornite Depths",
-            "base_success": 0.27,
+            "base_success": 0.282,
             "drops": [
               {
                 "chance": 0.3,
@@ -9978,11 +10034,12 @@
             "name": "Threshold Attendant",
             "period_seconds": 9.6,
             "quest_required": "o20_the_fracture_circuit",
+            "wary": 1.082,
             "xp": 2570
           },
           "tidemaster": {
             "area": "Fracture Spire",
-            "base_success": 0.21,
+            "base_success": 0.29,
             "drops": [
               {
                 "chance": 0.12,
@@ -10007,7 +10064,7 @@
           },
           "titan_brute": {
             "area": "Thornite Depths",
-            "base_success": 0.2,
+            "base_success": 0.322,
             "drops": [
               {
                 "chance": 0.1,
@@ -10117,6 +10174,7 @@
             "name": "Veil Assessor",
             "period_seconds": 9.3,
             "quest_required": "o13_the_fractures_design",
+            "wary": 1.012,
             "xp": 2270
           },
           "veil_outrider": {
@@ -10144,6 +10202,7 @@
             "name": "Veil Outrider",
             "period_seconds": 9.0,
             "quest_required": "o05_two_voices",
+            "wary": 1.012,
             "xp": 2000
           },
           "vein_appraiser": {
@@ -10171,6 +10230,7 @@
             "name": "Vein Appraiser",
             "period_seconds": 8.7,
             "quest_required": "d11_heat_and_history",
+            "wary": 0.912,
             "xp": 1670
           },
           "vent_watcher": {
@@ -10201,7 +10261,7 @@
           },
           "void_shepherd": {
             "area": "Thornite Depths",
-            "base_success": 0.22,
+            "base_success": 0.34,
             "drops": [
               {
                 "chance": 0.1,
@@ -10226,7 +10286,7 @@
           },
           "war_commander": {
             "area": "Architect's Gate",
-            "base_success": 0.14,
+            "base_success": 0.271,
             "drops": [
               {
                 "chance": 0.12,
@@ -10319,6 +10379,7 @@
             "name": "Warren Agent",
             "period_seconds": 7.0,
             "quest_required": "w13_the_buried_engine",
+            "wary": 0.712,
             "xp": 714
           },
           "warren_archivist": {
@@ -10358,6 +10419,7 @@
             "name": "Warren Archivist",
             "period_seconds": 7.4,
             "quest_required": "w18_what_the_roots_saw",
+            "wary": 0.812,
             "xp": 813
           },
           "warren_auditor": {
@@ -10397,11 +10459,12 @@
             "name": "Warren Auditor",
             "period_seconds": 6.6,
             "quest_required": "w11_beneath_the_roots",
+            "wary": 0.682,
             "xp": 711
           },
           "weaver_apprentice": {
             "area": "Caelmora",
-            "base_success": 0.4,
+            "base_success": 0.422,
             "drops": [
               {
                 "chance": 0.08,
@@ -10426,7 +10489,7 @@
           },
           "weaver_master": {
             "area": "Ashford",
-            "base_success": 0.27,
+            "base_success": 0.35,
             "drops": [
               {
                 "chance": 0.1,
@@ -10451,7 +10514,7 @@
           },
           "whisperwood_sentinel": {
             "area": "Fracture Spire",
-            "base_success": 0.19,
+            "base_success": 0.283,
             "drops": [
               {
                 "chance": 0.12,
@@ -10507,7 +10570,7 @@
           },
           "woodland_novice": {
             "area": "Caelmora",
-            "base_success": 0.46,
+            "base_success": 0.581,
             "drops": [
               {
                 "chance": 0.08,
@@ -10555,6 +10618,7 @@
             "name": "Wreck Picker",
             "period_seconds": 7.7,
             "quest_required": "s08_shallows_charts",
+            "wary": 0.812,
             "xp": 1040
           }
         }
@@ -16651,8 +16715,8 @@
     "client/data/BuildInfo.gd": {
       "consts": {
         "APP_VERSION": "1.6.4",
-        "BUILD_FINGERPRINT": "1.6.4 (1791123368)",
-        "VERSION_CODE": 1791123368
+        "BUILD_FINGERPRINT": "1.6.4 (1791145436)",
+        "VERSION_CODE": 1791145436
       },
       "specials": {}
     },
@@ -25877,14 +25941,30 @@
           "accord_field_signet": 0.03,
           "apothecary_vial_bandolier": 0.03,
           "archivist_clasp": 0.06,
+          "ashborne_chestplate": 0.095,
+          "ashborne_torc": 0.08,
           "broker_doubloon": 0.02,
           "cartographers_coldcase": 0.08,
+          "conclave_sigil": 0.1,
+          "conclave_vestments": 0.12,
+          "deep_tempered_boots": 0.09,
           "dockmaster_hookknife": 0.02,
           "ember_sanctum_key": 0.04,
           "emissary_mark": 0.065,
           "engineer_cipher": 0.055,
+          "flame_sworn_ring": 0.08,
+          "forge_crown": 0.08,
+          "forge_scarred_gloves": 0.075,
           "mire_cloak": 0.02,
+          "natures_veil_amulet": 0.04,
+          "natures_veil_boots": 0.04,
+          "natures_veil_circlet": 0.04,
+          "natures_veil_gloves": 0.025,
+          "natures_veil_leggings": 0.042,
+          "natures_veil_ring": 0.04,
+          "natures_veil_vest": 0.045,
           "noble_signet_ring": 0.015,
+          "oraewyn_boots": 0.115,
           "overseer_shadow_ring": 0.1,
           "prospector_lens": 0.025,
           "secret_ring": 0.026,
@@ -25894,11 +25974,24 @@
           "shadow_wraps": 0.045,
           "shadowveil_crown": 0.11,
           "silent_leggings": 0.017,
+          "sky_walk_leggings": 0.117,
+          "slagstone_greaves": 0.092,
           "spire_mask_of_quiet": 0.065,
           "stealth_sash": 0.015,
+          "stellar_gloves": 0.1,
           "void_amulet": 0.022,
           "voidweave_pendant": 0.11,
-          "warden_shadow_mantle": 0.08
+          "warden_shadow_mantle": 0.08,
+          "watchers_circlet": 0.1,
+          "watchers_mark": 0.1,
+          "wreckwake_band": 0.06,
+          "wreckwake_boots": 0.065,
+          "wreckwake_charm": 0.06,
+          "wreckwake_coat": 0.07,
+          "wreckwake_gloves": 0.05,
+          "wreckwake_hood": 0.06,
+          "wreckwake_leggings": 0.067,
+          "wreckwake_sash": 0.05
         },
         "_TRIGGER_ON_LABELS": {
           "at_low_hp": "At low HP",
@@ -26346,11 +26439,18 @@
               "Fixed: Under Fracture Surge, a character fighting without working auto-eat could fall behind real time while the screen was on and lose the whole backlog at once when the app next went away, killing the character. Fights now keep pace with Surge and carry no backlog. Separately, a fight left running while away now ends the same way it would with the screen on, including when the character levels up mid-fight.",
               "New: A character that lost Hardcore to a fault in the game can be given it back with a one-time code from support, entered under Settings > Rankings or on the hardcore death choice screen.",
               "Changed: Caelmora Exchange and Still Hall rows that serve one skill are now locked until that skill is unlocked, and show what they wait on. Anything already bought keeps running.",
-              "Fixed: A skill tile's star and gold tint now light at your real level cap; a level-99 skill no longer shows as maxed when an owned expansion has raised the cap. The idle dungeon run status line and HUD chip now show the correct icon instead of a blank box."
+              "Fixed: A skill tile's star and gold tint now light at your real level cap; a level-99 skill no longer shows as maxed when an owned expansion has raised the cap. The idle dungeon run status line and HUD chip now show the correct icon instead of a blank box.",
+              "Changed: With a melee weapon, Optimize per enemy now trains whichever of Attack, Strength and Defence is lowest, instead of putting every point into one skill. It picks again each fight and each level-up, with the screen on, in a Culling and while away. Expect about 2% fewer kills while it trains off your hardest-hitting style.",
+              "Fixed: Coming back to a long Culling with Best preset on could leave you waiting on the away report. Preset swaps while away are now far cheaper, so the report is ready in about half the time.",
+              "Changed: The Hunt card's safety verdict now answers for the worst case. Every hit is counted at its maximum, only gear damage reduction counts, food has to be in your bag, and regen and heals are ignored; with Best preset on, the verdict is for the preset it will wear. Safe means the worst hit lands under your auto-eat floor and no more than two servings restore it. Anything else reads Risky, with how many worst hits in a row would kill you, or One-shot. More monsters read Risky than before; the fights themselves have not changed. The card also shows a verdict icon and how long your food will last, and on hardcore warns LOW FOOD under an hour.",
+              "New: The Culling setup has a Check Safety button. It tests every quarry as an elite, which hits 1.75 times as hard, in every preset the run can reach, and shows a SAFE or NOT SAFE card with 1, 5 and 10 hour tiles that follow your food, what can kill you, and how to fix it. Quarry chips in the Culling now answer for the elite. A 'What is an elite?' sheet opens from the setup, the safety card, the run screen while an elite is up, and the results screen.",
+              "Changed: Pickpocketing has been rebalanced so a higher level mark is always harder. 81 marks are harder than before and none are easier. Marks can now be wary: a wary mark asks for stealth from the Shadow Arts Gear screen, and each 1% you are short takes 0.01% off the best chance that mark allows. The top marks of Architect's Gate, the Root Warren, the Merchant's Isle, Forge Caverns and the Threshold ask a little more than their tier's best set gives, so they top out at 99.9%, about four failed steals an hour. Nature's Veil, Wreckwake, the Ashborne set and the Conclave set now carry stealth, enough to make the previous tier's hardest mark certain. Expect 4% to 7% less XP per hour with the tier's set, and 26% less in Oraewyn on base game stealth gear alone.",
+              "Changed: The mark card shows a wary line and shows chances under 100% to two decimals; item sheets show stealth to the tenth. If the new rule lowers the chance at the mark you left on Auto Pickpocket, and the character is hardcore or the mark used to be certain, Auto Pickpocket is paused once and the away report says so.",
+              "Fixed: On the Culling run screen with Echomind 99, the Best preset row could push End the Cull under the open session drawer. End the Cull now stays above the drawer. The text log of kills, drops and next quarry has been removed from that screen."
             ],
             "title": "The Index, Feats, and the Repainted Offline Report",
             "version": "1.6.4",
-            "version_code": 1791123368
+            "version_code": 1791145436
           },
           {
             "changes": [

@@ -2368,7 +2368,7 @@ function buildSkillUnlockTimeline({
       add(
         target.level,
         "Mark",
-        `${target.name} (${target.area}) - ${formatNumber(Number(target.xp || 0))} XP every ${formatDecimal(Number(target.period_seconds || 0))}s, ${formatPercent(Number(target.base_success || 0))} base success`,
+        `${target.name} (${target.area}) - ${formatNumber(Number(target.xp || 0))} XP every ${formatDecimal(Number(target.period_seconds || 0))}s, ${formatPercent(Number(target.base_success || 0))} base success${Number(target.wary || 0) > 0 ? `, wary: asks ${formatPercent(Number(target.wary))} stealth` : ""}`,
       );
     }
   }
