@@ -4096,7 +4096,7 @@ function buildDrakenhollowEntries(
     "Three new skills - Hollowing, Spiritforging, and Geomancy - sit alongside the 24 existing skills without replacing anything in them.",
     "Owning Drakenhollow raises every skill's level cap from 110 to 115, including all 16 base game skills, Whisperwood's 4, and Tideward's 4.",
     "Hollowing relics occupy a dedicated equipment slot. Eight Architect-era objects are discovered through digging; they are never craftable and have no vendor source.",
-    `Three encounters, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Smelter, Forge-Warden Korrath, and The Origin Engine"}, bringing the total from 9 to 12. The Smelter and Forge-Warden Korrath are multi-phase boss dungeons with BGM and phase-change sound from launch. The Origin Engine is a ritual encounter: four Spiritforged offerings placed on four terminals, and it has no leaderboard board.`,
+    `Three encounters, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Smelter, Forge-Warden Korrath, and The Origin Engine"}, bringing the total from 9 to 12. The Smelter and Forge-Warden Korrath are multi-phase boss dungeons with BGM and phase-change sound from launch. The Origin Engine is a ritual encounter: four Spiritforged offerings placed on four terminals, and it has no board in the Index.`,
     "Fourteen skill tree nodes across the Warrior, Artisan, Explorer, and Harmony branches, including Fracture Resonance, a cross-skill synergy that opens at Geomancy 80 and Fracture Arts 80. Three new auto passives, one per new skill.",
     "An arrival cinematic the first time you descend into Drakenhollow, and a hidden meditation vision at Meditation level 115.",
     "The Culling, a new AFK combat mode, ships in the same build as a free base-game feature. It unlocks at Attack 10 and is not gated on any expansion.",
@@ -5337,7 +5337,7 @@ function buildMechanicEntries(
         "Risk dial: Even makes each marked quarry equally likely. Prefer stronger leans toward the highest Attack-level marks; Prefer weaker leans toward the lowest.",
       ])}
       ${renderSimpleTable("Kill ladder", ["Culling kills", "Gold", "Title"], cullLadderRows)}
-      ${cullLadderRows.length ? `<p class="helper">Only kills made inside The Culling count, from 1.4.1 onward. Earlier Culling kills were not backfilled. Standard and Hardcore post to one Culling Kills leaderboard.</p>` : ""}
+      ${cullLadderRows.length ? `<p class="helper">Only kills made inside The Culling count, from 1.4.1 onward. Earlier Culling kills were not backfilled. The Index ranks Standard and Hardcore Culling kills on separate boards.</p>` : ""}
     `,
   });
 

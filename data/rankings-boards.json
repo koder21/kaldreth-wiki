@@ -1,0 +1,827 @@
+{
+ "families": [
+  {
+   "key": "account",
+   "label": "Account"
+  },
+  {
+   "key": "skill",
+   "label": "Skills"
+  },
+  {
+   "key": "dungeon",
+   "label": "Dungeons"
+  },
+  {
+   "key": "renown",
+   "label": "Renown"
+  },
+  {
+   "key": "oddity",
+   "label": "Oddities"
+  },
+  {
+   "key": "weekly",
+   "label": "Weekly"
+  },
+  {
+   "key": "memorial",
+   "label": "Memorial"
+  },
+  {
+   "key": "patron",
+   "label": "Patrons"
+  }
+ ],
+ "boards": [
+  {
+   "key": "total_level",
+   "label": "Total level",
+   "family": "account",
+   "unit": "level",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "gold",
+   "label": "Lifetime gold",
+   "family": "account",
+   "unit": "gold",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "kills",
+   "label": "Total kills",
+   "family": "account",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "unwritten_kills",
+   "label": "Unwritten kills",
+   "family": "account",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "culling_kills",
+   "label": "Culling kills",
+   "family": "account",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "gold_given",
+   "label": "Lantern Fund patrons",
+   "family": "patron",
+   "unit": "gold",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "mp_offered",
+   "label": "Long Practice devotees",
+   "family": "patron",
+   "unit": "mp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "renown",
+   "label": "Renown",
+   "family": "renown",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "week_xp",
+   "label": "XP this week",
+   "family": "weekly",
+   "unit": "xp_gain",
+   "exp": 0,
+   "modes": "both",
+   "note": "Counted by the Index from Monday 00:00 UTC."
+  },
+  {
+   "key": "week_kills",
+   "label": "Kills this week",
+   "family": "weekly",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both",
+   "note": "Counted by the Index from Monday 00:00 UTC."
+  },
+  {
+   "key": "week_clears",
+   "label": "Dungeon clears this week",
+   "family": "weekly",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both",
+   "note": "Counted by the Index from Monday 00:00 UTC."
+  },
+  {
+   "key": "memorial",
+   "label": "The fallen",
+   "family": "memorial",
+   "unit": "level",
+   "exp": 0,
+   "modes": "both",
+   "note": "Hardcore characters who fell, by the total level they fell at."
+  },
+  {
+   "key": "deaths",
+   "label": "Deaths",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "normal"
+  },
+  {
+   "key": "steals",
+   "label": "Steals",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "meditations",
+   "label": "Meditations",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "contracts",
+   "label": "Contracts completed",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_clears",
+   "label": "Dungeon clears",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "biggest_hit",
+   "label": "Biggest hit",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "culling_best",
+   "label": "Longest Culling",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "idle_runs",
+   "label": "Idle dungeon runs",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "bestiary",
+   "label": "Bestiary entries",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "compendium",
+   "label": "Items found",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "fragments",
+   "label": "Memory fragments",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "quests",
+   "label": "Quests completed",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "achievements",
+   "label": "Achievements earned",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "standing",
+   "label": "Faction standing",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "crops",
+   "label": "Plots harvested",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "forage",
+   "label": "Forage runs",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "potions",
+   "label": "Potions brewed",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "expeditions",
+   "label": "Expeditions collected",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "ironlock_crafts",
+   "label": "Ironlock crafts",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "hollowing_digs",
+   "label": "Hollowing digs",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "spiritforging_crafts",
+   "label": "Spiritforging crafts",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "condenses",
+   "label": "Levels condensed",
+   "family": "oddity",
+   "unit": "count",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "skill_mining",
+   "label": "Mining",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_woodcutting",
+   "label": "Felling",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_fishing",
+   "label": "Fishing",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_spirit_harvesting",
+   "label": "Shard Gleaning",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_smithing",
+   "label": "Smithing",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_cooking",
+   "label": "Cooking",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_spiritweaving",
+   "label": "Spiritweaving",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_crafting",
+   "label": "Wardcraft",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_shadow_arts",
+   "label": "Shadow Arts",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_attack",
+   "label": "Attack",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_strength",
+   "label": "Strength",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_defence",
+   "label": "Defence",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_hp",
+   "label": "Hitpoints",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_magic",
+   "label": "Fracture Arts",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_meditation",
+   "label": "Meditation",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_adventurer",
+   "label": "Adventurer",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "skill_root_lore",
+   "label": "Root Lore",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "skill_aetheric_tending",
+   "label": "Aetheric Tending",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "skill_spiritbond",
+   "label": "Spiritbond",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "skill_alchemy",
+   "label": "Alchemy",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "skill_echomind",
+   "label": "Echomind",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "skill_wayfaring",
+   "label": "Wayfaring",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "skill_ironlock",
+   "label": "Ironlock",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "skill_deadeye",
+   "label": "Deadeye",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "skill_hollowing",
+   "label": "Hollowing",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "skill_spiritforging",
+   "label": "Spiritforging",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "skill_geomancy",
+   "label": "Geomancy",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "skill_astromancy",
+   "label": "Astromancy",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "skill_lorekeeper",
+   "label": "Lorekeeper",
+   "family": "skill",
+   "unit": "xp",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "time_hollow_sanctum",
+   "label": "The Hollow Sanctum - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_hollow_sanctum",
+   "label": "The Hollow Sanctum - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "time_spire_depths",
+   "label": "The Spire Depths - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_spire_depths",
+   "label": "The Spire Depths - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "time_accord_vault",
+   "label": "Accord Vault - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_accord_vault",
+   "label": "Accord Vault - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "time_keystone_chamber",
+   "label": "The Keystone Chamber - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_keystone_chamber",
+   "label": "The Keystone Chamber - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "time_fracture_scar",
+   "label": "The Fracture Scar - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_fracture_scar",
+   "label": "The Fracture Scar - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_hollow_root",
+   "label": "The Hollow Root - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_hollow_root",
+   "label": "The Hollow Root - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_groves_warden",
+   "label": "The Grove's Warden - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_groves_warden",
+   "label": "The Grove's Warden - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 1,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_drowned_keeper",
+   "label": "The Drowned Keeper - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_drowned_keeper",
+   "label": "The Drowned Keeper - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "time_admiral_vael",
+   "label": "Admiral Vael - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_admiral_vael",
+   "label": "Admiral Vael - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 2,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_smelter",
+   "label": "The Smelter - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_smelter",
+   "label": "The Smelter - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "time_forge_warden_korrath",
+   "label": "Forge-Warden Korrath - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_forge_warden_korrath",
+   "label": "Forge-Warden Korrath - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 3,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_gate_warden",
+   "label": "The Gate Warden - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_gate_warden",
+   "label": "The Gate Warden - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "time_first_watcher_aelun",
+   "label": "First Watcher Aelun - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_first_watcher_aelun",
+   "label": "First Watcher Aelun - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "time_the_resonance_wraith",
+   "label": "The Resonance Wraith - fastest clear",
+   "family": "dungeon",
+   "unit": "time",
+   "exp": 4,
+   "modes": "both"
+  },
+  {
+   "key": "dungeon_the_resonance_wraith",
+   "label": "The Resonance Wraith - clears",
+   "family": "dungeon",
+   "unit": "count",
+   "exp": 4,
+   "modes": "both"
+  }
+ ],
+ "titles": {
+  "vault_runner": "Vault Runner",
+  "dungeon_legend": "Dungeon Legend",
+  "shard_warden": "Shard Warden",
+  "first_warden": "First Warden",
+  "crown_of_fractures": "Crown of Fractures",
+  "fractures_end": "Fracture's End",
+  "the_settlement": "The Settlement",
+  "the_expected": "The Expected",
+  "rootkeeper": "Rootkeeper",
+  "saltsworn": "Saltsworn",
+  "forge_tested": "Forge-Tested",
+  "korraths_witness": "Korrath's Witness",
+  "truthbearer": "Truthbearer",
+  "gate_crossed": "Gate-Crossed",
+  "aeluns_witness": "Aelun's Witness",
+  "wraith_ended": "Wraith-Ended",
+  "charter_hand": "Charter Hand",
+  "still_hand": "Still Hand",
+  "the_mandate": "The Mandate",
+  "blood_pages": "Blood Pages",
+  "adventurer": "Adventurer",
+  "pathfinder": "Pathfinder",
+  "veteran": "Veteran",
+  "champion": "Champion",
+  "kaldreth_veteran": "Kaldreth Veteran",
+  "completionist": "Completionist",
+  "cull_marked": "Listkeeper",
+  "cull_listed": "The Listed",
+  "cull_hunted": "Long Hunt",
+  "cull_grounded": "The Grounds",
+  "cull_unending": "Hunt Unending",
+  "the_witnessed": "The Witnessed",
+  "adv_peak_100": "Road-Tested",
+  "adv_peak_110": "Trail-Worn",
+  "adv_peak_120": "The Circuit",
+  "contracts_2500": "The Reliable",
+  "contracts_5000": "The Fixture",
+  "legendary_10": "Long Game",
+  "legendary_50": "Full Charter",
+  "diligence_30": "The Habit",
+  "diligence_100": "Unbroken",
+  "logbook_3": "Quarterly",
+  "logbook_12": "The Full Year",
+  "lantern_benefactor": "Benefactor",
+  "lantern_patron": "Patron",
+  "lantern_grand_patron": "Grand Patron",
+  "lantern_lantern_patron": "Lantern Patron",
+  "lantern_pillar": "Pillar of Caelmora",
+  "practice_practiced": "Practiced",
+  "practice_adept": "Adept",
+  "practice_equal": "Preceptor's Equal",
+  "practice_stillmind": "Stillmind",
+  "practice_beyond": "Beyond Mastery"
+ },
+ "time_base": 86400000,
+ "xp_scale": 10
+}

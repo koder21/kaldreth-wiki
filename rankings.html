@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e1116" />
+    <title>The Index: Kaldreth Rankings</title>
+    <meta name="description" content="The Index: live rankings for Kaldreth. Total level, every skill, every dungeon, Renown, weekly boards and the hardcore memorial." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://kaldreth.com/rankings" />
+    <style>
+      :root {
+        --bg: #0e1116;
+        --panel: #161b26;
+        --panel-2: #1c2230;
+        --text: #e0dac8;
+        --muted: #9a958a;
+        --amber: #e4a037;
+        --line: #2a3140;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 40px 16px 80px; }
+      .eyebrow { color: var(--amber); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; margin: 0 0 6px; }
+      h1 { font-size: 28px; margin: 0 0 4px; }
+      h2 { font-size: 19px; margin: 28px 0 4px; color: #fff; }
+      .muted { color: var(--muted); font-size: 14px; }
+      a { color: var(--amber); }
+      .back { display: inline-block; margin-bottom: 24px; color: var(--muted); text-decoration: none; font-size: 14px; }
+      .back:hover { color: var(--amber); }
+      .label { color: var(--muted); letter-spacing: .1em; text-transform: uppercase; font-size: 12px; margin: 24px 0 8px; }
+      .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+      .pill {
+        font: inherit; font-size: 14px; font-weight: 600;
+        color: var(--muted); background: var(--panel);
+        border: 1px solid var(--line); border-radius: 8px;
+        padding: 9px 13px; min-height: 44px; cursor: pointer;
+      }
+      .pill:hover { color: var(--text); }
+      .pill[aria-pressed="true"] { color: var(--amber); border-color: var(--amber); background: #2a2216; }
+      .pill:focus-visible, select:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+      select {
+        font: inherit; color: var(--text); background: var(--panel);
+        border: 1px solid var(--line); border-radius: 8px;
+        padding: 10px 12px; min-height: 44px; width: 100%; margin: 0 0 12px;
+      }
+      .hidden { display: none !important; }
+      .rows { list-style: none; margin: 8px 0 0; padding: 0; }
+      .row {
+        display: grid; grid-template-columns: 3.2em minmax(0, 1fr) auto;
+        gap: 10px; align-items: center;
+        background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+        padding: 10px 14px; margin: 0 0 6px;
+      }
+      .row.top { background: var(--panel-2); border-color: #4a3a1c; }
+      .rank { color: var(--muted); font-variant-numeric: tabular-nums; }
+      .row.top .rank { color: var(--amber); font-weight: 700; }
+      .who { min-width: 0; }
+      .name { font-weight: 700; overflow-wrap: anywhere; }
+      .title { color: var(--muted); font-size: 13px; }
+      .value { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .value small { display: block; color: var(--muted); font-weight: 400; font-size: 12px; }
+      .state { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 22px 16px; text-align: center; color: var(--muted); }
+      .state button { margin-top: 12px; }
+      footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="/">← Back to the Kaldreth Compendium</a>
+      <p class="eyebrow">◈ Kaldreth</p>
+      <h1>The Index</h1>
+      <p class="muted">
+        Where every character in Aetheria stands. These are the same boards the
+        game shows under Journal → Hero → The Index, read live.
+      </p>
+
+      <p class="label">The boards</p>
+      <div class="pills" id="families" role="group" aria-label="Board family"></div>
+      <div class="pills" id="sets" role="group" aria-label="Game mode"></div>
+      <select id="board" aria-label="Board"></select>
+
+      <h2 id="board-title"></h2>
+      <p class="muted" id="board-note"></p>
+      <div id="body" aria-live="polite"></div>
+
+      <footer>
+        <p class="muted">
+          A rank is never worth a reward: the Index only keeps count. Characters
+          appear under their character name. To leave the rankings, turn off
+          <em>Settings → Rankings → Appear in the rankings</em> in the game; see the
+          <a href="/privacy">Privacy Policy</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+        var API = "https://api.kaldreth.com";
+        var catalogue = null;
+        var state = { family: "account", key: "total_level", set: "s" };
+        var token = 0;
+
+        var el = {
+          families: document.getElementById("families"),
+          sets: document.getElementById("sets"),
+          board: document.getElementById("board"),
+          title: document.getElementById("board-title"),
+          note: document.getElementById("board-note"),
+          body: document.getElementById("body"),
+        };
+
+        function group(n) {
+          return String(Math.trunc(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // SkillData.xp_for_level(): cumulative XP to reach a level.
+        var xpTable = null;
+        function xpForLevel(level) {
+          if (xpTable === null) {
+            xpTable = [0, 0];
+            var total = 0;
+            for (var l = 1; l < 120; l++) {
+              var base = Math.floor((l + 300 * Math.pow(2, l / 7)) / 4);
+              var mult = l < 50 ? 0.8 : l >= 80 ? 0.7 : 1.0;
+              total += Math.floor(base * mult);
+              xpTable.push(total * catalogue.xp_scale);
+            }
+          }
+          return xpTable[level];
+        }
+        function levelForXp(xp) {
+          var lo = 1, hi = 120;
+          while (lo < hi) {
+            var mid = Math.floor((lo + hi + 1) / 2);
+            if (xpForLevel(mid) <= xp) lo = mid; else hi = mid - 1;
+          }
+          return lo;
+        }
+        function runTime(ms) {
+          var secs = Math.floor(Math.max(0, ms) / 1000);
+          var h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60), s = secs % 60;
+          var two = function (n) { return (n < 10 ? "0" : "") + n; };
+          return h > 0 ? h + ":" + two(m) + ":" + two(s) : m + ":" + two(s);
+        }
+        // Leaderboards.format_parts(): the value and the small line under it.
+        function parts(def, value) {
+          switch (def.unit) {
+            case "xp": return { main: "Lv " + levelForXp(value), sub: group(value) + " XP" };
+            case "xp_gain": return { main: group(value), sub: "XP" };
+            case "time": return { main: runTime(catalogue.time_base - value), sub: "" };
+            case "gold": return { main: group(value), sub: "gp" };
+            case "mp": return { main: group(value), sub: "MP" };
+          }
+          return { main: group(value), sub: "" };
+        }
+
+        function defOf(key) {
+          for (var i = 0; i < catalogue.boards.length; i++) if (catalogue.boards[i].key === key) return catalogue.boards[i];
+          return null;
+        }
+        function boardsIn(family) {
+          return catalogue.boards.filter(function (b) {
+            return b.family === family && !(state.set === "h" && b.modes === "normal");
+          });
+        }
+
+        function pills(host, items, chosen, onPick) {
+          host.textContent = "";
+          items.forEach(function (item) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.className = "pill";
+            button.textContent = item.label;
+            button.setAttribute("aria-pressed", item.key === chosen ? "true" : "false");
+            button.addEventListener("click", function () { onPick(item.key); });
+            host.appendChild(button);
+          });
+        }
+
+        function refill() {
+          pills(el.families, catalogue.families, state.family, function (family) {
+            if (family === state.family) return;
+            state.family = family;
+            state.key = "";
+            refill();
+            load();
+          });
+          // The memorial is one list of fallen Hardcore characters: it has no set.
+          el.sets.classList.toggle("hidden", state.family === "memorial");
+          pills(el.sets, [{ key: "s", label: "Standard" }, { key: "h", label: "Hardcore" }], state.set, function (set) {
+            if (set === state.set) return;
+            state.set = set;
+            refill();
+            load();
+          });
+          var list = boardsIn(state.family);
+          if (!list.some(function (b) { return b.key === state.key; })) state.key = list.length ? list[0].key : "";
+          el.board.textContent = "";
+          list.forEach(function (b) {
+            var option = document.createElement("option");
+            option.value = b.key;
+            option.textContent = b.label;
+            option.selected = b.key === state.key;
+            el.board.appendChild(option);
+          });
+          el.board.classList.toggle("hidden", list.length < 2);
+        }
+
+        function message(text, retry) {
+          el.body.textContent = "";
+          var box = document.createElement("div");
+          box.className = "state";
+          var line = document.createElement("div");
+          line.textContent = text;
+          box.appendChild(line);
+          if (retry) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.className = "pill";
+            button.textContent = "Try again";
+            button.addEventListener("click", load);
+            box.appendChild(button);
+          }
+          el.body.appendChild(box);
+        }
+
+        function render(def, rows) {
+          if (!rows.length) {
+            message("No one is written on this board yet.", false);
+            return;
+          }
+          var list = document.createElement("ol");
+          list.className = "rows";
+          rows.forEach(function (row) {
+            var item = document.createElement("li");
+            item.className = "row" + (row.rank <= 3 ? " top" : "");
+            var rank = document.createElement("span");
+            rank.className = "rank";
+            rank.textContent = "#" + group(row.rank);
+            var who = document.createElement("div");
+            who.className = "who";
+            var title = catalogue.titles[row.title] || "";
+            var name = document.createElement("div");
+            name.className = "name";
+            // A censored or filtered name comes back null: the title stands in.
+            name.textContent = row.name || title || "Unnamed";
+            who.appendChild(name);
+            if (row.name && title) {
+              var sub = document.createElement("div");
+              sub.className = "title";
+              sub.textContent = title;
+              who.appendChild(sub);
+            }
+            var value = document.createElement("div");
+            value.className = "value";
+            var shown = parts(def, Number(row.value) || 0);
+            value.textContent = shown.main;
+            if (shown.sub) {
+              var small = document.createElement("small");
+              small.textContent = shown.sub;
+              value.appendChild(small);
+            }
+            item.appendChild(rank);
+            item.appendChild(who);
+            item.appendChild(value);
+            list.appendChild(item);
+          });
+          el.body.textContent = "";
+          el.body.appendChild(list);
+        }
+
+        function load() {
+          var def = defOf(state.key);
+          if (def === null) return;
+          var mine = ++token;
+          el.title.textContent = def.label + (def.family === "memorial" ? "" : state.set === "h" ? " (Hardcore)" : "");
+          el.note.textContent = def.note || "";
+          el.note.classList.toggle("hidden", !def.note);
+          try {
+            history.replaceState(null, "", "#b=" + encodeURIComponent(state.key) + (state.set === "h" ? "&set=h" : ""));
+          } catch (e) { /* a sandboxed frame may refuse; the page works without it */ }
+          message("Asking the Index...", false);
+          fetch(API + "/board?b=" + encodeURIComponent(state.key) + "&set=" + state.set + "&n=100", { headers: { Accept: "application/json" } })
+            .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error(String(res.status))); })
+            .then(function (data) {
+              if (mine !== token) return;
+              render(def, Array.isArray(data.rows) ? data.rows : []);
+            })
+            .catch(function () {
+              if (mine !== token) return;
+              message("The Index is out of reach.", true);
+            });
+        }
+
+        function fromHash() {
+          var params = new URLSearchParams(location.hash.replace(/^#/, ""));
+          var def = defOf(params.get("b") || "");
+          if (def === null) return;
+          state.set = params.get("set") === "h" && def.modes !== "normal" ? "h" : "s";
+          state.family = def.family;
+          state.key = def.key;
+        }
+
+        el.board.addEventListener("change", function () {
+          state.key = el.board.value;
+          load();
+        });
+        window.addEventListener("hashchange", function () {
+          var before = state.key + state.set;
+          fromHash();
+          if (state.key + state.set !== before) { refill(); load(); }
+        });
+
+        fetch("data/rankings-boards.json")
+          .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error(String(res.status))); })
+          .then(function (data) {
+            catalogue = data;
+            fromHash();
+            refill();
+            load();
+          })
+          .catch(function () {
+            message("The list of boards could not be read. Reload the page to try again.", false);
+          });
+      })();
+    </script>
+  </body>
+</html>
