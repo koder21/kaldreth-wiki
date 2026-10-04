@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T20:29:49.386907+00:00",
+  "generated_at": "2026-10-04T23:32:10.357158+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -16715,8 +16715,8 @@
     "client/data/BuildInfo.gd": {
       "consts": {
         "APP_VERSION": "1.6.4",
-        "BUILD_FINGERPRINT": "1.6.4 (1791145436)",
-        "VERSION_CODE": 1791145436
+        "BUILD_FINGERPRINT": "1.6.4 (1791156373)",
+        "VERSION_CODE": 1791156373
       },
       "specials": {}
     },
@@ -26446,11 +26446,13 @@
               "New: The Culling setup has a Check Safety button. It tests every quarry as an elite, which hits 1.75 times as hard, in every preset the run can reach, and shows a SAFE or NOT SAFE card with 1, 5 and 10 hour tiles that follow your food, what can kill you, and how to fix it. Quarry chips in the Culling now answer for the elite. A 'What is an elite?' sheet opens from the setup, the safety card, the run screen while an elite is up, and the results screen.",
               "Changed: Pickpocketing has been rebalanced so a higher level mark is always harder. 81 marks are harder than before and none are easier. Marks can now be wary: a wary mark asks for stealth from the Shadow Arts Gear screen, and each 1% you are short takes 0.01% off the best chance that mark allows. The top marks of Architect's Gate, the Root Warren, the Merchant's Isle, Forge Caverns and the Threshold ask a little more than their tier's best set gives, so they top out at 99.9%, about four failed steals an hour. Nature's Veil, Wreckwake, the Ashborne set and the Conclave set now carry stealth, enough to make the previous tier's hardest mark certain. Expect 4% to 7% less XP per hour with the tier's set, and 26% less in Oraewyn on base game stealth gear alone.",
               "Changed: The mark card shows a wary line and shows chances under 100% to two decimals; item sheets show stealth to the tenth. If the new rule lowers the chance at the mark you left on Auto Pickpocket, and the character is hardcore or the mark used to be certain, Auto Pickpocket is paused once and the away report says so.",
-              "Fixed: On the Culling run screen with Echomind 99, the Best preset row could push End the Cull under the open session drawer. End the Cull now stays above the drawer. The text log of kills, drops and next quarry has been removed from that screen."
+              "Fixed: On the Culling run screen with Echomind 99, the Best preset row could push End the Cull under the open session drawer. End the Cull now stays above the drawer. The text log of kills, drops and next quarry has been removed from that screen.",
+              "Changed: Starting a fight on the Hunt page now swaps the setup for a fight view, so the HP bars and the hardcore Eat button stay on screen. The enemy portrait is shown whole and as large as the screen allows, with its name, level, a one-word verdict, damage reduction and buff pills and its HP bar laid over it. Below it sit your HP bar, the Kills, Time, Gold and XP for this fight, and the loot it has dropped, rarest first, then Eat on hardcore, Cast and Flee. Tap the verdict to read it in full. After the fight the status line keeps the last fight's kills, time and gold. The Culling run screen now shows the whole portrait the same way.",
+              "Changed: On a hardcore character, the level up card no longer appears over the Eat button while you are fighting or pickpocketing. The skill row flash, milestones and alerts still fire. Standard characters are unchanged."
             ],
             "title": "The Index, Feats, and the Repainted Offline Report",
             "version": "1.6.4",
-            "version_code": 1791145436
+            "version_code": 1791156373
           },
           {
             "changes": [
