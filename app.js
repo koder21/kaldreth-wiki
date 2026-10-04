@@ -11,18 +11,19 @@ const PRECISE_PERCENT = new Intl.NumberFormat("en-US", {
 const DECIMAL = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 const PRESET_STORAGE_KEY = "kaldreth_wiki_presets_v1";
 const TOUR_STORAGE_KEY = "kaldreth_wiki_tour_done_v1";
+const NAV_COLLAPSED_STORAGE_KEY = "kaldreth_wiki_nav_collapsed_v1";
 const TOUR_STEPS = [
   {
+    title: "Browse by Section",
+    body: "Open the menu to move between sections. Each one has its own page, and search looks across all of them.",
+  },
+  {
     title: "Use Planner Tabs",
-    body: "Swipe or tap the planner tabs to switch tools without long scrolling.",
+    body: "The planners live on their own page. Swipe or tap the tabs to switch tools.",
   },
   {
-    title: "Save Presets",
-    body: "Save your favorite planner setup to load it instantly next time.",
-  },
-  {
-    title: "Bottom Shortcuts",
-    body: "Use the bottom buttons to jump to planners, open filters, share your planner URL, or reset quickly.",
+    title: "Save and Share",
+    body: "Save your favorite planner setup as a preset, or use Share to copy a link that reopens it.",
   },
 ];
 
@@ -80,6 +81,35 @@ const SECTION_LORE = {
   roadmap: "Every release of the Fracture story, in the order it shipped.",
   patches: "How Aetheria has changed, build by build.",
 };
+
+// Sidebar grouping for the sections above. A SECTION_ORDER key missing from
+// every group still gets a link, under "More", so a new section cannot vanish.
+const NAV_GROUPS = [
+  ["The World", ["items", "monsters", "npcs", "vendors", "dungeons", "factions"]],
+  [
+    "Progression",
+    ["skills", "skilltree", "passives", "achievements", "titles", "mechanics"],
+  ],
+  ["Story & Work", ["quests", "fragments", "contracts", "tasks"]],
+  ["Expansions", ["whisperwood", "tideward", "drakenhollow", "oraewyn"]],
+  ["Releases", ["roadmap", "patches"]],
+];
+const SECTION_LABELS = new Map(SECTION_ORDER);
+const PLANNER_TAB_IDS = [
+  "xp",
+  "drop",
+  "afford",
+  "route",
+  "compare",
+  "build",
+  "sim",
+  "farm",
+  "top",
+  "diag",
+];
+// Cards drawn per batch on a section page, and per section in search results.
+const BROWSE_BATCH = 60;
+const SEARCH_PREVIEW = 8;
 
 // Skills cap at 120 with Expansion 4 owned (115 with Expansion 3, 110 with
 // Expansion 2, 105 with only Expansion 1, 99 base game). A lapsed or non-owner
@@ -338,9 +368,13 @@ const PLAYER_COMBAT_STYLES = new Set([
 // formula was built around before spells carried their own tuning.
 const DEFAULT_SPELL_ID = "cast_spark";
 
+const HOME_TITLE = document.title;
+
 const state = {
   data: null,
-  category: "all",
+  // "home", "planners", or a SECTION_ORDER key.
+  route: "home",
+  browseLimit: BROWSE_BATCH,
   search: "",
   revealSpoilers: false,
   playerCombatStyle: "balanced",
@@ -419,7 +453,9 @@ init().catch((error) => {
 
 async function init() {
   bindDom();
+  initializeLayout();
   loadStateFromUrl();
+  loadRouteFromHash();
   loadSavedPresets();
   const response = await fetch(DATA_URL, { cache: "no-store" });
   if (!response.ok) {
@@ -430,6 +466,7 @@ async function init() {
   state.data = await response.json();
   state.model = buildModel(state.data);
   initializePlannerState();
+  buildNav();
   wireControls();
   render();
   initializeTour();
@@ -437,7 +474,14 @@ async function init() {
 
 function bindDom() {
   dom.search = document.getElementById("search");
-  dom.category = document.getElementById("category");
+  dom.sidebar = document.getElementById("sidebar");
+  dom.sideNav = document.getElementById("side-nav");
+  dom.sidebarToggle = document.getElementById("sidebar-toggle");
+  dom.sidebarBackdrop = document.getElementById("sidebar-backdrop");
+  dom.pageHome = document.getElementById("page-home");
+  dom.pagePlanners = document.getElementById("page-planners");
+  dom.pageBrowse = document.getElementById("page-browse");
+  dom.profilePanel = document.getElementById("profile-panel");
   dom.spoilers = document.getElementById("spoilers");
   dom.compactCards = document.getElementById("compact-cards");
   dom.presetSelect = document.getElementById("preset-select");
@@ -521,9 +565,7 @@ function bindDom() {
   dom.diagnosticsOutput = document.getElementById("diagnostics-output");
   dom.planners = document.getElementById("planners");
   dom.plannerTabs = document.getElementById("planner-tabs");
-  dom.leaderboards = document.querySelector(".leaderboards");
-  dom.mobileSectionJump = document.getElementById("mobile-section-jump");
-  dom.mobileNav = document.querySelector(".mobile-nav");
+  dom.quickActions = document.getElementById("preset-bar");
   dom.tourOverlay = document.getElementById("tour-overlay");
   dom.tourStepLabel = document.getElementById("tour-step-label");
   dom.tourTitle = document.getElementById("tour-title");
@@ -573,12 +615,35 @@ function rebuildModelAndRender() {
 function wireControls() {
   dom.search.addEventListener("input", () => {
     state.search = dom.search.value.trim().toLowerCase();
+    state.browseLimit = BROWSE_BATCH;
+    // The planners have nothing to filter, so a search from there runs
+    // across the whole archive instead.
+    if (state.search && state.route === "planners") {
+      state.route = "home";
+    }
     render();
   });
-  dom.category.addEventListener("change", () => {
-    state.category = dom.category.value;
+  window.addEventListener("hashchange", () => {
+    loadRouteFromHash();
+    closeMobileNav();
     render();
-    scrollToCategorySection(state.category);
+    window.scrollTo(0, 0);
+  });
+  if (dom.sidebarToggle) {
+    dom.sidebarToggle.addEventListener("click", toggleSidebar);
+  }
+  if (dom.sidebarBackdrop) {
+    dom.sidebarBackdrop.addEventListener("click", closeMobileNav);
+  }
+  if (dom.sideNav) {
+    // Re-picking the page you are already on fires no hashchange, so the
+    // drawer has to be closed from the click itself.
+    dom.sideNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeMobileNav();
+    });
+  }
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMobileNav();
   });
   dom.spoilers.addEventListener("change", () => {
     state.revealSpoilers = dom.spoilers.checked;
@@ -872,6 +937,7 @@ function wireControls() {
       if (!button) return;
       state.activePlannerTab = button.dataset.tab || "xp";
       applyPlannerTabState();
+      updateUrlState();
       if (window.matchMedia("(max-width: 720px)").matches) {
         scrollToTarget("planner-tabs");
       }
@@ -903,20 +969,11 @@ function wireControls() {
     );
   }
 
-  if (dom.mobileNav) {
-    dom.mobileNav.addEventListener("click", (event) => {
+  if (dom.quickActions) {
+    dom.quickActions.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-nav]");
       if (!button) return;
       handleQuickNav(button.dataset.nav || "");
-    });
-  }
-
-  if (dom.mobileSectionJump) {
-    dom.mobileSectionJump.addEventListener("change", () => {
-      const targetId = dom.mobileSectionJump.value;
-      if (!targetId) return;
-      scrollToTarget(targetId);
-      dom.mobileSectionJump.value = "";
     });
   }
 
@@ -940,16 +997,26 @@ function wireControls() {
 
   if (dom.content) {
     dom.content.addEventListener("click", (event) => {
+      if (event.target.closest("[data-load-more]")) {
+        showMoreCards();
+        return;
+      }
+      if (event.target.closest("[data-clear-search]")) {
+        clearSearch();
+        return;
+      }
       const toggle = event.target.closest(".card-toggle");
       if (!toggle) return;
       const key = toggle.dataset.cardKey || "";
       if (!key) return;
       state.expandedCards[key] = !state.expandedCards[key];
-      render();
+      // The body is already in the DOM, so flip the one card in place
+      // instead of redrawing the page.
+      const compact = state.compactCards && !state.expandedCards[key];
+      toggle.closest(".card")?.classList.toggle("collapsed", compact);
+      toggle.textContent = compact ? "Expand" : "Collapse";
     });
   }
-
-  window.addEventListener("resize", applyPlannerTabState);
 }
 
 function buildModel(data) {
@@ -1310,20 +1377,6 @@ function initializePlannerState() {
       state.buildDungeonCompletion = "all";
     }
     dom.buildDungeonComplete.value = state.buildDungeonCompletion;
-  }
-  if (dom.mobileSectionJump) {
-    const currentJumpValue = String(dom.mobileSectionJump.value || "");
-    const jumpOptions = getMobileJumpOptions(model);
-    dom.mobileSectionJump.innerHTML = jumpOptions
-      .map(
-        (option) =>
-          `<option value="${escapeHtml(option.value)}">${escapeHtml(option.label)}</option>`,
-      )
-      .join("");
-    const validJumpValues = new Set(jumpOptions.map((option) => option.value));
-    dom.mobileSectionJump.value = validJumpValues.has(currentJumpValue)
-      ? currentJumpValue
-      : "";
   }
   if (dom.simXpRate) dom.simXpRate.value = String(state.simXpRate);
   if (dom.simGpRate) dom.simGpRate.value = String(state.simGpRate);
@@ -6257,55 +6310,345 @@ function render() {
     return;
   }
   dom.countTotal.textContent = formatNumber(model.entries.length);
-  dom.summaryGrid.innerHTML = model.summary
-    .map(
-      (entry) => `
-    <div class="metric-pill">
-      <strong>${formatNumber(entry.count)}</strong>
-      <span>${escapeHtml(entry.label)}</span>
-    </div>
-  `,
-    )
-    .join("");
 
-  populateCategories();
   renderLeaderboards(model.boardRows);
   renderCalculators(model);
 
-  const matches = model.entries.filter((entry) => {
-    const categoryMatches =
-      state.category === "all" || entry.section === state.category;
-    const searchMatches =
-      !state.search || entry.searchText.includes(state.search);
-    return categoryMatches && searchMatches;
-  });
-
+  const matches = state.search
+    ? model.entries.filter((entry) => entry.searchText.includes(state.search))
+    : model.entries;
   const grouped = groupBy(matches, (entry) => entry.section);
-  dom.content.innerHTML =
-    SECTION_ORDER.map(([sectionKey, sectionLabel]) => {
+
+  const view = currentView();
+  dom.pageHome.hidden = view !== "home";
+  dom.pagePlanners.hidden = view !== "planners";
+  dom.pageBrowse.hidden = view !== "browse";
+  updateNav(grouped, matches.length);
+  if (view === "browse") {
+    renderBrowse(model, grouped, matches.length);
+  } else {
+    state.browseEntries = [];
+    dom.content.innerHTML = "";
+  }
+  document.title = SECTION_LABELS.has(state.route)
+    ? `${SECTION_LABELS.get(state.route)} · Kaldreth Compendium`
+    : state.route === "planners"
+      ? "Planners · Kaldreth Compendium"
+      : HOME_TITLE;
+
+  applyPlannerTabState();
+}
+
+// Which of the three pages is on screen. A search typed on the home page
+// swaps the landing content for results from every section.
+function currentView() {
+  if (state.route === "planners") return "planners";
+  if (state.route === "home") return state.search ? "browse" : "home";
+  return "browse";
+}
+
+function renderBrowse(model, grouped, totalMatches) {
+  const noMatches = `<article class="card"><h3 class="card-title">No matches</h3><p class="muted">Try broadening the search or switching to another section.</p></article>`;
+
+  if (state.route === "home") {
+    state.browseEntries = [];
+    const sections = SECTION_ORDER.map(([sectionKey, sectionLabel]) => {
       const entries = grouped.get(sectionKey) || [];
       if (entries.length === 0) {
         return "";
       }
-      const lore = SECTION_LORE[sectionKey];
+      const href = escapeHtml(routeHash(sectionKey));
+      const more =
+        entries.length > SEARCH_PREVIEW
+          ? `<a class="load-more" href="${href}">View all ${formatNumber(entries.length)} matches in ${escapeHtml(sectionLabel)}</a>`
+          : "";
       return `
       <section class="section" id="section-${escapeHtml(sectionKey)}">
         <div class="section-head">
           <div class="section-head-text">
-            <h2>${escapeHtml(sectionLabel)}</h2>
-            ${lore ? `<p class="section-lore">${escapeHtml(lore)}</p>` : ""}
+            <h2><a href="${href}">${escapeHtml(sectionLabel)}</a></h2>
           </div>
-          <p class="section-count">${formatNumber(entries.length)} entr${entries.length === 1 ? "y" : "ies"}</p>
+          <p class="section-count">${formatNumber(entries.length)} match${entries.length === 1 ? "" : "es"}</p>
         </div>
         <div class="list-stack">
-          ${entries.map((entry, index) => renderCard(entry, index)).join("")}
+          ${entries
+            .slice(0, SEARCH_PREVIEW)
+            .map((entry, index) => renderCard(entry, index))
+            .join("")}
         </div>
+        ${more}
       </section>
     `;
-    }).join("") ||
-    `<article class="card"><h3 class="card-title">No matches</h3><p class="muted">Try broadening the search or switching to another category.</p></article>`;
+    }).join("");
+    dom.content.innerHTML = `${renderSearchNote(totalMatches, false)}${sections || noMatches}`;
+    observeLoadMore();
+    return;
+  }
 
-  applyPlannerTabState();
+  const sectionKey = state.route;
+  const entries = grouped.get(sectionKey) || [];
+  const total =
+    model.summary.find((entry) => entry.key === sectionKey)?.count || 0;
+  const lore = SECTION_LORE[sectionKey];
+  const count = state.search
+    ? `${formatNumber(entries.length)} of ${formatNumber(total)} match`
+    : `${formatNumber(total)} entr${total === 1 ? "y" : "ies"}`;
+  state.browseEntries = entries;
+  const shown = entries.slice(0, state.browseLimit);
+  dom.content.innerHTML = `
+      ${renderSearchNote(totalMatches, true)}
+      <section class="section" id="section-${escapeHtml(sectionKey)}">
+        <div class="section-head">
+          <div class="section-head-text">
+            <h2>${escapeHtml(SECTION_LABELS.get(sectionKey))}</h2>
+            ${lore ? `<p class="section-lore">${escapeHtml(lore)}</p>` : ""}
+          </div>
+          <p class="section-count">${count}</p>
+        </div>
+        <div class="list-stack">
+          ${shown.map((entry, index) => renderCard(entry, index)).join("") || noMatches}
+        </div>
+        ${renderLoadMore(entries.length - shown.length)}
+      </section>
+    `;
+  observeLoadMore();
+}
+
+function renderSearchNote(totalMatches, inSection) {
+  if (!state.search) {
+    return "";
+  }
+  const everywhere = inSection
+    ? `<a href="${escapeHtml(routeHash("home"))}">${formatNumber(totalMatches)} across all sections</a>`
+    : `<span>${formatNumber(totalMatches)} match${totalMatches === 1 ? "" : "es"} across all sections</span>`;
+  return `
+      <div class="search-note">
+        <span>Searching for <strong>${escapeHtml(state.search)}</strong></span>
+        ${everywhere}
+        <button type="button" data-clear-search>Clear search</button>
+      </div>
+    `;
+}
+
+function renderLoadMore(remaining) {
+  if (remaining <= 0) {
+    return "";
+  }
+  return `<button class="load-more" type="button" data-load-more>Show more (${formatNumber(remaining)} remaining)</button>`;
+}
+
+// Append the next batch to the section page in place, so the cards already on
+// screen keep their expanded state and do not replay their entrance.
+function showMoreCards() {
+  const entries = state.browseEntries || [];
+  const stack = dom.content.querySelector(".list-stack");
+  const button = dom.content.querySelector("[data-load-more]");
+  if (!stack || !button || state.browseLimit >= entries.length) {
+    return;
+  }
+  const from = state.browseLimit;
+  state.browseLimit += BROWSE_BATCH;
+  stack.insertAdjacentHTML(
+    "beforeend",
+    entries
+      .slice(from, state.browseLimit)
+      .map((entry, index) => renderCard(entry, index))
+      .join(""),
+  );
+  button.outerHTML = renderLoadMore(entries.length - state.browseLimit);
+  observeLoadMore();
+}
+
+let loadMoreObserver = null;
+
+function observeLoadMore() {
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+  loadMoreObserver?.disconnect();
+  const button = dom.content.querySelector("[data-load-more]");
+  if (!button) {
+    return;
+  }
+  loadMoreObserver = new IntersectionObserver(
+    (records) => {
+      if (records.some((record) => record.isIntersecting)) {
+        showMoreCards();
+      }
+    },
+    { rootMargin: "600px" },
+  );
+  loadMoreObserver.observe(button);
+}
+
+function clearSearch() {
+  state.search = "";
+  state.browseLimit = BROWSE_BATCH;
+  dom.search.value = "";
+  render();
+  window.scrollTo(0, 0);
+}
+
+function buildNav() {
+  const model = state.model;
+  if (!model || !dom.sideNav) {
+    return;
+  }
+  const populated = model.summary.filter((entry) => entry.count > 0);
+  const populatedKeys = new Set(populated.map((entry) => entry.key));
+  const groupedKeys = new Set(NAV_GROUPS.flatMap(([, keys]) => keys));
+  const groups = [
+    ...NAV_GROUPS,
+    ["More", SECTION_ORDER.map(([key]) => key).filter((key) => !groupedKeys.has(key))],
+  ];
+  const link = (route, label) =>
+    `<a class="nav-link" data-route="${escapeHtml(route)}" href="#/${escapeHtml(route === "home" ? "" : route)}"><span>${escapeHtml(label)}</span><span class="nav-count"></span></a>`;
+  dom.sideNav.innerHTML =
+    link("home", "Home") +
+    link("planners", "Planners") +
+    groups
+      .map(([label, keys]) => {
+        const links = keys
+          .filter((key) => populatedKeys.has(key))
+          .map((key) => link(key, SECTION_LABELS.get(key)));
+        if (!links.length) {
+          return "";
+        }
+        return `<details class="nav-group" open><summary>${escapeHtml(label)}</summary>${links.join("")}</details>`;
+      })
+      .join("");
+
+  dom.summaryGrid.innerHTML = populated
+    .map(
+      (entry) => `
+    <a class="section-tile" href="#/${escapeHtml(entry.key)}">
+      <span class="tile-head"><strong>${escapeHtml(entry.label)}</strong><span>${formatNumber(entry.count)}</span></span>
+      <span class="tile-lore">${escapeHtml(SECTION_LORE[entry.key] || "")}</span>
+    </a>
+  `,
+    )
+    .join("");
+}
+
+function updateNav(grouped, totalMatches) {
+  if (!dom.sideNav) {
+    return;
+  }
+  for (const node of dom.sideNav.querySelectorAll("a[data-route]")) {
+    const route = node.dataset.route || "home";
+    const active = route === state.route;
+    node.classList.toggle("active", active);
+    if (active) {
+      node.setAttribute("aria-current", "page");
+      const group = node.closest("details");
+      if (group) group.open = true;
+    } else {
+      node.removeAttribute("aria-current");
+    }
+    // Carry the search along, so moving between sections narrows the same
+    // query instead of dropping it.
+    node.setAttribute("href", routeHash(route) || "#/");
+    const count = node.querySelector(".nav-count");
+    if (route === "planners") {
+      continue;
+    }
+    if (route === "home") {
+      count.textContent = state.search ? formatNumber(totalMatches) : "";
+      continue;
+    }
+    const matched = (grouped.get(route) || []).length;
+    count.textContent = formatNumber(matched);
+    node.classList.toggle("is-empty", matched === 0);
+  }
+}
+
+// The planner state owns the query string, so the page lives in the hash:
+// "#/items", "#/items?q=ember", "#/planners/drop". Home with no search is "".
+function routeHash(route = state.route) {
+  if (route === "planners") {
+    return state.activePlannerTab && state.activePlannerTab !== "xp"
+      ? `#/planners/${state.activePlannerTab}`
+      : "#/planners";
+  }
+  const path = route === "home" ? "" : route;
+  const query = state.search ? `?q=${encodeURIComponent(state.search)}` : "";
+  return path || query ? `#/${path}${query}` : "";
+}
+
+function loadRouteFromHash() {
+  let raw = (window.location.hash || "").replace(/^#\/?/, "");
+  // Links to the old single-page layout pointed at "#section-items".
+  raw = raw.replace(/^section-/, "");
+  const [path, query = ""] = raw.split("?");
+  const [page = "", sub = ""] = path.split("/");
+  if (page === "planners") {
+    state.route = "planners";
+    if (PLANNER_TAB_IDS.includes(sub)) {
+      state.activePlannerTab = sub;
+    }
+  } else {
+    state.route = SECTION_LABELS.has(page) ? page : "home";
+  }
+  let search = "";
+  if (state.route !== "planners") {
+    search = (new URLSearchParams(query).get("q") || "").trim().toLowerCase();
+  }
+  state.search = search;
+  state.browseLimit = BROWSE_BATCH;
+  if (dom.search && dom.search.value.trim().toLowerCase() !== search) {
+    dom.search.value = search;
+  }
+}
+
+function isNarrowLayout() {
+  return window.matchMedia("(max-width: 900px)").matches;
+}
+
+// Wide screens collapse the sidebar out of the layout and remember it; narrow
+// ones treat it as a drawer that opens over the page.
+function toggleSidebar() {
+  if (isNarrowLayout()) {
+    document.body.classList.toggle("nav-open");
+  } else {
+    const collapsed = document.body.classList.toggle("nav-collapsed");
+    try {
+      window.localStorage.setItem(
+        NAV_COLLAPSED_STORAGE_KEY,
+        collapsed ? "1" : "0",
+      );
+    } catch (_error) {
+      // Ignore localStorage failures.
+    }
+  }
+  syncSidebarToggle();
+}
+
+function closeMobileNav() {
+  document.body.classList.remove("nav-open");
+  syncSidebarToggle();
+}
+
+function syncSidebarToggle() {
+  if (!dom.sidebarToggle) return;
+  const expanded = isNarrowLayout()
+    ? document.body.classList.contains("nav-open")
+    : !document.body.classList.contains("nav-collapsed");
+  dom.sidebarToggle.setAttribute("aria-expanded", String(expanded));
+}
+
+function initializeLayout() {
+  let collapsed = false;
+  try {
+    collapsed = window.localStorage.getItem(NAV_COLLAPSED_STORAGE_KEY) === "1";
+  } catch (_error) {
+    collapsed = false;
+  }
+  document.body.classList.toggle("nav-collapsed", collapsed);
+  // Eighteen profile inputs would push the planners off a phone screen.
+  if (dom.profilePanel && isNarrowLayout()) {
+    dom.profilePanel.open = false;
+  }
+  syncSidebarToggle();
 }
 
 function renderLeaderboards(rows) {
@@ -7379,8 +7722,11 @@ function updateUrlState() {
   params.set("frf", state.farmRouteSkillFilter || "all");
 
   const query = params.toString();
-  const nextUrl = `${window.location.pathname}?${query}`;
-  if (`${window.location.pathname}${window.location.search}` !== nextUrl) {
+  const nextUrl = `${window.location.pathname}?${query}${routeHash()}`;
+  if (
+    `${window.location.pathname}${window.location.search}${window.location.hash}` !==
+    nextUrl
+  ) {
     window.history.replaceState(null, "", nextUrl);
   }
 }
@@ -8007,55 +8353,6 @@ function renderEfficiencyRow(row, headings) {
     else values.push(String(row[normalized] ?? row[heading] ?? "-"));
   }
   return `<tr>${values.map((value, index) => `<td data-label="${escapeHtml(headings[index])}">${escapeHtml(String(value))}</td>`).join("")}</tr>`;
-}
-
-function scrollToCategorySection(category) {
-  // Picking a specific category should bring its section into view, past the
-  // hero, filters, and planner tools that sit above the content list.
-  if (!category || category === "all") {
-    return;
-  }
-  // Defer to the next frame so the freshly-rendered section exists in the DOM.
-  requestAnimationFrame(() => {
-    const target = document.getElementById(`section-${category}`);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-}
-
-function populateCategories() {
-  const current = dom.category.value || "all";
-  const options = [
-    { value: "all", label: "All" },
-    ...SECTION_ORDER.map(([section, label]) => ({ value: section, label })),
-  ];
-  dom.category.innerHTML = options
-    .map(
-      (option) =>
-        `<option value="${option.value}">${escapeHtml(option.label)}</option>`,
-    )
-    .join("");
-  dom.category.value = current;
-}
-
-function getMobileJumpOptions(model) {
-  const options = [{ value: "", label: "Jump to..." }];
-  const baseSections = SECTION_ORDER.map(([section, label]) => ({
-    value: `section-${section}`,
-    label,
-  }));
-
-  const jumpTargets = baseSections
-    .filter(
-      (entry) =>
-        entry.value !== "section-vendors" ||
-        Number(model?.vendors?.length || 0) > 0,
-    )
-    .slice()
-    .sort((left, right) => left.label.localeCompare(right.label));
-  options.push(...jumpTargets);
-  return options;
 }
 
 function combatXpDistribution(monsterHp, style) {
@@ -8687,43 +8984,31 @@ function getBuildFocusLabel(focus) {
 }
 
 function applyPlannerTabState() {
-  const cards = [...document.querySelectorAll(".planner-card[data-tab]")];
-  const tabButtons = [...document.querySelectorAll(".planner-tab[data-tab]")];
-  const isMobile = window.matchMedia("(max-width: 720px)").matches;
-
-  for (const card of cards) {
-    const tab = card.dataset.tab || "";
-    if (isMobile) {
-      card.classList.toggle("active-mobile", tab === state.activePlannerTab);
-    } else {
-      card.classList.remove("active-mobile");
+  if (!PLANNER_TAB_IDS.includes(state.activePlannerTab)) {
+    state.activePlannerTab = "xp";
+  }
+  for (const pane of document.querySelectorAll(".planner-pane[data-tab]")) {
+    pane.classList.toggle("active", pane.dataset.tab === state.activePlannerTab);
+  }
+  for (const button of document.querySelectorAll(".planner-tab[data-tab]")) {
+    const active = button.dataset.tab === state.activePlannerTab;
+    button.classList.toggle("active", active);
+    // On a phone the strip scrolls sideways; keep the chosen tab in sight
+    // without touching the page's own scroll position.
+    const strip = dom.plannerTabs;
+    if (active && strip && strip.scrollWidth > strip.clientWidth) {
+      const left = button.offsetLeft - strip.offsetLeft;
+      if (
+        left < strip.scrollLeft ||
+        left + button.offsetWidth > strip.scrollLeft + strip.clientWidth
+      ) {
+        strip.scrollLeft = Math.max(0, left - 12);
+      }
     }
-  }
-
-  for (const button of tabButtons) {
-    button.classList.toggle(
-      "active",
-      button.dataset.tab === state.activePlannerTab,
-    );
-  }
-
-  if (dom.leaderboards) {
-    const focusedTabs = new Set(["compare", "diag"]);
-    const hideForFocus = isMobile && focusedTabs.has(state.activePlannerTab);
-    dom.leaderboards.classList.toggle("hidden", hideForFocus);
   }
 }
 
 function handleQuickNav(action) {
-  if (action === "planners") {
-    scrollToTarget("planner-tabs");
-    return;
-  }
-  if (action === "filters") {
-    scrollToTarget("search");
-    dom.category?.focus();
-    return;
-  }
   if (action === "share") {
     void shareCurrentStateFromNav();
     return;
@@ -8788,7 +9073,6 @@ function resetPlannerStateToDefaults() {
     farmRouteGpTarget: 250000,
     farmRouteMaxSteps: 4,
     farmRouteSkillFilter: "all",
-    activePlannerTab: "xp",
   });
 
   initializePlannerState();
@@ -8822,9 +9106,7 @@ async function shareCurrentStateFromNav() {
 }
 
 function showMobileNavFeedback(action, label) {
-  const button = document.querySelector(
-    `.mobile-nav button[data-nav="${action}"]`,
-  );
+  const button = document.querySelector(`button[data-nav="${action}"]`);
   if (!button) return;
   const base = button.dataset.baseLabel || button.textContent || "Share";
   button.dataset.baseLabel = base;
@@ -8972,6 +9254,7 @@ function shiftPlannerTab(direction) {
   );
   state.activePlannerTab = ids[nextIndex] || ids[0];
   applyPlannerTabState();
+  updateUrlState();
 }
 
 function initializeTour() {
