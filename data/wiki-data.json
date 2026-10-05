@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T23:32:10.357158+00:00",
+  "generated_at": "2026-10-05T14:19:25.282224+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -14740,6 +14740,7 @@
                 "damage": 18,
                 "hp": 180,
                 "name": "Fracture-Touched Sentinels",
+                "portrait": "res://assets/images/wave_fracture_touched_sentinels.png",
                 "style": "balanced",
                 "weakness": "magic"
               },
@@ -14748,6 +14749,7 @@
                 "damage": 28,
                 "hp": 130,
                 "name": "Lantern Wraiths",
+                "portrait": "res://assets/images/wave_lantern_wraiths.png",
                 "style": "attack",
                 "weakness": "melee"
               },
@@ -14756,6 +14758,7 @@
                 "damage": 16,
                 "hp": 280,
                 "name": "The Pale Guard",
+                "portrait": "res://assets/images/wave_the_pale_guard.png",
                 "style": "defence",
                 "weakness": "ranged"
               }
@@ -14893,6 +14896,7 @@
                 "damage": 24,
                 "hp": 200,
                 "name": "Resonance Constructs",
+                "portrait": "res://assets/images/wave_resonance_constructs.png",
                 "style": "magic",
                 "weakness": "magic"
               },
@@ -14901,6 +14905,7 @@
                 "damage": 20,
                 "hp": 120,
                 "name": "Logic Fragments",
+                "portrait": "res://assets/images/wave_logic_fragments.png",
                 "style": "balanced",
                 "weakness": "ranged"
               },
@@ -14909,6 +14914,7 @@
                 "damage": 18,
                 "hp": 350,
                 "name": "The Spire's Defenders",
+                "portrait": "res://assets/images/wave_the_spires_defenders.png",
                 "style": "defence",
                 "weakness": "melee"
               }
@@ -15062,6 +15068,7 @@
                 "damage": 24,
                 "hp": 280,
                 "name": "Accord Vault Guards",
+                "portrait": "res://assets/images/wave_accord_vault_guards.png",
                 "style": "defence",
                 "weakness": "magic"
               },
@@ -15070,6 +15077,7 @@
                 "damage": 38,
                 "hp": 220,
                 "name": "Fracture-Branded Elite",
+                "portrait": "res://assets/images/wave_fracture_branded_elite.png",
                 "style": "attack",
                 "weakness": "ranged"
               },
@@ -15078,6 +15086,7 @@
                 "damage": 30,
                 "hp": 600,
                 "name": "The Accord's Last Ward",
+                "portrait": "res://assets/images/wave_the_accords_last_ward.png",
                 "style": "balanced",
                 "weakness": "melee"
               }
@@ -15255,6 +15264,7 @@
                 "damage": 30,
                 "hp": 240,
                 "name": "Fracture-Saturated Constructs",
+                "portrait": "res://assets/images/wave_fracture_saturated_constructs.png",
                 "style": "balanced",
                 "weakness": "magic"
               },
@@ -15263,6 +15273,7 @@
                 "damage": 45,
                 "hp": 380,
                 "name": "Protocol Enforcers",
+                "portrait": "res://assets/images/wave_protocol_enforcers.png",
                 "style": "attack",
                 "weakness": "ranged"
               },
@@ -15271,6 +15282,7 @@
                 "damage": 38,
                 "hp": 550,
                 "name": "Keystone Wardens",
+                "portrait": "res://assets/images/wave_keystone_wardens.png",
                 "style": "defence",
                 "weakness": "magic"
               },
@@ -15279,6 +15291,7 @@
                 "damage": 55,
                 "hp": 900,
                 "name": "The Architect's Memory",
+                "portrait": "res://assets/images/wave_the_architects_memory.png",
                 "style": "magic",
                 "weakness": "melee"
               }
@@ -15459,6 +15472,7 @@
                 "damage": 42,
                 "hp": 300,
                 "name": "Scar Emergence",
+                "portrait": "res://assets/images/wave_scar_emergence.png",
                 "style": "balanced",
                 "weakness": "ranged"
               },
@@ -15468,6 +15482,7 @@
                 "damage": 58,
                 "hp": 460,
                 "name": "Index Constructs",
+                "portrait": "res://assets/images/wave_index_constructs.png",
                 "style": "defence",
                 "weakness": "magic"
               }
@@ -15595,6 +15610,7 @@
                 "damage": 62,
                 "hp": 420,
                 "name": "Warren Approach",
+                "portrait": "res://assets/images/wave_warren_approach.png",
                 "style": "balanced",
                 "weakness": "ranged"
               },
@@ -15603,6 +15619,7 @@
                 "damage": 78,
                 "hp": 520,
                 "name": "Rootbound Dead",
+                "portrait": "res://assets/images/wave_rootbound_dead.png",
                 "style": "defence",
                 "weakness": "melee"
               }
@@ -15719,6 +15736,7 @@
                 "damage": 74,
                 "hp": 480,
                 "name": "Sanctum Wards",
+                "portrait": "res://assets/images/wave_sanctum_wards.png",
                 "style": "magic",
                 "weakness": "melee"
               },
@@ -15727,6 +15745,7 @@
                 "damage": 92,
                 "hp": 560,
                 "name": "Overwritten",
+                "portrait": "res://assets/images/wave_overwritten.png",
                 "style": "balanced",
                 "weakness": "ranged"
               }
@@ -15845,6 +15864,7 @@
                 "damage": 88,
                 "hp": 620,
                 "name": "Ruin Guardians",
+                "portrait": "res://assets/images/wave_ruin_guardians.png",
                 "style": "balanced",
                 "weakness": "ranged"
               },
@@ -15854,6 +15874,7 @@
                 "damage": 105,
                 "hp": 700,
                 "name": "Flooded Constructs",
+                "portrait": "res://assets/images/wave_flooded_constructs.png",
                 "style": "magic",
                 "weakness": "magic"
               }
@@ -15978,6 +15999,7 @@
                 "damage": 95,
                 "hp": 500,
                 "name": "Vael's Lieutenants",
+                "portrait": "res://assets/images/wave_vaels_lieutenants.png",
                 "style": "balanced",
                 "weakness": "magic"
               }
@@ -16113,6 +16135,7 @@
                 "damage": 100,
                 "hp": 740,
                 "name": "Forge Cavern Constructs",
+                "portrait": "res://assets/images/wave_forge_cavern_constructs.png",
                 "style": "balanced",
                 "weakness": "magic"
               },
@@ -16121,6 +16144,7 @@
                 "damage": 112,
                 "hp": 820,
                 "name": "Slag Beast Pack",
+                "portrait": "res://assets/images/wave_slag_beast_pack.png",
                 "style": "balanced",
                 "weakness": "ranged"
               }
@@ -16226,6 +16250,7 @@
                 "damage": 118,
                 "hp": 840,
                 "name": "Scorch Pact Elite Guard",
+                "portrait": "res://assets/images/wave_scorch_pact_elite_guard.png",
                 "style": "balanced",
                 "weakness": "ranged"
               }
@@ -16392,6 +16417,7 @@
                 "damage": 122,
                 "hp": 880,
                 "name": "Ascent Sentinels",
+                "portrait": "res://assets/images/wave_ascent_sentinels.png",
                 "style": "balanced",
                 "weakness": "ranged"
               }
@@ -16513,6 +16539,7 @@
                 "damage": 126,
                 "hp": 920,
                 "name": "Veil Inner Guard",
+                "portrait": "res://assets/images/wave_veil_inner_guard.png",
                 "style": "balanced",
                 "weakness": "ranged"
               }
@@ -16642,6 +16669,7 @@
                 "damage": 130,
                 "hp": 960,
                 "name": "Fracture Echoes",
+                "portrait": "res://assets/images/wave_fracture_echoes.png",
                 "style": "balanced",
                 "weakness": "melee"
               }
@@ -16714,9 +16742,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.4",
-        "BUILD_FINGERPRINT": "1.6.4 (1791156373)",
-        "VERSION_CODE": 1791156373
+        "APP_VERSION": "1.6.5",
+        "BUILD_FINGERPRINT": "1.6.5 (1791209610)",
+        "VERSION_CODE": 1791209610
       },
       "specials": {}
     },
@@ -26427,6 +26455,21 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: The Gathering and Artisan skill pages have been rebuilt. Mining, Felling, Fishing, Shard Gleaning, Root Lore, Smithing, Cooking, Spiritweaving, Wardcraft, Alchemy, Ironlock and Spiritforging now show the node or recipe you have picked on a painting of the place the skill is worked, with its level, XP, time and XP an hour, what it yields or costs against what you hold, and one line naming what stands in the way if it cannot start. Every node and recipe sits below as a tile, five across, marked if it is running, locked, the best XP an hour, or asked for by a contract. Tapping a tile picks it and starts nothing. Train, Make and Stop sit in a bar that stays on screen. Alchemy's Drink tab is unchanged.",
+              "Changed: A skill page now opens on what a contract asked for, else what is running, else what you last looked at, else the highest thing you can start now. A recipe says how many your bag covers and for how long.",
+              "New: Artisan pages have an amount button beside Make: All, 1, 10 or 100. A craft with an amount stops when it reaches it, with the app open or while away, and the page shows how many are left. Running out of materials still stops it first.",
+              "New: Ingredient chips on a recipe, and seed chips on a crop, can be tapped when the item is gathered or made on a page you have unlocked. The page opens on that item, and Back returns you to where you were.",
+              "Changed: Aetheric Tending, Wayfaring and Hollowing use the same layout, with a row of plots or dispatch slots showing what is in each and the time left. Pick a crop, route or site to read its time, yield and cost, then send it into the first free slot. Tending plants every empty plot your seeds cover in one tap. A slot counts down on the picture while it is out and pulses green once it is back, and a second button collects what is back whatever you have picked. What a dig found stays on screen until you move on and no longer holds its slot. The Sky Ascent strip is unchanged.",
+              "Changed: The Spiritbond page now fits one screen. The companion you pick is shown on a painting of where it lives, with the forage countdown over it while it is out and a green edge once it is back. All eight companions sit in a grid below, and tapping one picks it without bonding. Bond, Send to forage, Release and Collect sit in a bar that stays on screen.",
+              "Changed: The boss dungeon run screen has a much larger stage. Every wave now has its own picture, and the bar under the stage shows the wave's HP before the boss's. The text log, the Full log reader, the Loadout strip, the Best preset button, the magazine readout and the results screen's Spend shards button have been removed from that screen. What a finished run paid (loot, Mastery Points, clear time and the Index) is listed under the stage once the run is over. First clear bonus items are listed by name.",
+              "New: 55 new paintings: 12 skill scenes, 8 companion scenes, 28 boss dungeon waves and 7 for Hollowing, which had none."
+            ],
+            "title": "Repainted Skill Pages, Make Amounts, and Boss Wave Art",
+            "version": "1.6.5",
+            "version_code": 1791209610
+          },
           {
             "changes": [
               "New: The Index is now live at Journal > Hero > The Index; the trophy on the Combat tab opens it too. It shows your own records, a featured oddity board each week, pickers for family and mode, a podium for ranks 1 to 3, and a Top or Around me view with a pinned row for your exact rank inside the top 200 or a percentile band below that. Characters are ranked under their own name; Standard and Hardcore have separate boards. Boards cover account totals, lifetime XP per skill, clears and fastest clear time per boss dungeon, oddity boards (deaths, steals, meditations, contracts, faction standing, biggest hit, longest Culling, idle dungeon runs and more), two patron boards, Renown, three weekly boards (XP, kills and dungeon clears since Monday 00:00 UTC), and a memorial for fallen hardcore characters. Boards for an expansion you do not own or a skill you have not unlocked are not listed. Play Games leaderboards have been removed; cloud save through Play Games is unchanged. There are no rewards for rank.",
