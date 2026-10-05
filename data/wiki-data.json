@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T16:58:19.416147+00:00",
+  "generated_at": "2026-10-05T20:24:07.916332+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -16756,9 +16756,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.5",
-        "BUILD_FINGERPRINT": "1.6.5 (1791219099)",
-        "VERSION_CODE": 1791219099
+        "APP_VERSION": "1.6.6",
+        "BUILD_FINGERPRINT": "1.6.6 (1791231141)",
+        "VERSION_CODE": 1791231141
       },
       "specials": {}
     },
@@ -20149,7 +20149,7 @@
           "shallows_leviathan_fillet": {
             "category": "fish",
             "expansion": 2,
-            "name": "Shallows Leviathan Fillet"
+            "name": "Shallows Leviathan"
           },
           "shard_dust": {
             "category": "spirit",
@@ -24426,6 +24426,25 @@
           "warden_bass": 29,
           "wisp_glazed_carp": 24
         },
+        "_HP_REGEN_RATE": {
+          "bastion_leggings": 0.02,
+          "blessed_robes": 0.03,
+          "fortress_boots": 0.02,
+          "guardian_belt": 0.02,
+          "ironblood_torc": 0.06,
+          "knights_corrupted_mantle": 0.045,
+          "knights_purified_mantle": 0.05,
+          "life_amulet": 0.035,
+          "pilgrim_boots": 0.02,
+          "priest_leggings": 0.02,
+          "sacred_belt": 0.02,
+          "sentinel_helm": 0.025,
+          "sentinel_ring": 0.03,
+          "shield_amulet": 0.03,
+          "shield_plate": 0.03,
+          "vitality_crown": 0.025,
+          "vitality_ring": 0.035
+        },
         "_LEATHERWORK_TIER_PIECE_STATS": {
           "canal": {
             "boots": {
@@ -24631,6 +24650,9 @@
           "starchart_focus": {
             "astromancy": 0.15
           }
+        },
+        "_MASTERY_HP_REGEN_INTERVAL_PCT": {
+          "pilgrim_heart": 0.5
         },
         "_MASTERY_HP_REGEN_REDUCTION": {
           "pilgrim_heart": 6.0
@@ -26469,6 +26491,19 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: HP regen from worn gear and the Pilgrim Heart relic now pays on top of the 2 second floor. The Vitality regen nodes and Iron Body already reach that floor, so gear and the relic used to add nothing past it. Each regen piece now makes HP regenerate 2% to 6% faster, and Pilgrim Heart takes a True 50% off the interval after everything else. No character regenerates slower than before. The fastest regen you can reach goes from 36 to 84 HP a minute with the relic, and to 44 without it.",
+              "New: Stats > Totals > HP has an HP Regen row showing your rate, such as '1 HP every 12 s'. While HP is below max, the HP caption on the Hunt fight, the Culling run and Shadow Arts shows it too.",
+              "Fixed: Regen gear tooltips rounded to a whole second, so most pieces read 'HP regen interval -0 s'. They now read their real value, such as 'HP regenerates 3% faster'. Fortification's text now reads '-4 seconds additional'; what it does has not changed.",
+              "Changed: Alchemy and Ironlock recipes give 75% more XP, and Root Lore nodes give 50% more. This applies to XP earned from now on. Your levels and the XP you already hold do not move.",
+              "Fixed: The Shadow Arts HP bar moved in steps of 1%, so a single point of HP did not always move it. The number was always right. The Shadow Arts regen caption could also keep an old rate after a gear or incense change, and swapping one piece of gear mid-fight left the old max HP on the Hunt and Culling bars for a moment.",
+              "Changed: 31 item icons have been repainted. The 15 cooked meals made from a single fish are now plated dishes that still read as the fish they came from. The rest are the Shallows Leviathan, Resonite Hauberk and Greaves, Wreckiron Hauberk, Fracture-Cast Sabatons, five Architect's Cedar woodwork pieces, Architect's Aegis, Ashwood Vest, Stave and Bulwark, Pale Willow Buckler and Mire Cloak."
+            ],
+            "title": "Faster HP Regen, Quicker Alchemy and Ironlock, and Repainted Icons",
+            "version": "1.6.6",
+            "version_code": 1791231141
+          },
           {
             "changes": [
               "Changed: The Gathering and Artisan skill pages have been rebuilt. Mining, Felling, Fishing, Shard Gleaning, Root Lore, Smithing, Cooking, Spiritweaving, Wardcraft, Alchemy, Ironlock and Spiritforging now show the node or recipe you have picked on a painting of the place the skill is worked, with its level, XP, time and XP an hour, what it yields or costs against what you hold, and one line naming what stands in the way if it cannot start. Every node and recipe sits below as a tile, five across, marked if it is running, locked, the best XP an hour, or asked for by a contract. Tapping a tile picks it and starts nothing. Train, Make and Stop sit in a bar that stays on screen. Alchemy's Drink tab is unchanged.",
@@ -32670,7 +32705,7 @@
               },
               "seconds": 6,
               "tab": "utility",
-              "xp_per_action": 10
+              "xp_per_action": 18
             },
             {
               "id": "ashblossom_draft",
@@ -32682,7 +32717,7 @@
               },
               "seconds": 8,
               "tab": "utility",
-              "xp_per_action": 24
+              "xp_per_action": 42
             },
             {
               "id": "fortifying_brew",
@@ -32694,7 +32729,7 @@
               },
               "seconds": 8,
               "tab": "combat",
-              "xp_per_action": 28
+              "xp_per_action": 49
             },
             {
               "id": "mistcap_brew",
@@ -32705,7 +32740,7 @@
               },
               "seconds": 10,
               "tab": "utility",
-              "xp_per_action": 38
+              "xp_per_action": 67
             },
             {
               "id": "rootveil_extract",
@@ -32717,7 +32752,7 @@
               },
               "seconds": 12,
               "tab": "utility",
-              "xp_per_action": 62
+              "xp_per_action": 109
             },
             {
               "id": "combat_draft",
@@ -32729,7 +32764,7 @@
               },
               "seconds": 12,
               "tab": "combat",
-              "xp_per_action": 67
+              "xp_per_action": 117
             },
             {
               "id": "gleam_elixir",
@@ -32741,7 +32776,7 @@
               },
               "seconds": 14,
               "tab": "utility",
-              "xp_per_action": 66
+              "xp_per_action": 116
             },
             {
               "id": "veil_tincture",
@@ -32753,7 +32788,7 @@
               },
               "seconds": 16,
               "tab": "combat",
-              "xp_per_action": 79
+              "xp_per_action": 138
             },
             {
               "id": "pale_shard_infusion",
@@ -32765,7 +32800,7 @@
               },
               "seconds": 16,
               "tab": "utility",
-              "xp_per_action": 83
+              "xp_per_action": 145
             },
             {
               "id": "wardens_draught",
@@ -32777,7 +32812,7 @@
               },
               "seconds": 20,
               "tab": "utility",
-              "xp_per_action": 133
+              "xp_per_action": 233
             },
             {
               "id": "stone_skin_potion",
@@ -32789,7 +32824,7 @@
               },
               "seconds": 22,
               "tab": "combat",
-              "xp_per_action": 167
+              "xp_per_action": 292
             },
             {
               "id": "whisperwood_concentrate",
@@ -32801,7 +32836,7 @@
               },
               "seconds": 24,
               "tab": "utility",
-              "xp_per_action": 189
+              "xp_per_action": 331
             },
             {
               "id": "root_tonic",
@@ -32813,7 +32848,7 @@
               },
               "seconds": 28,
               "tab": "utility",
-              "xp_per_action": 244
+              "xp_per_action": 427
             },
             {
               "id": "grove_warrior_flask",
@@ -32826,7 +32861,7 @@
               },
               "seconds": 30,
               "tab": "combat",
-              "xp_per_action": 266
+              "xp_per_action": 466
             },
             {
               "id": "grove_covenant_potion",
@@ -32839,7 +32874,7 @@
               },
               "seconds": 35,
               "tab": "utility",
-              "xp_per_action": 386
+              "xp_per_action": 676
             },
             {
               "id": "heartwood_distillate",
@@ -32852,7 +32887,7 @@
               },
               "seconds": 40,
               "tab": "utility",
-              "xp_per_action": 391
+              "xp_per_action": 684
             },
             {
               "expansion": 2,
@@ -32865,7 +32900,7 @@
               },
               "seconds": 31,
               "tab": "utility",
-              "xp_per_action": 298
+              "xp_per_action": 522
             },
             {
               "expansion": 2,
@@ -32878,7 +32913,7 @@
               },
               "seconds": 32,
               "tab": "utility",
-              "xp_per_action": 305
+              "xp_per_action": 534
             },
             {
               "expansion": 2,
@@ -32891,7 +32926,7 @@
               },
               "seconds": 33,
               "tab": "combat",
-              "xp_per_action": 320
+              "xp_per_action": 560
             },
             {
               "expansion": 2,
@@ -32904,7 +32939,7 @@
               },
               "seconds": 34,
               "tab": "combat",
-              "xp_per_action": 335
+              "xp_per_action": 586
             },
             {
               "expansion": 2,
@@ -32917,7 +32952,7 @@
               },
               "seconds": 35,
               "tab": "utility",
-              "xp_per_action": 350
+              "xp_per_action": 613
             },
             {
               "expansion": 2,
@@ -32930,7 +32965,7 @@
               },
               "seconds": 37,
               "tab": "utility",
-              "xp_per_action": 390
+              "xp_per_action": 683
             },
             {
               "expansion": 2,
@@ -32943,7 +32978,7 @@
               },
               "seconds": 39,
               "tab": "combat",
-              "xp_per_action": 415
+              "xp_per_action": 726
             },
             {
               "expansion": 2,
@@ -32957,7 +32992,7 @@
               },
               "seconds": 42,
               "tab": "utility",
-              "xp_per_action": 460
+              "xp_per_action": 805
             },
             {
               "expansion": 4,
@@ -32970,7 +33005,7 @@
               },
               "seconds": 44,
               "tab": "utility",
-              "xp_per_action": 485
+              "xp_per_action": 849
             },
             {
               "expansion": 4,
@@ -32983,7 +33018,7 @@
               },
               "seconds": 45,
               "tab": "utility",
-              "xp_per_action": 500
+              "xp_per_action": 875
             },
             {
               "expansion": 4,
@@ -32996,7 +33031,7 @@
               },
               "seconds": 46,
               "tab": "utility",
-              "xp_per_action": 520
+              "xp_per_action": 910
             },
             {
               "expansion": 4,
@@ -33009,7 +33044,7 @@
               },
               "seconds": 47,
               "tab": "utility",
-              "xp_per_action": 540
+              "xp_per_action": 945
             },
             {
               "expansion": 4,
@@ -33025,7 +33060,7 @@
               },
               "seconds": 48,
               "tab": "utility",
-              "xp_per_action": 565
+              "xp_per_action": 989
             }
           ],
           "cooking": [
@@ -33538,7 +33573,7 @@
               },
               "seconds": 10,
               "tab": "weapons",
-              "xp_per_action": 14
+              "xp_per_action": 25
             },
             {
               "id": "ashvein_pistol",
@@ -33549,7 +33584,7 @@
               },
               "seconds": 12,
               "tab": "weapons",
-              "xp_per_action": 24
+              "xp_per_action": 42
             },
             {
               "id": "dawnsilver_pistol",
@@ -33560,7 +33595,7 @@
               },
               "seconds": 14,
               "tab": "weapons",
-              "xp_per_action": 30
+              "xp_per_action": 53
             },
             {
               "id": "spelcast_musket",
@@ -33571,7 +33606,7 @@
               },
               "seconds": 16,
               "tab": "weapons",
-              "xp_per_action": 42
+              "xp_per_action": 74
             },
             {
               "id": "thornite_carbine",
@@ -33582,7 +33617,7 @@
               },
               "seconds": 18,
               "tab": "weapons",
-              "xp_per_action": 52
+              "xp_per_action": 91
             },
             {
               "id": "mirestone_rifle",
@@ -33593,7 +33628,7 @@
               },
               "seconds": 20,
               "tab": "weapons",
-              "xp_per_action": 68
+              "xp_per_action": 119
             },
             {
               "id": "fracture_cast_repeater",
@@ -33604,7 +33639,7 @@
               },
               "seconds": 24,
               "tab": "weapons",
-              "xp_per_action": 92
+              "xp_per_action": 161
             },
             {
               "id": "resonite_longarm",
@@ -33615,7 +33650,7 @@
               },
               "seconds": 28,
               "tab": "weapons",
-              "xp_per_action": 122
+              "xp_per_action": 214
             },
             {
               "id": "tideward_relic_arm",
@@ -33627,7 +33662,7 @@
               },
               "seconds": 35,
               "tab": "weapons",
-              "xp_per_action": 156
+              "xp_per_action": 273
             },
             {
               "id": "vaels_pattern_longarm",
@@ -33640,7 +33675,7 @@
               },
               "seconds": 40,
               "tab": "weapons",
-              "xp_per_action": 178
+              "xp_per_action": 312
             },
             {
               "expansion": 3,
@@ -33654,7 +33689,7 @@
               },
               "seconds": 43,
               "tab": "weapons",
-              "xp_per_action": 190
+              "xp_per_action": 333
             },
             {
               "id": "cairncast_shot",
@@ -33666,7 +33701,7 @@
               },
               "seconds": 4,
               "tab": "bullets",
-              "xp_per_action": 5
+              "xp_per_action": 9
             },
             {
               "id": "ashvein_shot",
@@ -33678,7 +33713,7 @@
               },
               "seconds": 5,
               "tab": "bullets",
-              "xp_per_action": 9
+              "xp_per_action": 16
             },
             {
               "id": "dawnsilver_shot",
@@ -33690,7 +33725,7 @@
               },
               "seconds": 5,
               "tab": "bullets",
-              "xp_per_action": 12
+              "xp_per_action": 21
             },
             {
               "id": "spelcast_shot",
@@ -33702,7 +33737,7 @@
               },
               "seconds": 6,
               "tab": "bullets",
-              "xp_per_action": 18
+              "xp_per_action": 32
             },
             {
               "id": "thornite_shot",
@@ -33714,7 +33749,7 @@
               },
               "seconds": 6,
               "tab": "bullets",
-              "xp_per_action": 25
+              "xp_per_action": 44
             },
             {
               "id": "mirestone_shot",
@@ -33726,7 +33761,7 @@
               },
               "seconds": 7,
               "tab": "bullets",
-              "xp_per_action": 34
+              "xp_per_action": 60
             },
             {
               "id": "fracture_cast_shot",
@@ -33738,7 +33773,7 @@
               },
               "seconds": 8,
               "tab": "bullets",
-              "xp_per_action": 48
+              "xp_per_action": 84
             },
             {
               "id": "resonite_shot",
@@ -33750,7 +33785,7 @@
               },
               "seconds": 9,
               "tab": "bullets",
-              "xp_per_action": 65
+              "xp_per_action": 114
             },
             {
               "id": "tideward_relic_shot",
@@ -33763,7 +33798,7 @@
               },
               "seconds": 11,
               "tab": "bullets",
-              "xp_per_action": 96
+              "xp_per_action": 168
             },
             {
               "expansion": 4,
@@ -33775,7 +33810,7 @@
               },
               "seconds": 46,
               "tab": "weapons",
-              "xp_per_action": 220
+              "xp_per_action": 385
             },
             {
               "expansion": 4,
@@ -33788,7 +33823,7 @@
               },
               "seconds": 12,
               "tab": "bullets",
-              "xp_per_action": 112
+              "xp_per_action": 196
             }
           ],
           "smithing": [
@@ -35181,7 +35216,7 @@
               "id": "shallows_leviathan_fillet",
               "item_yield": "shallows_leviathan_fillet",
               "level": 109,
-              "name": "Shallows Leviathan Fillet",
+              "name": "Shallows Leviathan",
               "seconds_per_action": 8,
               "xp_per_action": 144
             },
@@ -35665,7 +35700,7 @@
               "level": 1,
               "name": "Pale Yarrow",
               "seconds_per_action": 4,
-              "xp_per_action": 7
+              "xp_per_action": 11
             },
             {
               "id": "ashblossom",
@@ -35673,7 +35708,7 @@
               "level": 10,
               "name": "Ashblossom",
               "seconds_per_action": 5,
-              "xp_per_action": 16
+              "xp_per_action": 24
             },
             {
               "id": "mistcap_fungus",
@@ -35682,7 +35717,7 @@
               "name": "Mistcap Fungus",
               "quest_required": "w03_the_old_markers",
               "seconds_per_action": 5,
-              "xp_per_action": 21
+              "xp_per_action": 32
             },
             {
               "id": "rootveil_bark",
@@ -35691,7 +35726,7 @@
               "name": "Rootveil Bark",
               "quest_required": "w06_covenant_terms",
               "seconds_per_action": 6,
-              "xp_per_action": 43
+              "xp_per_action": 65
             },
             {
               "id": "gleam_thistle",
@@ -35700,7 +35735,7 @@
               "name": "Gleam Thistle",
               "quest_required": "w08_the_hollow_pulse",
               "seconds_per_action": 7,
-              "xp_per_action": 48
+              "xp_per_action": 72
             },
             {
               "id": "wardens_bloom_herb",
@@ -35709,7 +35744,7 @@
               "name": "Warden's Bloom Herb",
               "quest_required": "w14_the_voice_below",
               "seconds_per_action": 8,
-              "xp_per_action": 73
+              "xp_per_action": 110
             },
             {
               "id": "whisperwood_crown",
@@ -35718,7 +35753,7 @@
               "name": "Whisperwood Crown",
               "quest_required": "w16_the_wardens_burden",
               "seconds_per_action": 9,
-              "xp_per_action": 90
+              "xp_per_action": 135
             },
             {
               "id": "ancient_rootwood",
@@ -35727,7 +35762,7 @@
               "name": "Ancient Rootwood",
               "quest_required": "w18_what_the_roots_saw",
               "seconds_per_action": 10,
-              "xp_per_action": 108
+              "xp_per_action": 162
             },
             {
               "id": "heartwood_core",
@@ -35736,7 +35771,7 @@
               "name": "Heartwood Core",
               "quest_required": "w20_a_letter_from_the_sea",
               "seconds_per_action": 11,
-              "xp_per_action": 127
+              "xp_per_action": 191
             }
           ],
           "spirit_harvesting": [
@@ -37035,7 +37070,7 @@
           {
             "branch": "warrior",
             "cost": 3,
-            "desc": "+12% Defence XP  \u2022  HP regen interval -4 s total",
+            "desc": "+12% Defence XP  \u2022  HP regen interval -4 seconds additional",
             "effect": "fortification_bundle",
             "id": "fortification",
             "name": "Fortification",
