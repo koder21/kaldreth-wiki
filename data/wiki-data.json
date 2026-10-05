@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T14:19:25.282224+00:00",
+  "generated_at": "2026-10-05T15:41:31.266300+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -16743,8 +16743,8 @@
     "client/data/BuildInfo.gd": {
       "consts": {
         "APP_VERSION": "1.6.5",
-        "BUILD_FINGERPRINT": "1.6.5 (1791209610)",
-        "VERSION_CODE": 1791209610
+        "BUILD_FINGERPRINT": "1.6.5 (1791214515)",
+        "VERSION_CODE": 1791214515
       },
       "specials": {}
     },
@@ -26464,11 +26464,12 @@
               "Changed: Aetheric Tending, Wayfaring and Hollowing use the same layout, with a row of plots or dispatch slots showing what is in each and the time left. Pick a crop, route or site to read its time, yield and cost, then send it into the first free slot. Tending plants every empty plot your seeds cover in one tap. A slot counts down on the picture while it is out and pulses green once it is back, and a second button collects what is back whatever you have picked. What a dig found stays on screen until you move on and no longer holds its slot. The Sky Ascent strip is unchanged.",
               "Changed: The Spiritbond page now fits one screen. The companion you pick is shown on a painting of where it lives, with the forage countdown over it while it is out and a green edge once it is back. All eight companions sit in a grid below, and tapping one picks it without bonding. Bond, Send to forage, Release and Collect sit in a bar that stays on screen.",
               "Changed: The boss dungeon run screen has a much larger stage. Every wave now has its own picture, and the bar under the stage shows the wave's HP before the boss's. The text log, the Full log reader, the Loadout strip, the Best preset button, the magazine readout and the results screen's Spend shards button have been removed from that screen. What a finished run paid (loot, Mastery Points, clear time and the Index) is listed under the stage once the run is over. First clear bonus items are listed by name.",
-              "New: 55 new paintings: 12 skill scenes, 8 companion scenes, 28 boss dungeon waves and 7 for Hollowing, which had none."
+              "New: 55 new paintings: 12 skill scenes, 8 companion scenes, 28 boss dungeon waves and 7 for Hollowing, which had none.",
+              "New: The developer can now send messages to the game. A message opens as a card over the HUD: a notice to every player, a notice that a newer version is out, or a message for one character, which needs the Index switched on. An update notice has Update, which opens the Play listing, and Later, and shows once per version. Settings > Messages keeps every message with an unread count, and the Journal's gear is marked while one is unread. New messages need an internet connection; ones already received can be read offline."
             ],
             "title": "Repainted Skill Pages, Make Amounts, and Boss Wave Art",
             "version": "1.6.5",
-            "version_code": 1791209610
+            "version_code": 1791214515
           },
           {
             "changes": [
