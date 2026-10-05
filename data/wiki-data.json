@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T15:41:31.266300+00:00",
+  "generated_at": "2026-10-05T16:58:19.416147+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -580,6 +580,19 @@
           "hollowing",
           "lorekeeper"
         ],
+        "GIFT_BOOSTS": [
+          "auto_meditate",
+          "fracture_surge",
+          "offline_cap"
+        ],
+        "GIFT_XP_GROUPS": [
+          "all",
+          "combat",
+          "gathering",
+          "artisan"
+        ],
+        "GIFT_XP_KEEP_SECONDS": 172800,
+        "GIFT_XP_ROWS_MAX": 16,
         "GREYFEN_GHOST_STEALS": 100,
         "GREYFEN_STEAL_KEY": "_steals_area_greyfen",
         "HC_AUTO_EAT_BANDS": [
@@ -1011,6 +1024,7 @@
         "MEDITATION_MIN_COOLDOWN_SECONDS": 5,
         "MELEE_ATK_ACCURACY_WEIGHT": 1.6,
         "MELEE_STR_MAXHIT_COEF": 0.57,
+        "MESSAGE_CLAIMS_MAX": 400,
         "MINING_AFFINITY_PROSPECT_CHANCE_MAX": 0.2,
         "MINING_AFFINITY_PROSPECT_CHANCE_PER_LEVEL": 0.004,
         "MIN_INVENTORY_CAPACITY": 50,
@@ -16743,8 +16757,8 @@
     "client/data/BuildInfo.gd": {
       "consts": {
         "APP_VERSION": "1.6.5",
-        "BUILD_FINGERPRINT": "1.6.5 (1791214515)",
-        "VERSION_CODE": 1791214515
+        "BUILD_FINGERPRINT": "1.6.5 (1791219099)",
+        "VERSION_CODE": 1791219099
       },
       "specials": {}
     },
@@ -26469,7 +26483,7 @@
             ],
             "title": "Repainted Skill Pages, Make Amounts, and Boss Wave Art",
             "version": "1.6.5",
-            "version_code": 1791214515
+            "version_code": 1791219099
           },
           {
             "changes": [
