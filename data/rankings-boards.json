@@ -820,7 +820,10 @@
   "practice_adept": "Adept",
   "practice_equal": "Preceptor's Equal",
   "practice_stillmind": "Stillmind",
-  "practice_beyond": "Beyond Mastery"
+  "practice_beyond": "Beyond Mastery",
+  "flaw_finder": "Flaw-Finder",
+  "friend_of_the_wardens": "Friend of the Wardens",
+  "first_witness": "First Witness"
  },
  "time_base": 86400000,
  "xp_scale": 10

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T20:24:07.916332+00:00",
+  "generated_at": "2026-10-06T14:25:31.610863+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -585,6 +585,61 @@
           "fracture_surge",
           "offline_cap"
         ],
+        "GIFT_ITEMS": {
+          "chroniclers_codex": {
+            "kind": "level_all"
+          },
+          "chroniclers_primer": {
+            "kind": "level"
+          },
+          "meditation_token": {
+            "boosts": [
+              "auto_meditate"
+            ],
+            "hours": 24,
+            "kind": "boost"
+          },
+          "sages_scroll": {
+            "hours": 4,
+            "kind": "xp",
+            "pct": 100
+          },
+          "scholars_scroll": {
+            "hours": 1,
+            "kind": "xp",
+            "pct": 50
+          },
+          "surge_token": {
+            "boosts": [
+              "fracture_surge"
+            ],
+            "hours": 24,
+            "kind": "boost"
+          },
+          "vigil_token": {
+            "boosts": [
+              "offline_cap"
+            ],
+            "hours": 24,
+            "kind": "boost"
+          },
+          "wardens_cache": {
+            "gold_per_level": 1000,
+            "kind": "cache"
+          },
+          "wardens_token": {
+            "boosts": [
+              "auto_meditate",
+              "fracture_surge",
+              "offline_cap"
+            ],
+            "hours": 24,
+            "kind": "boost"
+          }
+        },
+        "GIFT_MP_MAX": 1000,
+        "GIFT_SLOTS_MAX": 500,
+        "GIFT_WINDOW_MAX_SECONDS": 2592000,
         "GIFT_XP_GROUPS": [
           "all",
           "combat",
@@ -592,6 +647,7 @@
           "artisan"
         ],
         "GIFT_XP_KEEP_SECONDS": 172800,
+        "GIFT_XP_PCT_MAX": 1000,
         "GIFT_XP_ROWS_MAX": 16,
         "GREYFEN_GHOST_STEALS": 100,
         "GREYFEN_STEAL_KEY": "_steals_area_greyfen",
@@ -16756,9 +16812,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.6",
-        "BUILD_FINGERPRINT": "1.6.6 (1791231141)",
-        "VERSION_CODE": 1791231141
+        "APP_VERSION": "1.6.7",
+        "BUILD_FINGERPRINT": "1.6.7 (1791296302)",
+        "VERSION_CODE": 1791296302
       },
       "specials": {}
     },
@@ -18388,6 +18444,18 @@
             "slot": "ring",
             "source_hint": "Chronicler Vendor"
           },
+          "chroniclers_codex": {
+            "category": "consumable",
+            "name": "Chronicler's Codex",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
+          "chroniclers_primer": {
+            "category": "consumable",
+            "name": "Chronicler's Primer",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "cipher_fragment": {
             "category": "material",
             "name": "Cipher Fragment"
@@ -19348,6 +19416,12 @@
             "name": "Meditation Signet",
             "slot": "ring"
           },
+          "meditation_token": {
+            "category": "consumable",
+            "name": "Meditation Token",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "merchant_ring": {
             "category": "jewel",
             "expansion": 2,
@@ -19979,6 +20053,12 @@
             "name": "Sacred Belt",
             "slot": "belt"
           },
+          "sages_scroll": {
+            "category": "consumable",
+            "name": "Sage's Scroll",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "salt_carp": {
             "category": "fish",
             "expansion": 2,
@@ -20047,6 +20127,12 @@
             "category": "consumable",
             "name": "Scar-Ward Draught",
             "source_hint": "Greyfen Provisions (Store)"
+          },
+          "scholars_scroll": {
+            "category": "consumable",
+            "name": "Scholar's Scroll",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
           },
           "scout_helm": {
             "category": "armour",
@@ -20514,6 +20600,12 @@
             "category": "material",
             "name": "Sunken Iron"
           },
+          "surge_token": {
+            "category": "consumable",
+            "name": "Surge Token",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "taste_ring": {
             "category": "jewel",
             "name": "Taste Ring",
@@ -20863,6 +20955,12 @@
             "slot": "necklace",
             "source_hint": "Worldroot - Geode + Tree + Fisher's Amulet"
           },
+          "vigil_token": {
+            "category": "consumable",
+            "name": "Vigil Token",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "vitality_crown": {
             "category": "armour",
             "name": "Vitality Crown",
@@ -21008,6 +21106,12 @@
             "expansion": 1,
             "name": "Warden's Bloom Herb"
           },
+          "wardens_cache": {
+            "category": "consumable",
+            "name": "Warden's Cache",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
+          },
           "wardens_draught": {
             "category": "consumable",
             "duration_seconds": 900,
@@ -21025,6 +21129,12 @@
           "wardens_permafrost_seal": {
             "category": "quest",
             "name": "Warden's Permafrost Seal"
+          },
+          "wardens_token": {
+            "category": "consumable",
+            "name": "Warden's Token",
+            "no_collection": true,
+            "source_hint": "A gift from the developer"
           },
           "wardens_torc": {
             "category": "jewel",
@@ -26491,6 +26601,20 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "New: Every boss dungeon card and its setup screen now name the skills a clear trains and have a See rewards button. It opens a sheet with the exact XP each clear pays at your current levels and bonuses, what the first clear pays once (Mastery Points, items and the Memory Fragment), and the loot list with what you have found. A clear pays the same skills whatever style you fight with, and nothing showed that before. The loot checklist that sat on each card has moved into this sheet, and the card keeps a found count.",
+              "New: The boss dungeon results screen lists the XP each clear added, Echomind included, on fights and rituals.",
+              "New: The card that opens when you tap a skill now shows its XP as a number: the bar through the current level and your total against the next level's total, or your total and MAX at the cap. Attack, Strength, Defence, HP, Magic, Deadeye, Geomancy and Astromancy had no place that showed this. It updates while a fight runs behind it.",
+              "New: A message from the developer can carry a gift, taken once per character with Claim on its card. A gift can hold timed Auto-Meditate, Fracture Surge and the longer offline cap, extra XP for a time, gold, items, Mastery Points, inventory slots and titles. A character made after a message was sent is not shown it.",
+              "New: Nine gift items that only a gift hands out. Chronicler's Primer gives one skill of your choice a level and Chronicler's Codex gives one to every skill below its max level. Scholar's Scroll is +50% XP for 1 hour and Sage's Scroll is +100% XP for 4 hours, each starting when used. Meditation, Surge and Vigil Tokens each run one boost for 24 hours, Warden's Token runs all three, and Warden's Cache pays 1,000 gold for each total level. Use them from Gifts from the developer, under Settings > Messages or Use in the Inventory. Nothing gifted takes a skill past its max level. Gift items have no sale price and are in no collection count.",
+              "Changed: Gifted XP boosts do not add together; the largest one running on a skill counts. The buffs sheet now lists only the gifted boosts that are paying, and the away report names gifted XP among its active bonuses.",
+              "Changed: Settings > Report a Bug now sends the report straight to the developer. Your character's name, levels and current activity go with it, and the form says so. Nothing about your device or account is read."
+            ],
+            "title": "Dungeon Rewards, Exact Combat XP, and Gifts from the Developer",
+            "version": "1.6.7",
+            "version_code": 1791296302
+          },
           {
             "changes": [
               "Changed: HP regen from worn gear and the Pilgrim Heart relic now pays on top of the 2 second floor. The Vitality regen nodes and Iron Body already reach that floor, so gear and the relic used to add nothing past it. Each regen piece now makes HP regenerate 2% to 6% faster, and Pilgrim Heart takes a True 50% off the interval after everything else. No character regenerates slower than before. The fastest regen you can reach goes from 36 to 84 HP a minute with the relic, and to 44 without it.",
@@ -40506,6 +40630,24 @@
             "name": "Beyond Mastery",
             "source": "long_practice",
             "threshold": 50000
+          },
+          {
+            "desc": "You found the crack and said where it was.",
+            "id": "flaw_finder",
+            "name": "Flaw-Finder",
+            "source": "gift"
+          },
+          {
+            "desc": "The Wardens keep a short list. You are on it.",
+            "id": "friend_of_the_wardens",
+            "name": "Friend of the Wardens",
+            "source": "gift"
+          },
+          {
+            "desc": "You were there before it was finished.",
+            "id": "first_witness",
+            "name": "First Witness",
+            "source": "gift"
           }
         ]
       },
