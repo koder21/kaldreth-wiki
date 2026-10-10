@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:17:24.363758+00:00",
+  "generated_at": "2026-10-10T17:10:26.482932+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -17086,9 +17086,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.8",
-        "BUILD_FINGERPRINT": "1.6.8 (1791630564)",
-        "VERSION_CODE": 1791630564
+        "APP_VERSION": "1.6.9",
+        "BUILD_FINGERPRINT": "1.6.9 (1791651711)",
+        "VERSION_CODE": 1791651711
       },
       "specials": {}
     },
@@ -27918,6 +27918,23 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: Hits in a boss dungeon run now read as hits. A damage numeral lands oversized and snaps back to size. A crit is a larger gold numeral with a gold wash over the portrait, the portrait knocked back and a short buzz; a counter gets the same in green. A heavy enemy hit reads HEAVY in a larger numeral with a red wash and the portrait lunging, and a hit that takes a large share of your HP also reddens the whole screen on top of its shake and buzz. Reduce motion keeps the colours and holds the sizes still. No damage number changed.",
+              "Changed: Each damage numeral in a boss dungeon run now lands somewhere new: slid sideways, nudged up or down and tilted a few degrees, so a string of hits no longer stacks on one spot. What you dealt and what you took still never share a line. Reduce motion drops the tilt.",
+              "New: The first boss dungeon run of a session that has its own music playing, with sound on, shows a Best with headphones tip once.",
+              "New: The Vigil Draught is on the boss dungeon setup screen. A live setup has an amber callout above the tonic picker. With no draught in the bag it says what a draught does, which dungeon drops it and at what chance, and the clean clear feat it earns while that feat is open. With one in the bag it shows how many you hold and a Drink it for this run button that picks it as the tonic; tap it again to take it off. A run with a draught chosen can begin with no food in the bag, and Run Again repeats it on the draught alone. Every other run still needs food. Idle setups do not show the callout.",
+              "Fixed: A run sent before a condense and collected after it paid XP for the old level into the reset skill. A condense now ends what its skill has out: Wayfaring expeditions, Hollowing digs and a Spiritbond forage end unpaid, planted Aetheric Tending plots are dug up with what was planted handed back, and a companion bonded above the reset level is released.",
+              "Changed: The Transcendence card now lists what a condense takes before you confirm: gear taken off in every combat preset and skill loadout, the runs it ends and which of them are ready to collect, and the companion released. The confirm lists the same.",
+              "Fixed: Collect all on Hollowing collected one dig. It now collects every ready dig into one result, relics counted, and the result's main button is Start dig for the site just collected, with Done beside it.",
+              "Changed: Worldroot has two tabs, Relics and Set pieces. The Writbound pieces sit in sections by stage that open and close, and a stage with all four held starts closed. A recipe whose result is in your bag, worn, or already carried on to a later stage reads Owned, and its button reads FORGE ANOTHER in amber.",
+              "Fixed: In a boss dungeon run the Eat button changed width with its text, which could pull Abandon Run up beside it and move the stage. It now keeps one width for the whole run.",
+              "Fixed: The offline progress bar for idle boss dungeon runs could sit near the start for the whole replay and then finish at once when Auto-Meditate sessions were counted with it. It now moves through each run's fight."
+            ],
+            "title": "Hits That Land, the Vigil Draught on Setup, and Condense Fixes",
+            "version": "1.6.9",
+            "version_code": 1791651711
+          },
           {
             "changes": [
               "New: The Writbound set. Four accessories that every combat style wears (necklace, belt, cape and gloves) at five stages: Scarwrit in the base game, then Rootwrit, Tidewrit, Ashwrit and Starwrit, one for each expansion. 2 pieces worn give +3% combat damage and 4 pieces +8%, and pieces of different stages count together. Each piece is the best in its slot at its stage before the bonus is counted. Every boss dungeon with a loot table now pays 2 of its stage's writs a clear and the stage's last dungeon pays 4; idle clears pay half. A piece is forged at Worldroot from 100 writs, 100 of the stage's bars and the piece below it. All 20 pieces count toward collections; the writs do not.",

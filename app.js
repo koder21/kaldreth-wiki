@@ -4505,7 +4505,8 @@ function buildOraewynEntries(
     body: `
       ${renderDetailBlock("How it works", [
         `Condense any skill at level ${formatNumber(minLevel)} or higher back to level 1 and earn one Transcendence Point (TP). ${excluded.length ? `${excluded.join(", ")} cannot be condensed.` : ""}`,
-        "Gear that no longer meets its equip requirement after a condense is unequipped and listed in a toast. Content you have already unlocked stays available.",
+        "Gear that no longer meets its equip requirement after a condense is unequipped, in every combat preset and skill loadout. Content you have already unlocked stays available.",
+        "A condense ends what its skill has out. Wayfaring expeditions, Hollowing digs and a Spiritbond forage end unpaid, planted Aetheric Tending plots are dug up with what was planted handed back, and a companion bonded above the reset level is released. The Transcendence card lists all of this before you confirm, so collect anything that is ready first.",
         `Unlocks once you hold ${itemName(monsterFile?.TRANSCENDENCE_UNLOCK_ITEM_ID || "the_first_key")} (a Hollowing relic from the Architect Vaults), have completed The Threshold Choice, and have cleared The Threshold.`,
       ])}
       ${renderSimpleTable("Ladder", ["Reached at", "Bonus"], ladderRows)}
