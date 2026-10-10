@@ -4724,7 +4724,8 @@ function buildPatchEntries(patches) {
     subtitle: `${patch.version || "x.x.x"} · ${patch.version_code || 0}`,
     badges: [patch.version, patch.version_code].filter(Boolean),
     searchText: collectSearchText(patch),
-    sortKey: `${patch.version_code || 0}`.toString().padStart(12, "0"),
+    // Entries sort ascending by sortKey, so the key counts down: newest first.
+    sortKey: String(999999999999 - Number(patch.version_code || 0)).padStart(12, "0"),
     spoiler: false,
     metrics: [
       patch.changes ? { label: "Changes", value: patch.changes.length } : null,
