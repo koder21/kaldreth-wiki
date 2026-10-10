@@ -306,7 +306,7 @@ const SKILL_CODEX = {
       "hollowing dig seam excavation relic veinkore slagstone origin ore ashforge pale spirit drakenhollow session wall clock",
     what: "Dispatches a dig at a seam. Duration is wall-clock, not a mining tick. The bag is a discovery: materials, and sometimes a relic, hidden until you collect. A session already in progress is not cut by the 4 hour offline cap.",
     train:
-      "Pick the highest seam you have the level and Ashborne standing for, send the dig, and collect when it ends. XP lands on collection. A second slot opens at Forge-Friend.",
+      "Pick the highest seam you have the level and Ashborne standing for, send the dig, and collect when it ends. XP lands on collection. Extra slots open at Forge-Friend, at Hollowing 70 and at Hollowing 100.",
   },
   spiritforging: {
     role: "Artisan",
@@ -314,7 +314,7 @@ const SKILL_CODEX = {
       "spiritforging forge trigger on kill damage taken combat start low hp ember slag origin ritual offering drakenhollow",
     what: "Forges gear that waits for a combat condition, then acts: on kill, on damage taken, on combat start, or at low HP. Also crafts the four offerings the Origin Engine ritual requires.",
     train:
-      "Craft the highest recipe you have bars and spirit materials for. Gated on Smithing 80, Spiritweaving 70, and the Forge-Friend trial.",
+      "Craft the highest recipe you have bars and spirit materials for. Opens at Smithing 80 and Spiritweaving 70.",
   },
   geomancy: {
     role: "Combat / Magic",
@@ -322,7 +322,7 @@ const SKILL_CODEX = {
       "geomancy stone lava earth fire dot earthen shield rockfall first fire drakenhollow ore spells",
     what: "Stone and lava combat magic, a parallel school to Fracture Arts. Stone hits now. Lava keeps burning after. Every cast burns material from the seams: Veinkore Ore, Slagstone, Origin Ore. Run dry and the fight falls back to melee. Earthen Shield is a Cast of its own and does not take the offensive spell slot.",
     train:
-      "Fight with a Geomancy spell selected in Combat setup. XP is paid like any other combat style. Gated on Fracture Arts 60, Shard Gleaning 50, and the first Drakenhollow quest.",
+      "Fight with a Geomancy spell selected in Combat setup. XP is paid like any other combat style. Opens at Fracture Arts 60 and Shard Gleaning 50.",
   },
   astromancy: {
     role: "Combat / Magic",
@@ -330,7 +330,7 @@ const SKILL_CODEX = {
       "astromancy star celestial cycle window dawn midday dusk night comet moonveil starfall void chord eclipse convergence first light keystone last word watchers eye oraewyn spells",
     what: "The third magic school, alongside Fracture Arts and Geomancy. Some spells are written for one stretch of the day (Dawn, Midday, Dusk, or Night by the device's local clock) and do more in it. The window is read once when a fight starts and held for that fight. Every cast burns Resonance Crystals; The Keystone and The Last Word also burn a Celestial Bar.",
     train:
-      "Fight with an Astromancy spell selected in Combat setup. XP is paid like any other combat style. Gated on Fracture Arts 80, Geomancy 70, and the quest Two Voices.",
+      "Fight with an Astromancy spell selected in Combat setup. XP is paid like any other combat style. Opens at Fracture Arts 80 and Geomancy 70.",
   },
   lorekeeper: {
     role: "Passive",
@@ -1601,7 +1601,26 @@ function buildItemEntries(
       monsterRefs.get(itemId) || [],
       dungeonRefs.get(itemId) || [],
     );
-    const statRows = relatedTables.map(([name, value]) => [name, value]);
+    const statRows = relatedTables
+      .filter(([name]) => name !== "SET_PIECE_STAGE" && name !== "NO_USE_ITEMS")
+      .map(([name, value]) => [name, value]);
+    if (
+      Object.prototype.hasOwnProperty.call(itemFile.SET_PIECE_STAGE || {}, itemId)
+    ) {
+      statRows.push([
+        "Writbound set",
+        `2 pieces worn: +${formatPercent(Number(itemFile.SET_BONUS_TWO || 0.03))} combat damage. 4 pieces worn: +${formatPercent(Number(itemFile.SET_BONUS_FOUR || 0.08))}. Pieces of any stage count together.`,
+      ]);
+    }
+    const noUse = (itemFile.NO_USE_ITEMS || {})[itemId];
+    if (noUse === "trade") {
+      statRows.push(["Purpose", "Trade good. Sold for gold; nothing else uses it."]);
+    } else if (noUse === "keepsake") {
+      statRows.push([
+        "Purpose",
+        "Keepsake. A trophy with no use; one you already hold does not drop again.",
+      ]);
+    }
     const badges = [
       info.category,
       info.slot,
@@ -2949,6 +2968,7 @@ function buildQuestEntries(quests, itemFile, skillFile, questFile) {
 
     const rewardChips = [];
     if (totalXp > 0) rewardChips.push(`${formatNumber(totalXp)} XP`);
+    if ((rewards.skillLevel || []).length) rewardChips.push("Skill level");
     if (rewards.masteryPoints) rewardChips.push(`+${rewards.masteryPoints} MP`);
     if (fragment || rewards.memoryFragment) rewardChips.push("Memory fragment");
     if (rewards.items) rewardChips.push("Item");
@@ -2959,6 +2979,12 @@ function buildQuestEntries(quests, itemFile, skillFile, questFile) {
       rewardRows.push([
         `${skillLabels[skillId] || titleizeId(skillId)} XP`,
         formatNumber(Number(amount || 0)),
+      ]);
+    }
+    for (const skillId of rewards.skillLevel || []) {
+      rewardRows.push([
+        `${skillLabels[skillId] || titleizeId(skillId)} level`,
+        "+1",
       ]);
     }
     if (rewards.masteryPoints) {
@@ -3824,7 +3850,7 @@ function buildWhisperwoodEntries(
     });
 
   const featureLines = [
-    "Four new skills - Root Lore, Aetheric Tending, Spiritbond, and Alchemy - sit alongside the 16 base game skills without replacing anything in them.",
+    "Four new skills - Root Lore, Aetheric Tending, Spiritbond, and Alchemy - sit alongside the 16 base game skills without replacing anything in them. All four are yours to train the moment you own Whisperwood; no quest opens them.",
     "Owning Whisperwood raises every skill's level cap from 99 to 105, including the 16 base game skills. A Heartwood rung was added to each of the 8 existing gathering and artisan ladders, and Spiritweaving gains the Warren Call spell at level 102.",
     "Two new equipment slots, hands and companion, appended to the existing ten. Hands closes a long-standing gap: gloves items existed in the data with nowhere to equip them, base game included.",
     `Two boss dungeons, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(" and ") || "The Hollow Root and The Grove's Warden"}, bringing the total from 5 to 7. Each has its own first-clear key item and memory fragment, and both pay into the same Chronicler currency the base game dungeons do.`,
@@ -3977,7 +4003,7 @@ function buildTidewardEntries(
   ];
 
   const featureLines = [
-    "Four new skills - Echomind, Wayfaring, Ironlock, and Deadeye - sit alongside the 20 existing skills without replacing anything in them.",
+    "Four new skills - Echomind, Wayfaring, Ironlock, and Deadeye - sit alongside the 20 existing skills without replacing anything in them. All four are yours to train the moment you own Tideward; no quest opens them.",
     "Owning Tideward raises every skill's level cap from 105 to 110, including all 16 base game skills and Whisperwood's 4. A new tier was added to each of the 8 base game gathering and artisan ladders, and Fracture Arts gains the Brine Pressure spell at level 106.",
     "The first ranged combat line in the game: Deadeye's hit chance and damage are driven by a gun's own deadeye stat, and each gun sets a minimum Deadeye level to equip, separate from its craft level.",
     `Two boss dungeons, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(" and ") || "The Drowned Keeper and Admiral Vael"}, bringing the total from 7 to 9. Both ship with their own BGM track and phase-change sound from launch, unlike Whisperwood's two, which launched with neither.`,
@@ -4146,7 +4172,7 @@ function buildDrakenhollowEntries(
     });
 
   const featureLines = [
-    "Three new skills - Hollowing, Spiritforging, and Geomancy - sit alongside the 24 existing skills without replacing anything in them.",
+    "Three new skills - Hollowing, Spiritforging, and Geomancy - sit alongside the 24 existing skills without replacing anything in them. Hollowing is yours to train the moment you own Drakenhollow. Spiritforging opens at Smithing 80 and Spiritweaving 70, and Geomancy at Fracture Arts 60 and Shard Gleaning 50; no quest opens any of them.",
     "Owning Drakenhollow raises every skill's level cap from 110 to 115, including all 16 base game skills, Whisperwood's 4, and Tideward's 4.",
     "Hollowing relics occupy a dedicated equipment slot. Eight Architect-era objects are discovered through digging; they are never craftable and have no vendor source.",
     `Three encounters, ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Smelter, Forge-Warden Korrath, and The Origin Engine"}, bringing the total from 9 to 12. The Smelter and Forge-Warden Korrath are multi-phase boss dungeons with BGM and phase-change sound from launch. The Origin Engine is a ritual encounter: four Spiritforged offerings placed on four terminals, and it has no board in the Index.`,
@@ -4319,8 +4345,9 @@ function buildOraewynEntries(
 
   const featureLines = [
     "Owning Oraewyn raises every skill's level cap from 115 to 120, on all 16 base game skills, Whisperwood's 4, Tideward's 4, Drakenhollow's 3, and Oraewyn's 2. A Celestial rung is added to each of the 8 base game gathering and artisan ladders.",
+    "Lorekeeper is yours the moment you own Oraewyn. Astromancy opens at Fracture Arts 80 and Geomancy 70. No quest opens either.",
     `Four encounters: ${expDungeons.map((d) => d.name || titleizeId(d.id)).join(", ") || "The Gate Warden, First Watcher Aelun, The Resonance Wraith, and The Threshold"}. The first three are boss dungeons with their own BGM and phase-change sound. Completing the Shadow Hand's Path quest skips Aelun's final phase. The Threshold is not a fight: it asks you to choose one of the three paths you have walked, and that choice shapes the text and fight length of the last quest. Nothing is locked out by the choice.`,
-    "Sky Ascent: four Wayfaring legs that run on the wall clock and end in a fight. Starting another fight or opening the Culling parks the encounter behind a Resume button; it is lost only if you die inside it.",
+    "Sky Ascent: four Wayfaring legs that run on the wall clock and end in a fight won with one kill. Starting another fight or opening the Culling parks the encounter behind a Resume button; it is lost only if you die inside it.",
     "The Watcher Conclave, a new faction with 4 reputation tiers. Reputation 75 opens the Conclave Armor store.",
     "A new Transcendence branch in the skill tree, and three new auto passives: Watcher's Eye, Skybound, and Long Finder.",
     "An arrival cinematic when quest Arrival is claimed, the final meditation vision at Meditation 120, and an end card when the arc closes.",

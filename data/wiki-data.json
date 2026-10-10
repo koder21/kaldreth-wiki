@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T14:25:31.610863+00:00",
+  "generated_at": "2026-10-10T11:17:24.363758+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -35,9 +35,11 @@
         "COMBAT_LEVEL_WEIGHT_MAGIC": 0.15,
         "COMBAT_LEVEL_WEIGHT_STRENGTH": 0.3,
         "COMBAT_STYLE_AIMED": "aimed",
+        "COMBAT_STYLE_ASTROMANCY": "astromancy",
         "COMBAT_STYLE_ATTACK": "attack",
         "COMBAT_STYLE_BALANCED": "balanced",
         "COMBAT_STYLE_DEFENCE": "defence",
+        "COMBAT_STYLE_GEOMANCY": "geomancy",
         "COMBAT_STYLE_MAGIC": "magic",
         "COMBAT_STYLE_OPTIMIZE": "optimize",
         "COMBAT_STYLE_POWER": "power",
@@ -194,127 +196,127 @@
             "faction_id": "tide_merchants",
             "item_id": "captains_hat",
             "rep_required": 75,
-            "summary": "Deadeye XP +12%"
+            "summary": "Deadeye XP +12%, damage taken -11%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "merchant_vest",
             "rep_required": 75,
-            "summary": "Ironlock XP +10%, bullet efficiency +8%"
+            "summary": "Ironlock XP +10%, bullet efficiency +8%, damage taken -11%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "gunners_gloves",
             "rep_required": 75,
-            "summary": "Deadeye XP +10%, bullet efficiency +5%"
+            "summary": "Deadeye XP +10%, bullet efficiency +5%, damage taken -4%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "trade_leggings",
             "rep_required": 75,
-            "summary": "Deadeye XP +8%"
+            "summary": "Deadeye XP +8%, damage taken -11%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "harbor_boots",
             "rep_required": 75,
-            "summary": "Deadeye XP +6%, gathering speed +5%"
+            "summary": "Deadeye XP +6%, gathering speed +5%, damage taken -11%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "navigators_amulet",
             "rep_required": 75,
-            "summary": "Echomind XP +10%"
+            "summary": "Echomind XP +10%, damage taken -9%"
           },
           {
             "faction_id": "tide_merchants",
             "item_id": "merchant_ring",
             "rep_required": 75,
-            "summary": "Ironlock XP +10%"
+            "summary": "Ironlock XP +10%, damage taken -10%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "forge_crown",
             "rep_required": 75,
-            "summary": "Geomancy XP +12%, Hollowing discovery +8%"
+            "summary": "Geomancy XP +12%, Hollowing discovery +8%, damage taken -11%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "ashborne_chestplate",
             "rep_required": 75,
-            "summary": "Spiritforging XP +10%, Smithing XP +8%"
+            "summary": "Spiritforging XP +10%, Smithing XP +8%, damage taken -11%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "forge_scarred_gloves",
             "rep_required": 75,
-            "summary": "Hollowing discovery +15%"
+            "summary": "Hollowing discovery +15%, damage taken -4%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "slagstone_greaves",
             "rep_required": 75,
-            "summary": "Geomancy XP +8%, gathering speed +5%"
+            "summary": "Geomancy XP +8%, gathering speed +5%, damage taken -11%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "deep_tempered_boots",
             "rep_required": 75,
-            "summary": "Spiritforging XP +6%, gathering speed +5%"
+            "summary": "Spiritforging XP +6%, gathering speed +5%, damage taken -11%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "ashborne_torc",
             "rep_required": 75,
-            "summary": "Spiritforging XP +15%, Geomancy XP +10%"
+            "summary": "Spiritforging XP +15%, Geomancy XP +10%, damage taken -9%"
           },
           {
             "faction_id": "ashborne",
             "item_id": "flame_sworn_ring",
             "rep_required": 75,
-            "summary": "Hollowing discovery +15%, Spiritforging XP +10%"
+            "summary": "Hollowing discovery +15%, Spiritforging XP +10%, damage taken -10%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "watchers_circlet",
             "rep_required": 75,
-            "summary": "Astromancy XP +10%, Lorekeeper XP +8%"
+            "summary": "Astromancy XP +10%, Lorekeeper XP +8%, damage taken -11%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "conclave_vestments",
             "rep_required": 75,
-            "summary": "Astromancy XP +10%"
+            "summary": "Astromancy XP +10%, damage taken -11%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "stellar_gloves",
             "rep_required": 75,
-            "summary": "Lorekeeper XP +10%"
+            "summary": "Lorekeeper XP +10%, damage taken -4%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "sky_walk_leggings",
             "rep_required": 75,
-            "summary": "Astromancy XP +8%, gathering speed +5%"
+            "summary": "Astromancy XP +8%, gathering speed +5%, damage taken -11%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "oraewyn_boots",
             "rep_required": 75,
-            "summary": "Lorekeeper XP +6%, gathering speed +5%"
+            "summary": "Lorekeeper XP +6%, gathering speed +5%, damage taken -11%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "conclave_sigil",
             "rep_required": 75,
-            "summary": "Astromancy XP +15%"
+            "summary": "Astromancy XP +15%, damage taken -9%"
           },
           {
             "faction_id": "watcher_conclave",
             "item_id": "watchers_mark",
             "rep_required": 75,
-            "summary": "Lorekeeper XP +15%"
+            "summary": "Lorekeeper XP +15%, damage taken -10%"
           }
         ],
         "FINALE_QUEST_ID": "o25_what_comes_after",
@@ -672,6 +674,7 @@
           ]
         ],
         "HOLLOWING_BASE_SECONDS": 3600,
+        "HOLLOWING_FOURTH_SLOT_LEVEL": 100,
         "HOLLOWING_SITES": [
           {
             "duration_seconds": 240,
@@ -684,6 +687,7 @@
             "relic_pool": [
               "ashfall_sliver"
             ],
+            "rep": 3,
             "yield": {
               "veinkore_ore": [
                 2,
@@ -700,6 +704,7 @@
             "name": "Veinkore Deposits",
             "relic_chance": 0.08,
             "relic_pool": [],
+            "rep": 5,
             "rep_min": 25,
             "yield": {
               "slagstone": [
@@ -723,6 +728,7 @@
             "relic_pool": [
               "forge_brand_token"
             ],
+            "rep": 8,
             "rep_min": 50,
             "yield": {
               "ashforge_shard": [
@@ -736,16 +742,41 @@
             }
           },
           {
+            "duration_seconds": 540,
+            "expansion": 3,
+            "id": "emberglass_galleries",
+            "level": 60,
+            "mult": 1.9,
+            "name": "Emberglass Galleries",
+            "relic_chance": 0.15,
+            "relic_pool": [
+              "forge_brand_token"
+            ],
+            "rep": 9,
+            "rep_min": 50,
+            "yield": {
+              "ashforge_shard": [
+                2,
+                5
+              ],
+              "veinkore_ore": [
+                7,
+                11
+              ]
+            }
+          },
+          {
             "duration_seconds": 600,
             "expansion": 3,
             "id": "origin_ore_veins",
             "level": 75,
-            "mult": 1.95,
+            "mult": 2.3,
             "name": "Origin Ore Veins",
             "relic_chance": 0.18,
             "relic_pool": [
               "origin_circuit"
             ],
+            "rep": 10,
             "rep_min": 75,
             "yield": {
               "ashforge_shard": [
@@ -759,17 +790,42 @@
             }
           },
           {
+            "duration_seconds": 660,
+            "expansion": 3,
+            "id": "buried_foundry",
+            "level": 85,
+            "mult": 2.75,
+            "name": "Buried Foundry",
+            "relic_chance": 0.23,
+            "relic_pool": [
+              "origin_circuit"
+            ],
+            "rep": 12,
+            "rep_min": 75,
+            "yield": {
+              "origin_ore": [
+                4,
+                7
+              ],
+              "slagstone": [
+                6,
+                10
+              ]
+            }
+          },
+          {
             "duration_seconds": 720,
             "expansion": 3,
             "id": "architect_vaults",
             "level": 95,
-            "mult": 3.1,
+            "mult": 3.3,
             "name": "Architect Vaults",
             "relic_chance": 0.28,
             "relic_pool": [
               "architects_seal",
               "the_first_key"
             ],
+            "rep": 13,
             "rep_min": 100,
             "yield": {
               "origin_ore": [
@@ -783,15 +839,41 @@
             }
           },
           {
+            "duration_seconds": 780,
+            "expansion": 3,
+            "id": "the_pale_reliquary",
+            "level": 103,
+            "mult": 3.95,
+            "name": "The Pale Reliquary",
+            "relic_chance": 0.31,
+            "relic_pool": [
+              "architects_seal",
+              "the_first_key"
+            ],
+            "rep": 14,
+            "rep_min": 100,
+            "yield": {
+              "origin_ore": [
+                6,
+                9
+              ],
+              "pale_spirit_essence": [
+                3,
+                5
+              ]
+            }
+          },
+          {
             "duration_seconds": 840,
             "expansion": 3,
             "id": "the_origin_seam",
             "level": 112,
-            "mult": 3.95,
+            "mult": 4.75,
             "name": "The Origin Seam",
             "quest_id": "d20_the_broadcast",
             "relic_chance": 0.34,
             "relic_pool": [],
+            "rep": 15,
             "rep_min": 100,
             "yield": {
               "origin_ore": [
@@ -803,8 +885,36 @@
                 6
               ]
             }
+          },
+          {
+            "duration_seconds": 900,
+            "expansion": 4,
+            "id": "the_fallen_spire",
+            "level": 116,
+            "mult": 5.7,
+            "name": "The Fallen Spire",
+            "quest_id": "d20_the_broadcast",
+            "relic_chance": 0.37,
+            "relic_pool": [],
+            "rep": 15,
+            "rep_min": 100,
+            "yield": {
+              "origin_ore": [
+                7,
+                11
+              ],
+              "pale_spirit_essence": [
+                4,
+                6
+              ],
+              "skyiron_ore": [
+                2,
+                4
+              ]
+            }
           }
         ],
+        "HOLLOWING_THIRD_SLOT_LEVEL": 70,
         "HOLLOWING_XP_FLAT": 8363,
         "HOLLOWING_XP_PER_LEVEL": 397,
         "HP_REGEN_INTERVAL_SECONDS": 12.0,
@@ -859,6 +969,7 @@
         "JOURNAL_ITEM_ID": "pathfinders_journal",
         "JOURNAL_LEVEL_FRACTION": 0.02,
         "LIVE_MANUAL_EAT_MAX_LAG_TICKS": 3,
+        "LIVE_TICK_SLACK_SECONDS": 0.05,
         "LOREKEEPER_ARTIFACTS": {
           "30": "watchers_lens",
           "50": "conclave_archive_fragment",
@@ -898,49 +1009,49 @@
             "item_id": "thornrend_sickle",
             "level_required": 99,
             "skill_id": "root_lore",
-            "summary": "Root Lore speed +50%"
+            "summary": "Root Lore speed +50%, damage taken -2%"
           },
           {
             "item_id": "deepbloom_trowel",
             "level_required": 99,
             "skill_id": "aetheric_tending",
-            "summary": "Aetheric Tending speed +50%"
+            "summary": "Aetheric Tending speed +50%, damage taken -2%"
           },
           {
             "item_id": "verdant_tether",
             "level_required": 99,
             "skill_id": "spiritbond",
-            "summary": "Spiritbond forage speed +50%"
+            "summary": "Spiritbond forage speed +50%, damage taken -9%"
           },
           {
             "item_id": "rootfire_crucible",
             "level_required": 99,
             "skill_id": "alchemy",
-            "summary": "Alchemy speed +50%"
+            "summary": "Alchemy speed +50%, damage taken -9%"
           },
           {
             "item_id": "saltlock_hammer",
             "level_required": 99,
             "skill_id": "ironlock",
-            "summary": "Ironlock speed +50%"
+            "summary": "Ironlock speed +50%, damage taken -2%"
           },
           {
             "item_id": "stormchart_sextant",
             "level_required": 99,
             "skill_id": "wayfaring",
-            "summary": "Wayfaring yield +50%"
+            "summary": "Wayfaring yield +50%, damage taken -10%"
           },
           {
             "item_id": "brineglass_mantle",
             "level_required": 99,
             "skill_id": "echomind",
-            "summary": "Echomind XP +25%"
+            "summary": "Echomind XP +25%, damage taken -11%"
           },
           {
             "item_id": "wrecksight_signet",
             "level_required": 99,
             "skill_id": "deadeye",
-            "summary": "Deadeye max hit +4%"
+            "summary": "Deadeye hit chance +25%, max hit +4%, damage taken -10%"
           },
           {
             "item_id": "faultbreaker_pickaxe",
@@ -1000,7 +1111,7 @@
             "item_id": "oathpoint_signet",
             "level_required": 99,
             "skill_id": "attack",
-            "summary": "Attack hit chance +25%"
+            "summary": "Attack hit chance +25%, damage taken -10%"
           },
           {
             "item_id": "colossus_war_chain",
@@ -1024,7 +1135,7 @@
             "item_id": "aethercoil_focus",
             "level_required": 99,
             "skill_id": "magic",
-            "summary": "Fracture Arts hit chance +15%, max hit +10%"
+            "summary": "Fracture Arts hit chance +15%, max hit +4%, damage taken -9%"
           },
           {
             "item_id": "stillwater_beads",
@@ -1036,37 +1147,37 @@
             "item_id": "trailblazer_compass",
             "level_required": 99,
             "skill_id": "adventurer",
-            "summary": "+15% to all gold earned"
+            "summary": "+15% to all gold earned, damage taken -10%"
           },
           {
             "item_id": "deepseam_probe",
             "level_required": 99,
             "skill_id": "hollowing",
-            "summary": "Hollowing yield +50%"
+            "summary": "Hollowing yield +50%, damage taken -2%"
           },
           {
             "item_id": "origin_bellows",
             "level_required": 99,
             "skill_id": "spiritforging",
-            "summary": "Spiritforging speed +50%"
+            "summary": "Spiritforging speed +50%, damage taken -2%"
           },
           {
             "item_id": "slagstone_lens",
             "level_required": 99,
             "skill_id": "geomancy",
-            "summary": "Geomancy hit chance +15%, max hit +4%"
+            "summary": "Geomancy hit chance +15%, max hit +4%, damage taken -9%"
           },
           {
             "item_id": "starchart_focus",
             "level_required": 99,
             "skill_id": "astromancy",
-            "summary": "Astromancy hit chance +15%, max hit +4%"
+            "summary": "Astromancy hit chance +15%, max hit +4%, damage taken -9%"
           },
           {
             "item_id": "witness_cord",
             "level_required": 99,
             "skill_id": "lorekeeper",
-            "summary": "Lorekeeper XP +25%"
+            "summary": "Lorekeeper XP +25%, damage taken -9%"
           }
         ],
         "MAX_CLOCK_FORWARD_GRACE_SECONDS": 300,
@@ -1141,6 +1252,17 @@
         "RESPAWN_GOLD_LOSS_MIN": 20,
         "RESPAWN_GOLD_LOSS_PERCENT": 0.08,
         "RESUME_HANDLE_DEBOUNCE_SECONDS": 3.0,
+        "RITUAL_TROPHIES": {
+          "smelter_core": {
+            "dungeon": "the_smelter",
+            "offering": "ember_reliquary"
+          },
+          "wardens_emblem": {
+            "dungeon": "forge_warden_korrath",
+            "offering": "slag_confession"
+          }
+        },
+        "RITUAL_TROPHY_DUNGEON": "the_origin_engine",
         "ROOT_LORE_XP_PER_REP": 50,
         "SAFETY_FOOD_MARGIN": 1.2,
         "SAFETY_FOOD_SIM_SEED": 1262570564,
@@ -1184,6 +1306,7 @@
         "SPIRITBOND_FORAGE_XP_PER_LEVEL": 107,
         "SPIRITBOND_IDLE_TICK_SECONDS": 30.0,
         "SPIRITBOND_IDLE_TICK_XP": 10,
+        "SPIRITFORGE_SELL_INPUT_MULT": 3,
         "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_MAX": 0.15,
         "SPIRITWEAVING_AFFINITY_SHADOW_BLEED_PER_LEVEL": 0.003,
         "SPIRIT_AFFINITY_BONUS_XP_25": 5,
@@ -1200,6 +1323,8 @@
           0.9,
           1.0
         ],
+        "TENDING_EIGHTH_PLOT_LEVEL": 110,
+        "TENDING_PLOTS_BASE_MAX": 7,
         "THRESHOLD_PATH_KEY": "threshold_path",
         "TIDEWARD_EXPEDITIONS": 50,
         "TIDEWARD_GHOST_STEALS": 100,
@@ -1264,6 +1389,13 @@
           "index_echo": "Arm",
           "pathfinders_journal": "Read",
           "scar_ward_draught": "Drink"
+        },
+        "VIGIL_DRAUGHT_HEAL": {
+          "vigil_draught": 43,
+          "vigil_draught_exp1": 39,
+          "vigil_draught_exp2": 42,
+          "vigil_draught_exp3": 48,
+          "vigil_draught_exp4": 40
         },
         "WATCHDOG_INTERVAL_SECONDS": 2.5,
         "WAYFARING_BASE_SECONDS": 3600,
@@ -1415,6 +1547,31 @@
             "level": 108,
             "mult": 2.5,
             "name": "The Outer Reach"
+          },
+          {
+            "duration_seconds": 129600,
+            "expansion": 3,
+            "gold_max": 290,
+            "gold_min": 180,
+            "id": "emberwake_strait",
+            "items": {
+              "ashforge_shard": [
+                3,
+                5
+              ],
+              "origin_ore": [
+                3,
+                5
+              ],
+              "pale_spirit_essence": [
+                1,
+                2
+              ]
+            },
+            "level": 112,
+            "mult": 2.96,
+            "name": "Emberwake Strait",
+            "rep": 30
           },
           {
             "ascent_leg": 1,
@@ -14793,6 +14950,12 @@
                   "item_id": "knights_corrupted_mantle",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "scar_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 5,
@@ -14948,6 +15111,12 @@
                   "item_id": "architects_resonance_loop",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "scar_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 7,
@@ -15121,6 +15290,12 @@
                   "item_id": "accord_null_blade",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "scar_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 10,
@@ -15315,6 +15490,12 @@
                   "item_id": "keystone_architects_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "scar_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 15,
@@ -15524,6 +15705,18 @@
                   "item_id": "herald_mark",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 0.08,
+                  "item_id": "vigil_draught",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "scar_writ",
+                  "qty_max": 4,
+                  "qty_min": 4
                 }
               ],
               "masteryPoints": 20,
@@ -15663,6 +15856,12 @@
                   "item_id": "root_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "root_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 27,
@@ -15785,10 +15984,22 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 0.08,
+                  "item_id": "vigil_draught_exp1",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "root_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "root_writ",
+                  "qty_max": 4,
+                  "qty_min": 4
                 }
               ],
               "masteryPoints": 33,
@@ -15917,6 +16128,12 @@
                   "item_id": "salt_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "tide_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 38,
@@ -16048,10 +16265,22 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 0.08,
+                  "item_id": "vigil_draught_exp2",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "salt_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "tide_writ",
+                  "qty_max": 4,
+                  "qty_min": 4
                 }
               ],
               "masteryPoints": 44,
@@ -16187,6 +16416,12 @@
                   "item_id": "origin_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "ash_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 50,
@@ -16299,10 +16534,22 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 0.08,
+                  "item_id": "vigil_draught_exp3",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "origin_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "ash_writ",
+                  "qty_max": 4,
+                  "qty_min": 4
                 }
               ],
               "masteryPoints": 56,
@@ -16363,13 +16610,13 @@
             "locked_lore": "The Origin Chamber has been sealed since Krenn read its first page and shut the door the same afternoon. It isn't held shut by the lock. It's held shut by the fact that nothing has been brought to it yet worth opening for.",
             "lore": "The Origin Engine was never a guardian. It's an administrative core, built to log arrivals and confirm the Fracture was working as intended. It doesn't care who you are. It only cares whether you've understood enough to place something True on its terminals.",
             "name": "The Origin Engine",
-            "req_display": "Spiritforging 80  \u2022  Q: Opening the Chamber",
+            "req_display": "Spiritforging 50  \u2022  Q: Opening the Chamber",
             "requirements": {
               "questsCompleted": [
                 "d18_opening_the_chamber"
               ],
               "skillLevels": {
-                "spiritforging": 80
+                "spiritforging": 50
               }
             },
             "rewards": {
@@ -16434,8 +16681,11 @@
             "locked_lore": "The last threshold before the Oraewyn Lowlands has been sealed for longer than the Conclave's oldest record. Veil scouts attempted to pass it twice. Neither attempt is in the report.",
             "lore": "An Architect guardian at the Sky Ascent's final approach. No standing order to stop anyone in particular - only to stop anything that does not pass its assessment. It has been doing this since before the Conclave existed.",
             "name": "The Gate Warden",
-            "req_display": "Attack 115  \u2022  Defence 113  \u2022  Q: Gate Protocol",
+            "req_display": "Attack 115  \u2022  Defence 113  \u2022  Clear: The Origin Engine  \u2022  Q: Gate Protocol",
             "requirements": {
+              "dungeonClears": [
+                "the_origin_engine"
+              ],
               "questsCompleted": [
                 "o03_gate_protocol"
               ],
@@ -16469,6 +16719,12 @@
                   "item_id": "star_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "star_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 68,
@@ -16592,6 +16848,12 @@
                   "item_id": "star_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "star_writ",
+                  "qty_max": 2,
+                  "qty_min": 2
                 }
               ],
               "masteryPoints": 74,
@@ -16718,10 +16980,22 @@
                   "qty_min": 3
                 },
                 {
+                  "chance": 0.08,
+                  "item_id": "vigil_draught_exp4",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "star_seal",
                   "qty_max": 1,
                   "qty_min": 1
+                },
+                {
+                  "chance": 1.0,
+                  "item_id": "star_writ",
+                  "qty_max": 4,
+                  "qty_min": 4
                 }
               ],
               "masteryPoints": 80,
@@ -16812,9 +17086,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.7",
-        "BUILD_FINGERPRINT": "1.6.7 (1791296302)",
-        "VERSION_CODE": 1791296302
+        "APP_VERSION": "1.6.8",
+        "BUILD_FINGERPRINT": "1.6.8 (1791630564)",
+        "VERSION_CODE": 1791630564
       },
       "specials": {}
     },
@@ -16835,7 +17109,6 @@
             "level": 1,
             "lore": "Bonds readily and stays close. The Covenant does not know where the pale hounds came from either.",
             "name": "Pale Hound",
-            "quest_required": "w02_edge_of_the_wood",
             "xp_mult": 1.0
           },
           {
@@ -16963,6 +17236,57 @@
               "rep": 75
             },
             "xp_mult": 1.5
+          },
+          {
+            "all_xp_pct": 0.08,
+            "combat_xp_pct": 0.2,
+            "expansion": 2,
+            "forage_items": [
+              "brinefrond",
+              "salt_kelp",
+              "deep_brine"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.2,
+            "id": "tidecaller_heron",
+            "level": 106,
+            "lore": "Stands in the shallows at slack water and does not fish. The harbor pilots set their clocks by when it leaves.",
+            "name": "Tidecaller Heron",
+            "xp_mult": 2.2
+          },
+          {
+            "all_xp_pct": 0.08,
+            "combat_xp_pct": 0.3,
+            "expansion": 3,
+            "forage_items": [
+              "kilnthorn",
+              "slagstone",
+              "ashforge_shard"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.12,
+            "id": "slag_drake",
+            "level": 111,
+            "lore": "Hatched in a spoil heap and never grew out of it. The Ashborne feed it clinker and count their tools afterwards.",
+            "name": "Slag Drake",
+            "xp_mult": 2.5
+          },
+          {
+            "all_xp_pct": 0.1,
+            "combat_xp_pct": 0.25,
+            "expansion": 4,
+            "forage_items": [
+              "starpetal",
+              "dawnlit_essence",
+              "skyiron_ore"
+            ],
+            "forage_seconds": 14400,
+            "gathering_speed_pct": 0.15,
+            "id": "starborne_owl",
+            "level": 116,
+            "lore": "It came down from the islands on its own and chose a shoulder. The Watchers have a name for it and will not say the name aloud.",
+            "name": "Starborne Owl",
+            "xp_mult": 2.55
           }
         ]
       },
@@ -17592,6 +17916,10 @@
           "ashvein_sabatons": 22,
           "ashvein_shield": 25,
           "ashwood_bulwark": 40,
+          "ashwrit_chain": 114,
+          "ashwrit_forgebelt": 114,
+          "ashwrit_pall": 114,
+          "ashwrit_vambraces": 114,
           "bark_vest": 5,
           "bastion_leggings": 25,
           "blacksmith_girdle": 8,
@@ -17679,8 +18007,16 @@
           "river_belt": 1,
           "rootwarden_gloves": 50,
           "rootweave_girdle": 103,
+          "rootwrit_cincture": 104,
+          "rootwrit_handwraps": 104,
+          "rootwrit_lariat": 104,
+          "rootwrit_shroud": 104,
           "sacred_belt": 15,
           "saltsworn_cape": 55,
+          "scarwrit_girdle": 95,
+          "scarwrit_grips": 95,
+          "scarwrit_mantle": 95,
+          "scarwrit_torc": 95,
           "scout_helm": 10,
           "sentinel_helm": 25,
           "shade_cowl": 8,
@@ -17700,9 +18036,17 @@
           "spirit_mantle": 1,
           "spiritthread_leggings": 1,
           "starfall_helm": 112,
+          "starwrit_carcanet": 119,
+          "starwrit_firmament": 119,
+          "starwrit_meridian": 119,
+          "starwrit_reach": 119,
           "stealth_sash": 8,
           "stellar_gloves": 100,
           "strength_belt": 20,
+          "tidewrit_gauntlets": 109,
+          "tidewrit_gorget": 109,
+          "tidewrit_seacloak": 109,
+          "tidewrit_waistguard": 109,
           "timber_belt": 5,
           "trade_leggings": 90,
           "traveler_leggings": 10,
@@ -17959,6 +18303,13 @@
             "name": "Ash Sigil",
             "source_hint": "Spiritweaving"
           },
+          "ash_writ": {
+            "category": "relic",
+            "expansion": 3,
+            "name": "Ash Writ",
+            "no_collection": true,
+            "source_hint": "Every boss dungeon clear (Drakenhollow)"
+          },
           "ashblossom": {
             "category": "herb",
             "expansion": 1,
@@ -18021,6 +18372,11 @@
             "category": "material",
             "expansion": 3,
             "name": "Ashforge Shard"
+          },
+          "ashiron_ore": {
+            "category": "ore",
+            "expansion": 3,
+            "name": "Ashiron Ore"
           },
           "ashvein_axe": {
             "category": "tool",
@@ -18095,6 +18451,34 @@
             "category": "log",
             "name": "Ashwood Log"
           },
+          "ashwrit_chain": {
+            "category": "jewel",
+            "expansion": 3,
+            "name": "Ashwrit Chain",
+            "slot": "necklace",
+            "source_hint": "Worldroot"
+          },
+          "ashwrit_forgebelt": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Ashwrit Forgebelt",
+            "slot": "belt",
+            "source_hint": "Worldroot"
+          },
+          "ashwrit_pall": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Ashwrit Pall",
+            "slot": "cape",
+            "source_hint": "Worldroot"
+          },
+          "ashwrit_vambraces": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Ashwrit Vambraces",
+            "slot": "hands",
+            "source_hint": "Worldroot"
+          },
           "astromancers_skyrod": {
             "category": "weapon",
             "expansion": 4,
@@ -18150,6 +18534,11 @@
             "expansion": 2,
             "name": "Brine Eel"
           },
+          "brine_smoked_emberfin": {
+            "category": "food",
+            "expansion": 3,
+            "name": "Brine-Smoked Emberfin"
+          },
           "brine_tonic": {
             "category": "consumable",
             "duration_seconds": 600,
@@ -18167,6 +18556,11 @@
             "category": "sigil",
             "expansion": 2,
             "name": "Brinebound Rune"
+          },
+          "brinefrond": {
+            "category": "herb",
+            "expansion": 2,
+            "name": "Brinefrond"
           },
           "brineglass_mantle": {
             "category": "armour",
@@ -18228,6 +18622,11 @@
             "category": "food",
             "name": "Burned Deepvein Bass"
           },
+          "burned_emberfin": {
+            "category": "food",
+            "expansion": 3,
+            "name": "Burned Emberfin"
+          },
           "burned_fissure_char": {
             "category": "food",
             "name": "Burned Fissure Char"
@@ -18280,6 +18679,11 @@
             "category": "food",
             "expansion": 2,
             "name": "Burned Shoal Drifter"
+          },
+          "burned_skymere_ray": {
+            "category": "food",
+            "expansion": 4,
+            "name": "Burned Skymere Ray"
           },
           "burned_spirit_carp_medley": {
             "category": "food",
@@ -18428,6 +18832,11 @@
             "expansion": 2,
             "name": "Charred Storm Coast Eel"
           },
+          "charwood_log": {
+            "category": "log",
+            "expansion": 3,
+            "name": "Charwood Log"
+          },
           "chef_toque": {
             "category": "armour",
             "name": "Chef's Toque",
@@ -18456,9 +18865,29 @@
             "no_collection": true,
             "source_hint": "A gift from the developer"
           },
+          "cinderbound_essence": {
+            "category": "spirit",
+            "expansion": 3,
+            "name": "Cinderbound Essence"
+          },
+          "cinderbound_rune": {
+            "category": "sigil",
+            "expansion": 3,
+            "name": "Cinderbound Rune"
+          },
           "cipher_fragment": {
             "category": "material",
             "name": "Cipher Fragment"
+          },
+          "cloudpine_log": {
+            "category": "log",
+            "expansion": 4,
+            "name": "Cloudpine Log"
+          },
+          "cloudpine_weave": {
+            "category": "spirit_craft",
+            "expansion": 4,
+            "name": "Cloudpine Weave"
           },
           "coastal_seal_sample": {
             "category": "quest",
@@ -18614,6 +19043,16 @@
             "category": "food",
             "expansion": 2,
             "name": "Cured Tideward Sunfish"
+          },
+          "dawnlit_essence": {
+            "category": "spirit",
+            "expansion": 4,
+            "name": "Dawnlit Essence"
+          },
+          "dawnlit_rune": {
+            "category": "sigil",
+            "expansion": 4,
+            "name": "Dawnlit Rune"
           },
           "dawnsilver_axe": {
             "category": "tool",
@@ -18795,11 +19234,21 @@
             "category": "log",
             "name": "Emberbark Log"
           },
+          "emberfin": {
+            "category": "fish",
+            "expansion": 3,
+            "name": "Emberfin"
+          },
           "emberline_chef_knife": {
             "category": "weapon",
             "name": "Emberline Chef Knife",
             "slot": "weapon",
             "source_hint": "Store - Mastery Relic (Cooking Lv. 99)"
+          },
+          "emberwort": {
+            "category": "herb",
+            "expansion": 3,
+            "name": "Emberwort"
           },
           "emissary_mark": {
             "category": "jewel",
@@ -18931,6 +19380,14 @@
             "name": "Forge-Scarred Gloves",
             "slot": "hands",
             "source_hint": "The Ashborne - Ashborne-Kin"
+          },
+          "forgewake_draught": {
+            "category": "consumable",
+            "duration_seconds": 1200,
+            "effect_desc": "+35% artisan XP for 20 min",
+            "expansion": 3,
+            "name": "Forgewake Draught",
+            "potion_category": "artisan"
           },
           "fortifying_brew": {
             "category": "consumable",
@@ -19305,6 +19762,11 @@
           "keystone_core": {
             "category": "material",
             "name": "Keystone Core"
+          },
+          "kilnthorn": {
+            "category": "herb",
+            "expansion": 3,
+            "name": "Kilnthorn"
           },
           "kitchen_clogs": {
             "category": "armour",
@@ -19987,6 +20449,13 @@
             "name": "Root Tonic",
             "potion_category": "gathering"
           },
+          "root_writ": {
+            "category": "relic",
+            "expansion": 1,
+            "name": "Root Writ",
+            "no_collection": true,
+            "source_hint": "Every boss dungeon clear (Whisperwood)"
+          },
           "rootbound_wand": {
             "category": "weapon",
             "expansion": 1,
@@ -20047,6 +20516,34 @@
             "expansion": 1,
             "name": "Rootweave Girdle",
             "slot": "belt"
+          },
+          "rootwrit_cincture": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Rootwrit Cincture",
+            "slot": "belt",
+            "source_hint": "Worldroot"
+          },
+          "rootwrit_handwraps": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Rootwrit Handwraps",
+            "slot": "hands",
+            "source_hint": "Worldroot"
+          },
+          "rootwrit_lariat": {
+            "category": "jewel",
+            "expansion": 1,
+            "name": "Rootwrit Lariat",
+            "slot": "necklace",
+            "source_hint": "Worldroot"
+          },
+          "rootwrit_shroud": {
+            "category": "armour",
+            "expansion": 1,
+            "name": "Rootwrit Shroud",
+            "slot": "cape",
+            "source_hint": "Worldroot"
           },
           "sacred_belt": {
             "category": "armour",
@@ -20127,6 +20624,36 @@
             "category": "consumable",
             "name": "Scar-Ward Draught",
             "source_hint": "Greyfen Provisions (Store)"
+          },
+          "scar_writ": {
+            "category": "relic",
+            "name": "Scar Writ",
+            "no_collection": true,
+            "source_hint": "Every boss dungeon clear (base game)"
+          },
+          "scarwrit_girdle": {
+            "category": "armour",
+            "name": "Scarwrit Girdle",
+            "slot": "belt",
+            "source_hint": "Worldroot"
+          },
+          "scarwrit_grips": {
+            "category": "armour",
+            "name": "Scarwrit Grips",
+            "slot": "hands",
+            "source_hint": "Worldroot"
+          },
+          "scarwrit_mantle": {
+            "category": "armour",
+            "name": "Scarwrit Mantle",
+            "slot": "cape",
+            "source_hint": "Worldroot"
+          },
+          "scarwrit_torc": {
+            "category": "jewel",
+            "name": "Scarwrit Torc",
+            "slot": "necklace",
+            "source_hint": "Worldroot"
           },
           "scholars_scroll": {
             "category": "consumable",
@@ -20287,6 +20814,16 @@
             "name": "Sky-Walk Leggings",
             "slot": "legs",
             "source_hint": "Watcher Conclave - Trusted"
+          },
+          "skyiron_ore": {
+            "category": "ore",
+            "expansion": 4,
+            "name": "Skyiron Ore"
+          },
+          "skymere_ray": {
+            "category": "fish",
+            "expansion": 4,
+            "name": "Skymere Ray"
           },
           "skywoven_chestplate": {
             "category": "armour",
@@ -20506,6 +21043,13 @@
             "name": "Star Seal",
             "source_hint": "The Gate Warden / First Watcher Aelun / The Resonance Wraith"
           },
+          "star_writ": {
+            "category": "relic",
+            "expansion": 4,
+            "name": "Star Writ",
+            "no_collection": true,
+            "source_hint": "Every boss dungeon clear (Oraewyn)"
+          },
           "starchart_focus": {
             "category": "armour",
             "expansion": 4,
@@ -20538,6 +21082,52 @@
             "expansion": 4,
             "name": "Starlight Draft",
             "potion_category": "gathering"
+          },
+          "starpetal": {
+            "category": "herb",
+            "expansion": 4,
+            "name": "Starpetal"
+          },
+          "starpetal_draught": {
+            "category": "consumable",
+            "duration_seconds": 1200,
+            "effect_desc": "+30% combat XP, +20% effective DEF for 20 min",
+            "expansion": 4,
+            "name": "Starpetal Draught",
+            "potion_category": "combat"
+          },
+          "starpetal_skymere_ray": {
+            "category": "food",
+            "expansion": 4,
+            "name": "Starpetal Skymere Ray"
+          },
+          "starwrit_carcanet": {
+            "category": "jewel",
+            "expansion": 4,
+            "name": "Starwrit Carcanet",
+            "slot": "necklace",
+            "source_hint": "Worldroot"
+          },
+          "starwrit_firmament": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Starwrit Firmament",
+            "slot": "cape",
+            "source_hint": "Worldroot"
+          },
+          "starwrit_meridian": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Starwrit Meridian",
+            "slot": "belt",
+            "source_hint": "Worldroot"
+          },
+          "starwrit_reach": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Starwrit Reach",
+            "slot": "hands",
+            "source_hint": "Worldroot"
           },
           "stealth_sash": {
             "category": "armour",
@@ -20699,6 +21289,13 @@
             "name": "Tidal Elixir",
             "potion_category": "gathering"
           },
+          "tide_writ": {
+            "category": "relic",
+            "expansion": 2,
+            "name": "Tide Writ",
+            "no_collection": true,
+            "source_hint": "Every boss dungeon clear (Tideward)"
+          },
           "tidebind_rod": {
             "category": "weapon",
             "name": "Tidebind Rod",
@@ -20747,6 +21344,34 @@
             "category": "fish",
             "expansion": 2,
             "name": "Tideward Sunfish"
+          },
+          "tidewrit_gauntlets": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Tidewrit Gauntlets",
+            "slot": "hands",
+            "source_hint": "Worldroot"
+          },
+          "tidewrit_gorget": {
+            "category": "jewel",
+            "expansion": 2,
+            "name": "Tidewrit Gorget",
+            "slot": "necklace",
+            "source_hint": "Worldroot"
+          },
+          "tidewrit_seacloak": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Tidewrit Seacloak",
+            "slot": "cape",
+            "source_hint": "Worldroot"
+          },
+          "tidewrit_waistguard": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Tidewrit Waistguard",
+            "slot": "belt",
+            "source_hint": "Worldroot"
           },
           "timber_belt": {
             "category": "armour",
@@ -20954,6 +21579,40 @@
             "name": "Verdant Worldcharm",
             "slot": "necklace",
             "source_hint": "Worldroot - Geode + Tree + Fisher's Amulet"
+          },
+          "vigil_draught": {
+            "category": "consumable",
+            "name": "Vigil Draught",
+            "no_collection": true,
+            "source_hint": "The Fracture Scar (boss dungeon)"
+          },
+          "vigil_draught_exp1": {
+            "category": "consumable",
+            "expansion": 1,
+            "name": "Rootbound Vigil Draught",
+            "no_collection": true,
+            "source_hint": "The Grove's Warden (boss dungeon)"
+          },
+          "vigil_draught_exp2": {
+            "category": "consumable",
+            "expansion": 2,
+            "name": "Tidebound Vigil Draught",
+            "no_collection": true,
+            "source_hint": "Admiral Vael (boss dungeon)"
+          },
+          "vigil_draught_exp3": {
+            "category": "consumable",
+            "expansion": 3,
+            "name": "Ashbound Vigil Draught",
+            "no_collection": true,
+            "source_hint": "Forge-Warden Korrath (boss dungeon)"
+          },
+          "vigil_draught_exp4": {
+            "category": "consumable",
+            "expansion": 4,
+            "name": "Starbound Vigil Draught",
+            "no_collection": true,
+            "source_hint": "The Resonance Wraith (boss dungeon)"
           },
           "vigil_token": {
             "category": "consumable",
@@ -21415,7 +22074,27 @@
           "mastercraft_signet",
           "verdant_worldcharm",
           "arcweave_confluence",
-          "bulwark_heartstone"
+          "bulwark_heartstone",
+          "scarwrit_torc",
+          "scarwrit_girdle",
+          "scarwrit_mantle",
+          "scarwrit_grips",
+          "rootwrit_lariat",
+          "rootwrit_cincture",
+          "rootwrit_shroud",
+          "rootwrit_handwraps",
+          "tidewrit_gorget",
+          "tidewrit_waistguard",
+          "tidewrit_seacloak",
+          "tidewrit_gauntlets",
+          "ashwrit_chain",
+          "ashwrit_forgebelt",
+          "ashwrit_pall",
+          "ashwrit_vambraces",
+          "starwrit_carcanet",
+          "starwrit_meridian",
+          "starwrit_firmament",
+          "starwrit_reach"
         ],
         "MAGIC_REQ_BY_ID": {
           "aeluns_starfall_conduit": 119,
@@ -21480,6 +22159,71 @@
           "witness_cord": true,
           "wrecksight_signet": true
         },
+        "NO_USE_ITEMS": {
+          "accord_cipher_key": "keepsake",
+          "apothecary_satchel": "trade",
+          "architect_weave": "trade",
+          "archive_cipher": "trade",
+          "canal_silt": "trade",
+          "captains_field_ledger": "trade",
+          "cipher_fragment": "trade",
+          "coastal_seal_sample": "keepsake",
+          "corrupted_lantern_insignia": "keepsake",
+          "crag_shard": "trade",
+          "deep_focus": "trade",
+          "directive_shard": "trade",
+          "dock_scrip": "trade",
+          "drake_scale": "trade",
+          "drowned_keeper_glyph": "keepsake",
+          "dusk_shard": "trade",
+          "echo_core": "trade",
+          "ember_ash": "trade",
+          "feathers": "trade",
+          "fracture_rime": "trade",
+          "frostfang": "trade",
+          "furnace_slag": "trade",
+          "fused_ward": "trade",
+          "gate_warden_core": "keepsake",
+          "gleam_binding": "trade",
+          "grove_covenant_seal": "keepsake",
+          "hag_charm": "trade",
+          "hollow_root_core": "trade",
+          "hollow_root_glyph": "keepsake",
+          "mire_hide": "trade",
+          "noble_house_seal": "trade",
+          "node_shard": "trade",
+          "null_trace": "trade",
+          "pale_lantern_seal": "keepsake",
+          "pale_ward_focus": "trade",
+          "resonance_ward": "trade",
+          "rift_sinew": "trade",
+          "rootstone_shard": "trade",
+          "sanctum_relic": "trade",
+          "scar_survey_fragment": "trade",
+          "sentinel_register": "trade",
+          "smuggler_manifest": "keepsake",
+          "snare_coil": "trade",
+          "spire_grit": "trade",
+          "spire_key_fragment": "keepsake",
+          "spirit_focus": "trade",
+          "summit_plate": "trade",
+          "sunken_iron": "trade",
+          "tideward_access_fragment": "keepsake",
+          "titan_core": "trade",
+          "unclassified_matter": "trade",
+          "unformed_shard": "trade",
+          "vaels_compass": "keepsake",
+          "vaels_mark": "keepsake",
+          "vaels_orders": "keepsake",
+          "vaethos_sigil": "keepsake",
+          "vault_alloy": "trade",
+          "vent_carapace": "trade",
+          "warden_focus": "trade",
+          "wardens_permafrost_seal": "keepsake",
+          "watchers_seal": "keepsake",
+          "wisp_strand": "trade",
+          "wraith_core": "keepsake"
+        },
         "POTION_EFFECT_LABELS": {
           "all_xp_pct": "all XP",
           "artisan_xp_pct": "artisan XP",
@@ -21498,7 +22242,7 @@
           "accord_field_signet": 70000,
           "accord_null_blade": 200000,
           "accord_null_blade_unbound": 350000,
-          "accord_temper": 0,
+          "accord_temper": 8000,
           "aeluns_starfall_conduit": 4500000,
           "aethercoil_focus": 5000000,
           "ancient_coral": 320,
@@ -21515,7 +22259,7 @@
           "architect_core_shard": 0,
           "architect_shard": 40,
           "architect_weave": 200,
-          "architects_absolution": 520000,
+          "architects_absolution": 375000,
           "architects_aegis": 320,
           "architects_cedar_log": 25,
           "architects_resonance_loop": 120000,
@@ -21528,6 +22272,7 @@
           "artisan_coat": 5600,
           "artisan_ring": 51000,
           "ash_rune": 1,
+          "ash_writ": 950,
           "ashblossom": 9,
           "ashblossom_draft": 110,
           "ashborne_chestplate": 260000,
@@ -21537,6 +22282,7 @@
           "ashfall_sliver": 120000,
           "ashfen_carp": 30,
           "ashforge_shard": 190,
+          "ashiron_ore": 60,
           "ashvein_axe": 2500,
           "ashvein_bar": 35,
           "ashvein_ore": 5,
@@ -21546,6 +22292,10 @@
           "ashvein_shot": 5,
           "ashwood_bulwark": 140,
           "ashwood_log": 10,
+          "ashwrit_chain": 450000,
+          "ashwrit_forgebelt": 450000,
+          "ashwrit_pall": 450000,
+          "ashwrit_vambraces": 450000,
           "astromancers_skyrod": 3000000,
           "bark_vest": 2350,
           "bastion_leggings": 33000,
@@ -21557,9 +22307,11 @@
           "braised_deepvein_bass": 42,
           "braised_vantstream_trout": 85,
           "brine_eel": 18,
+          "brine_smoked_emberfin": 110,
           "brine_tonic": 260,
           "brinebound_essence": 58,
           "brinebound_rune": 150,
+          "brinefrond": 88,
           "brineglass_mantle": 5000000,
           "broker_doubloon": 18000,
           "brute_ring": 63000,
@@ -21569,6 +22321,7 @@
           "burned_canal_trout": 0,
           "burned_carp": 0,
           "burned_deepvein_bass": 0,
+          "burned_emberfin": 0,
           "burned_fissure_char": 0,
           "burned_fracture_pike": 0,
           "burned_leviathan": 0,
@@ -21576,6 +22329,7 @@
           "burned_mirefish_stew": 0,
           "burned_pale_drifter": 0,
           "burned_resonance_eel": 0,
+          "burned_skymere_ray": 0,
           "burned_spirit_carp_medley": 0,
           "burned_vantstream_trout": 0,
           "burned_warden_bass": 0,
@@ -21602,10 +22356,15 @@
           "celestial_rounds": 85,
           "charred_leviathan": 75,
           "charred_storm_coast_eel": 74,
+          "charwood_log": 50,
           "chef_toque": 1100,
           "chef_trousers": 13500,
           "chroniclers_band": 80000,
+          "cinderbound_essence": 72,
+          "cinderbound_rune": 190,
           "cipher_fragment": 45,
+          "cloudpine_log": 62,
+          "cloudpine_weave": 220,
           "coastal_seal_sample": 0,
           "colossus_war_chain": 5000000,
           "combat_belt": 5000,
@@ -21633,6 +22392,8 @@
           "cured_ancient_reef_carp": 58,
           "cured_resonance_eel": 95,
           "cured_tideward_sunfish": 90,
+          "dawnlit_essence": 90,
+          "dawnlit_rune": 240,
           "dawnsilver_axe": 12000,
           "dawnsilver_bar": 55,
           "dawnsilver_ore": 8,
@@ -21663,10 +22424,12 @@
           "echo_core": 26,
           "ember_ash": 14,
           "ember_forged_helm": 220000,
-          "ember_reliquary": 480000,
+          "ember_reliquary": 345000,
           "ember_sanctum_key": 1800,
           "emberbark_log": 5,
+          "emberfin": 240,
           "emberline_chef_knife": 5000000,
+          "emberwort": 110,
           "emissary_mark": 45000,
           "engineer_cipher": 7500,
           "ethereal_boots": 12000,
@@ -21690,6 +22453,7 @@
           "forge_crown": 230000,
           "forge_ring": 45500,
           "forge_scarred_gloves": 200000,
+          "forgewake_draught": 1500,
           "fortifying_brew": 140,
           "fortress_boots": 33000,
           "fracture_arcanist_pin": 62000,
@@ -21759,11 +22523,12 @@
           "ironbound_helm": 1250,
           "keystone_architects_seal": 5000000,
           "keystone_blade": 3000000,
-          "keystone_core": 0,
+          "keystone_core": 20000,
+          "kilnthorn": 100,
           "kitchen_clogs": 13500,
           "knights_corrupted_mantle": 75000,
           "knights_purified_mantle": 150000,
-          "knights_whetstone": 0,
+          "knights_whetstone": 3000,
           "korraths_forge_brand": 2800000,
           "lantern_reaper_torc": 5000000,
           "ledger_of_tithes": 26000,
@@ -21885,6 +22650,7 @@
           "roasted_shoal_drifter": 34,
           "root_seal": 0,
           "root_tonic": 1100,
+          "root_writ": 650,
           "rootbound_wand": 150000,
           "rootfire_alembic": 28000,
           "rootfire_crucible": 5000000,
@@ -21895,6 +22661,10 @@
           "rootveined_ore": 38,
           "rootwarden_gloves": 120000,
           "rootweave_girdle": 115000,
+          "rootwrit_cincture": 350000,
+          "rootwrit_handwraps": 350000,
+          "rootwrit_lariat": 350000,
+          "rootwrit_shroud": 350000,
           "sacred_belt": 2100,
           "salt_carp": 8,
           "salt_kelp": 25,
@@ -21909,6 +22679,11 @@
           "scar_resonance_dust": 48,
           "scar_survey_fragment": 40,
           "scar_ward_draught": 75000,
+          "scar_writ": 500,
+          "scarwrit_girdle": 300000,
+          "scarwrit_grips": 300000,
+          "scarwrit_mantle": 300000,
+          "scarwrit_torc": 300000,
           "scout_helm": 900,
           "sea_construct_parts": 140,
           "sea_drake_draft": 380,
@@ -21938,8 +22713,10 @@
           "sky_salt": 280,
           "sky_salt_tincture": 950,
           "sky_walk_leggings": 305000,
+          "skyiron_ore": 75,
+          "skymere_ray": 275,
           "skywoven_chestplate": 500000,
-          "slag_confession": 480000,
+          "slag_confession": 345000,
           "slag_core_chestplate": 300000,
           "slagstone": 55,
           "slagstone_greaves": 225000,
@@ -21974,10 +22751,18 @@
           "spiritforged_greatblade": 780000,
           "spiritthread_leggings": 26000,
           "star_seal": 0,
+          "star_writ": 1100,
           "starchart_focus": 5000000,
           "starfall_crystal": 546,
           "starfall_helm": 400000,
           "starlight_draft": 900,
+          "starpetal": 125,
+          "starpetal_draught": 1100,
+          "starpetal_skymere_ray": 130,
+          "starwrit_carcanet": 500000,
+          "starwrit_firmament": 500000,
+          "starwrit_meridian": 500000,
+          "starwrit_reach": 500000,
           "stealth_sash": 2350,
           "stellar_gloves": 270000,
           "stillwater_beads": 5000000,
@@ -22005,6 +22790,7 @@
           "thread_ring": 45500,
           "threshold_edge": 4200000,
           "tidal_elixir": 620,
+          "tide_writ": 800,
           "tidebind_rod": 5000000,
           "tidebreaker_cutlass": 620000,
           "tidewalker_bass": 65,
@@ -22013,6 +22799,10 @@
           "tideward_relic_arm": 420000,
           "tideward_relic_shot": 65,
           "tideward_sunfish": 210,
+          "tidewrit_gauntlets": 400000,
+          "tidewrit_gorget": 400000,
+          "tidewrit_seacloak": 400000,
+          "tidewrit_waistguard": 400000,
           "timber_belt": 2350,
           "titan_core": 45,
           "trade_leggings": 165000,
@@ -22045,10 +22835,15 @@
           "veinkore_ore": 65,
           "veinkore_repeater": 1850000,
           "veinkore_shard": 180000,
-          "veinkore_testament": 480000,
+          "veinkore_testament": 345000,
           "vent_carapace": 64,
           "verdant_tether": 5000000,
           "verdant_worldcharm": 2000000,
+          "vigil_draught": 15000,
+          "vigil_draught_exp1": 20000,
+          "vigil_draught_exp2": 25000,
+          "vigil_draught_exp3": 30000,
+          "vigil_draught_exp4": 35000,
           "vitality_crown": 800,
           "vitality_ring": 29500,
           "void_amulet": 1150,
@@ -22143,6 +22938,16 @@
           "watcher_dreadnought_arm": true
         },
         "RARE": [
+          "vigil_draught",
+          "vigil_draught_exp1",
+          "vigil_draught_exp2",
+          "vigil_draught_exp3",
+          "vigil_draught_exp4",
+          "scar_writ",
+          "root_writ",
+          "tide_writ",
+          "ash_writ",
+          "star_writ",
           "pathfinder_cap",
           "pathfinder_coat",
           "pathfinder_belt",
@@ -22179,6 +22984,37 @@
           "warden_focus",
           "fracture_weave",
           "spelstone"
+        ],
+        "SET_BONUS_FOUR": 0.08,
+        "SET_BONUS_TWO": 0.03,
+        "SET_PIECE_STAGE": {
+          "ashwrit_chain": 3,
+          "ashwrit_forgebelt": 3,
+          "ashwrit_pall": 3,
+          "ashwrit_vambraces": 3,
+          "rootwrit_cincture": 1,
+          "rootwrit_handwraps": 1,
+          "rootwrit_lariat": 1,
+          "rootwrit_shroud": 1,
+          "scarwrit_girdle": 0,
+          "scarwrit_grips": 0,
+          "scarwrit_mantle": 0,
+          "scarwrit_torc": 0,
+          "starwrit_carcanet": 4,
+          "starwrit_firmament": 4,
+          "starwrit_meridian": 4,
+          "starwrit_reach": 4,
+          "tidewrit_gauntlets": 2,
+          "tidewrit_gorget": 2,
+          "tidewrit_seacloak": 2,
+          "tidewrit_waistguard": 2
+        },
+        "SET_WRIT_IDS": [
+          "scar_writ",
+          "root_writ",
+          "tide_writ",
+          "ash_writ",
+          "star_writ"
         ],
         "STYLE_FAMILY_MAGIC": "magic",
         "STYLE_FAMILY_MELEE": "melee",
@@ -22219,6 +23055,38 @@
               "thread_ring": 10
             }
           },
+          "ashwrit_chain": {
+            "description": "The gorget is broken down at the forge and drawn into links.",
+            "ingredients": {
+              "ash_writ": 100,
+              "origin_bar": 100,
+              "tidewrit_gorget": 1
+            }
+          },
+          "ashwrit_forgebelt": {
+            "description": "The waistguard is quenched in the Engine's heat.",
+            "ingredients": {
+              "ash_writ": 100,
+              "origin_bar": 100,
+              "tidewrit_waistguard": 1
+            }
+          },
+          "ashwrit_pall": {
+            "description": "The seacloak burns dry and keeps the ash.",
+            "ingredients": {
+              "ash_writ": 100,
+              "origin_bar": 100,
+              "tidewrit_seacloak": 1
+            }
+          },
+          "ashwrit_vambraces": {
+            "description": "The gauntlets are reforged to the elbow.",
+            "ingredients": {
+              "ash_writ": 100,
+              "origin_bar": 100,
+              "tidewrit_gauntlets": 1
+            }
+          },
           "bulwark_heartstone": {
             "description": "HP + Defence fusion - an unbreakable warding stone",
             "ingredients": {
@@ -22244,12 +23112,136 @@
               "taste_ring": 10
             }
           },
+          "rootwrit_cincture": {
+            "description": "Rootwork binds the girdle and does not let go.",
+            "ingredients": {
+              "root_writ": 100,
+              "rootveined_bar": 100,
+              "scarwrit_girdle": 1
+            }
+          },
+          "rootwrit_handwraps": {
+            "description": "The grips are wound in living root.",
+            "ingredients": {
+              "root_writ": 100,
+              "rootveined_bar": 100,
+              "scarwrit_grips": 1
+            }
+          },
+          "rootwrit_lariat": {
+            "description": "The grove's roots grow through the old torc and keep it.",
+            "ingredients": {
+              "root_writ": 100,
+              "rootveined_bar": 100,
+              "scarwrit_torc": 1
+            }
+          },
+          "rootwrit_shroud": {
+            "description": "The mantle goes to ground and comes back green.",
+            "ingredients": {
+              "root_writ": 100,
+              "rootveined_bar": 100,
+              "scarwrit_mantle": 1
+            }
+          },
+          "scarwrit_girdle": {
+            "description": "What the Scar wrote, drawn tight at the waist.",
+            "ingredients": {
+              "resonite_bar": 100,
+              "scar_writ": 100
+            }
+          },
+          "scarwrit_grips": {
+            "description": "Hands that have turned every page of the Scar.",
+            "ingredients": {
+              "resonite_bar": 100,
+              "scar_writ": 100
+            }
+          },
+          "scarwrit_mantle": {
+            "description": "The Scar's record across the shoulders.",
+            "ingredients": {
+              "resonite_bar": 100,
+              "scar_writ": 100
+            }
+          },
+          "scarwrit_torc": {
+            "description": "The Scar's own record, closed around the throat.",
+            "ingredients": {
+              "resonite_bar": 100,
+              "scar_writ": 100
+            }
+          },
           "shadowveil_crown": {
             "description": "Shadow + Spirit fusion - woven shadow and spirit crown",
             "ingredients": {
               "ethereal_crown": 10,
               "resonance_crystal": 50,
               "shade_cowl": 10
+            }
+          },
+          "starwrit_carcanet": {
+            "description": "Each link takes a star for a stone.",
+            "ingredients": {
+              "ashwrit_chain": 1,
+              "celestial_bar": 100,
+              "star_writ": 100
+            }
+          },
+          "starwrit_firmament": {
+            "description": "The pall is lifted and there is night behind it.",
+            "ingredients": {
+              "ashwrit_pall": 1,
+              "celestial_bar": 100,
+              "star_writ": 100
+            }
+          },
+          "starwrit_meridian": {
+            "description": "The belt becomes a line the sky turns on.",
+            "ingredients": {
+              "ashwrit_forgebelt": 1,
+              "celestial_bar": 100,
+              "star_writ": 100
+            }
+          },
+          "starwrit_reach": {
+            "description": "What the vambraces held, these touch.",
+            "ingredients": {
+              "ashwrit_vambraces": 1,
+              "celestial_bar": 100,
+              "star_writ": 100
+            }
+          },
+          "tidewrit_gauntlets": {
+            "description": "The wraps are armoured against the tide.",
+            "ingredients": {
+              "rootwrit_handwraps": 1,
+              "tide_writ": 100,
+              "wreckiron_bar": 100
+            }
+          },
+          "tidewrit_gorget": {
+            "description": "Salt and pressure harden the lariat into a collar.",
+            "ingredients": {
+              "rootwrit_lariat": 1,
+              "tide_writ": 100,
+              "wreckiron_bar": 100
+            }
+          },
+          "tidewrit_seacloak": {
+            "description": "The shroud learns the weight of deep water.",
+            "ingredients": {
+              "rootwrit_shroud": 1,
+              "tide_writ": 100,
+              "wreckiron_bar": 100
+            }
+          },
+          "tidewrit_waistguard": {
+            "description": "The cincture is plated in wreck iron from the drowned line.",
+            "ingredients": {
+              "rootwrit_cincture": 1,
+              "tide_writ": 100,
+              "wreckiron_bar": 100
             }
           },
           "verdant_worldcharm": {
@@ -22783,10 +23775,11 @@
             "str": 0
           },
           "ashborne_iron_gauntlets": {
-            "atk": 0,
+            "atk": 18,
+            "deadeye": 17,
             "def": 46,
             "mag": -14,
-            "str": 0
+            "str": 21
           },
           "ashborne_lantern": {
             "atk": 2,
@@ -22808,6 +23801,34 @@
             "def": 11,
             "mag": 0,
             "str": 0
+          },
+          "ashwrit_chain": {
+            "atk": 19,
+            "deadeye": 18,
+            "def": 18,
+            "mag": 27,
+            "str": 22
+          },
+          "ashwrit_forgebelt": {
+            "atk": 12,
+            "deadeye": 12,
+            "def": 29,
+            "mag": 17,
+            "str": 14
+          },
+          "ashwrit_pall": {
+            "atk": 15,
+            "deadeye": 15,
+            "def": 34,
+            "mag": 22,
+            "str": 18
+          },
+          "ashwrit_vambraces": {
+            "atk": 20,
+            "deadeye": 19,
+            "def": 48,
+            "mag": 28,
+            "str": 23
           },
           "astromancers_skyrod": {
             "atk": 10,
@@ -23032,10 +24053,11 @@
             "str": 0
           },
           "deep_vein_greaves": {
-            "atk": 0,
+            "atk": 24,
+            "deadeye": 23,
             "def": 62,
             "mag": -19,
-            "str": 0
+            "str": 27
           },
           "deepbloom_trowel": {
             "atk": 9,
@@ -23080,10 +24102,11 @@
             "str": 62
           },
           "ember_forged_helm": {
-            "atk": 0,
+            "atk": 20,
+            "deadeye": 19,
             "def": 53,
             "mag": -16,
-            "str": 0
+            "str": 23
           },
           "ember_sanctum_key": {
             "atk": 0,
@@ -23235,25 +24258,25 @@
           "grove_wardens_gauntlets": {
             "atk": 0,
             "def": 36,
-            "mag": 3,
+            "mag": 8,
             "str": 2
           },
           "grove_wardens_greaves": {
             "atk": 0,
             "def": 53,
-            "mag": 4,
+            "mag": 12,
             "str": 3
           },
           "grove_wardens_hauberk": {
             "atk": 0,
             "def": 60,
-            "mag": 5,
+            "mag": 14,
             "str": 4
           },
           "grove_wardens_helm": {
             "atk": 0,
             "def": 48,
-            "mag": 4,
+            "mag": 10,
             "str": 2
           },
           "grove_wardens_mantle": {
@@ -23265,7 +24288,7 @@
           "grove_wardens_sabatons": {
             "atk": 0,
             "def": 40,
-            "mag": 3,
+            "mag": 9,
             "str": 2
           },
           "guardian_belt": {
@@ -23787,6 +24810,30 @@
             "mag": 3,
             "str": 3
           },
+          "rootwrit_cincture": {
+            "atk": 9,
+            "def": 27,
+            "mag": 13,
+            "str": 11
+          },
+          "rootwrit_handwraps": {
+            "atk": 7,
+            "def": 37,
+            "mag": 10,
+            "str": 8
+          },
+          "rootwrit_lariat": {
+            "atk": 16,
+            "def": 16,
+            "mag": 23,
+            "str": 19
+          },
+          "rootwrit_shroud": {
+            "atk": 13,
+            "def": 32,
+            "mag": 18,
+            "str": 15
+          },
           "sacred_belt": {
             "atk": 0,
             "def": 2,
@@ -23804,6 +24851,30 @@
             "def": 6,
             "mag": 2,
             "str": 2
+          },
+          "scarwrit_girdle": {
+            "atk": 8,
+            "def": 23,
+            "mag": 11,
+            "str": 9
+          },
+          "scarwrit_grips": {
+            "atk": 4,
+            "def": 20,
+            "mag": 6,
+            "str": 5
+          },
+          "scarwrit_mantle": {
+            "atk": 11,
+            "def": 31,
+            "mag": 16,
+            "str": 13
+          },
+          "scarwrit_torc": {
+            "atk": 15,
+            "def": 14,
+            "mag": 21,
+            "str": 17
           },
           "scout_helm": {
             "atk": 0,
@@ -23890,16 +24961,18 @@
             "str": 0
           },
           "skywoven_chestplate": {
-            "atk": 0,
+            "atk": 30,
+            "deadeye": 29,
             "def": 86,
             "mag": -31,
-            "str": 0
+            "str": 35
           },
           "slag_core_chestplate": {
-            "atk": 0,
+            "atk": 28,
+            "deadeye": 27,
             "def": 72,
             "mag": -23,
-            "str": 0
+            "str": 32
           },
           "slagstone_greaves": {
             "atk": 0,
@@ -23980,10 +25053,39 @@
             "str": 4
           },
           "starfall_helm": {
-            "atk": 0,
+            "atk": 22,
+            "deadeye": 21,
             "def": 64,
             "mag": -19,
-            "str": 0
+            "str": 25
+          },
+          "starwrit_carcanet": {
+            "atk": 21,
+            "deadeye": 20,
+            "def": 19,
+            "mag": 30,
+            "str": 24
+          },
+          "starwrit_firmament": {
+            "atk": 17,
+            "deadeye": 16,
+            "def": 35,
+            "mag": 24,
+            "str": 19
+          },
+          "starwrit_meridian": {
+            "atk": 13,
+            "deadeye": 13,
+            "def": 30,
+            "mag": 19,
+            "str": 15
+          },
+          "starwrit_reach": {
+            "atk": 21,
+            "deadeye": 20,
+            "def": 56,
+            "mag": 30,
+            "str": 24
           },
           "stealth_sash": {
             "atk": 1,
@@ -24069,6 +25171,34 @@
           "tideward_relic_arm": {
             "deadeye": 52
           },
+          "tidewrit_gauntlets": {
+            "atk": 8,
+            "deadeye": 9,
+            "def": 38,
+            "mag": 12,
+            "str": 10
+          },
+          "tidewrit_gorget": {
+            "atk": 18,
+            "deadeye": 17,
+            "def": 17,
+            "mag": 25,
+            "str": 20
+          },
+          "tidewrit_seacloak": {
+            "atk": 14,
+            "deadeye": 14,
+            "def": 33,
+            "mag": 20,
+            "str": 16
+          },
+          "tidewrit_waistguard": {
+            "atk": 11,
+            "deadeye": 10,
+            "def": 28,
+            "mag": 15,
+            "str": 12
+          },
           "timber_belt": {
             "atk": 0,
             "def": 2,
@@ -24151,10 +25281,11 @@
             "str": 1
           },
           "vein_threaded_pauldrons": {
-            "atk": 0,
+            "atk": 27,
+            "deadeye": 26,
             "def": 70,
             "mag": -22,
-            "str": 0
+            "str": 31
           },
           "veinkore_repeater": {
             "deadeye": 63
@@ -24349,10 +25480,11 @@
             "deadeye": 81
           },
           "watcher_forged_gauntlets": {
-            "atk": 0,
+            "atk": 20,
+            "deadeye": 19,
             "def": 54,
             "mag": -16,
-            "str": 0
+            "str": 23
           },
           "watchers_circlet": {
             "atk": 0,
@@ -24497,10 +25629,12 @@
           "braised_deep_mire_fish": 40,
           "braised_deepvein_bass": 22,
           "braised_vantstream_trout": 30,
+          "brine_smoked_emberfin": 140,
           "burned_ashfen_carp": 0,
           "burned_canal_trout": 0,
           "burned_carp": 0,
           "burned_deepvein_bass": 0,
+          "burned_emberfin": 0,
           "burned_fissure_char": 0,
           "burned_fracture_pike": 0,
           "burned_leviathan": 0,
@@ -24508,6 +25642,7 @@
           "burned_mirefish_stew": 0,
           "burned_pale_drifter": 0,
           "burned_resonance_eel": 0,
+          "burned_skymere_ray": 0,
           "burned_spirit_carp_medley": 0,
           "burned_vantstream_trout": 0,
           "burned_warden_bass": 0,
@@ -24533,6 +25668,7 @@
           "smoked_mirefish": 12,
           "smoked_outer_sea_trout": 43,
           "spirit_carp_medley": 30,
+          "starpetal_skymere_ray": 155,
           "warden_bass": 29,
           "wisp_glazed_carp": 24
         },
@@ -24726,26 +25862,146 @@
           }
         },
         "_MASTERY_FLAT_DMG_REDUCTION": {
+          "aeluns_starfall_conduit": 0.02,
+          "aethercoil_focus": 0.09,
+          "ashborne_chestplate": 0.11,
+          "ashborne_iron_gauntlets": 0.04,
+          "ashborne_torc": 0.09,
+          "ashwrit_chain": 0.09,
+          "ashwrit_forgebelt": 0.09,
+          "ashwrit_pall": 0.11,
+          "ashwrit_vambraces": 0.04,
+          "astromancers_skyrod": 0.02,
+          "brineglass_mantle": 0.11,
           "bulwark_null_seal": 0.1,
+          "captains_hat": 0.11,
+          "celestial_blade": 0.02,
+          "celestial_greaves": 0.11,
+          "celestial_hauberk": 0.11,
+          "celestial_helm": 0.11,
           "celestial_longarm": 0.07,
+          "celestial_ring": 0.1,
+          "celestial_sabatons": 0.11,
+          "celestial_shield": 0.09,
+          "conclave_sigil": 0.09,
+          "conclave_vestments": 0.11,
+          "coralbound_wand": 0.02,
+          "covenant_rootward": 0.09,
+          "covenant_signet": 0.1,
+          "deep_tempered_boots": 0.11,
+          "deep_vein_greaves": 0.11,
+          "deepbloom_trowel": 0.02,
+          "deepsalt_conduit": 0.09,
+          "deepseam_probe": 0.02,
+          "drowned_keepers_anchor": 0.02,
+          "ember_forged_helm": 0.11,
+          "flame_sworn_ring": 0.1,
+          "flame_sworn_sigil": 0.09,
+          "forge_brand_amulet": 0.09,
+          "forge_crown": 0.11,
+          "forge_scarred_gloves": 0.04,
+          "grove_wardens_gauntlets": 0.04,
+          "grove_wardens_greaves": 0.11,
+          "grove_wardens_hauberk": 0.11,
+          "grove_wardens_helm": 0.11,
+          "grove_wardens_mantle": 0.11,
+          "grove_wardens_sabatons": 0.11,
+          "gunners_gloves": 0.04,
+          "harbor_boots": 0.11,
+          "hollow_root_conduit": 0.02,
+          "keystone_blade": 0.02,
           "knights_purified_mantle": 0.05,
+          "korraths_forge_brand": 0.02,
+          "merchant_ring": 0.1,
+          "merchant_vest": 0.11,
+          "navigators_amulet": 0.09,
+          "oathpoint_signet": 0.1,
+          "oraewyn_boots": 0.11,
+          "origin_bellows": 0.02,
+          "origin_blade": 0.02,
+          "origin_engine_conduit": 0.09,
+          "origin_greaves": 0.11,
+          "origin_hauberk": 0.11,
+          "origin_helm": 0.11,
+          "origin_sabatons": 0.11,
+          "origin_shield": 0.09,
+          "origin_touched_ring": 0.1,
+          "pathfinder_seal_ring": 0.09,
           "resonite_longarm": 0.07,
+          "rootbound_wand": 0.02,
+          "rootfire_crucible": 0.09,
+          "rootveined_blade": 0.02,
+          "rootveined_greaves": 0.11,
+          "rootveined_hauberk": 0.11,
+          "rootveined_helm": 0.11,
+          "rootveined_sabatons": 0.11,
+          "rootveined_shield": 0.09,
+          "rootweave_girdle": 0.09,
+          "rootwrit_cincture": 0.09,
+          "rootwrit_handwraps": 0.04,
+          "rootwrit_lariat": 0.09,
+          "rootwrit_shroud": 0.11,
+          "saltlock_hammer": 0.02,
+          "scarwrit_girdle": 0.09,
+          "scarwrit_mantle": 0.11,
+          "scarwrit_torc": 0.09,
+          "sky_walk_leggings": 0.11,
+          "skywoven_chestplate": 0.11,
+          "slag_core_chestplate": 0.11,
+          "slagstone_greaves": 0.11,
+          "slagstone_lens": 0.09,
+          "slagstone_rod": 0.02,
           "smelters_slagthrower": 0.07,
+          "spiritforged_greatblade": 0.02,
+          "starchart_focus": 0.09,
+          "starfall_helm": 0.11,
+          "starwrit_carcanet": 0.09,
+          "starwrit_firmament": 0.11,
+          "starwrit_meridian": 0.09,
+          "starwrit_reach": 0.04,
+          "stellar_gloves": 0.04,
+          "stormchart_sextant": 0.1,
+          "thornrend_sickle": 0.02,
+          "threshold_edge": 0.02,
+          "tidebreaker_cutlass": 0.02,
           "tideward_relic_arm": 0.07,
+          "tidewrit_gauntlets": 0.04,
+          "tidewrit_gorget": 0.09,
+          "tidewrit_seacloak": 0.11,
+          "tidewrit_waistguard": 0.09,
+          "trade_leggings": 0.11,
+          "trailblazer_compass": 0.1,
           "unwritten_greaves": 0.11,
           "unwritten_helm": 0.11,
           "unwritten_plate": 0.11,
           "unwritten_sabatons": 0.11,
           "vaels_longarm": 0.07,
           "vaels_pattern_longarm": 0.07,
+          "vaethos_rootedge": 0.02,
+          "vaethos_unbound_rootedge": 0.02,
+          "vein_threaded_pauldrons": 0.11,
           "veinkore_repeater": 0.07,
+          "verdant_tether": 0.09,
           "warden_permafrost_aegis": 0.11,
           "warden_permafrost_focus": 0.09,
           "warden_permafrost_girdle": 0.09,
           "warden_permafrost_mantle": 0.09,
           "warden_permafrost_signet": 0.09,
           "warden_permafrost_torc": 0.09,
-          "watcher_dreadnought_arm": 0.07
+          "wardens_torc": 0.09,
+          "watcher_dreadnought_arm": 0.07,
+          "watcher_forged_gauntlets": 0.04,
+          "watchers_circlet": 0.11,
+          "watchers_mark": 0.1,
+          "whisperbloom_focus": 0.09,
+          "witness_cord": 0.09,
+          "wreckiron_blade": 0.02,
+          "wreckiron_greaves": 0.11,
+          "wreckiron_hauberk": 0.11,
+          "wreckiron_helm": 0.11,
+          "wreckiron_sabatons": 0.11,
+          "wreckiron_shield": 0.09,
+          "wrecksight_signet": 0.1
         },
         "_MASTERY_HIT_CHANCE": {
           "aethercoil_focus": {
@@ -24759,6 +26015,9 @@
           },
           "starchart_focus": {
             "astromancy": 0.15
+          },
+          "wrecksight_signet": {
+            "deadeye": 0.25
           }
         },
         "_MASTERY_HP_REGEN_INTERVAL_PCT": {
@@ -24878,6 +26137,12 @@
               "value": 0.35
             }
           ],
+          "forgewake_draught": [
+            {
+              "key": "artisan_xp_pct",
+              "value": 0.35
+            }
+          ],
           "fortifying_brew": [
             {
               "key": "hp_restore_pct",
@@ -24984,6 +26249,16 @@
             {
               "key": "all_xp_pct",
               "value": 0.25
+            }
+          ],
+          "starpetal_draught": [
+            {
+              "key": "combat_xp_pct",
+              "value": 0.3
+            },
+            {
+              "key": "effective_def_pct",
+              "value": 0.2
             }
           ],
           "stone_skin_potion": [
@@ -25856,24 +27131,38 @@
               "str": 74
             },
             "greaves": {
+              "atk": 27,
+              "deadeye": 26,
               "def": 78,
-              "mag": -20
+              "mag": -20,
+              "str": 31
             },
             "hauberk": {
+              "atk": 32,
+              "deadeye": 31,
               "def": 92,
-              "mag": -33
+              "mag": -33,
+              "str": 37
             },
             "helm": {
+              "atk": 23,
+              "deadeye": 22,
               "def": 70,
-              "mag": -20
+              "mag": -20,
+              "str": 27
             },
             "sabatons": {
+              "atk": 21,
+              "deadeye": 20,
               "def": 55,
-              "mag": -19
+              "mag": -19,
+              "str": 24
             },
             "shield": {
+              "atk": 27,
               "def": 88,
-              "mag": -20
+              "mag": -20,
+              "str": 31
             }
           },
           "dawnsilver": {
@@ -25960,24 +27249,38 @@
               "str": 54
             },
             "greaves": {
+              "atk": 25,
+              "deadeye": 24,
               "def": 68,
-              "mag": -18
+              "mag": -18,
+              "str": 29
             },
             "hauberk": {
+              "atk": 29,
+              "deadeye": 28,
               "def": 80,
-              "mag": -30
+              "mag": -30,
+              "str": 34
             },
             "helm": {
+              "atk": 21,
+              "deadeye": 20,
               "def": 61,
-              "mag": -18
+              "mag": -18,
+              "str": 24
             },
             "sabatons": {
+              "atk": 19,
+              "deadeye": 18,
               "def": 48,
-              "mag": -17
+              "mag": -17,
+              "str": 22
             },
             "shield": {
+              "atk": 25,
               "def": 77,
-              "mag": -18
+              "mag": -18,
+              "str": 29
             }
           },
           "resonite": {
@@ -26013,23 +27316,28 @@
             },
             "greaves": {
               "def": 48,
-              "mag": -14
+              "mag": -14,
+              "str": 9
             },
             "hauberk": {
               "def": 56,
-              "mag": -23
+              "mag": -23,
+              "str": 11
             },
             "helm": {
               "def": 43,
-              "mag": -14
+              "mag": -14,
+              "str": 8
             },
             "sabatons": {
               "def": 34,
-              "mag": -13
+              "mag": -13,
+              "str": 7
             },
             "shield": {
               "def": 55,
-              "mag": -14
+              "mag": -14,
+              "str": 9
             }
           },
           "spelcast": {
@@ -26090,24 +27398,33 @@
               "str": 48
             },
             "greaves": {
+              "deadeye": 7,
               "def": 58,
-              "mag": -16
+              "mag": -16,
+              "str": 11
             },
             "hauberk": {
+              "deadeye": 8,
               "def": 68,
-              "mag": -27
+              "mag": -27,
+              "str": 13
             },
             "helm": {
+              "deadeye": 6,
               "def": 52,
-              "mag": -16
+              "mag": -16,
+              "str": 9
             },
             "sabatons": {
+              "deadeye": 6,
               "def": 41,
-              "mag": -15
+              "mag": -15,
+              "str": 8
             },
             "shield": {
               "def": 66,
-              "mag": -16
+              "mag": -16,
+              "str": 11
             }
           }
         },
@@ -26601,6 +27918,35 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "New: The Writbound set. Four accessories that every combat style wears (necklace, belt, cape and gloves) at five stages: Scarwrit in the base game, then Rootwrit, Tidewrit, Ashwrit and Starwrit, one for each expansion. 2 pieces worn give +3% combat damage and 4 pieces +8%, and pieces of different stages count together. Each piece is the best in its slot at its stage before the bonus is counted. Every boss dungeon with a loot table now pays 2 of its stage's writs a clear and the stage's last dungeon pays 4; idle clears pay half. A piece is forged at Worldroot from 100 writs, 100 of the stage's bars and the piece below it. All 20 pieces count toward collections; the writs do not.",
+              "New: A counter in the last phase of every boss dungeon fight. 4 turns into the last phase and every 8 turns after, the fight stops and 3 numbered marks appear on the boss. Tap them in order inside 3 seconds and your hit that turn is doubled. A wrong tap, or the 3 seconds running out, and the boss's hit that turn lands at 1.5 times. The run clock stops while the marks are up. Idle and offline runs have no counter. On The Fracture Scar the counter never comes up while its heavy hit is armed.",
+              "New: Five Vigil Draughts, so every boss dungeon's no-food feat can be earned: Vigil, Rootbound, Tidebound, Ashbound and Starbound, an 8% drop from the last boss dungeon of each stage. Drunk in the tonic slot of a live run, a draught gives back 43, 39, 42, 48 or 40 HP at the top of every turn, and the Eat button is shut for that run. A draught works in its own stage's dungeons and older ones, not newer ones, and the setup screen says so before anything is spent. Idle runs cannot drink one. They are in no collection count.",
+              "Changed: An expansion's skills are now yours to train the moment you own it, with no story quest first. Three skills still ask for levels in other skills, and a locked tile now shows that as a goal: its bar tracks your progress and a tap lists each level as have and need. The eight quests that used to open a skill now pay one level in that skill; if you had already claimed them, the levels are paid the first time you load. A Tideward owner whose Echomind is behind the kills already made is raised to match, once. The Pale Hound can be bonded without a quest. Each expansion skill shows a short card the first time you open it.",
+              "Changed: The Skills screen has been rebuilt. Every skill sits on one screen, grouped as Gathering, Artisan, Combat and Pursuits, and a skill from an expansion carries a pip in that expansion's colour. The top is one strip: your total level against your account's maximum, a Fracture Surge chip and the Transcend chip. The Surge chip opens a sheet with what Surge does, what is running and the start button. A tile's border pulses while its skill is being trained, and holding a tile opens a sheet with its level, cap, XP, XP to the next level and to the cap, and condense count.",
+              "Changed: Every expansion gear piece that asks for level 80 or higher now carries damage reduction: armour and capes 11%, necklaces, belts and off hands 9%, rings 10% (9% on Pathfinder's Seal Ring), gloves 4% and one-handed weapons 2%. Base game gear is unchanged and nothing lost damage reduction. To keep the three combat styles level, the smithed and Spiritforged plate of all four expansions gains Attack, Strength and Deadeye stats, Grove Warden armour gains Magic, Wrecksight Signet gains +25% Deadeye hit chance, and Aethercoil Focus, Slagstone Lens and Starchart Focus carry the off hand's 9%. Nothing was lowered. A kit at the level cap deals about 26% more at 110 and about 1.9 times as much at 120; level 99 kits do not move.",
+              "Changed: The Origin Engine can no longer be skipped. The Gate Warden now asks for the Origin Engine clear, and the Engine's ritual asks for Spiritforging 50, down from 80, with its four offering recipes moved to 50. A character who has already cleared the Gate Warden keeps everything. The Smelter Core, the Warden's Emblem and their two offerings cannot be sold until the ritual is done, and a character who sold one gets it back on load.",
+              "New: Every non-combat skill now has something to train in every expansion you own. Mining, Felling, Fishing, Shard Gleaning and Root Lore each gain a node at 111 in Drakenhollow and at 116 in Oraewyn, and Root Lore a herb at 106 in Tideward. Cooking gains Brine-Smoked Emberfin at 111 and Starpetal Skymere Ray at 116, healing 140 and 155. Spiritweaving gains the Cinderbound Rune at 111 and the Dawnlit Rune at 116, Wardcraft the Cloudpine Weave at 116, and Fracture Arts two spells that burn the new runes, Cinder Verdict and Dawnlit Sentence. Spiritbond gains the Tidecaller Heron at 106, the Slag Drake at 111 and the Starborne Owl at 116. Wayfaring gains the Emberwake Strait route at 112.",
+              "New: Aetheric Tending has an eighth plot at level 110 with Tideward owned, the Emberwort Terrace crop at 111 in Drakenhollow and Starpetal Garden at 116 in Oraewyn. Alchemy gains Forgewake Draught at 111 (+35% artisan XP for 20 minutes) and Starpetal Draught at 117 (+30% combat XP and +20% effective DEF for 20 minutes).",
+              "New: Hollowing has a third dig slot at level 70 and a fourth at 100, on top of the slot from Forge-Friend or the skill tree. Four new digs: Emberglass Galleries at 60, Buried Foundry at 85, The Pale Reliquary at 103 and, in Oraewyn, The Fallen Spire at 116. The Origin Seam pays 20% more, and Origin Ore Veins and Architect Vaults pay more with it. No dig pays less than before.",
+              "New: A staff, wand, rod or conduit now has a style: Fracture Arts, Geomancy or Astromancy, and the spell list under it holds that school's spells only. Geomancy and Astromancy are listed once the skill is open. Picking a school moves the preset to the highest spell of that school you can cast right now. Each preset keeps its own school, on the Combat strip, the Culling setup and the boss dungeon setup. A spell you hold no casts of is greyed and cannot be picked. Optimize per enemy has been removed from caster weapons, where it only ever picked Fracture Arts; melee and guns keep it.",
+              "Changed: In the Hunt loadout every spell row shows the casts you hold, and a spell with none says no reagents. The Culling and Boss Dungeons pages no longer carry the Loadout strip; each has a Food and Auto-Eat row in its own setup, sharing the same food as Hunt, and the Culling setup has the Best preset button. On the Skills page, the Fracture Arts, Geomancy and Astromancy cards now list that school's spellbook: each spell's damage, element, cost, casts in stock and what it needs.",
+              "New: A vitals strip on the HUD. While a Hunt fight, a Culling, a live boss dungeon run or Auto Pickpocket is running and you are on another screen, a strip above the session handle shows your HP bar with Eat and a way out: Flee, End, Leave or Stop. End and Leave throw a run away, so they ask for a second tap inside 3 seconds. Eat follows each screen's own rule, so on Hunt and the Culling it is hardcore only. Tap the HP side to fold the strip to one line.",
+              "Changed: Earthen Shield and Moonveil are now icon buttons on the Hunt, Culling and boss dungeon run screens and on the vitals strip. Tap to cast. A spell that cannot be cast is dimmed and a tap says why; the one that is up stays lit and shows the hits it has left. Hold an icon to see every cast spell.",
+              "Changed: A Sky Ascent encounter is now one kill. Collect and Resume fight open the Combat tab on the fight, and winning it returns you to Wayfaring.",
+              "Fixed: Live combat turns could arrive in bursts, none and then two at once, most of all under Fracture Surge. Turns now arrive one at a time. Earthen Shield and Moonveil lost a turn on every Hunt tick, including the kill and the wait for the next monster; they now count enemy attacks only, as the spellbook says. The damage over time and shield chips show what is left, and the status chips explain themselves when tapped.",
+              "Fixed: The Keystone and The Last Word were cleared from their preset every time a character loaded. This is what stopped idle boss dungeon runs with 'Set up a Spells preset first' after a restart, and it hit normal combat the same way. The offline progress bar for idle dungeon runs now counts one step a run and finishes when the runs stop early. On character select, a character on idle boss dungeon runs reads 'Running' with the dungeon's name, not Resting.",
+              "Changed: On a hardcore character, idle boss dungeon runs no longer follow the hardcore auto-eat limits, since losing a dungeon run is not a death. The idle setup row lets you pick any threshold, 50% by default, and your Hunt and Shadow Arts setting does not move. Standard characters are unchanged.",
+              "Changed: An item's sheet now lists everything it is used in, not only artisan recipes: Outfitter tools, the Chronicler, spells, nodes, provisions and the Origin Engine. An item with no use says so on its sheet and its bag tile as Trade good, Keepsake or Junk. A keepsake relic you already hold does not drop again, and the quest keepsakes can be discarded down to one. The three gathering tool parts now sell for 3,000, 8,000 and 20,000 gold.",
+              "Changed: Spiritforged goods now sell for at most 3 times what their materials sell for, before sell bonuses. Some sold for hundreds of times that, so an Ember-Forged Helm goes from 154,000 gold to 723. This covers all 19 Spiritforging recipes. Their stats and recipes are unchanged.",
+              "Changed: When two nodes or recipes tie on XP an hour, the best XP star now goes to the one whose output sells for more. Every ingredient chip on the Artisan pages and Aetheric Tending opens the item's card with how many you hold, its sell price and every place it comes from, with a Go There button to each skill page that gives it.",
+              "Fixed: A Sealed Freight Lot could hold goods from a place the character had not opened yet. The Chronicler's Band now reads Owned while you hold one and cannot be bought twice. The Mastery Points number on the Skill Tree could be out of date after points arrived from elsewhere. A sheet opened over another sheet now scrolls from a finger that starts on a button. The Best preset button could stop one swap short of the best kit."
+            ],
+            "title": "The Writbound Set, Boss Counters, and Skills That Open on Purchase",
+            "version": "1.6.8",
+            "version_code": 1791630564
+          },
           {
             "changes": [
               "New: Every boss dungeon card and its setup screen now name the skills a clear trains and have a See rewards button. It opens a sheet with the exact XP each clear pays at your current levels and bonuses, what the first clear pays once (Mastery Points, items and the Memory Fragment), and the loot list with what you have found. A clear pays the same skills whatever style you fight with, and nothing showed that before. The loot checklist that sat on each card has moved into this sheet, and the card keeps a found count.",
@@ -30037,11 +31383,15 @@
             "npc_name": "Warden Syrel",
             "req_display": "-",
             "requirements": {},
-            "reward_display": "Grove Covenant rep +5",
+            "reward_display": "One level of Root Lore and Aetheric Tending  \u2022  Grove Covenant rep +5",
             "rewards": {
               "factionRep": {
                 "grove_covenant": 5
-              }
+              },
+              "skillLevel": [
+                "root_lore",
+                "aetheric_tending"
+              ]
             },
             "sort": 67
           },
@@ -30059,11 +31409,14 @@
                 "w01_strange_growth"
               ]
             },
-            "reward_display": "Spiritbond unlocked  \u2022  rep +5",
+            "reward_display": "One level of Spiritbond  \u2022  rep +5",
             "rewards": {
               "factionRep": {
                 "grove_covenant": 5
-              }
+              },
+              "skillLevel": [
+                "spiritbond"
+              ]
             },
             "sort": 68
           },
@@ -30175,7 +31528,7 @@
                 "w06_covenant_terms"
               ]
             },
-            "reward_display": "Aetheric Tending unlocked  \u2022  rep +12",
+            "reward_display": "rep +12",
             "rewards": {
               "factionRep": {
                 "grove_covenant": 12
@@ -30200,11 +31553,14 @@
                 "root_lore": 40
               }
             },
-            "reward_display": "Gleam Thistle node  \u2022  Alchemy unlocked  \u2022  rep +14",
+            "reward_display": "Gleam Thistle node  \u2022  One level of Alchemy  \u2022  rep +14",
             "rewards": {
               "factionRep": {
                 "grove_covenant": 14
-              }
+              },
+              "skillLevel": [
+                "alchemy"
+              ]
             },
             "sort": 74
           },
@@ -30517,11 +31873,16 @@
                 "w20_a_letter_from_the_sea"
               ]
             },
-            "reward_display": "Tide Merchants rep +5",
+            "reward_display": "One level of Echomind, Wayfaring and Ironlock  \u2022  Tide Merchants rep +5",
             "rewards": {
               "factionRep": {
                 "tide_merchants": 5
-              }
+              },
+              "skillLevel": [
+                "echomind",
+                "wayfaring",
+                "ironlock"
+              ]
             },
             "sort": 87
           },
@@ -30963,8 +32324,12 @@
                 "s20_a_map_with_no_road"
               ]
             },
-            "reward_display": "Drakenhollow Outer",
-            "rewards": {},
+            "reward_display": "Drakenhollow Outer  \u2022  One level of Geomancy",
+            "rewards": {
+              "skillLevel": [
+                "geomancy"
+              ]
+            },
             "sort": 107
           },
           {
@@ -30981,8 +32346,12 @@
                 "d01_the_ashfall_road"
               ]
             },
-            "reward_display": "Hollowing",
-            "rewards": {},
+            "reward_display": "One level of Hollowing",
+            "rewards": {
+              "skillLevel": [
+                "hollowing"
+              ]
+            },
             "sort": 108
           },
           {
@@ -31153,11 +32522,14 @@
                 "d09_old_arguments"
               ]
             },
-            "reward_display": "Ashborne rep +28  \u2022  Forge-Friend  \u2022  Spiritforging  \u2022  Forge Caverns",
+            "reward_display": "Ashborne rep +28  \u2022  Forge-Friend  \u2022  One level of Spiritforging  \u2022  Forge Caverns",
             "rewards": {
               "factionRep": {
                 "ashborne": 28
-              }
+              },
+              "skillLevel": [
+                "spiritforging"
+              ]
             },
             "sort": 116
           },
@@ -31478,11 +32850,14 @@
                 "o04_arrival"
               ]
             },
-            "reward_display": "Watcher Conclave rep +10  \u2022  Astromancy",
+            "reward_display": "Watcher Conclave rep +10  \u2022  One level of Astromancy",
             "rewards": {
               "factionRep": {
                 "watcher_conclave": 10
-              }
+              },
+              "skillLevel": [
+                "astromancy"
+              ]
             },
             "sort": 131
           },
@@ -32817,6 +34192,35 @@
               },
               "seconds": 57600,
               "xp_per_action": 41850
+            },
+            {
+              "expansion": 3,
+              "herb_level_req": 102,
+              "id": "emberwort_terrace",
+              "level": 111,
+              "max_yield": 36,
+              "min_yield": 16,
+              "produces": "emberwort",
+              "requires": {
+                "ashforge_shard": 1,
+                "heartwood_core": 2
+              },
+              "seconds": 72000,
+              "xp_per_action": 56500
+            },
+            {
+              "expansion": 4,
+              "herb_level_req": 116,
+              "id": "starpetal_garden",
+              "level": 116,
+              "max_yield": 40,
+              "min_yield": 18,
+              "produces": "starpetal",
+              "requires": {
+                "starpetal": 1
+              },
+              "seconds": 86400,
+              "xp_per_action": 128000
             }
           ],
           "alchemy": [
@@ -33119,6 +34523,19 @@
               "xp_per_action": 805
             },
             {
+              "expansion": 3,
+              "id": "forgewake_draught",
+              "level": 111,
+              "produces": "forgewake_draught",
+              "requires": {
+                "emberwort": 4,
+                "pale_spirit_essence": 1
+              },
+              "seconds": 43,
+              "tab": "utility",
+              "xp_per_action": 840
+            },
+            {
               "expansion": 4,
               "id": "starlight_draft",
               "level": 116,
@@ -33142,6 +34559,19 @@
               },
               "seconds": 45,
               "tab": "utility",
+              "xp_per_action": 875
+            },
+            {
+              "expansion": 4,
+              "id": "starpetal_draught",
+              "level": 117,
+              "produces": "starpetal_draught",
+              "requires": {
+                "oraewyn_shard": 1,
+                "starpetal": 3
+              },
+              "seconds": 45,
+              "tab": "combat",
               "xp_per_action": 875
             },
             {
@@ -33489,6 +34919,33 @@
               },
               "seconds": 10,
               "xp_per_action": 208
+            },
+            {
+              "burn_produces": "burned_emberfin",
+              "expansion": 3,
+              "id": "brine_smoked_emberfin",
+              "level": 111,
+              "produces": "brine_smoked_emberfin",
+              "requires": {
+                "brinefrond": 1,
+                "charwood_log": 1,
+                "emberfin": 1
+              },
+              "seconds": 11,
+              "xp_per_action": 241
+            },
+            {
+              "burn_produces": "burned_skymere_ray",
+              "expansion": 4,
+              "id": "starpetal_skymere_ray",
+              "level": 116,
+              "produces": "starpetal_skymere_ray",
+              "requires": {
+                "skymere_ray": 1,
+                "starpetal": 1
+              },
+              "seconds": 12,
+              "xp_per_action": 279
             }
           ],
           "crafting": [
@@ -33685,6 +35142,18 @@
               "seconds": 52,
               "tab": "clothwork",
               "xp_per_action": 641
+            },
+            {
+              "expansion": 4,
+              "id": "cloudpine_weave",
+              "level": 116,
+              "produces": "cloudpine_weave",
+              "requires": {
+                "cloudpine_log": 2,
+                "starpetal": 1
+              },
+              "seconds": 54,
+              "xp_per_action": 650
             }
           ],
           "ironlock": [
@@ -34241,6 +35710,58 @@
             },
             {
               "expansion": 3,
+              "id": "ember_reliquary",
+              "level": 50,
+              "produces": "ember_reliquary",
+              "requires": {
+                "pale_spirit_essence": 2,
+                "resonance_crystal": 2,
+                "smelter_core": 1
+              },
+              "seconds": 34,
+              "xp_per_action": 222
+            },
+            {
+              "expansion": 3,
+              "id": "slag_confession",
+              "level": 50,
+              "produces": "slag_confession",
+              "requires": {
+                "resonance_crystal": 2,
+                "slagstone_slab": 3,
+                "wardens_emblem": 1
+              },
+              "seconds": 34,
+              "xp_per_action": 222
+            },
+            {
+              "expansion": 3,
+              "id": "veinkore_testament",
+              "level": 50,
+              "produces": "veinkore_testament",
+              "requires": {
+                "origin_ore": 2,
+                "pale_spirit_essence": 1,
+                "veinkore_bar": 3
+              },
+              "seconds": 34,
+              "xp_per_action": 222
+            },
+            {
+              "expansion": 3,
+              "id": "architects_absolution",
+              "level": 50,
+              "produces": "architects_absolution",
+              "requires": {
+                "ashforge_shard": 4,
+                "origin_bar": 2,
+                "resonance_crystal": 3
+              },
+              "seconds": 34,
+              "xp_per_action": 222
+            },
+            {
+              "expansion": 3,
               "id": "deep_vein_greaves",
               "level": 60,
               "produces": "deep_vein_greaves",
@@ -34302,58 +35823,6 @@
               },
               "seconds": 50,
               "xp_per_action": 372
-            },
-            {
-              "expansion": 3,
-              "id": "ember_reliquary",
-              "level": 80,
-              "produces": "ember_reliquary",
-              "requires": {
-                "pale_spirit_essence": 2,
-                "resonance_crystal": 2,
-                "smelter_core": 1
-              },
-              "seconds": 41,
-              "xp_per_action": 287
-            },
-            {
-              "expansion": 3,
-              "id": "slag_confession",
-              "level": 80,
-              "produces": "slag_confession",
-              "requires": {
-                "resonance_crystal": 2,
-                "slagstone_slab": 3,
-                "wardens_emblem": 1
-              },
-              "seconds": 41,
-              "xp_per_action": 287
-            },
-            {
-              "expansion": 3,
-              "id": "veinkore_testament",
-              "level": 80,
-              "produces": "veinkore_testament",
-              "requires": {
-                "origin_ore": 2,
-                "pale_spirit_essence": 1,
-                "veinkore_bar": 3
-              },
-              "seconds": 41,
-              "xp_per_action": 287
-            },
-            {
-              "expansion": 3,
-              "id": "architects_absolution",
-              "level": 80,
-              "produces": "architects_absolution",
-              "requires": {
-                "ashforge_shard": 4,
-                "origin_bar": 2,
-                "resonance_crystal": 3
-              },
-              "seconds": 41,
-              "xp_per_action": 287
             },
             {
               "expansion": 4,
@@ -34661,6 +36130,32 @@
               },
               "seconds": 32,
               "xp_per_action": 370
+            },
+            {
+              "expansion": 3,
+              "id": "cinderbound_rune",
+              "level": 111,
+              "produces": "cinderbound_rune",
+              "requires": {
+                "ashiron_ore": 1,
+                "cinderbound_essence": 1,
+                "kilnthorn": 1
+              },
+              "seconds": 34,
+              "xp_per_action": 445
+            },
+            {
+              "expansion": 4,
+              "id": "dawnlit_rune",
+              "level": 116,
+              "produces": "dawnlit_rune",
+              "requires": {
+                "cloudpine_weave": 1,
+                "dawnlit_essence": 1,
+                "skyiron_ore": 1
+              },
+              "seconds": 36,
+              "xp_per_action": 420
             }
           ]
         },
@@ -35352,6 +36847,24 @@
               "name": "Tideward Sunfish",
               "seconds_per_action": 8,
               "xp_per_action": 152
+            },
+            {
+              "expansion": 3,
+              "id": "emberfin",
+              "item_yield": "emberfin",
+              "level": 111,
+              "name": "Emberfin",
+              "seconds_per_action": 8,
+              "xp_per_action": 161
+            },
+            {
+              "expansion": 4,
+              "id": "skymere_ray",
+              "item_yield": "skymere_ray",
+              "level": 116,
+              "name": "Skymere Ray",
+              "seconds_per_action": 9,
+              "xp_per_action": 220
             }
           ],
           "geomancy": [
@@ -35714,6 +37227,38 @@
               "seconds_per_action": 5,
               "traits": [],
               "xp_per_action": 72
+            },
+            {
+              "accuracy": 0.05,
+              "element": "cinder",
+              "expansion": 3,
+              "id": "cast_cinder",
+              "level": 111,
+              "name": "Cinder Verdict",
+              "power": 1.35,
+              "requires": {
+                "cinderbound_rune": 1,
+                "resonance_rune": 2
+              },
+              "seconds_per_action": 5,
+              "traits": [],
+              "xp_per_action": 90
+            },
+            {
+              "accuracy": 0.05,
+              "element": "dawn",
+              "expansion": 4,
+              "id": "cast_dawn",
+              "level": 116,
+              "name": "Dawnlit Sentence",
+              "power": 1.38,
+              "requires": {
+                "dawnlit_rune": 1,
+                "resonance_rune": 2
+              },
+              "seconds_per_action": 5,
+              "traits": [],
+              "xp_per_action": 154
             }
           ],
           "mining": [
@@ -35815,6 +37360,24 @@
               "name": "Wreckiron Hull",
               "seconds_per_action": 9,
               "xp_per_action": 66
+            },
+            {
+              "expansion": 3,
+              "id": "ashiron",
+              "item_yield": "ashiron_ore",
+              "level": 111,
+              "name": "Ashiron Seam",
+              "seconds_per_action": 9,
+              "xp_per_action": 70
+            },
+            {
+              "expansion": 4,
+              "id": "skyiron",
+              "item_yield": "skyiron_ore",
+              "level": 116,
+              "name": "Skyiron Outcrop",
+              "seconds_per_action": 10,
+              "xp_per_action": 143
             }
           ],
           "root_lore": [
@@ -35896,6 +37459,33 @@
               "quest_required": "w20_a_letter_from_the_sea",
               "seconds_per_action": 11,
               "xp_per_action": 191
+            },
+            {
+              "expansion": 2,
+              "id": "brinefrond",
+              "item_yield": "brinefrond",
+              "level": 106,
+              "name": "Brinefrond",
+              "seconds_per_action": 11,
+              "xp_per_action": 235
+            },
+            {
+              "expansion": 3,
+              "id": "kilnthorn",
+              "item_yield": "kilnthorn",
+              "level": 111,
+              "name": "Kilnthorn",
+              "seconds_per_action": 12,
+              "xp_per_action": 272
+            },
+            {
+              "expansion": 4,
+              "id": "starpetal",
+              "item_yield": "starpetal",
+              "level": 116,
+              "name": "Starpetal",
+              "seconds_per_action": 12,
+              "xp_per_action": 448
             }
           ],
           "spirit_harvesting": [
@@ -36006,6 +37596,24 @@
               "name": "Brinebound Font",
               "seconds_per_action": 11,
               "xp_per_action": 136
+            },
+            {
+              "expansion": 3,
+              "id": "cinderbound_font",
+              "item_yield": "cinderbound_essence",
+              "level": 111,
+              "name": "Cinderbound Font",
+              "seconds_per_action": 11,
+              "xp_per_action": 150
+            },
+            {
+              "expansion": 4,
+              "id": "dawnlit_font",
+              "item_yield": "dawnlit_essence",
+              "level": 116,
+              "name": "Dawnlit Font",
+              "seconds_per_action": 12,
+              "xp_per_action": 269
             }
           ],
           "woodcutting": [
@@ -36091,6 +37699,24 @@
               "name": "Salt-Cured Drift",
               "seconds_per_action": 10,
               "xp_per_action": 110
+            },
+            {
+              "expansion": 3,
+              "id": "charwood",
+              "item_yield": "charwood_log",
+              "level": 111,
+              "name": "Charwood Snag",
+              "seconds_per_action": 10,
+              "xp_per_action": 117
+            },
+            {
+              "expansion": 4,
+              "id": "cloudpine",
+              "item_yield": "cloudpine_log",
+              "level": 116,
+              "name": "Cloudpine",
+              "seconds_per_action": 11,
+              "xp_per_action": 157
             }
           ]
         },
@@ -36245,15 +37871,18 @@
           },
           "aetheric_tending": {
             "blurb": "Plant herbs in soil plots that grow in real time, offline included, and harvest them on return.",
+            "intro": "Soil plots that grow on the clock, whether you are here or not. A Pale Yarrow Patch takes one Pale Yarrow from Root Lore. Every crop wants its herb in hand first.",
             "trains": "Planting and harvesting crops."
           },
           "alchemy": {
             "blurb": "Brew potions from herbs. The first timed buffs in the game: they burn wall-clock time and carry into an offline session.",
+            "intro": "Herbs in, timed potions out. A Yarrow Tonic takes three Pale Yarrow. What you can brew follows what Root Lore can gather.",
             "trains": "Brewing potions."
           },
           "astromancy": {
             "blurb": "Combat magic in the same worn gear as Fracture Arts and Geomancy. A third set of spells, not a new way of fighting.",
-            "how": "You equip a magic weapon, then choose an Astromancy spell in combat setup and in a boss dungeon. The day is four stretches: dawn, midday, dusk, night. Some spells are written for one of those stretches. The school opens after Fracture Arts 80, Geomancy 70, and the quest Two Voices.",
+            "how": "You equip a magic weapon, then choose an Astromancy spell in combat setup and in a boss dungeon. The day is four stretches: dawn, midday, dusk, night. Some spells are written for one of those stretches. The school opens at Fracture Arts 80 and Geomancy 70.",
+            "intro": "A third school of combat magic. Stardrift burns one Resonance Crystal a cast. Some spells are written for dawn, midday, dusk or night.",
             "levels": "Higher levels unlock the later spells. The last of them is The Last Word.",
             "role": "It trains only in combat, and only while those spells are the ones you are casting. Each cast burns Resonance Crystals, and The Keystone and The Last Word also burn one Celestial Bar. Run out and the fight falls back to melee.",
             "trains": "Casting Astromancy spells in combat."
@@ -36276,6 +37905,7 @@
           "deadeye": {
             "blurb": "The ranged combat style. Guns from Ironlock, bullets spent per shot.",
             "how": "You equip an Ironlock gun on a combat preset and load a bullet. Aimed, Power and Rapid are the three styles. Empty the magazine and the fight falls back to melee.",
+            "intro": "The skill of firing what Ironlock makes. Put a gun on a combat preset, load its shot, and fight. It trains only while shot is leaving the barrel.",
             "levels": "Each level raises the ranged roll. Stronger Ironlock weapons and bullets carry their own Deadeye equip gates, so craft level and wield level stay separate.",
             "role": "Deadeye is your hit and damage with a gun. It trains only in combat, and only while shot is leaving the barrel. Ironlock makes the weapons and the bullets. Deadeye is what you do with them. Run dry and the fight falls back to melee on its own."
           },
@@ -36286,6 +37916,7 @@
           },
           "echomind": {
             "blurb": "Every kill teaches you the next fight. No actions of its own. The value is the instinct that starts to land.",
+            "intro": "There is nothing to start here. Every kill you make, anywhere, trains it. Come back to read what each rung has put into the fight.",
             "levels": "Level 15 can fully negate a recognised enemy's incoming hit. 25 raises hit chance against them. 35 makes your first attack of the fight a guaranteed hit. 50 names Aimed, Power, Rapid, or Attack and Strength. 60 switches to it on contact. 70 halves the respawn gap. 80 loads the last preset you used on that enemy after 10 kills. 90 names the style the next dungeon phase will refuse, before it hits. 99 runs the fight, swaps dungeon phases, and treats every enemy as recognised. 110 is Resonant Echo: a chance per shot not to consume a bullet.",
             "role": "You do not sit in an Echomind panel and work it. You fight, and it levels from the kill. What it returns is combat instinct: recognised enemies start missing you, your first strike lands, and the fight begins to pick its own style and loadout. Ten kills of a type is recognised until 99, when every enemy is. At the top it stops asking.",
             "trains": "Killing enemies."
@@ -36298,12 +37929,14 @@
           "geomancy": {
             "blurb": "Stone and lava combat magic. It burns ore from the seams, not sigils.",
             "how": "You equip a magic weapon on a combat preset, then choose a Geomancy spell in Combat setup and in boss dungeon setup. Earthen Shield is a Cast of its own. It does not take the offensive spell slot.",
+            "intro": "Stone and lava, cast in combat. Stone Fist and Magma Spit each burn one Veinkore Ore a cast, and the Shallow Seams yield it. Choose the spell in combat setup.",
             "levels": "Higher levels unlock more powerful spells and raise the hit roll and damage ceiling together. Late spells also ask for Shard Gleaning, and the last one asks for Hollowing.",
             "role": "Geomancy trains only in combat, and only while those spells are the ones you are casting. Stone hits now. Lava keeps burning after. Every cast burns material from the seams: Veinkore Ore, Slagstone, Origin Ore. Run dry and the fight falls back to melee.",
             "trains": "Casting Geomancy spells in combat."
           },
           "hollowing": {
             "blurb": "Dispatch a dig at a seam. It runs on the clock, offline included, and you collect the bag.",
+            "intro": "Send a dig into a seam and collect the bag when it is done. The Shallow Seams take four minutes and ask nothing. Deeper seams want level and Ashborne standing, and every dig earns that standing.",
             "levels": "Higher levels open deeper seams, from the Shallow Seams through The Origin Seam, with heavier yields. A second slot opens at Forge-Friend.",
             "role": "You pick a seam, send the dig, and come back later. Duration is wall-clock, not a mining tick. The bag is a discovery: materials, and sometimes a relic, hidden until you collect.",
             "trains": "Dispatching and collecting dig sessions."
@@ -36315,6 +37948,7 @@
           },
           "ironlock": {
             "blurb": "Forge guns and the bullets they burn. Weapons last. Ammunition does not.",
+            "intro": "Guns, and the shot they burn. Three Cairncast bars make a Cairncast Flintlock and a fourth makes its shot. Smithing supplies the bars.",
             "levels": "Each threshold unlocks the next weapon and its matching shot. Later bullets change how they hit, not just how hard. Affinity with a recipe shortens the craft.",
             "role": "Ironlock is the forge for ranged combat. You craft a weapon once per tier, then keep that line fed with shot. Bars from Smithing go in. Guns and bullets come out. A dry magazine drops you back to melee, so the supply chain is the skill.",
             "trains": "Crafting guns and bullets."
@@ -36322,6 +37956,7 @@
           "lorekeeper": {
             "blurb": "A first find is the whole of this skill. The same find, met again, pays nothing.",
             "how": "There is no node and no craft. Experience arrives when you find something new: a memory fragment, a relic, an achievement, or a place. Finding the same thing again pays nothing.",
+            "intro": "There is nothing to work here. A first memory fragment, relic or rare achievement pays. The same find, met again, pays nothing.",
             "levels": "The skill runs to level 120. The True Record is the find at level 120. It is the last thing the record was keeping.",
             "role": "This skill does not rise because you stayed at a task. It rises because something was found that had not been found. The second meeting pays nothing.",
             "trains": "Lorekeeper is not trained by repeating an action. There is no node. There is no craft."
@@ -36344,6 +37979,7 @@
           },
           "root_lore": {
             "blurb": "Harvest herbs, fungi and bark from the Whisperwood. Feeds Alchemy, Aetheric Tending and Cooking.",
+            "intro": "The Whisperwood grows what nothing else does. Start with Pale Yarrow, which asks nothing of you. The stands past it open as the Covenant comes to trust you.",
             "trains": "Gathering herbs at Root Lore nodes."
           },
           "shadow_arts": {
@@ -36363,10 +37999,12 @@
           },
           "spiritbond": {
             "blurb": "Bond with a Whisperwood creature. One companion at a time, granting passive bonuses and returning materials from offline forage runs.",
+            "intro": "One creature walks with you at a time. Bond the Pale Hound, then send it to forage while you work. The others come to you through the Whisperwood's story.",
             "trains": "Bonding companions and completing forage runs."
           },
           "spiritforging": {
             "blurb": "Forge gear that waits for a condition, then acts.",
+            "intro": "Gear that waits for its moment, then acts. The Ember-Forged Helm takes two Fracture-cast bars and a Resonance Crystal. Deeper pieces want ore from the seams.",
             "levels": "Each threshold unlocks the next piece. Affinity with a recipe shortens the craft.",
             "role": "Spiritforging is the deep forge. Bars and spirit matter go in. Gear comes out with a trigger: on kill, on damage taken, on combat start, or at low HP. You wear it. The trigger is the skill.",
             "trains": "Crafting spiritforged gear."
@@ -36383,6 +38021,7 @@
           },
           "wayfaring": {
             "blurb": "Dispatch expeditions on charted routes. They run on the clock, offline included, and you collect the return.",
+            "intro": "Send an expedition and come back for it. The Coastal Run takes an hour and costs nothing. Longer routes open with level.",
             "levels": "Higher levels open longer routes with heavier yields.",
             "role": "You pick a route, send the run, and come back later. Duration is wall-clock, not a combat tick. Yields are salt and salvage.",
             "trains": "Dispatching and collecting expeditions."
@@ -36392,6 +38031,18 @@
             "levels": "Higher levels unlock sturdier species with more valuable logs and faster XP. Affinity with a tree type builds over repeated cuts, reducing the time between swings.",
             "role": "You work through trees one fell at a time, collecting the logs they drop. Wardcraft takes those logs through the Woodwork track and turns them into staves, bucklers, hoods, vests, greaves, and boots."
           }
+        },
+        "SKILL_KINDS": [
+          "gathering",
+          "artisan",
+          "combat",
+          "pursuits"
+        ],
+        "SKILL_KIND_LABELS": {
+          "artisan": "Artisan",
+          "combat": "Combat",
+          "gathering": "Gathering",
+          "pursuits": "Pursuits"
         },
         "SKILL_LABELS": {
           "adventurer": "Adventurer",
@@ -36456,19 +38107,7 @@
             }
           ]
         },
-        "SKILL_UNLOCK_QUEST": {
-          "aetheric_tending": "w01_strange_growth",
-          "alchemy": "w08_the_hollow_pulse",
-          "astromancy": "o05_two_voices",
-          "echomind": "s01_the_salt_letter",
-          "geomancy": "d01_the_ashfall_road",
-          "hollowing": "d02_the_ashborne_gate",
-          "ironlock": "s01_the_salt_letter",
-          "root_lore": "w01_strange_growth",
-          "spiritbond": "w02_edge_of_the_wood",
-          "spiritforging": "d10_the_forge_friend_trial",
-          "wayfaring": "s01_the_salt_letter"
-        },
+        "SKILL_UNLOCK_QUEST": {},
         "SMITHING_GEAR_BLUEPRINTS": [
           {
             "bar_weight_bp": 120,
@@ -36584,12 +38223,16 @@
         "SPELL_ELEMENT_LABELS": {
           "ash": "Ash",
           "bloom": "Bloom",
+          "brine": "Brine",
           "celestial": "Celestial",
+          "cinder": "Cinder",
+          "dawn": "Dawn",
           "fracture": "Fracture",
           "gleam": "Gleam",
           "hollow": "Hollow",
           "lava": "Lava",
           "resonance": "Resonance",
+          "root": "Root",
           "spire": "Spire",
           "stone": "Stone",
           "veil": "Veil",
@@ -36633,7 +38276,7 @@
             1.497,
             1.797,
             1.5511,
-            0.0005,
+            1.797,
             1.0
           ],
           "alchemy": [
@@ -36647,7 +38290,7 @@
             1.5004,
             1.7503,
             1.5879,
-            0.0005,
+            1.5879,
             2.0665
           ],
           "astromancy": [
@@ -36689,7 +38332,7 @@
             1.364,
             1.5912,
             1.4435,
-            0.0005,
+            1.4435,
             1.4451
           ],
           "crafting": [
@@ -36731,8 +38374,8 @@
             0.986,
             1.1855,
             1.1442,
-            0.0005,
-            0.0005
+            1.1442,
+            1.0
           ],
           "geomancy": [
             2.446,
@@ -36787,7 +38430,7 @@
             1.818,
             2.1871,
             1.6587,
-            0.0005,
+            1.6587,
             1.0
           ],
           "meditation": [
@@ -36815,7 +38458,7 @@
             1.515,
             1.8213,
             1.7323,
-            0.0005,
+            1.7323,
             1.0
           ],
           "root_lore": [
@@ -36829,7 +38472,7 @@
             1.497,
             1.797,
             1.5511,
-            0.0005,
+            1.5511,
             1.0
           ],
           "shadow_arts": [
@@ -36871,7 +38514,7 @@
             1.497,
             1.797,
             1.5511,
-            0.0005,
+            1.5511,
             1.0
           ],
           "spiritbond": [
@@ -36913,7 +38556,7 @@
             1.0758,
             1.2768,
             1.1415,
-            0.0005,
+            1.1415,
             1.43
           ],
           "wayfaring": [
@@ -36941,7 +38584,7 @@
             1.003,
             1.2058,
             1.1473,
-            0.0005,
+            1.1473,
             1.0
           ]
         },
