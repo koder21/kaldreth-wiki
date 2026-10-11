@@ -95,6 +95,11 @@ const NAV_GROUPS = [
   ["Releases", ["roadmap", "patches"]],
 ];
 const SECTION_LABELS = new Map(SECTION_ORDER);
+// Sidebar links straight to one page: group label -> [label, section, search].
+// They sit under the group's section links and open that section searched.
+const NAV_PAGE_LINKS = {
+  Progression: [["Best Loadouts", "mechanics", "best loadouts"]],
+};
 const PLANNER_TAB_IDS = [
   "xp",
   "drop",
@@ -1184,6 +1189,8 @@ function buildModel(data) {
     cullingFile,
     titles,
     taskFile,
+    data.best_loadouts,
+    new Map(itemEntries.map((entry) => [entry.id, entry.sources || []])),
   );
 
   const allEntries = [
@@ -1656,6 +1663,7 @@ function buildItemEntries(
       kind: "Item",
       section: "items",
       id: itemId,
+      sources,
       name: info.name || itemId,
       title: info.name || itemId,
       subtitle: info.source_hint || info.category || "Item",
@@ -5172,6 +5180,8 @@ function buildMechanicEntries(
   cullingFile,
   titles,
   taskFile,
+  bestLoadouts,
+  itemSources,
 ) {
   const mechanics = [];
   taskFile = taskFile || {};
@@ -5878,6 +5888,158 @@ function buildMechanicEntries(
       ])}
     `,
   });
+
+  // -- Best loadouts ----------------------------------------------
+  // The kit the game's own Best preset search picks at each layer, with every
+  // piece owned and every skill at that layer's cap. The export copies it from
+  // tools/fixtures/best_loadouts.json, which tools/best_loadouts.sh rewrites,
+  // so the page moves when the gear does. Kits that came out identical (the
+  // melee styles, most often) share one table.
+  const loadoutLayers = [
+    ["base", "Base Game", 99],
+    ["exp1", "Whisperwood", 105],
+    ["exp2", "Tideward", 110],
+    ["exp3", "Drakenhollow", 115],
+    ["exp4", "Oraewyn", 120],
+  ];
+  const loadoutKitLabels = {
+    "melee/attack": "Melee, Attack style",
+    "melee/balanced": "Melee, Balanced style",
+    "melee/strength": "Melee, Strength style",
+    "magic/magic": "Fracture Arts",
+    "magic/geomancy": "Geomancy",
+    "magic/astromancy": "Astromancy",
+    ranged: "Deadeye",
+  };
+  const loadoutSlots = [
+    ["weapon", "Weapon"],
+    ["off_hand", "Off hand"],
+    ["head", "Head"],
+    ["chest", "Chest"],
+    ["legs", "Legs"],
+    ["feet", "Feet"],
+    ["hands", "Hands"],
+    ["cape", "Cape"],
+    ["necklace", "Necklace"],
+    ["belt", "Belt"],
+    ["ring", "Ring"],
+    ["relic", "Relic"],
+  ];
+  // Where a kit piece comes from: its own hint, else what the item page
+  // found, else the tier tables that generate smithed plate and Wardcraft
+  // gear (those ids are built in code, so no recipe row names them).
+  const loadoutItemName = (itemId) =>
+    (itemFile.ITEMS || {})[itemId]?.name || titleizeId(itemId);
+  const loadoutSource = (itemId) => {
+    const info = (itemFile.ITEMS || {})[itemId] || {};
+    if (info.source_hint) {
+      return info.source_hint;
+    }
+    const found = (itemSources?.get(itemId) || []).slice(0, 2).map((text) => {
+      const recipe = /^(\w+) recipe: /.exec(text);
+      if (!recipe) {
+        return text;
+      }
+      return recipe[1] === "crafting" ? "Wardcraft" : capitalize(recipe[1]);
+    });
+    if (found.length) {
+      return found.join("; ");
+    }
+    const smithTier = (skillFile?.SMITHING_TIER_BARS || []).find((row) =>
+      itemId.startsWith(`${row.tier}_`),
+    );
+    if (smithTier) {
+      return `Smithing, forged from ${loadoutItemName(smithTier.bar)}s`;
+    }
+    for (const [track, tiers] of Object.entries(skillFile?.CRAFTING_TRACK_TIERS || {})) {
+      const tier = (tiers || []).find((row) => itemId.startsWith(`${track}_${row.tier}_`));
+      if (tier) {
+        return `Wardcraft, made with ${loadoutItemName(tier.material)}`;
+      }
+    }
+    return "-";
+  };
+  const loadoutTables = [];
+  loadoutLayers.forEach(([layerKey, layerName, layerCap]) => {
+    const kits = (bestLoadouts || {})[layerKey];
+    if (!kits) {
+      return;
+    }
+    const groups = [];
+    Object.keys(loadoutKitLabels)
+      .filter((kitKey) => kits[kitKey])
+      .forEach((kitKey) => {
+        const signature = JSON.stringify(
+          loadoutSlots.map(([slotId]) => kits[kitKey][slotId] || ""),
+        );
+        const match = groups.find((group) => group.signature === signature);
+        if (match) {
+          match.labels.push(loadoutKitLabels[kitKey]);
+        } else {
+          groups.push({ signature, kit: kits[kitKey], labels: [loadoutKitLabels[kitKey]] });
+        }
+      });
+    groups.forEach((group) => {
+      const melee = group.labels.filter((label) => label.startsWith("Melee, "));
+      const others = group.labels.filter((label) => !label.startsWith("Melee, "));
+      const names = [];
+      if (melee.length === 3) {
+        names.push("Melee, every style");
+      } else if (melee.length) {
+        names.push(
+          `Melee, ${melee.map((label) => label.slice(7).replace(" style", "")).join(" and ")} style${melee.length > 1 ? "s" : ""}`,
+        );
+      }
+      names.push(...others);
+      loadoutTables.push(
+        renderSimpleTable(
+          `${layerName} (level ${layerCap}): ${names.join(", ")}`,
+          ["Slot", "Item", "Where it comes from"],
+          loadoutSlots
+            .filter(([slotId]) => group.kit[slotId])
+            .map(([slotId, slotName]) => {
+              const itemId = group.kit[slotId];
+              // A two-handed weapon is written into both hand slots.
+              if (slotId === "off_hand" && itemId === group.kit.weapon) {
+                return [slotName, "Taken by the two-handed weapon", "-"];
+              }
+              return [slotName, loadoutItemName(itemId), loadoutSource(itemId)];
+            }),
+          { open: layerKey === "base" },
+        ),
+      );
+    });
+  });
+  if (loadoutTables.length) {
+    mechanics.push({
+      kind: "Mechanic",
+      section: "mechanics",
+      id: "best-loadouts",
+      name: "Best Loadouts",
+      title: "Best Loadouts: The Strongest Kit in the Base Game and Each Expansion",
+      subtitle: "What the Best preset button picks with every piece owned",
+      badges: ["combat", "gear", "melee", "magic", "deadeye"],
+      searchText:
+        "best loadouts best in slot bis gear kit strongest equipment melee attack strength balanced magic fracture arts geomancy astromancy deadeye ranged gun base game whisperwood tideward drakenhollow oraewyn weapon off hand head chest legs feet hands cape necklace belt ring relic preset",
+      sortKey: "mechanics best loadouts",
+      spoiler: false,
+      metrics: [
+        { label: "Layers", value: num(loadoutLayers.filter(([layerKey]) => (bestLoadouts || {})[layerKey]).length) },
+        { label: "Gear slots", value: num(loadoutSlots.length) },
+        { label: "Picked by", value: "Best preset" },
+      ],
+      body: `
+        ${renderDetailBlock("How to read this page", [
+          "Each table is the kit the game's own Best preset button picks for one way of fighting, with every piece of gear owned and every skill at the level cap of that layer.",
+          "A layer is everything you own up to it: the Tideward tables assume the base game, Whisperwood and Tideward. Gear from a later expansion never appears in an earlier table.",
+          "The search weighs damage dealt first and damage reduction after it, the same as the button in the game. Styles that came out with the same kit share one table.",
+          "Deadeye opens with Tideward, Geomancy with Drakenhollow and Astromancy with Oraewyn, so they have no table before then.",
+          "Your own best kit can differ while pieces are missing or a level is short. Press Best preset in the game for the best of what you hold.",
+        ])}
+        ${loadoutTables.join("")}
+      `,
+    });
+  }
 
   // -- Damage reduction --------------------------------------------
   // Gear DR, the Scar-Ward Draught, and the defence-penetrating attacks that
@@ -6719,6 +6881,13 @@ function buildNav() {
         if (!links.length) {
           return "";
         }
+        (NAV_PAGE_LINKS[label] || [])
+          .filter(([, section]) => populatedKeys.has(section))
+          .forEach(([pageLabel, section, query]) => {
+            links.push(
+              `<a class="nav-link" href="#/${escapeHtml(section)}?q=${encodeURIComponent(query)}"><span>${escapeHtml(pageLabel)}</span></a>`,
+            );
+          });
         return `<details class="nav-group" open><summary>${escapeHtml(label)}</summary>${links.join("")}</details>`;
       })
       .join("");

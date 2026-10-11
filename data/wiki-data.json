@@ -1,5 +1,365 @@
 {
-  "generated_at": "2026-10-10T17:10:26.482932+00:00",
+  "best_loadouts": {
+    "base": {
+      "magic/magic": {
+        "belt": "scarwrit_girdle",
+        "cape": "scarwrit_mantle",
+        "chest": "unwritten_plate",
+        "feet": "unwritten_sabatons",
+        "hands": "scarwrit_grips",
+        "head": "unwritten_helm",
+        "legs": "unwritten_greaves",
+        "necklace": "scarwrit_torc",
+        "off_hand": "aethercoil_focus",
+        "ring": "trailblazer_compass",
+        "weapon": "clothwork_architect_wand"
+      },
+      "melee/attack": {
+        "belt": "scarwrit_girdle",
+        "cape": "scarwrit_mantle",
+        "chest": "unwritten_plate",
+        "feet": "unwritten_sabatons",
+        "hands": "scarwrit_grips",
+        "head": "unwritten_helm",
+        "legs": "unwritten_greaves",
+        "necklace": "scarwrit_torc",
+        "off_hand": "aethercoil_focus",
+        "ring": "oathpoint_signet",
+        "weapon": "warden_permafrost_blade"
+      },
+      "melee/balanced": {
+        "belt": "scarwrit_girdle",
+        "cape": "scarwrit_mantle",
+        "chest": "unwritten_plate",
+        "feet": "unwritten_sabatons",
+        "hands": "scarwrit_grips",
+        "head": "unwritten_helm",
+        "legs": "unwritten_greaves",
+        "necklace": "scarwrit_torc",
+        "off_hand": "aethercoil_focus",
+        "ring": "oathpoint_signet",
+        "weapon": "warden_permafrost_blade"
+      },
+      "melee/strength": {
+        "belt": "scarwrit_girdle",
+        "cape": "scarwrit_mantle",
+        "chest": "unwritten_plate",
+        "feet": "unwritten_sabatons",
+        "hands": "scarwrit_grips",
+        "head": "unwritten_helm",
+        "legs": "unwritten_greaves",
+        "necklace": "scarwrit_torc",
+        "off_hand": "aethercoil_focus",
+        "ring": "oathpoint_signet",
+        "weapon": "warden_permafrost_blade"
+      }
+    },
+    "exp1": {
+      "magic/magic": {
+        "belt": "rootwrit_cincture",
+        "cape": "rootwrit_shroud",
+        "chest": "grove_wardens_hauberk",
+        "feet": "grove_wardens_sabatons",
+        "hands": "rootwrit_handwraps",
+        "head": "grove_wardens_helm",
+        "legs": "grove_wardens_greaves",
+        "necklace": "rootwrit_lariat",
+        "off_hand": "whisperbloom_focus",
+        "ring": "covenant_signet",
+        "weapon": "hollow_root_conduit"
+      },
+      "melee/attack": {
+        "belt": "rootwrit_cincture",
+        "cape": "rootwrit_shroud",
+        "chest": "rootveined_hauberk",
+        "feet": "rootveined_sabatons",
+        "hands": "rootwrit_handwraps",
+        "head": "rootveined_helm",
+        "legs": "rootveined_greaves",
+        "necklace": "rootwrit_lariat",
+        "off_hand": "vaethos_unbound_rootedge",
+        "ring": "covenant_signet",
+        "weapon": "vaethos_unbound_rootedge"
+      },
+      "melee/balanced": {
+        "belt": "rootwrit_cincture",
+        "cape": "rootwrit_shroud",
+        "chest": "rootveined_hauberk",
+        "feet": "rootveined_sabatons",
+        "hands": "rootwrit_handwraps",
+        "head": "rootveined_helm",
+        "legs": "rootveined_greaves",
+        "necklace": "rootwrit_lariat",
+        "off_hand": "vaethos_unbound_rootedge",
+        "ring": "covenant_signet",
+        "weapon": "vaethos_unbound_rootedge"
+      },
+      "melee/strength": {
+        "belt": "rootwrit_cincture",
+        "cape": "rootwrit_shroud",
+        "chest": "rootveined_hauberk",
+        "feet": "rootveined_sabatons",
+        "hands": "rootwrit_handwraps",
+        "head": "rootveined_helm",
+        "legs": "rootveined_greaves",
+        "necklace": "rootwrit_lariat",
+        "off_hand": "vaethos_unbound_rootedge",
+        "ring": "covenant_signet",
+        "weapon": "vaethos_unbound_rootedge"
+      }
+    },
+    "exp2": {
+      "magic/magic": {
+        "belt": "tidewrit_waistguard",
+        "cape": "tidewrit_seacloak",
+        "chest": "deepsalt_vestment",
+        "feet": "deepsalt_treads",
+        "hands": "tidewrit_gauntlets",
+        "head": "deepsalt_cowl",
+        "legs": "deepsalt_leggings",
+        "necklace": "tidewrit_gorget",
+        "off_hand": "brinecoil_focus",
+        "ring": "undertow_signet",
+        "weapon": "coralbound_wand"
+      },
+      "melee/attack": {
+        "belt": "tidewrit_waistguard",
+        "cape": "tidewrit_seacloak",
+        "chest": "wreckiron_hauberk",
+        "feet": "wreckiron_sabatons",
+        "hands": "tidewrit_gauntlets",
+        "head": "wreckiron_helm",
+        "legs": "wreckiron_greaves",
+        "necklace": "tidewrit_gorget",
+        "off_hand": "wreckiron_shield",
+        "ring": "undertow_signet",
+        "weapon": "drowned_keepers_anchor"
+      },
+      "melee/balanced": {
+        "belt": "tidewrit_waistguard",
+        "cape": "tidewrit_seacloak",
+        "chest": "wreckiron_hauberk",
+        "feet": "wreckiron_sabatons",
+        "hands": "tidewrit_gauntlets",
+        "head": "wreckiron_helm",
+        "legs": "wreckiron_greaves",
+        "necklace": "tidewrit_gorget",
+        "off_hand": "drowned_keepers_anchor",
+        "ring": "undertow_signet",
+        "weapon": "drowned_keepers_anchor"
+      },
+      "melee/strength": {
+        "belt": "tidewrit_waistguard",
+        "cape": "tidewrit_seacloak",
+        "chest": "wreckiron_hauberk",
+        "feet": "wreckiron_sabatons",
+        "hands": "tidewrit_gauntlets",
+        "head": "wreckiron_helm",
+        "legs": "wreckiron_greaves",
+        "necklace": "tidewrit_gorget",
+        "off_hand": "drowned_keepers_anchor",
+        "ring": "undertow_signet",
+        "weapon": "drowned_keepers_anchor"
+      },
+      "ranged": {
+        "belt": "tidewrit_waistguard",
+        "cape": "tidewrit_seacloak",
+        "chest": "wreckiron_hauberk",
+        "feet": "wreckiron_sabatons",
+        "hands": "tidewrit_gauntlets",
+        "head": "wreckiron_helm",
+        "legs": "wreckiron_greaves",
+        "necklace": "tidewrit_gorget",
+        "ring": "wrecksight_signet",
+        "weapon": "vaels_longarm"
+      }
+    },
+    "exp3": {
+      "magic/geomancy": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "ashborne_chestplate",
+        "feet": "deep_tempered_boots",
+        "hands": "ashwrit_vambraces",
+        "head": "forge_crown",
+        "legs": "slagstone_greaves",
+        "necklace": "ashwrit_chain",
+        "off_hand": "slagstone_lens",
+        "relic": "architects_seal",
+        "ring": "flame_sworn_ring",
+        "weapon": "slagstone_rod"
+      },
+      "magic/magic": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "ashborne_chestplate",
+        "feet": "deep_tempered_boots",
+        "hands": "ashwrit_vambraces",
+        "head": "forge_crown",
+        "legs": "slagstone_greaves",
+        "necklace": "ashwrit_chain",
+        "off_hand": "cindercoil_focus",
+        "relic": "architects_seal",
+        "ring": "flame_sworn_ring",
+        "weapon": "slagstone_rod"
+      },
+      "melee/attack": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "origin_hauberk",
+        "feet": "origin_sabatons",
+        "hands": "ashwrit_vambraces",
+        "head": "origin_helm",
+        "legs": "origin_greaves",
+        "necklace": "ashwrit_chain",
+        "off_hand": "origin_shield",
+        "relic": "architects_seal",
+        "ring": "origin_touched_ring",
+        "weapon": "korraths_forge_brand"
+      },
+      "melee/balanced": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "origin_hauberk",
+        "feet": "origin_sabatons",
+        "hands": "ashwrit_vambraces",
+        "head": "origin_helm",
+        "legs": "origin_greaves",
+        "necklace": "ashwrit_chain",
+        "off_hand": "origin_shield",
+        "relic": "architects_seal",
+        "ring": "origin_touched_ring",
+        "weapon": "korraths_forge_brand"
+      },
+      "melee/strength": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "origin_hauberk",
+        "feet": "origin_sabatons",
+        "hands": "ashwrit_vambraces",
+        "head": "origin_helm",
+        "legs": "origin_greaves",
+        "necklace": "ashwrit_chain",
+        "off_hand": "origin_shield",
+        "relic": "architects_seal",
+        "ring": "origin_touched_ring",
+        "weapon": "korraths_forge_brand"
+      },
+      "ranged": {
+        "belt": "ashwrit_forgebelt",
+        "cape": "ashwrit_pall",
+        "chest": "origin_hauberk",
+        "feet": "origin_sabatons",
+        "hands": "ashwrit_vambraces",
+        "head": "origin_helm",
+        "legs": "origin_greaves",
+        "necklace": "ashwrit_chain",
+        "relic": "architects_seal",
+        "ring": "origin_touched_ring",
+        "weapon": "smelters_slagthrower"
+      }
+    },
+    "exp4": {
+      "magic/astromancy": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "conclave_vestments",
+        "feet": "oraewyn_boots",
+        "hands": "starwrit_reach",
+        "head": "watchers_circlet",
+        "legs": "sky_walk_leggings",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "starchart_focus",
+        "relic": "the_true_record",
+        "ring": "watchers_mark",
+        "weapon": "aeluns_starfall_conduit"
+      },
+      "magic/geomancy": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "conclave_vestments",
+        "feet": "oraewyn_boots",
+        "hands": "starwrit_reach",
+        "head": "watchers_circlet",
+        "legs": "sky_walk_leggings",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "starcoil_focus",
+        "relic": "the_true_record",
+        "ring": "watchers_mark",
+        "weapon": "aeluns_starfall_conduit"
+      },
+      "magic/magic": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "conclave_vestments",
+        "feet": "oraewyn_boots",
+        "hands": "starwrit_reach",
+        "head": "watchers_circlet",
+        "legs": "sky_walk_leggings",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "starcoil_focus",
+        "relic": "the_true_record",
+        "ring": "watchers_mark",
+        "weapon": "aeluns_starfall_conduit"
+      },
+      "melee/attack": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "celestial_hauberk",
+        "feet": "celestial_sabatons",
+        "hands": "starwrit_reach",
+        "head": "celestial_helm",
+        "legs": "celestial_greaves",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "celestial_shield",
+        "relic": "the_true_record",
+        "ring": "celestial_ring",
+        "weapon": "threshold_edge"
+      },
+      "melee/balanced": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "celestial_hauberk",
+        "feet": "celestial_sabatons",
+        "hands": "starwrit_reach",
+        "head": "celestial_helm",
+        "legs": "celestial_greaves",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "celestial_shield",
+        "relic": "the_true_record",
+        "ring": "celestial_ring",
+        "weapon": "threshold_edge"
+      },
+      "melee/strength": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "celestial_hauberk",
+        "feet": "celestial_sabatons",
+        "hands": "starwrit_reach",
+        "head": "celestial_helm",
+        "legs": "celestial_greaves",
+        "necklace": "starwrit_carcanet",
+        "off_hand": "celestial_shield",
+        "relic": "the_true_record",
+        "ring": "celestial_ring",
+        "weapon": "threshold_edge"
+      },
+      "ranged": {
+        "belt": "starwrit_meridian",
+        "cape": "starwrit_firmament",
+        "chest": "celestial_hauberk",
+        "feet": "celestial_sabatons",
+        "hands": "starwrit_reach",
+        "head": "celestial_helm",
+        "legs": "celestial_greaves",
+        "necklace": "starwrit_carcanet",
+        "relic": "the_true_record",
+        "ring": "celestial_ring",
+        "weapon": "watcher_dreadnought_arm"
+      }
+    }
+  },
+  "generated_at": "2026-10-11T19:07:03.527689+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -158,7 +518,6 @@
         },
         "EQUIP_SLOT_EXPANSION": {
           "companion": 1,
-          "hands": 1,
           "relic": 3
         },
         "EQUIP_SLOT_IDS": [
@@ -192,6 +551,72 @@
           "weapon": "Weapon"
         },
         "FACTION_STORE_DEFS": [
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "grove_wardens_helm",
+            "rep_required": 75,
+            "summary": "Damage taken -11%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "grove_wardens_hauberk",
+            "rep_required": 75,
+            "summary": "Damage taken -11%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "grove_wardens_greaves",
+            "rep_required": 75,
+            "summary": "Damage taken -11%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "grove_wardens_sabatons",
+            "rep_required": 75,
+            "summary": "Damage taken -11%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "grove_wardens_mantle",
+            "rep_required": 75,
+            "summary": "Damage taken -11%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "covenant_rootward",
+            "rep_required": 75,
+            "summary": "Damage taken -9%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "whisperbloom_focus",
+            "rep_required": 75,
+            "summary": "Fracture Arts hit chance +15%, max hit +4%, damage taken -9%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "wardens_torc",
+            "rep_required": 75,
+            "summary": "Damage taken -9%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "covenant_signet",
+            "rep_required": 75,
+            "summary": "Attack hit chance +25%, damage taken -10%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "rootweave_girdle",
+            "rep_required": 75,
+            "summary": "Damage taken -9%"
+          },
+          {
+            "faction_id": "grove_covenant",
+            "item_id": "rootbound_wand",
+            "rep_required": 75,
+            "summary": "Damage taken -2%"
+          },
           {
             "faction_id": "tide_merchants",
             "item_id": "captains_hat",
@@ -574,6 +999,23 @@
         "GEAR_OPT_EPSILON": 1e-06,
         "GEAR_OPT_MAX_PASSES": 6,
         "GEAR_OPT_SECONDARY_WEIGHT": 0.02,
+        "GEAR_OPT_UNDER_ZERO_SLOPE": 0.01,
+        "GEAR_OPT_V_ATK": 0,
+        "GEAR_OPT_V_DEADEYE": 4,
+        "GEAR_OPT_V_DEF": 2,
+        "GEAR_OPT_V_DEF_PCT": 7,
+        "GEAR_OPT_V_DMG": 6,
+        "GEAR_OPT_V_DR": 5,
+        "GEAR_OPT_V_GOLD": 10,
+        "GEAR_OPT_V_HIT": 11,
+        "GEAR_OPT_V_MAG": 3,
+        "GEAR_OPT_V_MAXHIT": 12,
+        "GEAR_OPT_V_RAW_END": 5,
+        "GEAR_OPT_V_REGEN": 8,
+        "GEAR_OPT_V_SET": 13,
+        "GEAR_OPT_V_SIZE": 14,
+        "GEAR_OPT_V_STR": 1,
+        "GEAR_OPT_V_XP": 9,
         "GEAR_TAB_ADDED_SKILLS": [
           "aetheric_tending",
           "spiritbond",
@@ -919,6 +1361,7 @@
         "HOLLOWING_XP_PER_LEVEL": 397,
         "HP_REGEN_INTERVAL_SECONDS": 12.0,
         "HP_REGEN_POLL_SECONDS": 1.0,
+        "IDLE_DUNGEON_ASSUME_AFTER_CLEARS": 50,
         "IDLE_DUNGEON_LIVE_WINDOW_SECONDS": "BACKGROUND_RESUME_GAP_SECONDS",
         "IDLE_DUNGEON_RARE_MIN_RARITY": 4,
         "IDLE_DUNGEON_SPEED": 0.75,
@@ -1774,6 +2217,12 @@
                 "item": "sea_titan_scale",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "undertow_signet",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "elite": true,
@@ -1838,6 +2287,12 @@
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "cinderbound_rune",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -1871,6 +2326,18 @@
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "emberwort",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "challengers_tally",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "elite": true,
@@ -1902,6 +2369,12 @@
               {
                 "chance": 0.07,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "emberfin",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -1968,6 +2441,12 @@
                 "item": "ashforge_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "ashiron_ore",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -1992,6 +2471,12 @@
               {
                 "chance": 0.12,
                 "item": "ashforge_shard",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "ashiron_ore",
                 "qty_max": 2,
                 "qty_min": 1
               }
@@ -2336,6 +2821,12 @@
                 "item": "watcher_core",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "dawnlit_rune",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "elite": true,
@@ -2363,6 +2854,12 @@
                 "chance": 0.1,
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cinderbound_essence",
+                "qty_max": 2,
                 "qty_min": 1
               }
             ],
@@ -2488,6 +2985,12 @@
                 "item": "watcher_core",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "skyiron_ore",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -2513,6 +3016,12 @@
               {
                 "chance": 0.14,
                 "item": "watcher_core",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "skyiron_ore",
                 "qty_max": 2,
                 "qty_min": 1
               },
@@ -2547,6 +3056,12 @@
               {
                 "chance": 0.12,
                 "item": "watcher_core",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "skyiron_ore",
                 "qty_max": 2,
                 "qty_min": 1
               }
@@ -2741,6 +3256,12 @@
                 "chance": 0.12,
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cinderbound_essence",
+                "qty_max": 2,
                 "qty_min": 1
               }
             ],
@@ -3157,6 +3678,12 @@
                 "item": "ashforge_shard",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "veinkore_bar",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -3182,6 +3709,12 @@
               {
                 "chance": 0.1,
                 "item": "starfall_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "cloudpine_weave",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -3843,6 +4376,12 @@
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "veinkore_bar",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -3937,6 +4476,12 @@
                 "item": "starfall_crystal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "dawnlit_essence",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -3968,6 +4513,18 @@
               {
                 "chance": 0.12,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "veinkore_bar",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "origin_sentinels_shroud",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -4630,6 +5187,18 @@
                 "item": "ashforge_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "charwood_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "rakers_scorchwraps",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -4656,6 +5225,12 @@
                 "item": "ashforge_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "charwood_log",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -4680,6 +5255,18 @@
               {
                 "chance": 0.11,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "kilnthorn",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "cinder_shamans_loop",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -4957,6 +5544,12 @@
                 "item": "watcher_core",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "skymere_ray",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "elite": true,
@@ -4982,6 +5575,18 @@
               {
                 "chance": 0.08,
                 "item": "starfall_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cloudpine_log",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "windrider_grips",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5014,6 +5619,12 @@
               {
                 "chance": 0.07,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "emberfin",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5209,6 +5820,18 @@
                 "item": "starfall_crystal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "dawnlit_essence",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "starfall_pendant",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -5344,6 +5967,12 @@
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "cinderbound_rune",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -5375,6 +6004,12 @@
               {
                 "chance": 0.07,
                 "item": "watcher_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "dawnlit_rune",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5500,6 +6135,18 @@
               {
                 "chance": 0.12,
                 "item": "starfall_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "dawnlit_essence",
+                "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "wraithbound_band",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5805,6 +6452,12 @@
                 "item": "watcher_core",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "celestial_rounds",
+                "qty_max": 3,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -5829,6 +6482,12 @@
               {
                 "chance": 0.07,
                 "item": "watcher_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "starpetal",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5857,6 +6516,12 @@
                 "item": "starfall_crystal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.04,
+                "item": "starpetal",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -5883,6 +6548,12 @@
                 "chance": 0.08,
                 "item": "watcher_core",
                 "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cloudpine_log",
+                "qty_max": 2,
                 "qty_min": 1
               }
             ],
@@ -6039,6 +6710,12 @@
                 "item": "watcher_core",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.03,
+                "item": "cloudpine_weave",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "elite": true,
@@ -6097,6 +6774,12 @@
               {
                 "chance": 0.14,
                 "item": "ancient_coral",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "brinecoil_focus",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -6449,6 +7132,12 @@
                 "item": "watcher_core",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "dawnlit_essence",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -6526,6 +7215,12 @@
                 "chance": 0.1,
                 "item": "architect_shard",
                 "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "ashiron_ore",
+                "qty_max": 2,
                 "qty_min": 1
               }
             ],
@@ -6773,6 +7468,12 @@
                 "item": "origin_ore",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "ashiron_ore",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -6867,6 +7568,12 @@
                 "item": "celestial_bar",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "circuit_witness_girdle",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -6893,6 +7600,12 @@
               {
                 "chance": 0.1,
                 "item": "watcher_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cloudpine_weave",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -7131,6 +7844,12 @@
               {
                 "chance": 0.12,
                 "item": "slagstone",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "ashforge_shard",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -7381,6 +8100,12 @@
                 "item": "origin_ore",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "cinderbound_rune",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -7432,6 +8157,12 @@
               {
                 "chance": 0.09,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "veinkore_bar",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -7707,6 +8438,12 @@
                 "item": "oraewyn_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "skyiron_ore",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -7734,6 +8471,12 @@
                 "chance": 0.1,
                 "item": "architect_shard",
                 "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "charwood_log",
+                "qty_max": 2,
                 "qty_min": 1
               }
             ],
@@ -7852,6 +8595,12 @@
               {
                 "chance": 0.11,
                 "item": "oraewyn_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "grid_keepers_plumbline",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -8134,6 +8883,12 @@
                 "item": "pale_spirit_essence",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "hollow_scouts_dustcloak",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -8243,6 +8998,12 @@
               {
                 "chance": 0.09,
                 "item": "watcher_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.05,
+                "item": "dawnlit_rune",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -8535,6 +9296,12 @@
               {
                 "chance": 0.12,
                 "item": "sky_salt",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "skymere_ray",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -8851,6 +9618,12 @@
                 "item": "origin_bar",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "veinkore_bar",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -8903,6 +9676,12 @@
               {
                 "chance": 0.1,
                 "item": "pale_spirit_essence",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "emberfin",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -9182,6 +9961,12 @@
                 "item": "starfall_crystal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "record_sealers_mantle",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -9208,6 +9993,12 @@
               {
                 "chance": 0.12,
                 "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "dawnlit_rune",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -9420,6 +10211,12 @@
                 "item": "architect_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "emberwort",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -9471,6 +10268,12 @@
               {
                 "chance": 0.11,
                 "item": "architect_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "seamreaders_cord",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -9715,6 +10518,12 @@
                 "item": "watcher_core",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "celestial_rounds",
+                "qty_max": 4,
+                "qty_min": 2
               }
             ],
             "expansion": 4,
@@ -9741,6 +10550,12 @@
               {
                 "chance": 0.11,
                 "item": "oraewyn_shard",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "starpetal",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -9796,6 +10611,12 @@
                 "item": "slagstone_slab",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "kilnthorn",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -9822,6 +10643,12 @@
               {
                 "chance": 0.12,
                 "item": "slagstone_slab",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.005,
+                "item": "smelter_wardens_keybelt",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -9976,6 +10803,12 @@
                 "item": "slagstone",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "cinderbound_essence",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 3,
@@ -10052,6 +10885,12 @@
               {
                 "chance": 0.08,
                 "item": "watcher_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "starpetal",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -10251,6 +11090,12 @@
                 "item": "starfall_crystal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "dawnlit_essence",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -10391,6 +11236,12 @@
                 "item": "watcher_core",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "skymere_ray",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -10419,6 +11270,12 @@
                 "item": "oraewyn_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.08,
+                "item": "cloudpine_log",
+                "qty_max": 2,
+                "qty_min": 1
               }
             ],
             "expansion": 4,
@@ -10445,6 +11302,12 @@
               {
                 "chance": 0.07,
                 "item": "origin_ore",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.06,
+                "item": "ashforge_shard",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -16130,6 +16993,18 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 0.04,
+                  "item_id": "deepsalt_cowl",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.04,
+                  "item_id": "deepsalt_treads",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "tide_writ",
                   "qty_max": 2,
@@ -16273,6 +17148,18 @@
                 {
                   "chance": 1.0,
                   "item_id": "salt_seal",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.04,
+                  "item_id": "deepsalt_vestment",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.04,
+                  "item_id": "deepsalt_leggings",
                   "qty_max": 1,
                   "qty_min": 1
                 },
@@ -16542,6 +17429,12 @@
                 {
                   "chance": 1.0,
                   "item_id": "origin_seal",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
+                  "chance": 0.06,
+                  "item_id": "cindercoil_focus",
                   "qty_max": 1,
                   "qty_min": 1
                 },
@@ -16992,6 +17885,12 @@
                   "qty_min": 1
                 },
                 {
+                  "chance": 0.06,
+                  "item_id": "starcoil_focus",
+                  "qty_max": 1,
+                  "qty_min": 1
+                },
+                {
                   "chance": 1.0,
                   "item_id": "star_writ",
                   "qty_max": 4,
@@ -17086,9 +17985,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.9",
-        "BUILD_FINGERPRINT": "1.6.9 (1791651711)",
-        "VERSION_CODE": 1791651711
+        "APP_VERSION": "1.6.10",
+        "BUILD_FINGERPRINT": "1.6.10 (1791745145)",
+        "VERSION_CODE": 1791745145
       },
       "specials": {}
     },
@@ -17926,8 +18825,10 @@
           "blessed_robes": 15,
           "captains_hat": 90,
           "celestial_ring": 115,
+          "challengers_tally": 95,
           "chef_toque": 1,
           "chef_trousers": 1,
+          "cinder_shamans_loop": 95,
           "conclave_sigil": 100,
           "conclave_vestments": 100,
           "covenant_rootward": 103,
@@ -17937,6 +18838,10 @@
           "deep_tempered_boots": 95,
           "deep_vein_greaves": 108,
           "deeproot_rampart": 50,
+          "deepsalt_cowl": 108,
+          "deepsalt_leggings": 108,
+          "deepsalt_treads": 108,
+          "deepsalt_vestment": 108,
           "dockyard_enforcer_badge": 12,
           "ember_forged_helm": 106,
           "ethereal_boots": 1,
@@ -17994,6 +18899,7 @@
           "navigators_amulet": 90,
           "nightglass_mantle": 30,
           "oraewyn_boots": 100,
+          "origin_sentinels_shroud": 95,
           "origin_touched_ring": 109,
           "pale_willow_ward": 20,
           "pathfinder_belt": 40,
@@ -18003,6 +18909,7 @@
           "pathfinder_trousers": 40,
           "pilgrim_boots": 15,
           "priest_leggings": 15,
+          "rakers_scorchwraps": 95,
           "ranger_hood": 5,
           "river_belt": 1,
           "rootwarden_gloves": 50,
@@ -18036,6 +18943,7 @@
           "spirit_mantle": 1,
           "spiritthread_leggings": 1,
           "starfall_helm": 112,
+          "starfall_pendant": 100,
           "starwrit_carcanet": 119,
           "starwrit_firmament": 119,
           "starwrit_meridian": 119,
@@ -18050,6 +18958,7 @@
           "timber_belt": 5,
           "trade_leggings": 90,
           "traveler_leggings": 10,
+          "undertow_signet": 108,
           "unwritten_greaves": 92,
           "unwritten_helm": 92,
           "unwritten_plate": 92,
@@ -18078,10 +18987,12 @@
           "waterproof_boots": 1,
           "wayfarer_belt": 10,
           "weaver_circlet": 1,
+          "windrider_grips": 100,
           "woodland_boots": 5,
           "workshop_belt": 5,
           "woven_robes": 1,
-          "woven_slippers": 1
+          "woven_slippers": 1,
+          "wraithbound_band": 100
         },
         "DR_SCORE_POINTS_PER_PCT": 5.0,
         "EPIC": [
@@ -18557,6 +19468,13 @@
             "expansion": 2,
             "name": "Brinebound Rune"
           },
+          "brinecoil_focus": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Brinecoil Focus",
+            "slot": "off_hand",
+            "source_hint": "Shadow Arts - Accord Auditor"
+          },
           "brinefrond": {
             "category": "herb",
             "expansion": 2,
@@ -18823,6 +19741,13 @@
             "expansion": 4,
             "name": "Celestial Rounds"
           },
+          "challengers_tally": {
+            "category": "jewel",
+            "expansion": 3,
+            "name": "Challenger's Tally",
+            "slot": "necklace",
+            "source_hint": "Drop - Ashborne Challenger"
+          },
           "charred_leviathan": {
             "category": "food",
             "name": "Charred Leviathan"
@@ -18865,6 +19790,13 @@
             "no_collection": true,
             "source_hint": "A gift from the developer"
           },
+          "cinder_shamans_loop": {
+            "category": "jewel",
+            "expansion": 3,
+            "name": "Cinder Shaman's Loop",
+            "slot": "ring",
+            "source_hint": "Drop - Scorch Pact Shaman"
+          },
           "cinderbound_essence": {
             "category": "spirit",
             "expansion": 3,
@@ -18875,9 +19807,23 @@
             "expansion": 3,
             "name": "Cinderbound Rune"
           },
+          "cindercoil_focus": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Cindercoil Focus",
+            "slot": "off_hand",
+            "source_hint": "Drop - Forge-Warden Korrath (d17)"
+          },
           "cipher_fragment": {
             "category": "material",
             "name": "Cipher Fragment"
+          },
+          "circuit_witness_girdle": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Circuit Witness's Girdle",
+            "slot": "belt",
+            "source_hint": "Shadow Arts - Circuit Witness"
           },
           "cloudpine_log": {
             "category": "log",
@@ -18991,13 +19937,15 @@
             "category": "armour",
             "expansion": 1,
             "name": "Covenant Rootward",
-            "slot": "off_hand"
+            "slot": "off_hand",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "covenant_signet": {
             "category": "jewel",
             "expansion": 1,
             "name": "Covenant Signet",
-            "slot": "ring"
+            "slot": "ring",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "covenant_still_sash": {
             "category": "armour",
@@ -19145,6 +20093,34 @@
             "expansion": 2,
             "name": "Deepsalt Conduit",
             "slot": "off_hand",
+            "source_hint": "Drop - Admiral Vael (s18)"
+          },
+          "deepsalt_cowl": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Deepsalt Cowl",
+            "slot": "head",
+            "source_hint": "Drop - The Drowned Keeper (s15)"
+          },
+          "deepsalt_leggings": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Deepsalt Leggings",
+            "slot": "legs",
+            "source_hint": "Drop - Admiral Vael (s18)"
+          },
+          "deepsalt_treads": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Deepsalt Treads",
+            "slot": "feet",
+            "source_hint": "Drop - The Drowned Keeper (s15)"
+          },
+          "deepsalt_vestment": {
+            "category": "armour",
+            "expansion": 2,
+            "name": "Deepsalt Vestment",
+            "slot": "chest",
             "source_hint": "Drop - Admiral Vael (s18)"
           },
           "deepseam_probe": {
@@ -19534,6 +20510,13 @@
             "category": "log",
             "name": "Greyspine Log"
           },
+          "grid_keepers_plumbline": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Grid Keeper's Plumbline",
+            "slot": "belt",
+            "source_hint": "Shadow Arts - Grid Keeper"
+          },
           "grove_covenant_potion": {
             "category": "consumable",
             "duration_seconds": 1200,
@@ -19559,31 +20542,36 @@
             "category": "armour",
             "expansion": 1,
             "name": "Grove Warden's Greaves",
-            "slot": "legs"
+            "slot": "legs",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "grove_wardens_hauberk": {
             "category": "armour",
             "expansion": 1,
             "name": "Grove Warden's Hauberk",
-            "slot": "chest"
+            "slot": "chest",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "grove_wardens_helm": {
             "category": "armour",
             "expansion": 1,
             "name": "Grove Warden's Helm",
-            "slot": "head"
+            "slot": "head",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "grove_wardens_mantle": {
             "category": "armour",
             "expansion": 1,
             "name": "Grove Warden's Mantle",
-            "slot": "cape"
+            "slot": "cape",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "grove_wardens_sabatons": {
             "category": "armour",
             "expansion": 1,
             "name": "Grove Warden's Sabatons",
-            "slot": "feet"
+            "slot": "feet",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "grove_warrior_flask": {
             "category": "consumable",
@@ -19697,6 +20685,13 @@
             "category": "sigil",
             "name": "Hollow Sigil",
             "source_hint": "Spiritweaving"
+          },
+          "hollow_scouts_dustcloak": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Hollow Scout's Dustcloak",
+            "slot": "cape",
+            "source_hint": "Shadow Arts - Hollow Scout"
           },
           "hollow_wisp": {
             "category": "spirit",
@@ -20186,6 +21181,13 @@
             "name": "Origin Seal",
             "source_hint": "The Smelter / Forge-Warden Korrath"
           },
+          "origin_sentinels_shroud": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Origin Sentinel's Shroud",
+            "slot": "cape",
+            "source_hint": "Drop - Origin Sentinel"
+          },
           "origin_touched_ring": {
             "category": "jewel",
             "expansion": 3,
@@ -20356,10 +21358,24 @@
             "name": "Quarry Paymaster Chain",
             "slot": "necklace"
           },
+          "rakers_scorchwraps": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Raker's Scorchwraps",
+            "slot": "hands",
+            "source_hint": "Drop - Scorch Pact Raker"
+          },
           "ranger_hood": {
             "category": "armour",
             "name": "Ranger's Hood",
             "slot": "head"
+          },
+          "record_sealers_mantle": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Record Sealer's Mantle",
+            "slot": "cape",
+            "source_hint": "Shadow Arts - Record Sealer"
           },
           "resonance_crystal": {
             "category": "spirit",
@@ -20460,7 +21476,8 @@
             "category": "weapon",
             "expansion": 1,
             "name": "Rootbound Wand",
-            "slot": "weapon"
+            "slot": "weapon",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "rootfire_alembic": {
             "category": "armour",
@@ -20515,7 +21532,8 @@
             "category": "jewel",
             "expansion": 1,
             "name": "Rootweave Girdle",
-            "slot": "belt"
+            "slot": "belt",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "rootwrit_cincture": {
             "category": "armour",
@@ -20695,6 +21713,13 @@
           "sealed_accord_fragment": {
             "category": "sigil",
             "name": "Sealed Accord Fragment"
+          },
+          "seamreaders_cord": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Seamreader's Cord",
+            "slot": "belt",
+            "source_hint": "Shadow Arts - Seam Assessor"
           },
           "seared_carp": {
             "category": "food",
@@ -20894,6 +21919,13 @@
             "name": "Smelter Core",
             "source_hint": "The Smelter (first clear)"
           },
+          "smelter_wardens_keybelt": {
+            "category": "armour",
+            "expansion": 3,
+            "name": "Smelter Warden's Keybelt",
+            "slot": "belt",
+            "source_hint": "Shadow Arts - Smelter Warden"
+          },
           "smelters_slagthrower": {
             "category": "weapon",
             "expansion": 3,
@@ -21057,6 +22089,13 @@
             "slot": "off_hand",
             "source_hint": "Store - Mastery Relic (Astromancy Lv. 99)"
           },
+          "starcoil_focus": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Starcoil Focus",
+            "slot": "off_hand",
+            "source_hint": "Drop - The Resonance Wraith"
+          },
           "starfall_crystal": {
             "category": "material",
             "expansion": 4,
@@ -21074,6 +22113,13 @@
               "pct": 0.1,
               "type": "xp_bonus_pct_chance"
             }
+          },
+          "starfall_pendant": {
+            "category": "jewel",
+            "expansion": 4,
+            "name": "Starfall Pendant",
+            "slot": "necklace",
+            "source_hint": "Drop - Starfall Elemental"
           },
           "starlight_draft": {
             "category": "consumable",
@@ -21408,6 +22454,13 @@
           "unclassified_matter": {
             "category": "material",
             "name": "Unclassified Matter"
+          },
+          "undertow_signet": {
+            "category": "jewel",
+            "expansion": 2,
+            "name": "Undertow Signet",
+            "slot": "ring",
+            "source_hint": "Drop - Ancient Drowned Guard"
           },
           "unformed_shard": {
             "category": "material",
@@ -21799,7 +22852,8 @@
             "category": "jewel",
             "expansion": 1,
             "name": "Warden's Torc",
-            "slot": "necklace"
+            "slot": "necklace",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "warrior_greaves": {
             "category": "armour",
@@ -21911,7 +22965,8 @@
             "category": "armour",
             "expansion": 1,
             "name": "Whisperbloom Focus",
-            "slot": "off_hand"
+            "slot": "off_hand",
+            "source_hint": "The Grove Covenant - 75 reputation"
           },
           "whisperrend_axe": {
             "category": "weapon",
@@ -21931,6 +22986,13 @@
             "category": "herb",
             "expansion": 1,
             "name": "Whisperwood Crown"
+          },
+          "windrider_grips": {
+            "category": "armour",
+            "expansion": 4,
+            "name": "Windrider Grips",
+            "slot": "hands",
+            "source_hint": "Drop - Sky Stalker"
           },
           "wisp_glazed_carp": {
             "category": "food",
@@ -21977,6 +23039,13 @@
             "expansion": 4,
             "name": "Wraith Core",
             "source_hint": "The Resonance Wraith (first clear)"
+          },
+          "wraithbound_band": {
+            "category": "jewel",
+            "expansion": 4,
+            "name": "Wraithbound Band",
+            "slot": "ring",
+            "source_hint": "Drop - Threshold Wraith"
           },
           "wreckiron_bar": {
             "category": "bar",
@@ -22101,6 +23170,8 @@
           "aethercoil_focus": 50,
           "arcane_robes": 20,
           "astromancers_skyrod": 116,
+          "brinecoil_focus": 108,
+          "cindercoil_focus": 113,
           "coralbound_wand": 106,
           "deepsalt_conduit": 109,
           "hollow_root_conduit": 103,
@@ -22114,6 +23185,7 @@
           "slagstone_rod": 111,
           "spellweaver_leggings": 20,
           "starchart_focus": 50,
+          "starcoil_focus": 118,
           "tidebind_rod": 50,
           "warden_permafrost_focus": 85,
           "whisperbloom_focus": 103,
@@ -22311,6 +23383,7 @@
           "brine_tonic": 260,
           "brinebound_essence": 58,
           "brinebound_rune": 150,
+          "brinecoil_focus": 190000,
           "brinefrond": 88,
           "brineglass_mantle": 5000000,
           "broker_doubloon": 18000,
@@ -22354,15 +23427,19 @@
           "celestial_longarm": 2800000,
           "celestial_ring": 800000,
           "celestial_rounds": 85,
+          "challengers_tally": 86000,
           "charred_leviathan": 75,
           "charred_storm_coast_eel": 74,
           "charwood_log": 50,
           "chef_toque": 1100,
           "chef_trousers": 13500,
           "chroniclers_band": 80000,
+          "cinder_shamans_loop": 86000,
           "cinderbound_essence": 72,
           "cinderbound_rune": 190,
+          "cindercoil_focus": 245000,
           "cipher_fragment": 45,
+          "circuit_witness_girdle": 115000,
           "cloudpine_log": 62,
           "cloudpine_weave": 220,
           "coastal_seal_sample": 0,
@@ -22411,6 +23488,10 @@
           "deeproot_log": 12,
           "deeproot_rampart": 195,
           "deepsalt_conduit": 850000,
+          "deepsalt_cowl": 160000,
+          "deepsalt_leggings": 165000,
+          "deepsalt_treads": 125000,
+          "deepsalt_vestment": 190000,
           "deepseam_probe": 5000000,
           "deepvein_bass": 12,
           "directive_shard": 1400,
@@ -22484,6 +23565,7 @@
           "gleam_thistle": 26,
           "greyfen_supply_manifest": 60000,
           "greyspine_log": 2,
+          "grid_keepers_plumbline": 115000,
           "grove_covenant_potion": 1500,
           "grove_covenant_seal": 0,
           "grove_wardens_gauntlets": 95000,
@@ -22512,6 +23594,7 @@
           "hollow_root_core": 700,
           "hollow_root_glyph": 0,
           "hollow_rune": 2,
+          "hollow_scouts_dustcloak": 86000,
           "hollow_wisp": 5,
           "hollowvein_ore": 2,
           "index_echo": 25000,
@@ -22599,6 +23682,7 @@
           "origin_engine_conduit": 3000000,
           "origin_ore": 140,
           "origin_seal": 0,
+          "origin_sentinels_shroud": 86000,
           "origin_touched_ring": 460000,
           "outer_sea_trout": 110,
           "overseer_shadow_ring": 80000,
@@ -22631,7 +23715,9 @@
           "priest_leggings": 8750,
           "prospector_lens": 3200,
           "quarry_paymaster_chain": 32000,
+          "rakers_scorchwraps": 86000,
           "ranger_hood": 850,
+          "record_sealers_mantle": 115000,
           "resonance_crystal": 25,
           "resonance_eel": 35,
           "resonance_rune": 12,
@@ -22690,6 +23776,7 @@
           "sea_titan_draught": 980,
           "sea_titan_scale": 650,
           "sealed_accord_fragment": 0,
+          "seamreaders_cord": 86000,
           "seared_carp": 8,
           "seared_fracture_pike": 60,
           "seared_salt_carp": 22,
@@ -22724,6 +23811,7 @@
           "slagstone_rod": 2000000,
           "slagstone_slab": 138,
           "smelter_core": 840,
+          "smelter_wardens_keybelt": 86000,
           "smelters_slagthrower": 3100000,
           "smith_helm": 950,
           "smoked_brine_eel": 28,
@@ -22753,8 +23841,10 @@
           "star_seal": 0,
           "star_writ": 1100,
           "starchart_focus": 5000000,
+          "starcoil_focus": 330000,
           "starfall_crystal": 546,
           "starfall_helm": 400000,
+          "starfall_pendant": 115000,
           "starlight_draft": 900,
           "starpetal": 125,
           "starpetal_draught": 1100,
@@ -22810,6 +23900,7 @@
           "traveler_leggings": 9750,
           "tree_amulet": 29500,
           "unclassified_matter": 65,
+          "undertow_signet": 175000,
           "unformed_shard": 42,
           "unwritten_greaves": 270000,
           "unwritten_helm": 240000,
@@ -22898,6 +23989,7 @@
           "whisperrend_axe": 5000000,
           "whisperwood_concentrate": 820,
           "whisperwood_crown": 42,
+          "windrider_grips": 115000,
           "wisp_glazed_carp": 22,
           "wisp_strand": 30,
           "witness_cord": 5000000,
@@ -22907,6 +23999,7 @@
           "woven_robes": 4000,
           "woven_slippers": 26000,
           "wraith_core": 0,
+          "wraithbound_band": 115000,
           "wreckiron_bar": 120,
           "wreckiron_ore": 48,
           "wrecksight_signet": 5000000,
@@ -22985,6 +24078,8 @@
           "fracture_weave",
           "spelstone"
         ],
+        "RELIC_HIT_SCORE_POINTS_PER_PCT": 2.0,
+        "RELIC_MAXHIT_SCORE_POINTS_PER_PCT": 1.5,
         "SET_BONUS_FOUR": 0.08,
         "SET_BONUS_TWO": 0.03,
         "SET_PIECE_STAGE": {
@@ -23866,6 +24961,12 @@
             "mag": 2,
             "str": 1
           },
+          "brinecoil_focus": {
+            "atk": 3,
+            "def": 11,
+            "mag": 13,
+            "str": 0
+          },
           "brineglass_mantle": {
             "atk": 4,
             "def": 10,
@@ -23930,10 +25031,17 @@
             "deadeye": 75
           },
           "celestial_ring": {
-            "atk": 6,
-            "def": 14,
+            "atk": 18,
+            "deadeye": 4,
+            "def": 15,
             "mag": 12,
-            "str": 4
+            "str": 11
+          },
+          "challengers_tally": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
           },
           "chef_toque": {
             "atk": 0,
@@ -23952,6 +25060,24 @@
             "def": 3,
             "mag": 3,
             "str": 3
+          },
+          "cinder_shamans_loop": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
+          },
+          "cindercoil_focus": {
+            "atk": 3,
+            "def": 12,
+            "mag": 14,
+            "str": 0
+          },
+          "circuit_witness_girdle": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
+            "str": 0
           },
           "colossus_war_chain": {
             "atk": 6,
@@ -24008,10 +25134,10 @@
             "str": 1
           },
           "covenant_signet": {
-            "atk": 2,
+            "atk": 15,
             "def": 12,
-            "mag": 3,
-            "str": 1
+            "mag": 9,
+            "str": 8
           },
           "covenant_still_sash": {
             "atk": 0,
@@ -24075,6 +25201,30 @@
             "atk": 0,
             "def": 0,
             "mag": 32,
+            "str": 0
+          },
+          "deepsalt_cowl": {
+            "atk": 0,
+            "def": 50,
+            "mag": 12,
+            "str": 0
+          },
+          "deepsalt_leggings": {
+            "atk": 0,
+            "def": 56,
+            "mag": 14,
+            "str": 0
+          },
+          "deepsalt_treads": {
+            "atk": 0,
+            "def": 42,
+            "mag": 11,
+            "str": 0
+          },
+          "deepsalt_vestment": {
+            "atk": 0,
+            "def": 64,
+            "mag": 17,
             "str": 0
           },
           "deepseam_probe": {
@@ -24255,6 +25405,12 @@
             "mag": 2,
             "str": 0
           },
+          "grid_keepers_plumbline": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
+            "str": 0
+          },
           "grove_wardens_gauntlets": {
             "atk": 0,
             "def": 36,
@@ -24331,6 +25487,12 @@
             "atk": 7,
             "def": 0,
             "mag": 22,
+            "str": 0
+          },
+          "hollow_scouts_dustcloak": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
             "str": 0
           },
           "ironblood_torc": {
@@ -24663,11 +25825,18 @@
             "mag": 40,
             "str": 0
           },
+          "origin_sentinels_shroud": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
+          },
           "origin_touched_ring": {
-            "atk": 5,
-            "def": 11,
+            "atk": 17,
+            "deadeye": 3,
+            "def": 14,
             "mag": 9,
-            "str": 3
+            "str": 10
           },
           "overseer_shadow_ring": {
             "atk": 3,
@@ -24759,11 +25928,23 @@
             "mag": 1,
             "str": 1
           },
+          "rakers_scorchwraps": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
+          },
           "ranger_hood": {
             "atk": 0,
             "def": 2,
             "mag": 1,
             "str": 1
+          },
+          "record_sealers_mantle": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
+            "str": 0
           },
           "resonite_longarm": {
             "deadeye": 44
@@ -24882,6 +26063,12 @@
             "mag": 1,
             "str": 1
           },
+          "seamreaders_cord": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
+          },
           "secret_ring": {
             "atk": 1,
             "def": 1,
@@ -24992,6 +26179,12 @@
             "mag": 32,
             "str": 0
           },
+          "smelter_wardens_keybelt": {
+            "atk": 0,
+            "def": 5,
+            "mag": 0,
+            "str": 0
+          },
           "smelters_slagthrower": {
             "deadeye": 69
           },
@@ -25052,12 +26245,24 @@
             "mag": 8,
             "str": 4
           },
+          "starcoil_focus": {
+            "atk": 4,
+            "def": 13,
+            "mag": 15,
+            "str": 0
+          },
           "starfall_helm": {
             "atk": 22,
             "deadeye": 21,
             "def": 64,
             "mag": -19,
             "str": 25
+          },
+          "starfall_pendant": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
+            "str": 0
           },
           "starwrit_carcanet": {
             "atk": 21,
@@ -25225,6 +26430,12 @@
             "def": 2,
             "mag": 1,
             "str": 1
+          },
+          "undertow_signet": {
+            "atk": 16,
+            "def": 13,
+            "mag": 10,
+            "str": 9
           },
           "unwritten_greaves": {
             "atk": 0,
@@ -25524,8 +26735,8 @@
           },
           "whisperbloom_focus": {
             "atk": 2,
-            "def": 8,
-            "mag": 24,
+            "def": 10,
+            "mag": 12,
             "str": 0
           },
           "whisperrend_axe": {
@@ -25533,6 +26744,12 @@
             "def": 10,
             "mag": 0,
             "str": 17
+          },
+          "windrider_grips": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
+            "str": 0
           },
           "witness_cord": {
             "atk": 0,
@@ -25568,6 +26785,12 @@
             "atk": 0,
             "def": 1,
             "mag": 2,
+            "str": 0
+          },
+          "wraithbound_band": {
+            "atk": 0,
+            "def": 6,
+            "mag": 0,
             "str": 0
           },
           "wrecksight_signet": {
@@ -25872,6 +27095,7 @@
           "ashwrit_pall": 0.11,
           "ashwrit_vambraces": 0.04,
           "astromancers_skyrod": 0.02,
+          "brinecoil_focus": 0.09,
           "brineglass_mantle": 0.11,
           "bulwark_null_seal": 0.1,
           "captains_hat": 0.11,
@@ -25883,6 +27107,10 @@
           "celestial_ring": 0.1,
           "celestial_sabatons": 0.11,
           "celestial_shield": 0.09,
+          "challengers_tally": 0.09,
+          "cinder_shamans_loop": 0.1,
+          "cindercoil_focus": 0.09,
+          "circuit_witness_girdle": 0.09,
           "conclave_sigil": 0.09,
           "conclave_vestments": 0.11,
           "coralbound_wand": 0.02,
@@ -25892,6 +27120,10 @@
           "deep_vein_greaves": 0.11,
           "deepbloom_trowel": 0.02,
           "deepsalt_conduit": 0.09,
+          "deepsalt_cowl": 0.11,
+          "deepsalt_leggings": 0.11,
+          "deepsalt_treads": 0.11,
+          "deepsalt_vestment": 0.11,
           "deepseam_probe": 0.02,
           "drowned_keepers_anchor": 0.02,
           "ember_forged_helm": 0.11,
@@ -25900,6 +27132,7 @@
           "forge_brand_amulet": 0.09,
           "forge_crown": 0.11,
           "forge_scarred_gloves": 0.04,
+          "grid_keepers_plumbline": 0.09,
           "grove_wardens_gauntlets": 0.04,
           "grove_wardens_greaves": 0.11,
           "grove_wardens_hauberk": 0.11,
@@ -25909,6 +27142,7 @@
           "gunners_gloves": 0.04,
           "harbor_boots": 0.11,
           "hollow_root_conduit": 0.02,
+          "hollow_scouts_dustcloak": 0.11,
           "keystone_blade": 0.02,
           "knights_purified_mantle": 0.05,
           "korraths_forge_brand": 0.02,
@@ -25924,9 +27158,12 @@
           "origin_hauberk": 0.11,
           "origin_helm": 0.11,
           "origin_sabatons": 0.11,
+          "origin_sentinels_shroud": 0.11,
           "origin_shield": 0.09,
           "origin_touched_ring": 0.1,
           "pathfinder_seal_ring": 0.09,
+          "rakers_scorchwraps": 0.04,
+          "record_sealers_mantle": 0.11,
           "resonite_longarm": 0.07,
           "rootbound_wand": 0.02,
           "rootfire_crucible": 0.09,
@@ -25945,16 +27182,20 @@
           "scarwrit_girdle": 0.09,
           "scarwrit_mantle": 0.11,
           "scarwrit_torc": 0.09,
+          "seamreaders_cord": 0.09,
           "sky_walk_leggings": 0.11,
           "skywoven_chestplate": 0.11,
           "slag_core_chestplate": 0.11,
           "slagstone_greaves": 0.11,
           "slagstone_lens": 0.09,
           "slagstone_rod": 0.02,
+          "smelter_wardens_keybelt": 0.09,
           "smelters_slagthrower": 0.07,
           "spiritforged_greatblade": 0.02,
           "starchart_focus": 0.09,
+          "starcoil_focus": 0.09,
           "starfall_helm": 0.11,
+          "starfall_pendant": 0.09,
           "starwrit_carcanet": 0.09,
           "starwrit_firmament": 0.11,
           "starwrit_meridian": 0.09,
@@ -25971,6 +27212,7 @@
           "tidewrit_waistguard": 0.09,
           "trade_leggings": 0.11,
           "trailblazer_compass": 0.1,
+          "undertow_signet": 0.1,
           "unwritten_greaves": 0.11,
           "unwritten_helm": 0.11,
           "unwritten_plate": 0.11,
@@ -25994,7 +27236,9 @@
           "watchers_circlet": 0.11,
           "watchers_mark": 0.1,
           "whisperbloom_focus": 0.09,
+          "windrider_grips": 0.04,
           "witness_cord": 0.09,
+          "wraithbound_band": 0.1,
           "wreckiron_blade": 0.02,
           "wreckiron_greaves": 0.11,
           "wreckiron_hauberk": 0.11,
@@ -26007,14 +27251,41 @@
           "aethercoil_focus": {
             "magic": 0.15
           },
+          "brinecoil_focus": {
+            "magic": 0.15
+          },
+          "celestial_ring": {
+            "attack": 0.25,
+            "deadeye": 0.25
+          },
+          "cindercoil_focus": {
+            "magic": 0.15
+          },
+          "covenant_signet": {
+            "attack": 0.25
+          },
           "oathpoint_signet": {
             "attack": 0.25
+          },
+          "origin_touched_ring": {
+            "attack": 0.25,
+            "deadeye": 0.25
           },
           "slagstone_lens": {
             "geomancy": 0.15
           },
           "starchart_focus": {
             "astromancy": 0.15
+          },
+          "starcoil_focus": {
+            "geomancy": 0.15,
+            "magic": 0.15
+          },
+          "undertow_signet": {
+            "attack": 0.25
+          },
+          "whisperbloom_focus": {
+            "magic": 0.15
           },
           "wrecksight_signet": {
             "deadeye": 0.25
@@ -26030,14 +27301,33 @@
           "aethercoil_focus": {
             "magic": 0.04
           },
+          "brinecoil_focus": {
+            "magic": 0.04
+          },
+          "celestial_ring": {
+            "deadeye": 0.04
+          },
+          "cindercoil_focus": {
+            "magic": 0.04
+          },
           "colossus_war_chain": {
             "strength": 0.2
+          },
+          "origin_touched_ring": {
+            "deadeye": 0.04
           },
           "slagstone_lens": {
             "geomancy": 0.04
           },
           "starchart_focus": {
             "astromancy": 0.04
+          },
+          "starcoil_focus": {
+            "geomancy": 0.04,
+            "magic": 0.04
+          },
+          "whisperbloom_focus": {
+            "magic": 0.04
           },
           "wrecksight_signet": {
             "deadeye": 0.04
@@ -26454,11 +27744,23 @@
           "captains_hat": {
             "deadeye": 0.12
           },
+          "challengers_tally": {
+            "attack": 0.08,
+            "strength": 0.08
+          },
           "chef_toque": {
             "cooking": 0.1
           },
           "chef_trousers": {
             "cooking": 0.08
+          },
+          "cinder_shamans_loop": {
+            "defence": 0.08,
+            "magic": 0.08
+          },
+          "circuit_witness_girdle": {
+            "astromancy": 0.06,
+            "lorekeeper": 0.06
           },
           "combat_belt": {
             "attack": 0.08
@@ -26559,6 +27861,9 @@
           },
           "greyfen_supply_manifest": {
             "shadow_arts": 0.05
+          },
+          "grid_keepers_plumbline": {
+            "astromancy": 0.08
           },
           "guardian_belt": {
             "defence": 0.08
@@ -26700,6 +28005,10 @@
             "geomancy": 0.12,
             "magic": 0.08
           },
+          "origin_sentinels_shroud": {
+            "defence": 0.08,
+            "hp": 0.08
+          },
           "pathfinder_belt": {
             "adventurer": 0.11
           },
@@ -26730,8 +28039,15 @@
           "quarry_paymaster_chain": {
             "mining": 0.1
           },
+          "rakers_scorchwraps": {
+            "deadeye": 0.08,
+            "hp": 0.08
+          },
           "ranger_hood": {
             "woodcutting": 0.1
+          },
+          "record_sealers_mantle": {
+            "lorekeeper": 0.08
           },
           "river_belt": {
             "fishing": 0.08
@@ -26747,6 +28063,9 @@
           },
           "scout_helm": {
             "adventurer": 0.1
+          },
+          "seamreaders_cord": {
+            "geomancy": 0.08
           },
           "secret_ring": {
             "shadow_arts": 0.12
@@ -26788,6 +28107,9 @@
           "slagstone_greaves": {
             "geomancy": 0.08
           },
+          "smelter_wardens_keybelt": {
+            "spiritforging": 0.08
+          },
           "smith_helm": {
             "smithing": 0.1
           },
@@ -26805,6 +28127,10 @@
           },
           "spiritthread_leggings": {
             "spiritweaving": 0.08
+          },
+          "starfall_pendant": {
+            "hp": 0.1,
+            "magic": 0.1
           },
           "stealth_sash": {
             "shadow_arts": 0.08
@@ -26924,6 +28250,10 @@
           "weaver_circlet": {
             "spiritweaving": 0.1
           },
+          "windrider_grips": {
+            "deadeye": 0.1,
+            "strength": 0.1
+          },
           "witness_cord": {
             "lorekeeper": 0.25
           },
@@ -26941,6 +28271,10 @@
           },
           "woven_slippers": {
             "spiritweaving": 0.08
+          },
+          "wraithbound_band": {
+            "attack": 0.1,
+            "defence": 0.1
           },
           "wreckwake_band": {
             "ironlock": 0.08
@@ -27918,6 +29252,27 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "New: Drakenhollow and Oraewyn monsters drop gear of their own. Each area has one piece on one monster and nowhere else, at a 0.4% drop: Challenger's Tally (Ashborne Challenger, necklace, Attack and Strength XP +8%), Raker's Scorchwraps (Scorch Pact Raker, gloves, Deadeye and Hitpoints XP +8%), Cinder Shaman's Loop (Scorch Pact Shaman, ring, Magic and Defence XP +8%), Origin Sentinel's Shroud (Origin Sentinel, cape, Defence and Hitpoints XP +8%), Windrider Grips (Sky Stalker, gloves, Strength and Deadeye XP +10%), Starfall Pendant (Starfall Elemental, necklace, Magic and Hitpoints XP +10%) and Wraithbound Band (Threshold Wraith, ring, Attack and Defence XP +10%). Every monster in both expansions also drops a third kind of goods from its own expansion.",
+              "New: Drakenhollow and Oraewyn marks carry gear of their own in Shadow Arts. Each of their six areas has one belt or cape on one mark and nowhere else, at a 0.5% chance: Seamreader's Cord (Seam Assessor, Geomancy XP +8%), Hollow Scout's Dustcloak (Hollow Scout, Hollowing relic find +8%), Smelter Warden's Keybelt (Smelter Warden, Spiritforging XP +8%), Grid Keeper's Plumbline (Grid Keeper, Astromancy XP +8%), Record Sealer's Mantle (Record Sealer, Lorekeeper XP +8%) and Circuit Witness's Girdle (Circuit Witness, Astromancy and Lorekeeper XP +6%). None adds stealth. Every mark in both expansions also gives a third kind of goods. All thirteen new pieces carry the damage reduction of their slot.",
+              "New: The best kit in every expansion is now that expansion's own gear. In Whisperwood the Grove Covenant sells the Grove Warden's pieces and the Rootbound Wand at 75 reputation; they had no source before. Tideward gains the Deepsalt Cowl and Treads from The Drowned Keeper and the Deepsalt Vestment and Leggings from Admiral Vael, caster armour at Defence 108, with the Undertow Signet from the Ancient Drowned Guard and the Brinecoil Focus from the Accord Auditor mark. Drakenhollow gains the Cindercoil Focus from Forge-Warden Korrath and Oraewyn the Starcoil Focus from The Resonance Wraith.",
+              "Changed: Covenant Signet, Undertow Signet, Origin-Touched Ring and Celestial Ring now carry Attack hit chance +25%, and the last two also Deadeye hit chance +25% and max hit +4%, with higher stats at each stage. Whisperbloom Focus is now Magic 12, down from 24, and Defence 10, with Fracture Arts hit chance +15% and max hit +4%; the Brinecoil, Cindercoil and Starcoil Focuses carry the same two lines. These are the same lines the base game relics carry and one slot holds one of them, so nothing stacks.",
+              "Changed: The hands slot is part of the base game. It opened with Whisperwood, so a base game character could forge Scarwrit Grips and not wear them. A base game character now has 11 gear slots and the Scarwrit set reaches 4 pieces and +8% combat damage.",
+              "Changed: The boss dungeon counter is harder to read at a glance. Each numeral sits at its own angle in its own colour, and the mark to tap next is no longer lit. The time to finish it now shortens dungeon by dungeon, from 3.0 seconds in The Hollow Sanctum to 1.8 seconds in The Threshold. What a hit or a miss does, and when the counter comes up, are unchanged.",
+              "Fixed: The Best preset button on a combat preset could freeze the game for several seconds with a large bag, long enough on a phone to bring up the away screen. It now answers at once and picks the same kit as before. A caster wearing plate is now moved out of it by the search.",
+              "Changed: When choosing gear for a slot, a relic's hit chance and max hit now count in the order the pieces are listed, for the style the open preset fights in. The Replace equipment card shows Hit chance and Max hit beside damage reduction.",
+              "Changed: A long offline window of idle boss dungeon runs loads much faster. After 50 clears fought in a row, the rest of the window is settled from those runs' average food, bullets and length. Each of those clears still spends its own tonic and pays its own XP, Mastery Points and loot roll, and a run is fought again whenever food or bullets run low.",
+              "Changed: Two cloud saves of the same character made under 60 minutes apart and within 10 total levels of each other now settle on the newer one without asking. Anything further apart still asks, and a fallen hardcore character is never brought back by an older save.",
+              "New: The vitals strip flashes when HP is low: amber under 50% and a faster red under 25%. The Combat button on the bottom bar pulses red while a Hunt fight, a Culling or a live boss dungeon run is going and you are on another tab. Reduce motion holds both steady.",
+              "Changed: Shadow Arts setup picks a region first, then an area in that region. Regions with no mark open to you are not listed.",
+              "Changed: View on an achievement toast opens Rewards on Ready, where the unlock waits to be collected. The Titles sheet lists a newly earned title first, in amber with a NEW pill.",
+              "Fixed: The Smelter's Slagthrower icon was drawn as a sword and is now a gun. In a gear slot picker, a piece you could not wear yet could push its icon and text off to the right of its cell. The two cards on first launch were a few pixels wider than the screen allowed."
+            ],
+            "title": "Gear of Its Own for Every Expansion, a Sharper Counter, and a Faster Best Preset",
+            "version": "1.6.10",
+            "version_code": 1791745145
+          },
           {
             "changes": [
               "Changed: Hits in a boss dungeon run now read as hits. A damage numeral lands oversized and snaps back to size. A crit is a larger gold numeral with a gold wash over the portrait, the portrait knocked back and a short buzz; a counter gets the same in green. A heavy enemy hit reads HEAVY in a larger numeral with a red wash and the portrait lunging, and a hit that takes a large share of your HP also reddens the whole screen on top of its shake and buzz. Reduce motion keeps the colours and holds the sizes still. No damage number changed.",

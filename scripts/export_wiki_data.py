@@ -10,6 +10,7 @@ from typing import Any, Dict, Iterable, List, Tuple
 ROOT = Path(__file__).resolve().parents[2]
 WIKI_DIR = ROOT / "wiki"
 OUTPUT_PATH = WIKI_DIR / "data" / "wiki-data.json"
+BEST_LOADOUTS_PATH = ROOT / "tools" / "fixtures" / "best_loadouts.json"
 
 SOURCE_FILES = [
     "client/data/ItemData.gd",
@@ -349,6 +350,10 @@ def main() -> None:
         data["sources"][relative_path] = file_payload(relative_path)
     _relocate_monster_defs(data)
     _drop_unbuilt_patch_notes(data)
+    # The Best Loadouts page. tools/best_loadouts.sh rewrites this snapshot
+    # from the live Best gear search; run it before an export if gear changed.
+    if BEST_LOADOUTS_PATH.exists():
+        data["best_loadouts"] = json.loads(BEST_LOADOUTS_PATH.read_text(encoding="utf-8"))
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=True, sort_keys=True), encoding="utf-8")
     print(f"Wrote {OUTPUT_PATH.relative_to(ROOT)}")
