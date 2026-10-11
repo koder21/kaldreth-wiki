@@ -3,6 +3,8 @@ from __future__ import annotations
 import ast
 import json
 import re
+import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
@@ -11,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WIKI_DIR = ROOT / "wiki"
 OUTPUT_PATH = WIKI_DIR / "data" / "wiki-data.json"
 BEST_LOADOUTS_PATH = ROOT / "tools" / "fixtures" / "best_loadouts.json"
+BEST_LOADOUTS_TOOL = ROOT / "tools" / "best_loadouts.sh"
 
 SOURCE_FILES = [
     "client/data/ItemData.gd",
@@ -350,8 +353,21 @@ def main() -> None:
         data["sources"][relative_path] = file_payload(relative_path)
     _relocate_monster_defs(data)
     _drop_unbuilt_patch_notes(data)
-    # The Best Loadouts page. tools/best_loadouts.sh rewrites this snapshot
-    # from the live Best gear search; run it before an export if gear changed.
+    # The Best Loadouts page reads the snapshot tools/best_loadouts.sh writes
+    # from the live Best gear search. The export runs that tool first, so the
+    # page cannot go out with last release's kits. It boots Godot (about a
+    # minute) and refuses while a build, the editor or another probe is up;
+    # a failed run stops the export. --skip-loadouts publishes the snapshot
+    # on disk as it is.
+    if "--skip-loadouts" not in sys.argv[1:]:
+        print("Running tools/best_loadouts.sh for the Best Loadouts page...", flush=True)
+        run = subprocess.run([str(BEST_LOADOUTS_TOOL)], stdout=subprocess.DEVNULL)
+        if run.returncode != 0:
+            sys.exit(
+                "tools/best_loadouts.sh failed (exit %d), so nothing was exported. "
+                "Fix it and run again, or pass --skip-loadouts to export with the "
+                "snapshot already on disk." % run.returncode
+            )
     if BEST_LOADOUTS_PATH.exists():
         data["best_loadouts"] = json.loads(BEST_LOADOUTS_PATH.read_text(encoding="utf-8"))
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)

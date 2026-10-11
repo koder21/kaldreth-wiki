@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-10-11T19:07:03.527689+00:00",
+  "generated_at": "2026-10-11T19:08:41.729528+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
