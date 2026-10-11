@@ -5703,6 +5703,182 @@ function buildMechanicEntries(
     `,
   });
 
+  // -- Combat formulas ---------------------------------------------
+  // Hit chance, max hit and damage per second for the three style families.
+  // Every dial is read from GameState's consts, so a parity retune shows up
+  // here on the next export. The two literals (0.35 per level, 0.60 per
+  // point of deadeye gear) are written inline in GameState, not as consts.
+  const atkWeight = Number(gs.MELEE_ATK_ACCURACY_WEIGHT || 1);
+  const rangedGearWeight = Number(gs.RANGED_GEAR_ACCURACY_WEIGHT || 0);
+  const strCoef = Number(gs.MELEE_STR_MAXHIT_COEF || 0);
+  const magCoef = Number(gs.SPELL_MAG_MAXHIT_COEF || 0);
+  const minHitDivisor = Number(gs.SPELL_MIN_HIT_DIVISOR || 1);
+  const weakMult = Number(gs.WEAKNESS_DAMAGE_MULT || 1);
+  const siblingMult = Number(gs.WEAKNESS_SIBLING_MULT || 1);
+  const tickSeconds = Number(gs.COMBAT_TICK_SECONDS || 1.2);
+  const rangedStyles = gs.RANGED_STYLE_PROFILES || {};
+  const signedPct = (value) =>
+    Number(value || 0) === 0
+      ? "none"
+      : `${Number(value) > 0 ? "+" : "-"}${pct(Math.abs(Number(value)))}`;
+  const rangedStyleRows = ["aimed", "power", "rapid"]
+    .filter((styleId) => rangedStyles[styleId])
+    .map((styleId) => {
+      const row = rangedStyles[styleId];
+      return [
+        capitalize(styleId),
+        signedPct(row.accuracy),
+        `x${formatDecimal(Number(row.power || 1))}`,
+        formatDecimal(Number(row.shots || 1)),
+      ];
+    });
+  const rollChance = (att, def) =>
+    Math.min(
+      0.95,
+      Math.max(
+        0.05,
+        att > def ? 1 - (def + 2) / (2 * (att + 1)) : att / (2 * (def + 1)),
+      ),
+    );
+  const enemyRoll = (level) => Math.max(1, Math.floor(((level + 8) * (64 + level)) / 64));
+  const sampleRows = [
+    [60, 30, 40],
+    [99, 80, 85],
+    [110, 120, 130],
+    [120, 160, 180],
+  ].map(([level, gear, enemyDef]) => {
+    const roll = Math.max(1, Math.floor(((level + 8) * (64 + gear * atkWeight)) / 64));
+    return [
+      num(level),
+      num(gear),
+      num(enemyDef),
+      num(roll),
+      num(enemyRoll(enemyDef)),
+      pct(rollChance(roll, enemyRoll(enemyDef))),
+    ];
+  });
+
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
+    id: "combat-formulas",
+    name: "Combat Formulas",
+    title: "Combat Formulas: Hit Chance, Max Hit & DPS",
+    subtitle: "How melee, Fracture Arts and Deadeye roll to hit and for how much",
+    badges: ["combat", "formula", "melee", "magic", "deadeye"],
+    searchText:
+      "combat formulas accuracy hit chance attack roll defence roll max hit min hit damage dps damage per second melee magic fracture arts geomancy astromancy deadeye ranged bullet aimed power rapid weakness atk str mag gear relic style bonus enemy hit",
+    sortKey: "mechanics combat formulas",
+    spoiler: false,
+    metrics: [
+      { label: "Combat tick", value: `${formatDecimal(tickSeconds)}s` },
+      { label: "Hit chance floor", value: "5%" },
+      { label: "Weak-style damage", value: `x${formatDecimal(weakMult)}` },
+    ],
+    body: `
+      ${renderDetailBlock("Hit chance: one formula for everything", [
+        "Every attack compares an attack roll with a defence roll. Yours against the enemy, and the enemy's against you, use the same two lines.",
+        "If the attack roll is higher: hit chance = 1 - (defence roll + 2) / (2 x (attack roll + 1)).",
+        "Otherwise: hit chance = attack roll / (2 x (defence roll + 1)).",
+        "The result is held between 5% and 95%. Flat bonuses (relics, spell accuracy, Deadeye style) are added after this.",
+        "Enemy defence roll = (defence + 8) x (64 + defence) / 64. The enemy's level counts twice, so each point of enemy defence costs more hit chance than the last.",
+      ])}
+      ${renderSimpleTable(
+        "Your hit chance by style",
+        ["Style", "Attack roll", "Rolls against", "Added after the roll", "Cap"],
+        [
+          [
+            "Melee",
+            `(Attack level + style bonus + 8) x (64 + ${formatDecimal(atkWeight)} x ATK gear) / 64`,
+            "Enemy melee defence",
+            "Attack relic hit chance, in the Attack style only",
+            "99%",
+          ],
+          [
+            "Fracture Arts, Geomancy, Astromancy",
+            "(school level + 8) x (64 + MAG gear) / 64",
+            "Enemy magic defence, less any defence the spell ignores",
+            "That school's relic hit chance, plus the spell's own accuracy",
+            "99%",
+          ],
+          [
+            "Deadeye",
+            `(Deadeye level + 8) x (64 + bullet accuracy + ${formatDecimal(rangedGearWeight)} x DEADEYE gear) / 64`,
+            "Enemy melee defence",
+            "Deadeye relic hit chance, plus the style's accuracy",
+            "95%",
+          ],
+        ],
+      )}
+      ${renderDetailBlock("Reading the table", [
+        "Melee style bonus: +3 Attack levels in the Attack style, +1 in Balanced, none in Strength or Defence.",
+        "Melee and spells only pass 95% through the flat bonuses in the fourth column. Deadeye stops at 95% whatever is added.",
+        "Deadeye has no enemy defence of its own. It rolls against melee defence, so an enemy that shrugs off swords shrugs off bullets too.",
+        "A Stone defence debuff from Geomancy lowers the enemy's defence level for all three styles while it lasts.",
+        `Echomind's Read adds ${pct(gs.ECHOMIND_READ_HIT)} hit chance against an enemy type you have recognised.`,
+        "Inside boss dungeons your attacks always land. Hit chance matters in overworld fights and the Culling.",
+      ])}
+      ${renderSimpleTable(
+        "Worked examples: melee, Attack style left out",
+        ["Attack level", "ATK gear", "Enemy defence", "Your roll", "Enemy roll", "Hit chance"],
+        sampleRows,
+        { open: false },
+      )}
+      ${renderSimpleTable(
+        "Max hit by style",
+        ["Style", "Base max hit", "Then multiplied by"],
+        [
+          [
+            "Melee",
+            `1 + 0.35 x (Strength level + style bonus) + ${formatDecimal(strCoef)} x STR gear, rounded down`,
+            "Strength relic max hit (Strength style only), then your combat damage bonus",
+          ],
+          [
+            "Fracture Arts, Geomancy, Astromancy",
+            `1 + ${formatDecimal(magCoef)} x (school level + MAG gear), rounded down, at least 2`,
+            "Spell power, combat damage bonus, the school's relic max hit, then the school's skill tree damage",
+          ],
+          [
+            "Deadeye",
+            "1 + 0.35 x Deadeye level + 0.60 x DEADEYE gear, rounded down",
+            "Style power, Deadeye relic max hit, then your combat damage bonus",
+          ],
+        ],
+      )}
+      ${renderDetailBlock("Damage rolls", [
+        "Melee style bonus for max hit: +3 Strength levels in the Strength style, +1 in Balanced.",
+        "A landed melee swing or bullet rolls evenly from 1 to max hit, so it averages (1 + max hit) / 2.",
+        `A landed spell rolls evenly from min hit to max hit. Min hit is max hit / ${formatDecimal(minHitDivisor)}, rounded down, so spells average about ${pct((1 + 1 / minHitDivisor) / 2)} of their max where melee and Deadeye average about half.`,
+        "A spell that strikes several times splits its damage evenly across the strikes and rolls to hit for each one.",
+        "MAG gear does double duty: it raises both the spell attack roll and spell max hit. Melee splits those jobs between ATK and STR gear, and Deadeye puts both on DEADEYE gear plus the bullet.",
+      ])}
+      ${renderSimpleTable(
+        "Deadeye styles",
+        ["Style", "Hit chance", "Max hit", "Shots per tick"],
+        rangedStyleRows,
+      )}
+      ${renderDetailBlock("Weakness", [
+        `Hitting an enemy with the style family it is weak to multiplies each hit by ${formatDecimal(weakMult)}.`,
+        `Melee and Deadeye are both physical. Against an enemy weak to one of them, the other deals x${formatDecimal(siblingMult)}. Magic has no partner.`,
+        `Echomind 99 adds a further ${pct(gs.ECHOMIND_MATCH_DAMAGE)} damage on the weak family and cuts the damage you take by ${pct(gs.ECHOMIND_MATCH_TAKEN)} while you fight in it.`,
+        "Damage over time and triggered effects do not gain the weakness multiplier.",
+      ])}
+      ${renderDetailBlock("Damage per second", [
+        `Combat resolves one tick every ${formatDecimal(tickSeconds)} seconds. You attack once per tick, or the style's shots per tick with Deadeye.`,
+        "Damage per tick = attacks per tick x hit chance x average hit x weakness multiplier.",
+        `Damage per second = damage per tick / ${formatDecimal(tickSeconds)}.`,
+        `Kills per hour run a little under what that suggests: damage past an enemy's last hit point is lost, and the next enemy takes ${num(gs.ECHOMIND_DEFAULT_RESPAWN_TICKS)} ticks to arrive (${num(gs.ECHOMIND_CADENCE_RESPAWN_TICKS)} once Echomind's Cadence applies).`,
+      ])}
+      ${renderDetailBlock("What the enemy does to you", [
+        "Enemy attack roll = (attack + 8) x (64 + attack) / 64.",
+        "Your defence roll = (Defence level + style bonus + 8) x (64 + DEF gear) / 64. The Defence style gives +3 levels, Balanced +1. Defence potions multiply the finished roll.",
+        "The enemy's hit chance comes from the same formula at the top of this page, 5% to 95%.",
+        "A landed enemy hit rolls evenly from 1 to its max hit, which is its attack x 0.85, rounded.",
+        "Damage reduction is then taken off the hit. See the Damage Reduction page.",
+      ])}
+    `,
+  });
+
   // -- Damage reduction --------------------------------------------
   // Gear DR, the Scar-Ward Draught, and the defence-penetrating attacks that
   // read them. The DR table is keyed by item id in ItemData, so this stays
