@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-10-11T19:08:41.729528+00:00",
+  "generated_at": "2026-10-12T16:39:56.797817+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -1737,6 +1737,8 @@
         "SHADOW_WARY_COST_PER_STEALTH": 0.01,
         "SHADOW_WARY_EPSILON": 0.0001,
         "SHADOW_WARY_SEEN_KEY": "waryRuleSeen",
+        "SINK_BOUNTY_MAX_HELD": 2,
+        "SINK_BOUNTY_REFUND_GOLD": 1500000,
         "SINK_EXPIRED_KEEP_SECONDS": 172800,
         "SMITHING_AFFINITY_EFFICIENCY_MAX": 0.15,
         "SMITHING_AFFINITY_EFFICIENCY_PER_LEVEL": 0.003,
@@ -16632,6 +16634,17 @@
                   "weakness": "magic"
                 },
                 {
+                  "damage_per_tick": 85,
+                  "defense_bonus": -0.06,
+                  "desc": "Something inside it catches and starts to cycle. The Root flinches around the sound, and the flinch is what hits you.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Machine Turns",
+                  "style": "balanced",
+                  "trigger_pct": 0.75,
+                  "weakness": "melee"
+                },
+                {
                   "damage_per_tick": 112,
                   "defense_bonus": -0.12,
                   "desc": "The machinery inside it speeds up and it stops absorbing damage quietly.",
@@ -16639,8 +16652,19 @@
                   "immune_to": [],
                   "name": "Lashing Out",
                   "style": "balanced",
-                  "trigger_pct": 0.65,
+                  "trigger_pct": 0.58,
                   "weakness": "ranged"
+                },
+                {
+                  "damage_per_tick": 125,
+                  "defense_bonus": -0.16,
+                  "desc": "It pulls its own anchors out of the chamber wall to get away from what is in it. There is nowhere for it to go.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Roots Torn Free",
+                  "style": "balanced",
+                  "trigger_pct": 0.43,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 150,
@@ -16775,6 +16799,39 @@
                   "weakness": "magic"
                 },
                 {
+                  "damage_per_tick": 118,
+                  "defense_bonus": -0.04,
+                  "desc": "Vaethos gets one breath of his own and spends it on an apology. The override answers by driving him harder.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "He Surfaces",
+                  "style": "balanced",
+                  "trigger_pct": 0.78,
+                  "weakness": "melee"
+                },
+                {
+                  "damage_per_tick": 145,
+                  "defense_bonus": -0.1,
+                  "desc": "The process closes the gaps he was speaking through. His stance changes to one he never trained.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Override Tightens",
+                  "style": "magic",
+                  "trigger_pct": 0.62,
+                  "weakness": "magic"
+                },
+                {
+                  "damage_per_tick": 165,
+                  "defense_bonus": -0.15,
+                  "desc": "He comes up once more, quieter. He tells you where it will strike next, and it strikes there anyway.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Second Apology",
+                  "style": "balanced",
+                  "trigger_pct": 0.46,
+                  "weakness": "melee"
+                },
+                {
                   "damage_per_tick": 175,
                   "defense_bonus": -0.2,
                   "desc": "Vaethos stops surfacing. What is left moves faster than he ever did.",
@@ -16782,7 +16839,7 @@
                   "immune_to": [],
                   "name": "Overwhelmed",
                   "style": "magic",
-                  "trigger_pct": 0.5,
+                  "trigger_pct": 0.3,
                   "weakness": "ranged"
                 }
               ],
@@ -16914,6 +16971,17 @@
                   "weakness": "magic"
                 },
                 {
+                  "damage_per_tick": 108,
+                  "defense_bonus": 0.08,
+                  "desc": "It closes the bulkheads on the navigation records before it turns back to you. The archive comes first. You are second on a short list.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Records Sealed",
+                  "style": "balanced",
+                  "trigger_pct": 0.72,
+                  "weakness": "ranged"
+                },
+                {
                   "damage_per_tick": 165,
                   "defense_bonus": -0.1,
                   "desc": "The outer casing gives way and the internal configuration speeds up to compensate. DEF drops, ATK rises.",
@@ -16921,8 +16989,19 @@
                   "immune_to": [],
                   "name": "Casing Damaged",
                   "style": "balanced",
-                  "trigger_pct": 0.6,
+                  "trigger_pct": 0.57,
                   "weakness": "melee"
+                },
+                {
+                  "damage_per_tick": 175,
+                  "defense_bonus": -0.12,
+                  "desc": "It opens the lower sluices and lets the chamber fill. It was built to work underwater. You were not.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Flood Protocol",
+                  "style": "magic",
+                  "trigger_pct": 0.39,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 230,
@@ -17063,6 +17142,28 @@
                   "weakness": "melee"
                 },
                 {
+                  "damage_per_tick": 150,
+                  "defense_bonus": -0.05,
+                  "desc": "He gives ground on purpose and makes you cross the room to reach him. He has read courses for twenty years and yours is not a hard one.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Navigator",
+                  "style": "balanced",
+                  "trigger_pct": 0.72,
+                  "weakness": "magic"
+                },
+                {
+                  "damage_per_tick": 180,
+                  "defense_bonus": -0.1,
+                  "desc": "He lowers his arm for one beat. Whatever he was weighing, he finishes weighing it. The arm comes back up.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Decision",
+                  "style": "balanced",
+                  "trigger_pct": 0.5,
+                  "weakness": "melee"
+                },
+                {
                   "damage_per_tick": 220,
                   "defense_bonus": -0.15,
                   "desc": "The fastest and most aggressive the expansion gets. He is not holding anything back.",
@@ -17070,7 +17171,7 @@
                   "immune_to": [],
                   "name": "Alone",
                   "style": "balanced",
-                  "trigger_pct": 0.45,
+                  "trigger_pct": 0.3,
                   "weakness": "ranged"
                 }
               ],
@@ -17210,6 +17311,17 @@
                   "weakness": "melee"
                 },
                 {
+                  "damage_per_tick": 128,
+                  "defense_bonus": 0.05,
+                  "desc": "Diagnostics complete. The anomaly has been classified, and the classification has no appeals process.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Threat Confirmed",
+                  "style": "balanced",
+                  "trigger_pct": 0.85,
+                  "weakness": "ranged"
+                },
+                {
                   "damage_per_tick": 160,
                   "defense_bonus": -0.05,
                   "desc": "Combat protocols fully active. Every physical contact meets a ward it has been maintaining since before the Caverns had a name.",
@@ -17220,7 +17332,7 @@
                   ],
                   "name": "Awakened",
                   "style": "balanced",
-                  "trigger_pct": 0.8,
+                  "trigger_pct": 0.7,
                   "weakness": "magic"
                 },
                 {
@@ -17234,8 +17346,19 @@
                   ],
                   "name": "Critical Repair",
                   "style": "magic",
-                  "trigger_pct": 0.5,
+                  "trigger_pct": 0.52,
                   "weakness": "melee"
+                },
+                {
+                  "damage_per_tick": 210,
+                  "defense_bonus": -0.18,
+                  "desc": "The repair has failed, so it dumps the fouled conduits across the chamber floor. The ward is down while it does. So is most of the floor.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Slag Purge",
+                  "style": "balanced",
+                  "trigger_pct": 0.38,
+                  "weakness": "magic"
                 },
                 {
                   "damage_per_tick": 240,
@@ -17360,6 +17483,42 @@
                   "weakness": "melee"
                 },
                 {
+                  "damage_per_tick": 180,
+                  "defense_bonus": -0.05,
+                  "desc": "He makes his case again between blows, in the same order he made it the first time. He would still prefer you agreed.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Argument",
+                  "style": "balanced",
+                  "trigger_pct": 0.78,
+                  "weakness": "ranged"
+                },
+                {
+                  "damage_per_tick": 215,
+                  "defense_bonus": -0.12,
+                  "desc": "The brand comes off his back already burning. He has stopped talking.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Forge-Brand Lit",
+                  "style": "balanced",
+                  "trigger_pct": 0.6,
+                  "weakness": "melee"
+                },
+                {
+                  "damage_per_tick": 245,
+                  "defense_bonus": -0.18,
+                  "desc": "The relay begins to draw. He did not want to use it this early, and he is using it.",
+                  "immune_hint": "The relay on his chest has started drawing from the Origin Engine, and the field around him is already turning strikes and shots aside. It is not at full draw yet. Shaping-will still passes through it.",
+                  "immune_to": [
+                    "melee",
+                    "ranged"
+                  ],
+                  "name": "The Relay Wakes",
+                  "style": "balanced",
+                  "trigger_pct": 0.45,
+                  "weakness": "magic"
+                },
+                {
                   "damage_per_tick": 255,
                   "defense_bonus": -0.2,
                   "desc": "The relay activates. He channels the Origin Engine signal through it now, and physical force slides off him. The fastest this expansion gets. He is not doing this to survive.",
@@ -17370,7 +17529,7 @@
                   ],
                   "name": "The Ashborn King",
                   "style": "balanced",
-                  "trigger_pct": 0.55,
+                  "trigger_pct": 0.3,
                   "weakness": "magic"
                 }
               ],
@@ -17550,6 +17709,28 @@
                   "weakness": "melee"
                 },
                 {
+                  "damage_per_tick": 195,
+                  "defense_bonus": 0.0,
+                  "desc": "It stops measuring the approach and starts measuring you. The housing opens to take the reading, and for as long as it is open there is something to aim at.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Reassessment",
+                  "style": "balanced",
+                  "trigger_pct": 0.76,
+                  "weakness": "ranged"
+                },
+                {
+                  "damage_per_tick": 250,
+                  "defense_bonus": -0.12,
+                  "desc": "The gate behind it drops and seals. With nothing left to guard, it comes forward off the line and into reach for the first time in its service.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "Lockdown",
+                  "style": "balanced",
+                  "trigger_pct": 0.55,
+                  "weakness": "melee"
+                },
+                {
                   "damage_per_tick": 265,
                   "defense_bonus": -0.15,
                   "desc": "The assessment is complete. The ward activates on the same cycle it has run for centuries. Physical force meets it and goes no further.",
@@ -17560,7 +17741,7 @@
                   ],
                   "name": "Denied",
                   "style": "balanced",
-                  "trigger_pct": 0.55,
+                  "trigger_pct": 0.3,
                   "weakness": "magic"
                 }
               ],
@@ -17660,6 +17841,17 @@
                   "weakness": "melee"
                 },
                 {
+                  "damage_per_tick": 175,
+                  "defense_bonus": 0.0,
+                  "desc": "He names what disclosure cost the last time it was tried, one entry at a time. Each entry arrives with a strike behind it.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Record Cited",
+                  "style": "balanced",
+                  "trigger_pct": 0.78,
+                  "weakness": "magic"
+                },
+                {
                   "damage_per_tick": 220,
                   "defense_bonus": -0.1,
                   "desc": "The ward goes up and the assessment ends. He has nothing left to negotiate and he is fighting to hold the outcome.",
@@ -17670,8 +17862,19 @@
                   ],
                   "name": "The Verdict",
                   "style": "magic",
-                  "trigger_pct": 0.68,
+                  "trigger_pct": 0.64,
                   "weakness": "ranged"
+                },
+                {
+                  "damage_per_tick": 235,
+                  "defense_bonus": -0.12,
+                  "desc": "The ward was built to end this quickly and it has not. It flickers where he is tired, and he steps in close to cover the gaps himself.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Ward Strains",
+                  "style": "balanced",
+                  "trigger_pct": 0.48,
+                  "weakness": "melee"
                 },
                 {
                   "damage_per_tick": 280,
@@ -17791,6 +17994,17 @@
                   "weakness": "magic"
                 },
                 {
+                  "damage_per_tick": 170,
+                  "defense_bonus": 0.04,
+                  "desc": "More of it arrives than the chamber has room for. There is enough of it here now to be struck.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Gathering",
+                  "style": "balanced",
+                  "trigger_pct": 0.82,
+                  "weakness": "melee"
+                },
+                {
                   "damage_per_tick": 225,
                   "defense_bonus": 0.0,
                   "desc": "Full manifestation. The accumulated weight arrives and it is not selective.",
@@ -17800,7 +18014,7 @@
                   ],
                   "name": "The Resonance",
                   "style": "balanced",
-                  "trigger_pct": 0.77,
+                  "trigger_pct": 0.69,
                   "weakness": "ranged"
                 },
                 {
@@ -17811,8 +18025,19 @@
                   "immune_to": [],
                   "name": "The Fracture",
                   "style": "balanced",
-                  "trigger_pct": 0.48,
+                  "trigger_pct": 0.53,
                   "weakness": "magic"
+                },
+                {
+                  "damage_per_tick": 255,
+                  "defense_bonus": -0.1,
+                  "desc": "Single activations surface out of the mass, each one a crossing nobody answered for. They do not last. Each one that surfaces is a place to aim.",
+                  "immune_hint": "",
+                  "immune_to": [],
+                  "name": "The Unclaimed",
+                  "style": "balanced",
+                  "trigger_pct": 0.39,
+                  "weakness": "ranged"
                 },
                 {
                   "damage_per_tick": 295,
@@ -17822,7 +18047,7 @@
                   "immune_to": [],
                   "name": "The Wraith",
                   "style": "balanced",
-                  "trigger_pct": 0.23,
+                  "trigger_pct": 0.25,
                   "weakness": "melee"
                 }
               ],
@@ -17948,6 +18173,33 @@
               "revisit_log": "The choice is already in the record. The Threshold has nothing left to ask of you."
             },
             "color": "#dbd6b2",
+            "ending": {
+              "pages": [
+                "The resonance that has waited here since the Fracture opened lets go.\n\nNo light marks it, and no sound. The pressure you have carried since the day you crossed is simply absent, the way a noise is absent once you notice it has stopped.\n\nYou came through a door in the sky without knowing why. You know why now. The Fracture has nothing left to ask of you, and for the first time since you arrived, neither does anyone else.\n\nThe account of the Fracture ends here.",
+                {
+                  "center": true,
+                  "text": "Congratulations.\n\nYou have finished Kaldreth.\n\nFrom your first day in Aetheria to the last door in Oraewyn, you walked all of it. The Fracture is closed, and you are the one who closed it.",
+                  "title": "THE END"
+                },
+                {
+                  "center": true,
+                  "text": "KALDRETH\n\nCreated by\nKoder\n\nThank you for playing.",
+                  "title": "Credits"
+                },
+                {
+                  "text": "The story is finished. The world is not.\n\nTRANSCENDENCE\nAny skill at level 99 or higher can be condensed back to level 1 for a Transcendence Point. Each point is a permanent bonus, and a skill can be condensed again every time it climbs back. It needs The First Key from the Architect Vaults. While you hold it, the Transcend button sits at the top of the Skills page.\n\nTHE COMPENDIUM\nSkills, achievements, items, quests, titles and the Bestiary are all counted in Journal > Compendium. Taking that page to 100% is the end game.\n\nYou can read this ending again from the Threshold at any time.",
+                  "title": "What Remains"
+                }
+              ],
+              "path_pages": {
+                "q22_path_federator": "You open the record.\n\nNothing in the chamber marks it. The Architect notation resolves into plain language and stays that way, readable by anyone who comes after you. There will be copies in every hall before long, and arguments about them in every hall that has a door.\n\nLira reads the first page over your shoulder. She does not say whether she would have done the same.",
+                "q23_path_shadow_hand": "You hold the record.\n\nThe notation folds shut and the chamber lets it. Nothing leaves this room that did not come in with you. What Earth was, and why you were sent, stays with the few who already know, and you are now the one who decides how many that is.\n\nVorath waits at the door. He does not ask what you read.",
+                "q24_path_sovereign": "You claim the record.\n\nThe notation settles around your name and stays there. The crossing was authorized, the record says by whom, and from here that authority has one living holder. The halls will want to see it. You will decide how much of it they are shown.\n\nLira writes down the hour. She does not write down what she thinks of it."
+              },
+              "replay_label": "Read the Ending",
+              "revisit_note": "The story is finished. What is left is yours: transcend your skills, and take the Compendium to 100%.",
+              "title": "The Record Closes"
+            },
             "expansion": 4,
             "id": "the_threshold",
             "key_art": "res://assets/images/dungeon_the_threshold.png",
@@ -17985,9 +18237,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.10",
-        "BUILD_FINGERPRINT": "1.6.10 (1791745145)",
-        "VERSION_CODE": 1791745145
+        "APP_VERSION": "1.6.11",
+        "BUILD_FINGERPRINT": "1.6.11 (1791822873)",
+        "VERSION_CODE": 1791822873
       },
       "specials": {}
     },
@@ -18197,9 +18449,6 @@
         "CHECKPOINT_KILL_EQUIV": 3,
         "DIVERSITY_PCT_PER_REGION": 0.03,
         "DIVERSITY_REGION_CAP": 8,
-        "ELITE_CHANCE": 0.03,
-        "ELITE_GOLD_MULT": 2.0,
-        "ELITE_STAT_MULT": 1.75,
         "KILL_MILESTONES": [
           {
             "gold": 1000,
@@ -29254,6 +29503,26 @@
         "RELEASES": [
           {
             "changes": [
+              "Changed: Hunt and the Culling are one mode. The Combat tab is Hunt and Dungeons. Tap a monster in the list to mark it, and tap it again to unmark it. One mark is a plain hunt; two or more is a cull, with the region bonus and the results screen it always had. Each open region has All and None, and Mark all and Clear head the list. The Attack 10 gate for a cull, the food a cull needs and every reward are unchanged, and a saved cull list opens as your marks.",
+              "Changed: Elites are gone from the cull. Every monster on your list now comes up as itself, and Check Safety tests each one as it is. Bounty Posting, which only raised the elite chance, has left the Caelmora Exchange. Any you held, or had spent on a cull still running, is paid back at 1,500,000 gold each.",
+              "Changed: Hunt opens on the monster list. Only the monster marked last shows its full card; every other open monster is a two-line row with its level, HP, loot count, any contract and the safety verdict. Region headers are banners with the zone's art, the level span, how many monsters are fully looted and whether a contract is there. The marked target and Fight sit in a dock under the list, and the safety verdict there opens the full report. The header card, the Details button and the You and enemy cards are gone from this page.",
+              "New: Filter chips on the Hunt list: Safe, Contract, Loot left and Weak to me. A row above the list offers contract targets and the monsters fought this session, one tap each.",
+              "New: Every monster that drops something shows its loot count, such as Loot 2/5, and Loot \u2713 once its table is found. Tapping it on the full card opens a list of the gold range and each drop with its chance; a drop not found yet reads ???. The fight view shows Loot \u2713 too, and it turns on mid-fight when the last missing drop lands.",
+              "Changed: One fight screen for a hunt and a cull. A hunt now has zone art behind it, a screen shake on a heavy hit, the amber and red low HP vignette and the floating damage numbers from boss dungeons. Spiritbond and the skill pages get the floating numbers too. Reduce motion holds the shake still.",
+              "Fixed: The Loadout tray unfolded over a Hunt fight could push Flee off the screen. Presets, Best preset, Food, Auto-Eat, Combat Style, Spell and Bullet now sit under a Loadout header on Hunt's setup, folded to one line, and are off the screen while a fight runs.",
+              "Changed: Every expansion boss fight has 4 to 6 phases, with 20 new phases in all: The Hollow Root 5, The Grove's Warden 5, The Drowned Keeper 5, Admiral Vael 4, The Smelter 6, Forge-Warden Korrath 5, The Gate Warden 4, First Watcher Aelun 5 and The Resonance Wraith 6. The last phase, the one with the counter, is 25 to 30% of the bar on every one of them. No boss gained an immunity a kit did not already have to cover, and health, rewards and gates are unchanged.",
+              "New: The Threshold ends on screen. Once your choice is recorded the ending opens: the page for the path you chose, THE END, the credits, and What Remains, which points at Transcendence and a full Compendium. A Read the Ending button sits beside Leave Dungeon on every later visit. A character who chose before this update sees the ending once on the next visit.",
+              "Changed: Memory Fragments has one board for each expansion you own, and the base game is two boards: Aetheria for the main story, the four base dungeons and Frostmere, and Aftermath for the three paths of the Aftermath arc. Labels no longer sit on other labels, nodes or lines. The count in the header is unchanged.",
+              "New: Cooking and Fishing say what a food heals. A Cooking recipe shows a green pill such as +155 HP, and a Fishing spot shows the heal of that fish's plainest dish.",
+              "Changed: The shard button at the top of Dungeons is now a store icon beside the trophy. It opens the Chronicler as before, and the dungeon list starts higher on the screen.",
+              "Fixed: A pixel or two of the page showed down the sides and under the bottom bar, and a pale line ran across the screen above the session drawer. The bar now reaches the screen edges and the line is gone. On the vitals strip the HP numbers no longer crowd the fold arrow when the row is full."
+            ],
+            "title": "One Hunt, Longer Boss Fights, and an Ending for The Threshold",
+            "version": "1.6.11",
+            "version_code": 1791822873
+          },
+          {
+            "changes": [
               "New: Drakenhollow and Oraewyn monsters drop gear of their own. Each area has one piece on one monster and nowhere else, at a 0.4% drop: Challenger's Tally (Ashborne Challenger, necklace, Attack and Strength XP +8%), Raker's Scorchwraps (Scorch Pact Raker, gloves, Deadeye and Hitpoints XP +8%), Cinder Shaman's Loop (Scorch Pact Shaman, ring, Magic and Defence XP +8%), Origin Sentinel's Shroud (Origin Sentinel, cape, Defence and Hitpoints XP +8%), Windrider Grips (Sky Stalker, gloves, Strength and Deadeye XP +10%), Starfall Pendant (Starfall Elemental, necklace, Magic and Hitpoints XP +10%) and Wraithbound Band (Threshold Wraith, ring, Attack and Defence XP +10%). Every monster in both expansions also drops a third kind of goods from its own expansion.",
               "New: Drakenhollow and Oraewyn marks carry gear of their own in Shadow Arts. Each of their six areas has one belt or cape on one mark and nowhere else, at a 0.5% chance: Seamreader's Cord (Seam Assessor, Geomancy XP +8%), Hollow Scout's Dustcloak (Hollow Scout, Hollowing relic find +8%), Smelter Warden's Keybelt (Smelter Warden, Spiritforging XP +8%), Grid Keeper's Plumbline (Grid Keeper, Astromancy XP +8%), Record Sealer's Mantle (Record Sealer, Lorekeeper XP +8%) and Circuit Witness's Girdle (Circuit Witness, Astromancy and Lorekeeper XP +6%). None adds stealth. Every mark in both expansions also gives a third kind of goods. All thirteen new pieces carry the damage reduction of their slot.",
               "New: The best kit in every expansion is now that expansion's own gear. In Whisperwood the Grove Covenant sells the Grove Warden's pieces and the Rootbound Wand at 75 reputation; they had no source before. Tideward gains the Deepsalt Cowl and Treads from The Drowned Keeper and the Deepsalt Vestment and Leggings from Admiral Vael, caster armour at Defence 108, with the Undertow Signet from the Ancient Drowned Guard and the Brinecoil Focus from the Accord Auditor mark. Drakenhollow gains the Cindercoil Focus from Forge-Warden Korrath and Oraewyn the Starcoil Focus from The Resonance Wraith.",
@@ -35084,16 +35353,6 @@
             "name": "Whetting Oil",
             "price": 150000,
             "qty": 1
-          },
-          {
-            "art": "ui_exchange_bounty",
-            "desc": "Your next Culling run meets elites twice as often.",
-            "hold": 2,
-            "id": "bounty",
-            "kind": "charge",
-            "limit": 2,
-            "name": "Bounty Posting",
-            "price": 1500000
           },
           {
             "art": "ui_exchange_freight_lot",

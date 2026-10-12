@@ -5396,9 +5396,6 @@ function buildMechanicEntries(
   const diversityCap = Number(cullingFile.DIVERSITY_REGION_CAP || 8);
   const checkpointMinutes = Number(cullingFile.CHECKPOINT_INTERVAL_SECONDS || 900) / 60;
   const checkpointKills = Number(cullingFile.CHECKPOINT_KILL_EQUIV || 3);
-  const eliteChance = Number(cullingFile.ELITE_CHANCE || 0.03);
-  const eliteStat = Number(cullingFile.ELITE_STAT_MULT || 1.75);
-  const eliteGold = Number(cullingFile.ELITE_GOLD_MULT || 2);
   mechanics.push({
     kind: "Mechanic",
     section: "mechanics",
@@ -5408,7 +5405,7 @@ function buildMechanicEntries(
     subtitle: "AFK combat against a player-chosen monster pool",
     badges: ["combat", "afk", "base game"],
     searchText:
-      "the culling afk combat quarry hunt monster pool attack 10 continuous kills contracts bestiary kill ladder listkeeper elite diversity hunt marks risk dial prefer stronger weaker food",
+      "the culling afk combat quarry hunt monster pool attack 10 continuous kills contracts bestiary kill ladder listkeeper diversity hunt marks risk dial prefer stronger weaker food",
     sortKey: "mechanics the culling",
     spoiler: false,
     metrics: [
@@ -5425,7 +5422,6 @@ function buildMechanicEntries(
       ${renderDetailBlock("Run bonuses", [
         `Diversity: +${formatPercent(diversityPct)} XP and gold for each parent region in the quarry pool, up to ${formatNumber(diversityCap)} regions.`,
         `Hunt marks: every ${formatNumber(checkpointMinutes)} minutes of hunt time pays gold equal to ${formatNumber(checkpointKills)} average kills from the current pool.`,
-        `Elites: ${formatPercent(eliteChance)} of quarries are elites, the same monster with ${formatDecimal(eliteStat)}x HP and attack, ${formatDecimal(eliteGold)}x gold, and an extra drop roll.`,
         "Risk dial: Even makes each marked quarry equally likely. Prefer stronger leans toward the highest Attack-level marks; Prefer weaker leans toward the lowest.",
       ])}
       ${renderSimpleTable("Kill ladder", ["Culling kills", "Gold", "Title"], cullLadderRows)}
