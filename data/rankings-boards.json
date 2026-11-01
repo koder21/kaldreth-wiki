@@ -99,6 +99,22 @@
    "modes": "both"
   },
   {
+   "key": "tower_climb",
+   "label": "Endless Tower - highest stage",
+   "family": "tower",
+   "unit": "stage",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
+   "key": "tower_forge",
+   "label": "Endless Tower - forge level",
+   "family": "tower",
+   "unit": "forge",
+   "exp": 0,
+   "modes": "both"
+  },
+  {
    "key": "week_xp",
    "label": "XP this week",
    "family": "weekly",

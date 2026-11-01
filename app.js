@@ -5767,6 +5767,53 @@ function buildMechanicEntries(
   mechanics.push({
     kind: "Mechanic",
     section: "mechanics",
+    id: "endless-tower",
+    name: "Endless Tower (Beta)",
+    title: "The Endless Tower (Beta): A Game of Its Own",
+    subtitle: "A separate forge-and-climb game that never touches your adventure",
+    badges: ["tower", "beta", "leaderboard"],
+    searchText:
+      "endless tower beta forge anvil smith ore scrap chapter stage hard extreme pets eggs hatch skills roster lattice leaderboard separate game climb boss",
+    sortKey: "mechanics endless tower",
+    spoiler: false,
+    metrics: [
+      { label: "Opens", value: "After What Was Always There" },
+      { label: "Chapters", value: "10 a difficulty" },
+      { label: "Reward", value: "Leaderboards only" },
+    ],
+    body: `
+      ${renderDetailBlock("A separate game", [
+        "Your adventure's levels, gear, prayers and purchases do not come into the Tower.",
+        "Nothing you smith or earn in the Tower ever goes back out: no items, gold, XP or achievements, ever.",
+        "What you get is your place on the kaldreth.com leaderboards.",
+        "The Tower is in beta. Its progress may be reset or wiped at any time while it is in test.",
+      ])}
+      ${renderDetailBlock("Getting in", [
+        "The Tower opens once you finish What Was Always There, or by a gift from the developer.",
+        "Owning an expansion changes nothing in it: a base-only account and an all-expansions account get the same numbers.",
+      ])}
+      ${renderDetailBlock("The climb", [
+        "The first chapter has 10 stages and chapters 2 to 10 have 20, with a boss at the end of each. Clear all ten and the climb begins again as Hard, then Extreme, Extreme 2 and beyond.",
+        "Plan on about two months to finish Normal and about two more for Hard.",
+        "You smith gear at the anvil. Each strike takes a moment and cannot be spammed, and one strike can make several items. A loss fades the fight to black and back in on the stage below. Your gear and anvil are untouched.",
+        "A boss stage plays the music of one of the boss dungeons you own.",
+        "Forge upgrades run on timers, from 5 minutes at the start to days at the top.",
+      ])}
+      ${renderDetailBlock("Skills and pets", [
+        "Eight skills (Power Strike, Mend, Warcry, Whirlwind, Bulwark, Quicken, Siphon, Meteor) are learned as chapters are cleared. Three slots open at chapters 2, 4 and 6. Skills cast on their own on cooldowns and level to 15 with Scrap.",
+        "Pets come from eggs: chapter bosses, every fifth stage, finished bounties and forge upgrades. Eggs hatch on real-time timers from 30 minutes to 16 hours, and the pet is picked when the egg goes in. Three pets are worn.",
+        "There are 20 pets in five rarities, Common to Mythic. Duplicates give shards, and shards level a pet to 30. Epic and above carry secondary stats such as attack speed, double attack, crit and cooldown reduction.",
+      ])}
+      ${renderDetailBlock("Leaderboards", [
+        "Two boards: highest stage, and forge level. Find them under Endless Tower at kaldreth.com/rankings.",
+        "Stage numbers read as difficulty, chapter and stage, for example Hard 3-14.",
+      ])}
+    `,
+  });
+
+  mechanics.push({
+    kind: "Mechanic",
+    section: "mechanics",
     id: "combat-formulas",
     name: "Combat Formulas",
     title: "Combat Formulas: Hit Chance, Max Hit & DPS",

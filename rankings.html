@@ -151,6 +151,16 @@
           var two = function (n) { return (n < 10 ? "0" : "") + n; };
           return h > 0 ? h + ":" + two(m) + ":" + two(s) : m + ":" + two(s);
         }
+        // TowerData.stage_label(): 10 stages in chapter 1, 20 in chapters 2-10, 190 a difficulty.
+        function stageLabel(idx) {
+          if (idx <= 0) return "-";
+          var i = idx - 1, diff = Math.floor(i / 190), ch = 1;
+          i = i % 190;
+          while (i >= (ch === 1 ? 10 : 20)) { i -= (ch === 1 ? 10 : 20); ch++; }
+          var names = ["Normal", "Hard", "Extreme"];
+          var name = diff < names.length ? names[diff] : "Extreme " + (diff - 1);
+          return name + " " + ch + "-" + (i + 1);
+        }
         // Leaderboards.format_parts(): the value and the small line under it.
         function parts(def, value) {
           switch (def.unit) {
@@ -159,6 +169,8 @@
             case "time": return { main: runTime(catalogue.time_base - value), sub: "" };
             case "gold": return { main: group(value), sub: "gp" };
             case "mp": return { main: group(value), sub: "MP" };
+            case "stage": return { main: stageLabel(value), sub: "" };
+            case "forge": return { main: "Forge " + value, sub: "" };
           }
           return { main: group(value), sub: "" };
         }

@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-10-12T16:39:56.797817+00:00",
+  "generated_at": "2026-11-01T18:22:40.066478+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -2189,6 +2189,12 @@
                 "item": "ashvein_blade",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.0016,
+                "item": "spire_depths_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 16,
@@ -2418,6 +2424,12 @@
                 "item": "pale_willow_ward",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005455,
+                "item": "accord_vault_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 80,
@@ -2518,6 +2530,12 @@
               {
                 "chance": 0.014,
                 "item": "ashvein_blade",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.002333,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -2653,6 +2671,12 @@
                 "item": "pale_shard_dust",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.00175,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 4,
@@ -2688,6 +2712,12 @@
                 "chance": 0.2,
                 "item": "canal_silt",
                 "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.001,
+                "item": "spire_depths_key",
+                "qty_max": 1,
                 "qty_min": 1
               }
             ],
@@ -2791,6 +2821,12 @@
               {
                 "chance": 0.015,
                 "item": "mire_treads",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.00125,
+                "item": "hollow_sanctum_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -2902,6 +2938,12 @@
                 "item": "vault_smelter_seal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.007091,
+                "item": "accord_vault_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 88,
@@ -2932,6 +2974,12 @@
                 "chance": 0.26,
                 "item": "ember_ash",
                 "qty_max": 3,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.004091,
+                "item": "accord_vault_key",
+                "qty_max": 1,
                 "qty_min": 1
               }
             ],
@@ -3105,6 +3153,12 @@
                 "item": "ashwood_bulwark",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.007727,
+                "item": "accord_vault_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 90,
@@ -3194,6 +3248,12 @@
               {
                 "chance": 0.014,
                 "item": "mire_wrap",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.002,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -3357,6 +3417,12 @@
               {
                 "chance": 0.009,
                 "item": "dockyard_enforcer_badge",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0022,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -3528,6 +3594,12 @@
                 "item": "furnace_slag",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005909,
+                "item": "accord_vault_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 78,
@@ -3593,6 +3665,12 @@
               {
                 "chance": 0.015,
                 "item": "ashvein_shield",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.003438,
+                "item": "hollow_sanctum_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -3758,6 +3836,12 @@
                 "item": "fracture_rime",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.006591,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 260,
@@ -3832,6 +3916,12 @@
                 "item": "ring_of_embers",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.002625,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 12,
@@ -3874,6 +3964,12 @@
                 "item": "node_shard",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.007727,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 225,
@@ -3911,6 +4007,12 @@
                 "item": "frostfang",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005227,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 165,
@@ -3946,6 +4048,12 @@
               {
                 "chance": 0.007,
                 "item": "crypt_legate_seal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.002733,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -3985,6 +4093,12 @@
                 "item": "index_fragment",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.006818,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 238,
@@ -4015,6 +4129,12 @@
               {
                 "chance": 0.14,
                 "item": "mire_hide",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.003125,
+                "item": "hollow_sanctum_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -4128,6 +4248,12 @@
                 "item": "pale_shard_dust",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.0025,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 15,
@@ -4175,6 +4301,12 @@
               {
                 "chance": 0.006,
                 "item": "warden_permafrost_sabatons",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.009545,
+                "item": "fracture_scar_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -4249,6 +4381,12 @@
                 "chance": 0.14,
                 "item": "fracture_rime",
                 "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.006818,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
                 "qty_min": 1
               }
             ],
@@ -4417,6 +4555,12 @@
                 "item": "greyspine_log",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.00075,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 2,
@@ -4563,6 +4707,12 @@
                 "item": "stone_rune",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.002125,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 7,
@@ -4662,6 +4812,12 @@
                 "item": "fracture_rime",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005455,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 180,
@@ -4706,6 +4862,12 @@
                 "item": "cairnstone_amulet",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.001625,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 5,
@@ -4735,6 +4897,12 @@
                 "chance": 0.3,
                 "item": "feathers",
                 "qty_max": 2,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.001,
+                "item": "hollow_sanctum_key",
+                "qty_max": 1,
                 "qty_min": 1
               }
             ],
@@ -4863,6 +5031,12 @@
               {
                 "chance": 0.12,
                 "item": "echo_core",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0032,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5127,6 +5301,12 @@
                 "item": "fracture_rime",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005682,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 205,
@@ -5162,6 +5342,12 @@
               {
                 "chance": 0.14,
                 "item": "unclassified_matter",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.010455,
+                "item": "fracture_scar_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5310,6 +5496,12 @@
                 "item": "furnace_slag",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.005476,
+                "item": "keystone_chamber_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 108,
@@ -5338,6 +5530,12 @@
               {
                 "chance": 0.03,
                 "item": "minor_spirit_focus",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.000733,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5668,6 +5866,12 @@
                 "item": "vault_smelter_seal",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.009545,
+                "item": "accord_vault_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 95,
@@ -5743,6 +5947,12 @@
                 "item": "spire_grit",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.003,
+                "item": "spire_depths_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 38,
@@ -5765,6 +5975,12 @@
               {
                 "chance": 0.12,
                 "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.0024,
+                "item": "spire_depths_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -5939,6 +6155,12 @@
                 "item": "canal_silt",
                 "qty_max": 2,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.001933,
+                "item": "spire_depths_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 22,
@@ -6071,6 +6293,12 @@
                 "item": "unwritten_sabatons",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.020455,
+                "item": "fracture_scar_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 460,
@@ -6112,6 +6340,12 @@
               {
                 "chance": 0.005,
                 "item": "warden_permafrost_mantle",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.011818,
+                "item": "fracture_scar_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -6362,6 +6596,12 @@
                 "item": "archive_cipher",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.004167,
+                "item": "keystone_chamber_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 100,
@@ -6399,6 +6639,12 @@
                 "item": "fracture_arcanist_pin",
                 "qty_max": 1,
                 "qty_min": 1
+              },
+              {
+                "chance": 0.004,
+                "item": "keystone_chamber_key",
+                "qty_max": 1,
+                "qty_min": 1
               }
             ],
             "gold_max": 95,
@@ -6428,6 +6674,12 @@
               {
                 "chance": 0.18,
                 "item": "resonance_crystal",
+                "qty_max": 1,
+                "qty_min": 1
+              },
+              {
+                "chance": 0.006364,
+                "item": "accord_vault_key",
                 "qty_max": 1,
                 "qty_min": 1
               }
@@ -18231,15 +18483,22 @@
         ],
         "ENRAGE_GRACE_TICKS": 60,
         "ENRAGE_MAX_PCT": 1.8,
-        "ENRAGE_STEP_PCT": 0.06
+        "ENRAGE_STEP_PCT": 0.06,
+        "KEY_ITEMS": {
+          "accord_vault": "accord_vault_key",
+          "fracture_scar": "fracture_scar_key",
+          "hollow_sanctum": "hollow_sanctum_key",
+          "keystone_chamber": "keystone_chamber_key",
+          "spire_depths": "spire_depths_key"
+        }
       },
       "specials": {}
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.6.11",
-        "BUILD_FINGERPRINT": "1.6.11 (1791822873)",
-        "VERSION_CODE": 1791822873
+        "APP_VERSION": "1.7.0",
+        "BUILD_FINGERPRINT": "1.7.0 (1793556681)",
+        "VERSION_CODE": 1793556681
       },
       "specials": {}
     },
@@ -18277,7 +18536,6 @@
             "level": 20,
             "lore": "Too fast to follow and apparently incapable of being anywhere useful on purpose. Finds things regardless.",
             "name": "Canopy Sprite",
-            "quest_required": "w06_covenant_terms",
             "xp_mult": 1.0
           },
           {
@@ -18294,7 +18552,6 @@
             "level": 40,
             "lore": "Patient in a way that suggests it has done this before, for someone else, a long time ago.",
             "name": "Root Stalker",
-            "quest_required": "w11_beneath_the_roots",
             "xp_mult": 1.0
           },
           {
@@ -18311,7 +18568,6 @@
             "level": 60,
             "lore": "Roosts high and comes down only when it decides to. The bond is real; the obedience is negotiable.",
             "name": "Whisper Drake",
-            "quest_required": "w15_the_hollow_root_stirs",
             "xp_mult": 1.35
           },
           {
@@ -18329,7 +18585,6 @@
             "level": 80,
             "lore": "Moves once a day and remembers everything. The Covenant treats it as a colleague rather than a companion.",
             "name": "Ancient Treant",
-            "quest_required": "w16_the_wardens_burden",
             "xp_mult": 2.17
           },
           {
@@ -18346,7 +18601,6 @@
             "level": 99,
             "lore": "Grown rather than born, and grown for this. The Covenant will not say by whom.",
             "name": "Grove Guardian",
-            "quest_required": "w18_what_the_roots_saw",
             "xp_mult": 1.8
           },
           {
@@ -18364,7 +18618,6 @@
             "level": 105,
             "lore": "The oldest thing in the Whisperwood that still answers to a name. It carries Architect residue in its core and is not harmed by it, which no one can explain.",
             "name": "Heartwood Elder",
-            "quest_required": "w20_a_letter_from_the_sea",
             "xp_mult": 1.98
           },
           {
@@ -18447,8 +18700,9 @@
       "consts": {
         "CHECKPOINT_INTERVAL_SECONDS": 900.0,
         "CHECKPOINT_KILL_EQUIV": 3,
+        "DIVERSITY_EXPANSION_REGION_WEIGHT": 2,
         "DIVERSITY_PCT_PER_REGION": 0.03,
-        "DIVERSITY_REGION_CAP": 8,
+        "DIVERSITY_REGION_CAP": 12,
         "KILL_MILESTONES": [
           {
             "gold": 1000,
@@ -19313,6 +19567,12 @@
           "accord_temper": {
             "category": "material",
             "name": "Accord Temper"
+          },
+          "accord_vault_key": {
+            "category": "relic",
+            "name": "Vault Entry Mark",
+            "no_collection": true,
+            "source_hint": "Ashen Vault monsters, lv 36-45 (rare)"
           },
           "aeluns_starfall_conduit": {
             "category": "weapon",
@@ -20683,6 +20943,12 @@
             "name": "Fracture Sigil",
             "source_hint": "Spiritweaving"
           },
+          "fracture_scar_key": {
+            "category": "relic",
+            "name": "Scar Entry Mark",
+            "no_collection": true,
+            "source_hint": "Any Frostmere monster (rare)"
+          },
           "fracture_tonic": {
             "category": "consumable",
             "name": "Fracture Tonic",
@@ -20935,6 +21201,12 @@
             "name": "Hollow Sigil",
             "source_hint": "Spiritweaving"
           },
+          "hollow_sanctum_key": {
+            "category": "relic",
+            "name": "Sanctum Ward Token",
+            "no_collection": true,
+            "source_hint": "Any Caelmora monster (rare)"
+          },
           "hollow_scouts_dustcloak": {
             "category": "armour",
             "expansion": 3,
@@ -21002,6 +21274,12 @@
                 "type": "chain_attack_pct_chance"
               }
             ]
+          },
+          "keystone_chamber_key": {
+            "category": "relic",
+            "name": "Chamber Protocol Token",
+            "no_collection": true,
+            "source_hint": "Ashen Vault monsters, lv 48-55 (rare)"
           },
           "keystone_core": {
             "category": "material",
@@ -22255,6 +22533,12 @@
           "spelstone": {
             "category": "ore",
             "name": "Spelstone"
+          },
+          "spire_depths_key": {
+            "category": "relic",
+            "name": "Depths Passage Token",
+            "no_collection": true,
+            "source_hint": "Any Ashford monster (rare)"
           },
           "spire_grit": {
             "category": "material",
@@ -24290,6 +24574,11 @@
           "tide_writ",
           "ash_writ",
           "star_writ",
+          "hollow_sanctum_key",
+          "spire_depths_key",
+          "accord_vault_key",
+          "keystone_chamber_key",
+          "fracture_scar_key",
           "pathfinder_cap",
           "pathfinder_coat",
           "pathfinder_belt",
@@ -29503,12 +29792,36 @@
         "RELEASES": [
           {
             "changes": [
+              "New: The Endless Tower, in beta. A test climb that sits past the end of the base game, open once you finish What Was Always There or by a gift from the developer. It is a separate game from the rest of Kaldreth, and its progress may be reset or wiped at any time while it is in test.",
+              "New: The Tower climbs through ten chapters, the first of ten stages and the rest of twenty, with a boss at the end of each. Clear all ten and the climb begins again as Hard, then Extreme and beyond. Plan on about two months to finish Normal and two more for Hard. A boss stage plays the music of one of the boss dungeons you own.",
+              "New: Smithing at the anvil is a swing. Each strike takes a second, the hammer lands partway through with a flash in the colour of the best item it made, and one strike forges as many items as your hit size. Auto-forge swings back to back. A forge hit can no longer be spammed.",
+              "New: Lose a stage and the fight fades to black, then fades back in on the stage below. Your gear and the anvil stay on screen the whole time.",
+              "New: Pets and skills. Pets are twenty creatures from five rarities, Common to Mythic, found as eggs from bosses, every fifth stage, bounties and forge upgrades. Eggs hatch on a timer, even with the game closed, and a duplicate becomes shards that level that pet. Three pets can be worn. Skills are eight spells that cast on their own on a cooldown, three at a time, learned as you clear chapters and levelled with Scrap. A strip under the fight shows all six, and tapping one opens the Roster to equip, level and hatch.",
+              "Fixed: In the Tower, one forge hit could push the other buttons off a small screen, and The Story Continues card could not be scrolled to Continue. Every Tower screen now fits and scrolls on phones, and large Ore and Scrap numbers shorten (12k, 1.5M) instead of being cut off.",
+              "Changed: The Tower leaderboard for stages starts fresh, so climbs from the old layout do not rank beside the new one. Saves from the earlier beta are carried over by enemy strength, with gear, forge, Ore and Lattice kept.",
+              "New: Boss dungeon keys. Every monster in a base game boss dungeon's region can drop that dungeon's key, more often from tougher monsters, so each key takes about the same time to hunt whichever monster you pick: Sanctum Ward Token in Caelmora, Depths Passage Token in Ashford, Vault Entry Mark from Ashen Vault monsters of level 36 to 45, Chamber Protocol Token from those of level 48 to 55, and Scar Entry Mark in Frostmere. A key lets you fight its dungeon before you have the skill levels for it, as long as the quest that leads there is open. It is spent on entry, win or lose, and a clear pays everything a normal clear does, first clear included. The dungeon's memory fragment and ending wait until you claim its quest. Contracts, daily tasks and idle runs still need the skill levels.",
+              "Changed: The story runs in order. Whisperwood now begins after What Was Always There, the last base game quest, and each later expansion after the one before it. Whisperwood's skills still open the moment you buy it.",
+              "Changed: Expansion quests no longer open in a rush after each boss. Every Whisperwood quest needs a total level, from 1500 at the first to 1800 at the last, and the quests between bosses each need a Root Lore level. Tideward's quests climb the same way on Deadeye, from 5 to 102, Drakenhollow's on Geomancy, from 5 to 86, and Oraewyn's on Astromancy, from 3 to 95, with the total level rising 15 a quest. This applies to characters already partway through an arc: quests you have claimed stay claimed, but you may wait at the next one until you reach its level.",
+              "Changed: Whisperwood companions and Root Lore herbs open on skill level alone and no longer wait on story quests. Astromancy's The Keystone and The Last Word open on level the same way. Shadow Arts marks, titles and skill tree capstones still follow the story.",
+              "Changed: In a cull, a Whisperwood, Tideward, Drakenhollow or Oraewyn region counts double toward the region bonus, and the bonus now tops out at +36% XP and gold, up from +24%. A cull of base game regions only pays as before. A cull already running keeps the bonus it started with.",
+              "Changed: The quest log folds into one section for the base game and one for each expansion you own, each with its own banner, progress and a count of quests ready to claim. Upcoming and Completed fold on their own. An expansion you do not own shows as a locked banner with its quest count and a link to the Store.",
+              "New: The Shadow Arts info card has a Where to Steal section. It lists every area with its mark levels, how many of its marks are open to you and what opens the rest.",
+              "Changed: New icons for Attack, Felling, Mining, Fishing, Hollowing, Spiritforging and Wardcraft.",
+              "Fixed: On a short phone, a tall region card on the map could push its Monsters, Standing, Close and Unlock buttons under the bottom bar. The card's text now scrolls and its buttons stay in view."
+            ],
+            "title": "Boss Dungeon Keys, One Story in Order, and the Endless Tower Beta",
+            "version": "1.7.0",
+            "version_code": 1793556681
+          },
+          {
+            "changes": [
               "Changed: Hunt and the Culling are one mode. The Combat tab is Hunt and Dungeons. Tap a monster in the list to mark it, and tap it again to unmark it. One mark is a plain hunt; two or more is a cull, with the region bonus and the results screen it always had. Each open region has All and None, and Mark all and Clear head the list. The Attack 10 gate for a cull, the food a cull needs and every reward are unchanged, and a saved cull list opens as your marks.",
               "Changed: Elites are gone from the cull. Every monster on your list now comes up as itself, and Check Safety tests each one as it is. Bounty Posting, which only raised the elite chance, has left the Caelmora Exchange. Any you held, or had spent on a cull still running, is paid back at 1,500,000 gold each.",
               "Changed: Hunt opens on the monster list. Only the monster marked last shows its full card; every other open monster is a two-line row with its level, HP, loot count, any contract and the safety verdict. Region headers are banners with the zone's art, the level span, how many monsters are fully looted and whether a contract is there. The marked target and Fight sit in a dock under the list, and the safety verdict there opens the full report. The header card, the Details button and the You and enemy cards are gone from this page.",
               "New: Filter chips on the Hunt list: Safe, Contract, Loot left and Weak to me. A row above the list offers contract targets and the monsters fought this session, one tap each.",
-              "New: Every monster that drops something shows its loot count, such as Loot 2/5, and Loot \u2713 once its table is found. Tapping it on the full card opens a list of the gold range and each drop with its chance; a drop not found yet reads ???. The fight view shows Loot \u2713 too, and it turns on mid-fight when the last missing drop lands.",
+              "New: Every monster that drops something shows its loot count, such as Loot 2/5, and Loot \u2713 once its table is found. Tapping it on the full card opens a list of the gold range and each drop with its chance; a drop not found yet reads ???. The fight view carries the pill too: Loot 3/5 in amber while drops are missing, then Loot \u2713 when the last one lands. A cull counts the drops of every marked monster, each item once.",
               "Changed: One fight screen for a hunt and a cull. A hunt now has zone art behind it, a screen shake on a heavy hit, the amber and red low HP vignette and the floating damage numbers from boss dungeons. Spiritbond and the skill pages get the floating numbers too. Reduce motion holds the shake still.",
+              "Changed: The fight screen shows the food you have left as a pill beside DR, such as Food 412. It turns red and reads No food when the stack is empty or none was brought, and a tap names the food. The line above your HP bar that named the style and the food is gone. The Rounds row is gone from Combat and from the fight screen; a gun that runs dry still falls back to melee, and the combat log still says so.",
               "Fixed: The Loadout tray unfolded over a Hunt fight could push Flee off the screen. Presets, Best preset, Food, Auto-Eat, Combat Style, Spell and Bullet now sit under a Loadout header on Hunt's setup, folded to one line, and are off the screen while a fight runs.",
               "Changed: Every expansion boss fight has 4 to 6 phases, with 20 new phases in all: The Hollow Root 5, The Grove's Warden 5, The Drowned Keeper 5, Admiral Vael 4, The Smelter 6, Forge-Warden Korrath 5, The Gate Warden 4, First Watcher Aelun 5 and The Resonance Wraith 6. The last phase, the one with the counter, is 25 to 30% of the bar on every one of them. No boss gained an immunity a kit did not already have to cover, and health, rewards and gates are unchanged.",
               "New: The Threshold ends on screen. Once your choice is recorded the ending opens: the page for the path you chose, THE END, the credits, and What Remains, which points at Transcendence and a full Compendium. A Read the Ending button sits beside Leave Dungeon on every later visit. A character who chose before this update sees the ending once on the next visit.",
@@ -29519,7 +29832,7 @@
             ],
             "title": "One Hunt, Longer Boss Fights, and an Ending for The Threshold",
             "version": "1.6.11",
-            "version_code": 1791822873
+            "version_code": 1791828959
           },
           {
             "changes": [
@@ -33022,8 +33335,13 @@
             "name": "Strange Growth",
             "npc_dialogue": "The growth pattern is wrong. Spirit-touched plants sprawl; these are directed. Something is pushing them outward from a source. Find it before it reaches the market district.",
             "npc_name": "Warden Syrel",
-            "req_display": "-",
-            "requirements": {},
+            "req_display": "Total Level 1500  \u2022  Q: What Was Always There",
+            "requirements": {
+              "questsCompleted": [
+                "q66_what_was_always_there"
+              ],
+              "totalLevel": 1500
+            },
             "reward_display": "One level of Root Lore and Aetheric Tending  \u2022  Grove Covenant rep +5",
             "rewards": {
               "factionRep": {
@@ -33044,11 +33362,15 @@
             "name": "Edge of the Wood",
             "npc_dialogue": "I've been measuring the boundary shift for three weeks. It has moved forty metres. Whatever is pushing it is not gradual - it has a direction and it has been accelerating.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: Strange Growth",
+            "req_display": "Root Lore 5  \u2022  Total Level 1515  \u2022  Q: Strange Growth",
             "requirements": {
               "questsCompleted": [
                 "w01_strange_growth"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 5
+              },
+              "totalLevel": 1515
             },
             "reward_display": "One level of Spiritbond  \u2022  rep +5",
             "rewards": {
@@ -33069,14 +33391,15 @@
             "name": "The Old Markers",
             "npc_dialogue": "The markers are meant to be found by people who are already looking. You weren't. That makes you either careless or an anomaly. I'm choosing to treat it as the second. My name is Syrel. Don't touch anything else until we've talked.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 15  \u2022  Q: Edge of the Wood",
+            "req_display": "Root Lore 15  \u2022  Total Level 1530  \u2022  Q: Edge of the Wood",
             "requirements": {
               "questsCompleted": [
                 "w02_edge_of_the_wood"
               ],
               "skillLevels": {
                 "root_lore": 15
-              }
+              },
+              "totalLevel": 1530
             },
             "reward_display": "Mistcap Fungus node  \u2022  rep +8",
             "rewards": {
@@ -33094,11 +33417,15 @@
             "name": "Smoke from the Canopy",
             "npc_dialogue": "Nothing up there burns on its own. Whatever that smoke is coming from, someone lit it. Go up and look. Don't engage anything you can't manage alone.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: The Old Markers",
+            "req_display": "Root Lore 18  \u2022  Total Level 1545  \u2022  Q: The Old Markers",
             "requirements": {
               "questsCompleted": [
                 "w03_the_old_markers"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 18
+              },
+              "totalLevel": 1545
             },
             "reward_display": "rep +8",
             "rewards": {
@@ -33116,11 +33443,15 @@
             "name": "The Warden's Silence",
             "npc_dialogue": "Elder Vaethos went into the Warren six days ago. He told me he would be back by nightfall. I've stopped counting the reasons he might be delayed and started considering the other possibilities.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: Smoke from the Canopy",
+            "req_display": "Root Lore 22  \u2022  Total Level 1560  \u2022  Q: Smoke from the Canopy",
             "requirements": {
               "questsCompleted": [
                 "w04_smoke_from_the_canopy"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 22
+              },
+              "totalLevel": 1560
             },
             "reward_display": "rep +10",
             "rewards": {
@@ -33138,14 +33469,15 @@
             "name": "Covenant Terms",
             "npc_dialogue": "Gather Rootveil Bark from the marked stands. Tend one of the Canopy plots. Brew the extract the healers need. These aren't symbolic. They're the minimum standard we hold ourselves to, and we're about to extend it to you.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 25  \u2022  Q: The Warden's Silence",
+            "req_display": "Root Lore 25  \u2022  Total Level 1575  \u2022  Q: The Warden's Silence",
             "requirements": {
               "questsCompleted": [
                 "w05_the_wardens_silence"
               ],
               "skillLevels": {
                 "root_lore": 25
-              }
+              },
+              "totalLevel": 1575
             },
             "reward_display": "Rootveil Bark node  \u2022  Canopy Sprite  \u2022  rep +12",
             "rewards": {
@@ -33163,11 +33495,15 @@
             "name": "Root Rot",
             "npc_dialogue": "The creatures aren't acting on instinct. Something below is driving them upward and whatever it is, it's getting louder. Help the scouts clear the approach. I need the mouth of the Warren accessible.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: Covenant Terms",
+            "req_display": "Root Lore 30  \u2022  Total Level 1590  \u2022  Q: Covenant Terms",
             "requirements": {
               "questsCompleted": [
                 "w06_covenant_terms"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 30
+              },
+              "totalLevel": 1590
             },
             "reward_display": "rep +12",
             "rewards": {
@@ -33185,14 +33521,15 @@
             "name": "The Hollow Pulse",
             "npc_dialogue": "I have known this forest forty years. Spirit energy does not bleed outward on its own - it pools, disperses, circulates. What is happening now is none of those things. Something is running below us. Not dormant. Running.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 40  \u2022  Q: Root Rot",
+            "req_display": "Root Lore 40  \u2022  Total Level 1605  \u2022  Q: Root Rot",
             "requirements": {
               "questsCompleted": [
                 "w07_root_rot"
               ],
               "skillLevels": {
                 "root_lore": 40
-              }
+              },
+              "totalLevel": 1605
             },
             "reward_display": "Gleam Thistle node  \u2022  One level of Alchemy  \u2022  rep +14",
             "rewards": {
@@ -33213,11 +33550,15 @@
             "name": "Poachers in the Grove",
             "npc_dialogue": "They're not local. The equipment is wrong for the region - this is an organised operation, not opportunists. Someone sent them here with specific materials in mind. Clear both sites. I want to look at what they were taking.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: The Hollow Pulse",
+            "req_display": "Root Lore 45  \u2022  Total Level 1620  \u2022  Q: The Hollow Pulse",
             "requirements": {
               "questsCompleted": [
                 "w08_the_hollow_pulse"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 45
+              },
+              "totalLevel": 1620
             },
             "reward_display": "rep +15",
             "rewards": {
@@ -33235,11 +33576,15 @@
             "name": "Marked Cargo",
             "npc_dialogue": "I went through every Accord trade record I have access to. This seal isn't in them. Whoever is running that operation has been outside Accord recognition long enough that nobody is looking for them anymore. Keep the sample.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: Poachers in the Grove",
+            "req_display": "Root Lore 48  \u2022  Total Level 1635  \u2022  Q: Poachers in the Grove",
             "requirements": {
               "questsCompleted": [
                 "w09_poachers_in_the_grove"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 48
+              },
+              "totalLevel": 1635
             },
             "reward_display": "Coastal Seal Sample  \u2022  rep +15",
             "rewards": {
@@ -33260,14 +33605,15 @@
             "name": "Beneath the Roots",
             "npc_dialogue": "The Revenants and Golems down there exist to stop unprepared people from going deeper. That is not a figure of speech - it is their function. Go prepared, and go carefully. Vaethos is somewhere below the reach of our patrols.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 50  \u2022  Q: Marked Cargo",
+            "req_display": "Root Lore 50  \u2022  Total Level 1650  \u2022  Q: Marked Cargo",
             "requirements": {
               "questsCompleted": [
                 "w10_marked_cargo"
               ],
               "skillLevels": {
                 "root_lore": 50
-              }
+              },
+              "totalLevel": 1650
             },
             "reward_display": "Root Warren access  \u2022  Root Stalker  \u2022  rep +18",
             "rewards": {
@@ -33285,11 +33631,15 @@
             "name": "The Old Language",
             "npc_dialogue": "I have walked those passages four times in my life. I never stopped to read the walls. I should have. What does it say?",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: Beneath the Roots",
+            "req_display": "Root Lore 55  \u2022  Total Level 1665  \u2022  Q: Beneath the Roots",
             "requirements": {
               "questsCompleted": [
                 "w11_beneath_the_roots"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 55
+              },
+              "totalLevel": 1665
             },
             "reward_display": "rep +18",
             "rewards": {
@@ -33307,14 +33657,15 @@
             "name": "The Buried Engine",
             "npc_dialogue": "Our oldest oral history says builders came before us. We assumed that meant before the Accord. I'm starting to understand it meant something considerably older than that.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 60  \u2022  Q: The Old Language",
+            "req_display": "Root Lore 60  \u2022  Total Level 1680  \u2022  Q: The Old Language",
             "requirements": {
               "questsCompleted": [
                 "w12_the_old_language"
               ],
               "skillLevels": {
                 "root_lore": 60
-              }
+              },
+              "totalLevel": 1680
             },
             "reward_display": "rep +20",
             "rewards": {
@@ -33332,14 +33683,15 @@
             "name": "The Voice Below",
             "npc_dialogue": "He heard something and he followed it alone. Whatever the voice was, it knew what to say to move him. He didn't tell me he was going further in. He didn't tell me anything.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 65  \u2022  Q: The Buried Engine",
+            "req_display": "Root Lore 65  \u2022  Total Level 1695  \u2022  Q: The Buried Engine",
             "requirements": {
               "questsCompleted": [
                 "w13_the_buried_engine"
               ],
               "skillLevels": {
                 "root_lore": 65
-              }
+              },
+              "totalLevel": 1695
             },
             "reward_display": "Warden's Bloom Herb node  \u2022  rep +22",
             "rewards": {
@@ -33357,14 +33709,15 @@
             "name": "The Hollow Root Stirs",
             "npc_dialogue": "The Hollow Root predates us - predates the Covenant, predates whatever built those inscriptions. It was wounded long before we arrived and never healed. Right now it is lashing out at anything that comes close. Defeating it won't heal it. It will quiet the Warren long enough to reach Vaethos.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 75  \u2022  Q: The Voice Below",
+            "req_display": "Root Lore 75  \u2022  Total Level 1710  \u2022  Q: The Voice Below",
             "requirements": {
               "questsCompleted": [
                 "w14_the_voice_below"
               ],
               "skillLevels": {
                 "root_lore": 75
-              }
+              },
+              "totalLevel": 1710
             },
             "reward_display": "Hollow Root dungeon  \u2022  Whisper Drake  \u2022  rep +25",
             "rewards": {
@@ -33382,7 +33735,7 @@
             "name": "The Warden's Burden",
             "npc_dialogue": "I heard him. Under the other voice, when it lost focus - his voice for two or three seconds. He's still in there and he's fighting it. Don't kill him. Disrupt whatever has him and give him room to push back.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 85  \u2022  Q: The Hollow Root Stirs  \u2022  Clear: The Hollow Root",
+            "req_display": "Root Lore 85  \u2022  Total Level 1725  \u2022  Q: The Hollow Root Stirs  \u2022  Clear: The Hollow Root",
             "requirements": {
               "dungeonClears": [
                 "the_hollow_root"
@@ -33392,7 +33745,8 @@
               ],
               "skillLevels": {
                 "root_lore": 85
-              }
+              },
+              "totalLevel": 1725
             },
             "reward_display": "Grove's Warden dungeon  \u2022  Ancient Treant  \u2022  rep +30",
             "rewards": {
@@ -33410,14 +33764,18 @@
             "name": "The Covenant Holds",
             "npc_dialogue": "The engine is still running. We cut off its most direct reach, not the source. Vaethos is resting. He will speak when he can. Whatever we are building between us - the Covenant stands, and so does that.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: The Warden's Burden  \u2022  Clear: The Grove's Warden",
+            "req_display": "Root Lore 87  \u2022  Total Level 1740  \u2022  Q: The Warden's Burden  \u2022  Clear: The Grove's Warden",
             "requirements": {
               "dungeonClears": [
                 "the_groves_warden"
               ],
               "questsCompleted": [
                 "w16_the_wardens_burden"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 87
+              },
+              "totalLevel": 1740
             },
             "reward_display": "3 Mastery Points  \u2022  rep +30",
             "rewards": {
@@ -33436,11 +33794,15 @@
             "name": "What the Roots Saw",
             "npc_dialogue": "The Warren was excavated. The roots grew through it afterward - decades of growth over old work. We have been keeping Architect ruins as sacred forest for two centuries and calling it origin. It was both things at once. The roots grew through it and kept what the builders left, the way old trees keep lightning strikes.",
             "npc_name": "Elder Vaethos",
-            "req_display": "Q: The Covenant Holds",
+            "req_display": "Root Lore 90  \u2022  Total Level 1760  \u2022  Q: The Covenant Holds",
             "requirements": {
               "questsCompleted": [
                 "w17_the_covenant_holds"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 90
+              },
+              "totalLevel": 1760
             },
             "reward_display": "Memory Fragment  \u2022  Grove Guardian  \u2022  4 Mastery Points  \u2022  rep +35",
             "rewards": {
@@ -33460,11 +33822,15 @@
             "name": "The Buyer's Mark",
             "npc_dialogue": "The Salt Hand, operating out of Tideward Harbor. I know that name from pre-Shattering trade records. They have been quiet since. Apparently they found a reason to become active again.",
             "npc_name": "Warden Syrel",
-            "req_display": "Q: What the Roots Saw",
+            "req_display": "Root Lore 92  \u2022  Total Level 1780  \u2022  Q: What the Roots Saw",
             "requirements": {
               "questsCompleted": [
                 "w18_what_the_roots_saw"
-              ]
+              ],
+              "skillLevels": {
+                "root_lore": 92
+              },
+              "totalLevel": 1780
             },
             "reward_display": "rep +35",
             "rewards": {
@@ -33482,14 +33848,15 @@
             "name": "A Letter from the Sea",
             "npc_dialogue": "They addressed it to you. By name. They know about the Warren. Whoever the Salt Accord is, they were watching before the poachers arrived. The Whisperwood is quieter than it has been in months. Whatever comes next will not be here.",
             "npc_name": "Warden Syrel",
-            "req_display": "Root Lore 95  \u2022  Q: The Buyer's Mark",
+            "req_display": "Root Lore 95  \u2022  Total Level 1800  \u2022  Q: The Buyer's Mark",
             "requirements": {
               "questsCompleted": [
                 "w19_the_buyers_mark"
               ],
               "skillLevels": {
                 "root_lore": 95
-              }
+              },
+              "totalLevel": 1800
             },
             "reward_display": "Heartwood Core node  \u2022  Heartwood Elder  \u2022  5 Mastery Points  \u2022  rep +40",
             "rewards": {
@@ -33508,11 +33875,12 @@
             "name": "The Salt Letter",
             "npc_dialogue": "The Harbormaster and I will discuss his oversight privately. For now, you're with me.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: A Letter from the Sea",
+            "req_display": "Total Level 1815  \u2022  Q: A Letter from the Sea",
             "requirements": {
               "questsCompleted": [
                 "w20_a_letter_from_the_sea"
-              ]
+              ],
+              "totalLevel": 1815
             },
             "reward_display": "One level of Echomind, Wayfaring and Ironlock  \u2022  Tide Merchants rep +5",
             "rewards": {
@@ -33535,11 +33903,15 @@
             "name": "Kael's Price",
             "npc_dialogue": "You want to work in this harbor, you clear the people making it difficult. That's how it works here. That's how it's always worked.",
             "npc_name": "Harbormaster Kael",
-            "req_display": "Q: The Salt Letter",
+            "req_display": "Deadeye 5  \u2022  Total Level 1830  \u2022  Q: The Salt Letter",
             "requirements": {
               "questsCompleted": [
                 "s01_the_salt_letter"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 5
+              },
+              "totalLevel": 1830
             },
             "reward_display": "Tide Merchants rep +10",
             "rewards": {
@@ -33557,11 +33929,15 @@
             "name": "The Guild Floor",
             "npc_dialogue": "Those buyers acted without my authorization. What they did in the Whisperwood attracted attention I was not ready for. I'm correcting that now.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Kael's Price",
+            "req_display": "Deadeye 10  \u2022  Total Level 1845  \u2022  Q: Kael's Price",
             "requirements": {
               "questsCompleted": [
                 "s02_kaels_price"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 10
+              },
+              "totalLevel": 1845
             },
             "reward_display": "Tide Merchants rep +12",
             "rewards": {
@@ -33579,11 +33955,15 @@
             "name": "Foreign Waters",
             "npc_dialogue": "The Shallows are productive if you know where to look. Bring me something worth charting.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: The Guild Floor",
+            "req_display": "Deadeye 15  \u2022  Total Level 1860  \u2022  Q: The Guild Floor",
             "requirements": {
               "questsCompleted": [
                 "s03_the_guild_floor"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 15
+              },
+              "totalLevel": 1860
             },
             "reward_display": "Tide Merchants rep +8  \u2022  Open Shallows access  \u2022  Coastal Run route",
             "rewards": {
@@ -33601,11 +33981,15 @@
             "name": "Vael's Shadow",
             "npc_dialogue": "I wouldn't call Vael a nuisance. I'd call him the man who's been operating in these waters longer than Solenne's been Guildmaster. There's a difference.",
             "npc_name": "Harbormaster Kael",
-            "req_display": "Q: Foreign Waters",
+            "req_display": "Deadeye 20  \u2022  Total Level 1875  \u2022  Q: Foreign Waters",
             "requirements": {
               "questsCompleted": [
                 "s04_foreign_waters"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 20
+              },
+              "totalLevel": 1875
             },
             "reward_display": "Tide Merchants rep +10",
             "rewards": {
@@ -33623,11 +34007,15 @@
             "name": "Merchant Terms",
             "npc_dialogue": "I don't extend credit on reputation alone. Prove you can run a route and build what the sea requires. Then we talk about what you're actually here for.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Vael's Shadow",
+            "req_display": "Deadeye 25  \u2022  Total Level 1890  \u2022  Q: Vael's Shadow",
             "requirements": {
               "questsCompleted": [
                 "s05_vaels_shadow"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 25
+              },
+              "totalLevel": 1890
             },
             "reward_display": "Tide Merchants rep +22  \u2022  Shallows Circuit route",
             "rewards": {
@@ -33645,11 +34033,15 @@
             "name": "The Rogue Cell",
             "npc_dialogue": "This was never about them. It was about what happens to anyone who operates under my mark without my knowledge. Now everyone knows.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Merchant Terms",
+            "req_display": "Deadeye 30  \u2022  Total Level 1905  \u2022  Q: Merchant Terms",
             "requirements": {
               "questsCompleted": [
                 "s06_merchant_terms"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 30
+              },
+              "totalLevel": 1905
             },
             "reward_display": "Tide Merchants rep +20",
             "rewards": {
@@ -33667,11 +34059,15 @@
             "name": "Shallows Charts",
             "npc_dialogue": "The Constructs have been out there longer than the harbor has. We don't know what made them. We've learned not to provoke them without a reason.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: The Rogue Cell",
+            "req_display": "Deadeye 35  \u2022  Total Level 1920  \u2022  Q: The Rogue Cell",
             "requirements": {
               "questsCompleted": [
                 "s07_the_rogue_cell"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 35
+              },
+              "totalLevel": 1920
             },
             "reward_display": "Tide Merchants rep +22  \u2022  Island Cache + Outer Sea routes",
             "rewards": {
@@ -33689,11 +34085,15 @@
             "name": "Kael's Men",
             "npc_dialogue": "The harbor costs money to run. That money comes from somewhere. I'd be careful before you decide where it shouldn't come from.",
             "npc_name": "Harbormaster Kael",
-            "req_display": "Q: Shallows Charts",
+            "req_display": "Deadeye 40  \u2022  Total Level 1935  \u2022  Q: Shallows Charts",
             "requirements": {
               "questsCompleted": [
                 "s08_shallows_charts"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 40
+              },
+              "totalLevel": 1935
             },
             "reward_display": "Tide Merchants rep +18",
             "rewards": {
@@ -33711,11 +34111,15 @@
             "name": "The Sealed Ward",
             "npc_dialogue": "The harbor has foundations that predate the Accord. Most of them aren't worth examining. Leave that one alone.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Kael's Men",
+            "req_display": "Deadeye 45  \u2022  Total Level 1950  \u2022  Q: Kael's Men",
             "requirements": {
               "questsCompleted": [
                 "s09_kaels_men"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 45
+              },
+              "totalLevel": 1950
             },
             "reward_display": "Tide Merchants rep +20",
             "rewards": {
@@ -33733,11 +34137,15 @@
             "name": "Beneath the Harbor",
             "npc_dialogue": "I told you to leave that ward alone. Since you didn't, I need to know everything you found down there.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: The Sealed Ward",
+            "req_display": "Deadeye 50  \u2022  Total Level 1965  \u2022  Q: The Sealed Ward",
             "requirements": {
               "questsCompleted": [
                 "s10_the_sealed_ward"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 50
+              },
+              "totalLevel": 1965
             },
             "reward_display": "Tide Merchants rep +25  \u2022  Drowned Ruins access  \u2022  Storm Coast route",
             "rewards": {
@@ -33755,11 +34163,15 @@
             "name": "Architect Watermarks",
             "npc_dialogue": "Caelmora catalogued every Architect site they found. Navigation records are not on any list I've seen. That is a significant omission.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Beneath the Harbor",
+            "req_display": "Deadeye 55  \u2022  Total Level 1980  \u2022  Q: Beneath the Harbor",
             "requirements": {
               "questsCompleted": [
                 "s11_beneath_the_harbor"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 55
+              },
+              "totalLevel": 1980
             },
             "reward_display": "Tide Merchants rep +28",
             "rewards": {
@@ -33777,11 +34189,15 @@
             "name": "The Signal Below",
             "npc_dialogue": "Something that old, still running. That's not standard Architect maintenance. Someone has been keeping it on.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Architect Watermarks",
+            "req_display": "Deadeye 60  \u2022  Total Level 1995  \u2022  Q: Architect Watermarks",
             "requirements": {
               "questsCompleted": [
                 "s12_architect_watermarks"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 60
+              },
+              "totalLevel": 1995
             },
             "reward_display": "Tide Merchants rep +30",
             "rewards": {
@@ -33799,11 +34215,15 @@
             "name": "What Vael Guards",
             "npc_dialogue": "I wondered when you'd find that. He's been running crews in there for twelve years. I didn't ask him why because I didn't want to have to act on the answer.",
             "npc_name": "Harbormaster Kael",
-            "req_display": "Q: The Signal Below",
+            "req_display": "Deadeye 65  \u2022  Total Level 2010  \u2022  Q: The Signal Below",
             "requirements": {
               "questsCompleted": [
                 "s13_the_signal_below"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 65
+              },
+              "totalLevel": 2010
             },
             "reward_display": "Tide Merchants rep +28",
             "rewards": {
@@ -33821,11 +34241,15 @@
             "name": "The Keeper Wakes",
             "npc_dialogue": "We've known something reacts to intrusion down there. We did not know what. Now you have your answer, and so do we.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: What Vael Guards",
+            "req_display": "Deadeye 68  \u2022  Total Level 2025  \u2022  Q: What Vael Guards",
             "requirements": {
               "questsCompleted": [
                 "s14_what_vael_guards"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 68
+              },
+              "totalLevel": 2025
             },
             "reward_display": "The Drowned Keeper dungeon  \u2022  Tide Merchants rep +38",
             "rewards": {
@@ -33843,14 +34267,18 @@
             "name": "Finding Vael",
             "npc_dialogue": "I got word two hours ago. I've been expecting this conversation for longer than that. Come in. I'll tell you what you've been walking toward.",
             "npc_name": "Admiral Vael",
-            "req_display": "Q: The Keeper Wakes  \u2022  Clear: The Drowned Keeper",
+            "req_display": "Deadeye 72  \u2022  Total Level 2040  \u2022  Q: The Keeper Wakes  \u2022  Clear: The Drowned Keeper",
             "requirements": {
               "dungeonClears": [
                 "the_drowned_keeper"
               ],
               "questsCompleted": [
                 "s15_the_keeper_wakes"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 72
+              },
+              "totalLevel": 2040
             },
             "reward_display": "Merchant's Isle access  \u2022  Tide Merchants rep +30",
             "rewards": {
@@ -33868,11 +34296,15 @@
             "name": "The Admiral's Case",
             "npc_dialogue": "Beneath the Shrouded Peaks there is a place the Architects marked on their navigation charts and never discussed in any other record. I believe the Merchants would use the route to reach it and take from it something they wouldn't understand and couldn't control. I have been wrong about things before. I don't think I'm wrong about this.",
             "npc_name": "Admiral Vael",
-            "req_display": "Q: Finding Vael",
+            "req_display": "Deadeye 78  \u2022  Total Level 2055  \u2022  Q: Finding Vael",
             "requirements": {
               "questsCompleted": [
                 "s16_finding_vael"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 78
+              },
+              "totalLevel": 2055
             },
             "reward_display": "Tide Merchants rep +35",
             "rewards": {
@@ -33890,11 +34322,15 @@
             "name": "Accord or War",
             "npc_dialogue": "I was right about the route. I may have been wrong about the only way to protect it. That is something you'll have to decide now. I hope you're better at it than I was.",
             "npc_name": "Admiral Vael",
-            "req_display": "Q: The Admiral's Case",
+            "req_display": "Deadeye 84  \u2022  Total Level 2070  \u2022  Q: The Admiral's Case",
             "requirements": {
               "questsCompleted": [
                 "s17_the_admirals_case"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 84
+              },
+              "totalLevel": 2070
             },
             "reward_display": "Admiral Vael dungeon  \u2022  Tide Merchants rep +45",
             "rewards": {
@@ -33912,14 +34348,18 @@
             "name": "The Coordinates",
             "npc_dialogue": "The Merchants have controlled the coastal routes for sixty years. Not one survey ever pointed here. If Vael knew this and kept it quiet, I want to know what else he kept quiet.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: Accord or War  \u2022  Clear: Admiral Vael",
+            "req_display": "Deadeye 99  \u2022  Total Level 2085  \u2022  Q: Accord or War  \u2022  Clear: Admiral Vael",
             "requirements": {
               "dungeonClears": [
                 "admiral_vael"
               ],
               "questsCompleted": [
                 "s18_accord_or_war"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 99
+              },
+              "totalLevel": 2085
             },
             "reward_display": "Ashfall Overland route  \u2022  Tide Merchants rep +25",
             "rewards": {
@@ -33937,11 +34377,15 @@
             "name": "A Map with No Road",
             "npc_dialogue": "You've earned the route. What you do with Drakenhollow is outside my jurisdiction and, I suspect, outside anyone's. Come back if you find something we need to put a price on.",
             "npc_name": "Guildmaster Pria Solenne",
-            "req_display": "Q: The Coordinates",
+            "req_display": "Deadeye 102  \u2022  Total Level 2100  \u2022  Q: The Coordinates",
             "requirements": {
               "questsCompleted": [
                 "s19_the_coordinates"
-              ]
+              ],
+              "skillLevels": {
+                "deadeye": 102
+              },
+              "totalLevel": 2100
             },
             "reward_display": "Tide Merchants rep +18",
             "rewards": {
@@ -33959,11 +34403,12 @@
             "name": "The Ashfall Road",
             "npc_dialogue": "The road doesn't get maintained. You made it, so you know that already. The gate ahead isn't mine to open.",
             "npc_name": "Ashfall Lookout",
-            "req_display": "Q: A Map with No Road",
+            "req_display": "Total Level 2115  \u2022  Q: A Map with No Road",
             "requirements": {
               "questsCompleted": [
                 "s20_a_map_with_no_road"
-              ]
+              ],
+              "totalLevel": 2115
             },
             "reward_display": "Drakenhollow Outer  \u2022  One level of Geomancy",
             "rewards": {
@@ -33981,11 +34426,15 @@
             "name": "The Ashborne Gate",
             "npc_dialogue": "We don't owe you an explanation for how we vet outsiders. Do the dig. Come back with something real.",
             "npc_name": "Ashborne Challenger",
-            "req_display": "Q: The Ashfall Road",
+            "req_display": "Geomancy 5  \u2022  Total Level 2130  \u2022  Q: The Ashfall Road",
             "requirements": {
               "questsCompleted": [
                 "d01_the_ashfall_road"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 5
+              },
+              "totalLevel": 2130
             },
             "reward_display": "One level of Hollowing",
             "rewards": {
@@ -34003,11 +34452,15 @@
             "name": "Forge or Fight",
             "npc_dialogue": "I don't care which path you chose. I care that you understood both were available and picked the one you could back up.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: The Ashborne Gate",
+            "req_display": "Geomancy 10  \u2022  Total Level 2145  \u2022  Q: The Ashborne Gate",
             "requirements": {
               "questsCompleted": [
                 "d02_the_ashborne_gate"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 10
+              },
+              "totalLevel": 2145
             },
             "reward_display": "Ashborne rep +15",
             "rewards": {
@@ -34025,11 +34478,15 @@
             "name": "Scorch Pact Warning",
             "npc_dialogue": "That was not a probe. That was a message. Someone on that ridge wanted to see if you'd fight.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Forge or Fight",
+            "req_display": "Geomancy 15  \u2022  Total Level 2160  \u2022  Q: Forge or Fight",
             "requirements": {
               "questsCompleted": [
                 "d03_forge_or_fight"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 15
+              },
+              "totalLevel": 2160
             },
             "reward_display": "Ashborne rep +15",
             "rewards": {
@@ -34047,11 +34504,15 @@
             "name": "Krenn's Approval",
             "npc_dialogue": "The Forge Caverns exist. We don't discuss them with newcomers. Ask me again after you've been here a while.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Scorch Pact Warning",
+            "req_display": "Geomancy 20  \u2022  Total Level 2175  \u2022  Q: Scorch Pact Warning",
             "requirements": {
               "questsCompleted": [
                 "d04_scorch_pact_warning"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 20
+              },
+              "totalLevel": 2175
             },
             "reward_display": "Ashborne rep +20  \u2022  Drakenhollow Proper",
             "rewards": {
@@ -34069,11 +34530,15 @@
             "name": "The Deeper Seams",
             "npc_dialogue": "We knew there was older work beneath us. We didn't know it was this close to the surface. This changes the survey.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Krenn's Approval",
+            "req_display": "Geomancy 25  \u2022  Total Level 2190  \u2022  Q: Krenn's Approval",
             "requirements": {
               "questsCompleted": [
                 "d05_krenns_approval"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 25
+              },
+              "totalLevel": 2190
             },
             "reward_display": "Ashborne rep +20  \u2022  Veinkore Deposits",
             "rewards": {
@@ -34091,11 +34556,15 @@
             "name": "Korrath's Offer",
             "npc_dialogue": "Krenn will tell you the Chamber is sealed for good reasons. She won't tell you what those reasons are. That silence is a choice, and I stopped respecting it years ago.",
             "npc_name": "Forge-Warden Korrath",
-            "req_display": "Q: The Deeper Seams",
+            "req_display": "Geomancy 30  \u2022  Total Level 2205  \u2022  Q: The Deeper Seams",
             "requirements": {
               "questsCompleted": [
                 "d06_the_deeper_seams"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 30
+              },
+              "totalLevel": 2205
             },
             "reward_display": "Ashborne rep +22",
             "rewards": {
@@ -34113,11 +34582,15 @@
             "name": "Spirit in the Stone",
             "npc_dialogue": "The technique isn't difficult. The forge down here is. What it's responding to is older than either of us, and it won't be patient with imprecision.",
             "npc_name": "Vayne",
-            "req_display": "Q: Korrath's Offer",
+            "req_display": "Geomancy 35  \u2022  Total Level 2220  \u2022  Q: Korrath's Offer",
             "requirements": {
               "questsCompleted": [
                 "d07_korraths_offer"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 35
+              },
+              "totalLevel": 2220
             },
             "reward_display": "Ashborne rep +25",
             "rewards": {
@@ -34135,11 +34608,15 @@
             "name": "Old Arguments",
             "npc_dialogue": "Whatever the tablet says, the decision was made by people who understood what was at stake. I've read the same records. I stand by the outcome.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Spirit in the Stone",
+            "req_display": "Geomancy 40  \u2022  Total Level 2235  \u2022  Q: Spirit in the Stone",
             "requirements": {
               "questsCompleted": [
                 "d08_spirit_in_the_stone"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 40
+              },
+              "totalLevel": 2235
             },
             "reward_display": "Ashborne rep +22",
             "rewards": {
@@ -34157,11 +34634,15 @@
             "name": "The Forge-Friend Trial",
             "npc_dialogue": "You've done the work. Forge-Friend isn't ceremony. It means you're accountable for what you build in our forge. Remember that before you go deeper.",
             "npc_name": "Vayne",
-            "req_display": "Q: Old Arguments",
+            "req_display": "Geomancy 45  \u2022  Total Level 2250  \u2022  Q: Old Arguments",
             "requirements": {
               "questsCompleted": [
                 "d09_old_arguments"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 45
+              },
+              "totalLevel": 2250
             },
             "reward_display": "Ashborne rep +28  \u2022  Forge-Friend  \u2022  One level of Spiritforging  \u2022  Forge Caverns",
             "rewards": {
@@ -34182,11 +34663,15 @@
             "name": "Heat and History",
             "npc_dialogue": "The Caverns have been running since before the Ashborne arrived. We maintain the outer systems. Whatever is keeping the deeper ones active, that isn't us.",
             "npc_name": "Vayne",
-            "req_display": "Q: The Forge-Friend Trial",
+            "req_display": "Geomancy 50  \u2022  Total Level 2265  \u2022  Q: The Forge-Friend Trial",
             "requirements": {
               "questsCompleted": [
                 "d10_the_forge_friend_trial"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 50
+              },
+              "totalLevel": 2265
             },
             "reward_display": "Ashborne rep +28",
             "rewards": {
@@ -34204,11 +34689,15 @@
             "name": "The Slagstone Records",
             "npc_dialogue": "I know what those records say. I have known for a long time. Some things change how people see themselves, and not always in ways that help them. Keep it between us, for now.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Heat and History",
+            "req_display": "Geomancy 55  \u2022  Total Level 2280  \u2022  Q: Heat and History",
             "requirements": {
               "questsCompleted": [
                 "d11_heat_and_history"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 55
+              },
+              "totalLevel": 2280
             },
             "reward_display": "Ashborne rep +30",
             "rewards": {
@@ -34226,11 +34715,15 @@
             "name": "What the Forge Remembers",
             "npc_dialogue": "I have worked this forge for twenty years and never seen it pull from that layer. Whatever you did to make it respond, I need you to walk me through it exactly.",
             "npc_name": "Vayne",
-            "req_display": "Q: The Slagstone Records",
+            "req_display": "Geomancy 60  \u2022  Total Level 2295  \u2022  Q: The Slagstone Records",
             "requirements": {
               "questsCompleted": [
                 "d12_the_slagstone_records"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 60
+              },
+              "totalLevel": 2295
             },
             "reward_display": "Ashborne rep +32",
             "rewards": {
@@ -34248,11 +34741,15 @@
             "name": "Korrath's Move",
             "npc_dialogue": "He found those records before you did. I should have moved them. This is on me as much as it is on him.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: What the Forge Remembers",
+            "req_display": "Geomancy 64  \u2022  Total Level 2310  \u2022  Q: What the Forge Remembers",
             "requirements": {
               "questsCompleted": [
                 "d13_what_the_forge_remembers"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 64
+              },
+              "totalLevel": 2310
             },
             "reward_display": "Ashborne rep +30",
             "rewards": {
@@ -34270,11 +34767,15 @@
             "name": "The Smelter Awakens",
             "npc_dialogue": "We never activated it. We didn't know how, and we didn't want to learn badly enough to try. Whatever it decides about you is its own judgment.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Korrath's Move",
+            "req_display": "Geomancy 68  \u2022  Total Level 2325  \u2022  Q: Korrath's Move",
             "requirements": {
               "questsCompleted": [
                 "d14_korraths_move"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 68
+              },
+              "totalLevel": 2325
             },
             "reward_display": "Ashborne rep +45  \u2022  The Smelter dungeon",
             "rewards": {
@@ -34292,14 +34793,18 @@
             "name": "After the Forge",
             "npc_dialogue": "You took longer than I expected. I've made good use of the time.",
             "npc_name": "Forge-Warden Korrath",
-            "req_display": "Q: The Smelter Awakens  \u2022  Clear: The Smelter",
+            "req_display": "Geomancy 72  \u2022  Total Level 2340  \u2022  Q: The Smelter Awakens  \u2022  Clear: The Smelter",
             "requirements": {
               "dungeonClears": [
                 "the_smelter"
               ],
               "questsCompleted": [
                 "d15_the_smelter_awakens"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 72
+              },
+              "totalLevel": 2340
             },
             "reward_display": "Ashborne rep +32",
             "rewards": {
@@ -34317,11 +34822,15 @@
             "name": "The Warden's Case",
             "npc_dialogue": "At least I'm honest about what I want. Krenn has been protecting a secret that belongs to all of us, and she never asked whether we'd choose differently if we knew. I hope you're thinking about which of us you agree with.",
             "npc_name": "Forge-Warden Korrath",
-            "req_display": "Q: After the Forge",
+            "req_display": "Geomancy 76  \u2022  Total Level 2355  \u2022  Q: After the Forge",
             "requirements": {
               "questsCompleted": [
                 "d16_after_the_forge"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 76
+              },
+              "totalLevel": 2355
             },
             "reward_display": "Ashborne rep +40  \u2022  Forge-Warden Korrath dungeon",
             "rewards": {
@@ -34339,14 +34848,18 @@
             "name": "Opening the Chamber",
             "npc_dialogue": "I kept this sealed because I believed it was right. I still believe that. But the keeping is over now, and someone has to go in first, and it should be you.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: The Warden's Case  \u2022  Clear: Forge-Warden Korrath",
+            "req_display": "Geomancy 80  \u2022  Total Level 2370  \u2022  Q: The Warden's Case  \u2022  Clear: Forge-Warden Korrath",
             "requirements": {
               "dungeonClears": [
                 "forge_warden_korrath"
               ],
               "questsCompleted": [
                 "d17_the_wardens_case"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 80
+              },
+              "totalLevel": 2370
             },
             "reward_display": "Ashborne rep +28",
             "rewards": {
@@ -34364,11 +34877,15 @@
             "name": "The First Breath",
             "npc_dialogue": "I read the first page of those records twenty years ago and sealed the Chamber the same afternoon. Now you know why I didn't open it again.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Opening the Chamber",
+            "req_display": "Geomancy 83  \u2022  Total Level 2385  \u2022  Q: Opening the Chamber",
             "requirements": {
               "questsCompleted": [
                 "d18_opening_the_chamber"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 83
+              },
+              "totalLevel": 2385
             },
             "reward_display": "Story",
             "rewards": {},
@@ -34382,11 +34899,15 @@
             "name": "The Broadcast",
             "npc_dialogue": "We stayed down here because we thought staying was protection. The Engine was broadcasting the whole time. Whatever we sealed ourselves in to hide from, it already knows where we are.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: The First Breath",
+            "req_display": "Geomancy 86  \u2022  Total Level 2400  \u2022  Q: The First Breath",
             "requirements": {
               "questsCompleted": [
                 "d19_the_first_breath"
-              ]
+              ],
+              "skillLevels": {
+                "geomancy": 86
+              },
+              "totalLevel": 2400
             },
             "reward_display": "Ashborne rep +18  \u2022  Ashborne-Kin",
             "rewards": {
@@ -34404,11 +34925,15 @@
             "name": "Sky Road",
             "npc_dialogue": "The heading is up. I can't tell you what is keeping pace with you.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: The Broadcast",
+            "req_display": "Astromancy 3  \u2022  Total Level 2415  \u2022  Q: The Broadcast",
             "requirements": {
               "questsCompleted": [
                 "d20_the_broadcast"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 3
+              },
+              "totalLevel": 2415
             },
             "reward_display": "Story",
             "rewards": {
@@ -34424,11 +34949,15 @@
             "name": "The Broadcast Answered",
             "npc_dialogue": "That is an answer, not an echo. Whoever is up there has been sending it longer than I have been listening.",
             "npc_name": "Elder Krenn",
-            "req_display": "Q: Sky Road",
+            "req_display": "Astromancy 6  \u2022  Total Level 2430  \u2022  Q: Sky Road",
             "requirements": {
               "questsCompleted": [
                 "o01_sky_road"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 6
+              },
+              "totalLevel": 2430
             },
             "reward_display": "Story",
             "rewards": {
@@ -34444,11 +34973,15 @@
             "name": "Gate Protocol",
             "npc_dialogue": "Don't wait for a warning. It doesn't speak.",
             "npc_name": "Veil Scout",
-            "req_display": "Q: The Broadcast Answered",
+            "req_display": "Astromancy 9  \u2022  Total Level 2445  \u2022  Q: The Broadcast Answered",
             "requirements": {
               "questsCompleted": [
                 "o02_the_broadcast_answered"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 9
+              },
+              "totalLevel": 2445
             },
             "reward_display": "Story",
             "rewards": {
@@ -34464,14 +34997,18 @@
             "name": "Arrival",
             "npc_dialogue": "I watched it test a person. The other watched it remove a threat, and neither of us is wrong.",
             "npc_name": "Contact Scout",
-            "req_display": "Q: Gate Protocol  \u2022  Clear: The Gate Warden",
+            "req_display": "Astromancy 12  \u2022  Total Level 2460  \u2022  Q: Gate Protocol  \u2022  Clear: The Gate Warden",
             "requirements": {
               "dungeonClears": [
                 "the_gate_warden"
               ],
               "questsCompleted": [
                 "o03_gate_protocol"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 12
+              },
+              "totalLevel": 2460
             },
             "reward_display": "Story",
             "rewards": {},
@@ -34485,11 +35022,15 @@
             "name": "Two Voices",
             "npc_dialogue": "Hear him, and hear me. You can leave this room without a promise.",
             "npc_name": "Lira",
-            "req_display": "Q: Arrival",
+            "req_display": "Astromancy 15  \u2022  Total Level 2475  \u2022  Q: Arrival",
             "requirements": {
               "questsCompleted": [
                 "o04_arrival"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 15
+              },
+              "totalLevel": 2475
             },
             "reward_display": "Watcher Conclave rep +10  \u2022  One level of Astromancy",
             "rewards": {
@@ -34510,11 +35051,15 @@
             "name": "The Conclave's Terms",
             "npc_dialogue": "You will be written down, and you will be given work. What you do with what we know is not settled here.",
             "npc_name": "Vorath",
-            "req_display": "Q: Two Voices",
+            "req_display": "Astromancy 20  \u2022  Total Level 2490  \u2022  Q: Two Voices",
             "requirements": {
               "questsCompleted": [
                 "o05_two_voices"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 20
+              },
+              "totalLevel": 2490
             },
             "reward_display": "Watcher Conclave rep +20",
             "rewards": {
@@ -34533,11 +35078,15 @@
             "name": "Lira's Archive",
             "npc_dialogue": "These were here from the start, and they were yours before you arrived. Take them.",
             "npc_name": "Lira",
-            "req_display": "Q: The Conclave's Terms",
+            "req_display": "Astromancy 24  \u2022  Total Level 2505  \u2022  Q: The Conclave's Terms",
             "requirements": {
               "questsCompleted": [
                 "o06_the_conclaves_terms"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 24
+              },
+              "totalLevel": 2505
             },
             "reward_display": "Watcher Conclave rep +22",
             "rewards": {
@@ -34555,11 +35104,15 @@
             "name": "Vorath's Price",
             "npc_dialogue": "No Contact hand on this. If you fall, you come back when you can stand.",
             "npc_name": "Vorath",
-            "req_display": "Q: Lira's Archive",
+            "req_display": "Astromancy 28  \u2022  Total Level 2520  \u2022  Q: Lira's Archive",
             "requirements": {
               "questsCompleted": [
                 "o07_liras_archive"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 28
+              },
+              "totalLevel": 2520
             },
             "reward_display": "Watcher Conclave rep +18",
             "rewards": {
@@ -34578,11 +35131,15 @@
             "name": "The Lowlands Survey",
             "npc_dialogue": "Bring me a map, or bring him a report. The road to the Spire is at the end of both.",
             "npc_name": "Lira",
-            "req_display": "Q: Vorath's Price",
+            "req_display": "Astromancy 32  \u2022  Total Level 2535  \u2022  Q: Vorath's Price",
             "requirements": {
               "questsCompleted": [
                 "o08_voraths_price"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 32
+              },
+              "totalLevel": 2535
             },
             "reward_display": "Watcher Conclave rep +20",
             "rewards": {
@@ -34601,11 +35158,15 @@
             "name": "Aelun's Invitation",
             "npc_dialogue": "Come up. This is an assessment, not a greeting.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: The Lowlands Survey",
+            "req_display": "Astromancy 36  \u2022  Total Level 2550  \u2022  Q: The Lowlands Survey",
             "requirements": {
               "questsCompleted": [
                 "o09_the_lowlands_survey"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 36
+              },
+              "totalLevel": 2550
             },
             "reward_display": "Watcher Conclave rep +22",
             "rewards": {
@@ -34623,11 +35184,15 @@
             "name": "The Watcher's Spire",
             "npc_dialogue": "The lowlands were the part we let people see. Your file started before you knew you had one.",
             "npc_name": "Lira",
-            "req_display": "Q: Aelun's Invitation",
+            "req_display": "Astromancy 40  \u2022  Total Level 2565  \u2022  Q: Aelun's Invitation",
             "requirements": {
               "questsCompleted": [
                 "o10_aeluns_invitation"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 40
+              },
+              "totalLevel": 2565
             },
             "reward_display": "Watcher Conclave rep +25",
             "rewards": {
@@ -34646,11 +35211,15 @@
             "name": "What They Watched",
             "npc_dialogue": "Panic would have spread, and the outcome would not have changed. I made the call on that.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: The Watcher's Spire",
+            "req_display": "Astromancy 44  \u2022  Total Level 2580  \u2022  Q: The Watcher's Spire",
             "requirements": {
               "questsCompleted": [
                 "o11_the_watchers_spire"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 44
+              },
+              "totalLevel": 2580
             },
             "reward_display": "Watcher Conclave rep +22",
             "rewards": {
@@ -34668,11 +35237,15 @@
             "name": "The Fracture's Design",
             "npc_dialogue": "Here is the authorization. The names under it were sent, and they were not asked.",
             "npc_name": "Lira",
-            "req_display": "Q: What They Watched",
+            "req_display": "Astromancy 48  \u2022  Total Level 2595  \u2022  Q: What They Watched",
             "requirements": {
               "questsCompleted": [
                 "o12_what_they_watched"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 48
+              },
+              "totalLevel": 2595
             },
             "reward_display": "Watcher Conclave rep +30",
             "rewards": {
@@ -34691,11 +35264,15 @@
             "name": "Aelun's Argument",
             "npc_dialogue": "Keep the record buried, and what Oraewyn holds is open to you. I have seen what people do with a reason this large, and I am not inventing it.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: The Fracture's Design",
+            "req_display": "Astromancy 52  \u2022  Total Level 2610  \u2022  Q: The Fracture's Design",
             "requirements": {
               "questsCompleted": [
                 "o13_the_fractures_design"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 52
+              },
+              "totalLevel": 2610
             },
             "reward_display": "Watcher Conclave rep +25",
             "rewards": {
@@ -34713,11 +35290,15 @@
             "name": "The Wraith Stirs",
             "npc_dialogue": "This is what the truth looks like when it gets out. Bury the record.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: Aelun's Argument",
+            "req_display": "Astromancy 56  \u2022  Total Level 2625  \u2022  Q: Aelun's Argument",
             "requirements": {
               "questsCompleted": [
                 "o14_aeluns_argument"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 56
+              },
+              "totalLevel": 2625
             },
             "reward_display": "Watcher Conclave rep +28",
             "rewards": {
@@ -34736,11 +35317,15 @@
             "name": "Contact's Evidence",
             "npc_dialogue": "He withheld this from us, not only from the ground. I will not cover that.",
             "npc_name": "Lira",
-            "req_display": "Q: The Wraith Stirs",
+            "req_display": "Astromancy 60  \u2022  Total Level 2640  \u2022  Q: The Wraith Stirs",
             "requirements": {
               "questsCompleted": [
                 "o15_the_wraith_stirs"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 60
+              },
+              "totalLevel": 2640
             },
             "reward_display": "Watcher Conclave rep +25",
             "rewards": {
@@ -34758,11 +35343,15 @@
             "name": "The Veil Moves",
             "npc_dialogue": "Seal the archive. No one leaves with a page.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: Contact's Evidence",
+            "req_display": "Astromancy 64  \u2022  Total Level 2655  \u2022  Q: Contact's Evidence",
             "requirements": {
               "questsCompleted": [
                 "o16_contacts_evidence"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 64
+              },
+              "totalLevel": 2655
             },
             "reward_display": "Watcher Conclave rep +28",
             "rewards": {
@@ -34780,11 +35369,15 @@
             "name": "Reclaiming the Archive",
             "npc_dialogue": "If it shuts, the rest shuts with it. Go.",
             "npc_name": "Lira",
-            "req_display": "Q: The Veil Moves",
+            "req_display": "Astromancy 68  \u2022  Total Level 2670  \u2022  Q: The Veil Moves",
             "requirements": {
               "questsCompleted": [
                 "o17_the_veil_moves"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 68
+              },
+              "totalLevel": 2670
             },
             "reward_display": "Watcher Conclave rep +32",
             "rewards": {
@@ -34803,11 +35396,15 @@
             "name": "Aelun's Last Offer",
             "npc_dialogue": "Leave it sealed and take everything else I have. I am asking again because I would still rather not fight you.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: Reclaiming the Archive",
+            "req_display": "Astromancy 72  \u2022  Total Level 2685  \u2022  Q: Reclaiming the Archive",
             "requirements": {
               "questsCompleted": [
                 "o18_reclaiming_the_archive"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 72
+              },
+              "totalLevel": 2685
             },
             "reward_display": "Watcher Conclave rep +40",
             "rewards": {
@@ -34825,14 +35422,18 @@
             "name": "The Fracture Circuit",
             "npc_dialogue": "That tone is in every hall at once. No one I know is outside it.",
             "npc_name": "Lira",
-            "req_display": "Q: Aelun's Last Offer  \u2022  Clear: First Watcher Aelun",
+            "req_display": "Astromancy 76  \u2022  Total Level 2700  \u2022  Q: Aelun's Last Offer  \u2022  Clear: First Watcher Aelun",
             "requirements": {
               "dungeonClears": [
                 "first_watcher_aelun"
               ],
               "questsCompleted": [
                 "o19_aeluns_last_offer"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 76
+              },
+              "totalLevel": 2700
             },
             "reward_display": "Watcher Conclave rep +28",
             "rewards": {
@@ -34851,11 +35452,15 @@
             "name": "All Tools",
             "npc_dialogue": "This is the list. If you are short, go get the rest, then come back.",
             "npc_name": "Lira",
-            "req_display": "Q: The Fracture Circuit",
+            "req_display": "Astromancy 80  \u2022  Total Level 2715  \u2022  Q: The Fracture Circuit",
             "requirements": {
               "questsCompleted": [
                 "o20_the_fracture_circuit"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 80
+              },
+              "totalLevel": 2715
             },
             "reward_display": "Watcher Conclave rep +20",
             "rewards": {
@@ -34873,11 +35478,15 @@
             "name": "The Threshold",
             "npc_dialogue": "She and I are done arguing about the door. Stay until this is finished.",
             "npc_name": "Vorath",
-            "req_display": "Q: All Tools",
+            "req_display": "Astromancy 84  \u2022  Total Level 2730  \u2022  Q: All Tools",
             "requirements": {
               "questsCompleted": [
                 "o21_all_tools"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 84
+              },
+              "totalLevel": 2730
             },
             "reward_display": "Watcher Conclave rep +45",
             "rewards": {
@@ -34896,14 +35505,18 @@
             "name": "After the Wraith",
             "npc_dialogue": "I knew the reason. I still would not have opened it, and I do not take that back.",
             "npc_name": "First Watcher Aelun",
-            "req_display": "Q: The Threshold  \u2022  Clear: The Resonance Wraith",
+            "req_display": "Astromancy 88  \u2022  Total Level 2745  \u2022  Q: The Threshold  \u2022  Clear: The Resonance Wraith",
             "requirements": {
               "dungeonClears": [
                 "the_resonance_wraith"
               ],
               "questsCompleted": [
                 "o22_the_threshold"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 88
+              },
+              "totalLevel": 2745
             },
             "reward_display": "Story",
             "rewards": {},
@@ -34923,11 +35536,15 @@
             "name": "The Threshold Choice",
             "npc_dialogue": "Stand where you have been standing. You live with that afterward, and this room has no verdict for you.",
             "npc_name": "Lira",
-            "req_display": "Q: After the Wraith",
+            "req_display": "Astromancy 92  \u2022  Total Level 2760  \u2022  Q: After the Wraith",
             "requirements": {
               "questsCompleted": [
                 "o23_after_the_wraith"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 92
+              },
+              "totalLevel": 2760
             },
             "reward_display": "Story",
             "rewards": {},
@@ -34963,14 +35580,18 @@
             "name": "What Comes After",
             "npc_dialogue": "Look at the year. It kept what you stood for.",
             "npc_name": "Lira",
-            "req_display": "Q: The Threshold Choice  \u2022  Clear: The Threshold",
+            "req_display": "Astromancy 95  \u2022  Total Level 2775  \u2022  Q: The Threshold Choice  \u2022  Clear: The Threshold",
             "requirements": {
               "dungeonClears": [
                 "the_threshold"
               ],
               "questsCompleted": [
                 "o24_the_threshold_choice"
-              ]
+              ],
+              "skillLevels": {
+                "astromancy": 95
+              },
+              "totalLevel": 2775
             },
             "reward_display": "Story",
             "rewards": {},
@@ -38263,7 +38884,6 @@
               "level": 115,
               "name": "The Keystone",
               "power": 1.32,
-              "quest_required": "o24_the_threshold_choice",
               "requires": {
                 "celestial_bar": 1,
                 "resonance_crystal": 1
@@ -38280,7 +38900,6 @@
               "level": 120,
               "name": "The Last Word",
               "power": 1.32,
-              "quest_required": "o25_what_comes_after",
               "requires": {
                 "celestial_bar": 1,
                 "resonance_crystal": 2
@@ -39033,7 +39652,6 @@
               "item_yield": "mistcap_fungus",
               "level": 20,
               "name": "Mistcap Fungus",
-              "quest_required": "w03_the_old_markers",
               "seconds_per_action": 5,
               "xp_per_action": 32
             },
@@ -39042,7 +39660,6 @@
               "item_yield": "rootveil_bark",
               "level": 30,
               "name": "Rootveil Bark",
-              "quest_required": "w06_covenant_terms",
               "seconds_per_action": 6,
               "xp_per_action": 65
             },
@@ -39051,7 +39668,6 @@
               "item_yield": "gleam_thistle",
               "level": 45,
               "name": "Gleam Thistle",
-              "quest_required": "w08_the_hollow_pulse",
               "seconds_per_action": 7,
               "xp_per_action": 72
             },
@@ -39060,7 +39676,6 @@
               "item_yield": "wardens_bloom_herb",
               "level": 60,
               "name": "Warden's Bloom Herb",
-              "quest_required": "w14_the_voice_below",
               "seconds_per_action": 8,
               "xp_per_action": 110
             },
@@ -39069,7 +39684,6 @@
               "item_yield": "whisperwood_crown",
               "level": 75,
               "name": "Whisperwood Crown",
-              "quest_required": "w16_the_wardens_burden",
               "seconds_per_action": 9,
               "xp_per_action": 135
             },
@@ -39078,7 +39692,6 @@
               "item_yield": "ancient_rootwood",
               "level": 90,
               "name": "Ancient Rootwood",
-              "quest_required": "w18_what_the_roots_saw",
               "seconds_per_action": 10,
               "xp_per_action": 162
             },
@@ -39087,7 +39700,6 @@
               "item_yield": "heartwood_core",
               "level": 102,
               "name": "Heartwood Core",
-              "quest_required": "w20_a_letter_from_the_sea",
               "seconds_per_action": 11,
               "xp_per_action": 191
             },
@@ -39615,8 +40227,8 @@
           },
           "shadow_arts": {
             "blurb": "Pickpocket NPC targets across Aetheria for gold and items.",
-            "levels": "Higher levels unlock harder targets with better loot. Affinity builds toward each target you work regularly.",
-            "role": "You pick a target NPC, move in, and attempt to lift what they are carrying. A clean run yields gold and items. A failed attempt stuns you briefly, costing you time. The targets you can approach and the rewards they carry both scale with your level."
+            "levels": "Each level above a mark's own level raises your chance to rob it cleanly, so higher levels make harder marks worth working. Affinity builds toward each target you work regularly.",
+            "role": "You pick a target NPC, move in, and attempt to lift what they are carrying. A clean run yields gold and items. A failed attempt stuns you briefly, costing you time. Higher level marks carry better loot but are harder to rob. Every mark in an open area can be tried at any level; areas open through quests and expansions, listed under Where to Steal."
           },
           "smithing": {
             "blurb": "Smelt ore into bars, then forge bars into armour and weapons.",
