@@ -5773,11 +5773,11 @@ function buildMechanicEntries(
     subtitle: "A separate forge-and-climb game that never touches your adventure",
     badges: ["tower", "beta", "leaderboard"],
     searchText:
-      "endless tower beta forge anvil smith ore scrap chapter stage hard extreme pets eggs hatch skills roster lattice leaderboard separate game climb boss",
+      "endless tower beta forge anvil smith auto smith stored filter substat ore scrap chapter stage hard extreme pets eggs hatch skills roster lattice leaderboard separate game climb boss",
     sortKey: "mechanics endless tower",
     spoiler: false,
     metrics: [
-      { label: "Opens", value: "After What Was Always There" },
+      { label: "Opens", value: "From the start" },
       { label: "Chapters", value: "10 a difficulty" },
       { label: "Reward", value: "Leaderboards only" },
     ],
@@ -5789,15 +5789,21 @@ function buildMechanicEntries(
         "The Tower is in beta. Its progress may be reset or wiped at any time while it is in test.",
       ])}
       ${renderDetailBlock("Getting in", [
-        "The Tower opens once you finish What Was Always There, or by a gift from the developer.",
+        "The Tower is open to every character from the start, under Tower on the Combat tab. Your first visit explains that it is a side game, separate from your adventure.",
         "Owning an expansion changes nothing in it: a base-only account and an all-expansions account get the same numbers.",
       ])}
       ${renderDetailBlock("The climb", [
         "The first chapter has 10 stages and chapters 2 to 10 have 20, with a boss at the end of each. Clear all ten and the climb begins again as Hard, then Extreme, Extreme 2 and beyond.",
         "Plan on about two months to finish Normal and about two more for Hard.",
-        "You smith gear at the anvil. Each strike takes a moment and cannot be spammed, and one strike can make several items. A loss fades the fight to black and back in on the stage below. Your gear and anvil are untouched.",
+        "A loss fades the fight to black and back in on the stage below. Your gear and anvil are untouched.",
         "A boss stage plays the music of one of the boss dungeons you own.",
         "Forge upgrades run on timers, from 5 minutes at the start to days at the top.",
+      ])}
+      ${renderDetailBlock("The anvil", [
+        "Smithing is automatic. Press AUTO SMITH and the anvil strikes once a second while the Tower is open, until the Ore runs out or you press STOP.",
+        "Each strike forges as many items as your strike size and spends one Ore per item. Strike size starts at 1, sizes 2 and 3 open on the first forge levels, and it grows to 15, so a full store of Ore spends faster as you go.",
+        "The keep filter has a lowest rarity and the substats you want. An item is kept when it is that rarity or better and has one of your substats, or any substat if none are picked. Everything else is salvaged for Scrap at once. An item for an empty gear slot is always kept.",
+        "Kept items wait under Stored, which holds one strike's worth. When it fills, auto smith stops. It will not start again until every stored item is equipped or salvaged.",
       ])}
       ${renderDetailBlock("Skills and pets", [
         "Eight skills (Power Strike, Mend, Warcry, Whirlwind, Bulwark, Quicken, Siphon, Meteor) are learned as chapters are cleared. Three slots open at chapters 2, 4 and 6. Skills cast on their own on cooldowns and level to 15 with Scrap.",

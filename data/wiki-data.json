@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-11-01T18:22:40.066478+00:00",
+  "generated_at": "2026-11-02T14:06:45.727033+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -18497,8 +18497,8 @@
     "client/data/BuildInfo.gd": {
       "consts": {
         "APP_VERSION": "1.7.0",
-        "BUILD_FINGERPRINT": "1.7.0 (1793556681)",
-        "VERSION_CODE": 1793556681
+        "BUILD_FINGERPRINT": "1.7.0 (1793627792)",
+        "VERSION_CODE": 1793627792
       },
       "specials": {}
     },
@@ -29792,9 +29792,11 @@
         "RELEASES": [
           {
             "changes": [
-              "New: The Endless Tower, in beta. A test climb that sits past the end of the base game, open once you finish What Was Always There or by a gift from the developer. It is a separate game from the rest of Kaldreth, and its progress may be reset or wiped at any time while it is in test.",
+              "New: The Endless Tower, in beta. A side game on the Combat tab, open to everyone from the start. It is completely separate from your adventure: nothing you bring comes in, and nothing earned there helps the rest of Kaldreth. Your first visit walks you through it. Its progress may be reset or wiped at any time while it is in test.",
               "New: The Tower climbs through ten chapters, the first of ten stages and the rest of twenty, with a boss at the end of each. Clear all ten and the climb begins again as Hard, then Extreme and beyond. Plan on about two months to finish Normal and two more for Hard. A boss stage plays the music of one of the boss dungeons you own.",
-              "New: Smithing at the anvil is a swing. Each strike takes a second, the hammer lands partway through with a flash in the colour of the best item it made, and one strike forges as many items as your hit size. Auto-forge swings back to back. A forge hit can no longer be spammed.",
+              "New: Smithing at the anvil is automatic. Press AUTO SMITH and the hammer swings once a second while the Tower is open, landing with a flash in the colour of the best item it made, until the Ore runs out or you press STOP. Each strike forges as many items as your strike size and spends one Ore per item. Strike size grows from 1 to 15 with Scrap, and sizes 2 and 3 open on the first forge levels, so a full store of Ore does not take long to spend.",
+              "New: The Tower's keep filter takes a lowest rarity and the substats you want. An item is kept when it is that rarity or better and has one of your substats, or any substat if you pick none. Everything else is salvaged for Scrap on the spot, and an item for an empty gear slot is always kept.",
+              "New: Kept items wait under Stored, which holds one strike's worth. Each shows what it does to your power, with Equip and Salvage, and Salvage all clears the lot. When Stored fills, auto smith stops, and it will not start again until Stored is empty.",
               "New: Lose a stage and the fight fades to black, then fades back in on the stage below. Your gear and the anvil stay on screen the whole time.",
               "New: Pets and skills. Pets are twenty creatures from five rarities, Common to Mythic, found as eggs from bosses, every fifth stage, bounties and forge upgrades. Eggs hatch on a timer, even with the game closed, and a duplicate becomes shards that level that pet. Three pets can be worn. Skills are eight spells that cast on their own on a cooldown, three at a time, learned as you clear chapters and levelled with Scrap. A strip under the fight shows all six, and tapping one opens the Roster to equip, level and hatch.",
               "Fixed: In the Tower, one forge hit could push the other buttons off a small screen, and The Story Continues card could not be scrolled to Continue. Every Tower screen now fits and scrolls on phones, and large Ore and Scrap numbers shorten (12k, 1.5M) instead of being cut off.",
@@ -29811,7 +29813,7 @@
             ],
             "title": "Boss Dungeon Keys, One Story in Order, and the Endless Tower Beta",
             "version": "1.7.0",
-            "version_code": 1793556681
+            "version_code": 1793627792
           },
           {
             "changes": [
