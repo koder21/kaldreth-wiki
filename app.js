@@ -5794,7 +5794,7 @@ function buildMechanicEntries(
       ])}
       ${renderDetailBlock("The climb", [
         "The first chapter has 10 stages and chapters 2 to 10 have 20, with a boss at the end of each. Clear all ten and the climb begins again as Hard, then Extreme, Extreme 2 and beyond.",
-        "Plan on about two months to finish Normal and about two more for Hard.",
+        "Plan on about six weeks to finish Normal and a little over three months for Hard.",
         "A loss fades the fight to black and back in on the stage below. Your gear and anvil are untouched.",
         "A boss stage plays the music of one of the boss dungeons you own.",
         "Forge upgrades run on timers, from 5 minutes at the start to days at the top.",
@@ -5804,10 +5804,13 @@ function buildMechanicEntries(
         "Each strike forges as many items as your strike size and spends one Ore per item. Strike size starts at 1, sizes 2 and 3 open on the first forge levels, and it grows to 15, so a full store of Ore spends faster as you go.",
         "The keep filter has a lowest rarity and the substats you want. An item is kept when it is that rarity or better and has one of your substats, or any substat if none are picked. Everything else is salvaged for Scrap at once. An item for an empty gear slot is always kept.",
         "Kept items wait under Stored, which holds one strike's worth. When it fills, auto smith stops. It will not start again until every stored item is equipped or salvaged.",
+        "Stored shows one item at a time, with Prev and Next. Under each item is the one you wear in that slot, with its substats, so you can see what you would replace. Each item is equipped or salvaged on its own.",
+        "Every item the anvil makes adds one Temper, lucky strikes included. Full Temper opens the forge upgrade.",
+        "Ore comes in every hour, at home and away (up to 8 hours away), and more for every chapter cleared.",
       ])}
       ${renderDetailBlock("Skills and pets", [
-        "Eight skills (Power Strike, Mend, Warcry, Whirlwind, Bulwark, Quicken, Siphon, Meteor) are learned as chapters are cleared. Three slots open at chapters 2, 4 and 6. Skills cast on their own on cooldowns and level to 15 with Scrap.",
-        "Pets come from eggs: chapter bosses, every fifth stage, finished bounties and forge upgrades. Eggs hatch on real-time timers from 30 minutes to 16 hours, and the pet is picked when the egg goes in. Three pets are worn.",
+        "Eight skills (Power Strike, Mend, Warcry, Whirlwind, Bulwark, Quicken, Siphon, Meteor) are learned as chapters are cleared. Three slots open on reaching chapters 3, 5 and 7. Skills cast on their own on cooldowns and level to 15 with Scrap.",
+        "Pets come from eggs: chapter bosses, every fifth stage, finished bounties and forge upgrades. Eggs hatch on real-time timers from 30 minutes to 16 hours, and the pet is picked when the egg goes in. Three pets are worn, with slots opening on reaching chapters 4, 6 and 8.",
         "There are 20 pets in five rarities, Common to Mythic. Duplicates give shards, and shards level a pet to 30. Epic and above carry secondary stats such as attack speed, double attack, crit and cooldown reduction.",
       ])}
       ${renderDetailBlock("Leaderboards", [

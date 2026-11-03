@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-11-02T14:06:45.727033+00:00",
+  "generated_at": "2026-11-03T00:42:27.753601+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -18496,9 +18496,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.7.0",
-        "BUILD_FINGERPRINT": "1.7.0 (1793627792)",
-        "VERSION_CODE": 1793627792
+        "APP_VERSION": "1.7.1",
+        "BUILD_FINGERPRINT": "1.7.1 (1793665917)",
+        "VERSION_CODE": 1793665917
       },
       "specials": {}
     },
@@ -29790,6 +29790,19 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Changed: Ore comes in twice as fast in the Endless Tower, at home and away. Climbs go quicker as a result: plan on about six weeks to finish Normal and a little over three months for Hard.",
+              "Changed: Temper now rises with every item the anvil makes, so a lucky strike that forges three times the items fills three times the Temper.",
+              "Changed: Stored items show one item at a time, with Prev and Next to page through them. Under each one is the item you wear in that slot, substats and all, so you can see what you would be giving up. Salvage all is gone; each item is equipped or salvaged on its own.",
+              "Changed: The hammer now rises and comes down on the anvil, and the flash, sparks and new items appear the moment it lands. Sparks no longer show through a card opened over the anvil.",
+              "Changed: The phone vibrates only when a strike stores an item, and a little harder than before.",
+              "Fixed: Locked pet and skill slots named the chapter you had to clear, not the one they open in. A slot marked Ch 3 now opens when you reach chapter 3."
+            ],
+            "title": "Endless Tower: Twice the Ore, and Stored Items One at a Time",
+            "version": "1.7.1",
+            "version_code": 1793665917
+          },
           {
             "changes": [
               "New: The Endless Tower, in beta. A side game on the Combat tab, open to everyone from the start. It is completely separate from your adventure: nothing you bring comes in, and nothing earned there helps the rest of Kaldreth. Your first visit walks you through it. Its progress may be reset or wiped at any time while it is in test.",
