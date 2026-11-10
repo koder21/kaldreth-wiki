@@ -359,7 +359,7 @@
       }
     }
   },
-  "generated_at": "2026-11-03T00:42:27.753601+00:00",
+  "generated_at": "2026-11-10T13:19:55.621681+00:00",
   "sources": {
     "client/autoload/GameState.gd": {
       "consts": {
@@ -18496,9 +18496,9 @@
     },
     "client/data/BuildInfo.gd": {
       "consts": {
-        "APP_VERSION": "1.7.1",
-        "BUILD_FINGERPRINT": "1.7.1 (1793665917)",
-        "VERSION_CODE": 1793665917
+        "APP_VERSION": "1.7.2",
+        "BUILD_FINGERPRINT": "1.7.2 (1794316037)",
+        "VERSION_CODE": 1794316037
       },
       "specials": {}
     },
@@ -29790,6 +29790,14 @@
     "client/data/PatchNotesData.gd": {
       "consts": {
         "RELEASES": [
+          {
+            "changes": [
+              "Fixed: In the Endless Tower, tapping a skill, pet or gear tile on a phone did nothing, so pets, eggs and skills could not be reached. The tile now opens its sheet when you lift your finger, and it stays open."
+            ],
+            "title": "Endless Tower: Tiles Open When Tapped",
+            "version": "1.7.2",
+            "version_code": 1794316037
+          },
           {
             "changes": [
               "Changed: Ore comes in twice as fast in the Endless Tower, at home and away. Climbs go quicker as a result: plan on about six weeks to finish Normal and a little over three months for Hard.",
