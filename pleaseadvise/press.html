@@ -42,6 +42,8 @@
       .muted { color: var(--muted); font-size: 14px; }
       a { color: var(--accent); }
       ul { padding-left: 20px; }
+      .shots { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+      .shots img { width: 100%; height: auto; border-radius: 8px; display: block; }
       li { margin: 6px 0; }
       footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
       footer p { margin: 6px 0; }
@@ -86,9 +88,18 @@
 
       <h2>Assets</h2>
       <p>
-        <a href="/pleaseadvise/images/icon.png">App icon (PNG)</a>.
-        Screenshots and a short video will be added here before release.
+        <a href="/pleaseadvise/images/icon.png">App icon (PNG)</a> &middot;
+        <a href="/pleaseadvise/images/feature.jpg">Feature graphic</a>.
+        Larger screenshots and a short video will be added before release.
       </p>
+      <ul class="shots">
+        <li><a href="/pleaseadvise/images/shot-01_drag.jpg"><img src="/pleaseadvise/images/shot-01_drag.jpg" alt="Drag. The land moves." loading="lazy" /></a></li>
+        <li><a href="/pleaseadvise/images/shot-02_wrong.jpg"><img src="/pleaseadvise/images/shot-02_wrong.jpg" alt="They get it wrong every time." loading="lazy" /></a></li>
+        <li><a href="/pleaseadvise/images/shot-03_meadow.jpg"><img src="/pleaseadvise/images/shot-03_meadow.jpg" alt="Cut a channel. Watch the meadow turn." loading="lazy" /></a></li>
+        <li><a href="/pleaseadvise/images/shot-04_town.jpg"><img src="/pleaseadvise/images/shot-04_town.jpg" alt="Towns grow on your shapes." loading="lazy" /></a></li>
+        <li><a href="/pleaseadvise/images/shot-05_card.jpg"><img src="/pleaseadvise/images/shot-05_card.jpg" alt="No ads. No purchases. No timers. Offline." loading="lazy" /></a></li>
+        <li><a href="/pleaseadvise/images/shot-06_promised.jpg"><img src="/pleaseadvise/images/shot-06_promised.jpg" alt="The Promised Land. As pictured." loading="lazy" /></a></li>
+      </ul>
 
       <h2>Contact</h2>
       <p>
